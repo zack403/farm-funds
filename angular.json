@@ -24,9 +24,45 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/sppagebuilder.css",
+              "src/assets/css/sppagecontainer.css",
+              "src/assets/css/layerslider1c92.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/featherlight.min.css",
+              "src/assets/css/spsimpleportfolio.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/owl.theme.css",
+              "src/assets/css/owl.transitions.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/template.css",
+              "src/assets/css/presets/preset9.css",
+              "src/assets/css/custom.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/greensock.js",
+              "src/assets/js/jquery.min44ee.js",
+              "src/assets/js/jquery-noconflict44ee.js",
+              "src/assets/js/jquery-migrate.min44ee.js",
+              "src/assets/js/jquery.parallax.js",
+              "src/assets/js/sppagebuilder.js",
+              "src/assets/js/layerslider1c92.js",
+              "src/assets/js/layerslider.transitions1c92.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.shuffle.modernizr.min.js",
+              "src/assets/js/featherlight.min.js",
+              "src/assets/js/spsimpleportfolio.js",
+              "src/assets/js/gmap.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/main.js",
+              "src/assets/js/core44ee.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/file.js"
+              
+            ]
           },
           "configurations": {
             "production": {
