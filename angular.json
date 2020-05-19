@@ -29,7 +29,7 @@
               "src/assets/css/animate.min.css",
               "src/assets/css/sppagebuilder.css",
               "src/assets/css/sppagecontainer.css",
-              "src/assets/css/layerslider1c92.css",
+              "src/assets/css/layerslider.css",
               "src/assets/css/magnific-popup.css",
               "src/assets/css/featherlight.min.css",
               "src/assets/css/spsimpleportfolio.css",
@@ -39,7 +39,11 @@
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/template.css",
               "src/assets/css/presets/preset9.css",
-              "src/assets/css/custom.css"
+              "src/assets/css/custom.css",
+              "src/assets/css/media/bootstrap.min.css",
+              "src/assets/css/media/font-awesome.min.css",
+              "src/assets/css/media/j2store.css",
+              "src/assets/css/media/jquery-ui-custom.css"
             ],
             "scripts": [
               "src/assets/js/greensock.js",
@@ -48,8 +52,8 @@
               "src/assets/js/jquery-migrate.min44ee.js",
               "src/assets/js/jquery.parallax.js",
               "src/assets/js/sppagebuilder.js",
-              "src/assets/js/layerslider1c92.js",
-              "src/assets/js/layerslider.transitions1c92.js",
+              "src/assets/js/layerslider.js",
+              "src/assets/js/layerslider.transitions.js",
               "src/assets/js/jquery.magnific-popup.min.js",
               "src/assets/js/jquery.shuffle.modernizr.min.js",
               "src/assets/js/featherlight.min.js",
@@ -60,9 +64,13 @@
               "src/assets/js/main.js",
               "src/assets/js/core44ee.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/file.js"
-              
-            ]
+              "src/assets/js/file.js",
+              "src/assets/js/j2store.namespace.js",
+	            "src/assets/js/jquery-ui.min.js",
+	            "src/assets/js/jquery-ui-timepicker-addon.js",
+	            "src/assets/js/jquery.zoom.js",
+	            "src/assets/js/j2store.js",
+	            "src/assets/js/bootstrap-modal-conflit.js"            ]
           },
           "configurations": {
             "production": {

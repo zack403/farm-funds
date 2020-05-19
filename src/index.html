@@ -21,10 +21,96 @@
 	</script>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAQaeZ_-VgoQ8P70dwe8waeF_Uj43khon0"
   type="text/javascript"></script>
- 
 </head>
 <body  class="site helix-ultimate com-sppagebuilder view-page layout-default task-none itemid-101 en-gb ltr sticky-header layout-fluid offcanvas-init offcanvs-position-right">
   <app-root></app-root>
+
+  <!-- Off Canvas Menu -->
+	<div class="offcanvas-overlay"></div>
+	<div class="offcanvas-menu">
+		<a href="#" class="close-offcanvas"><span class="fa fa-remove"></span></a>
+		<div class="offcanvas-inner">
+			<div class="sp-module ">
+				<div class="sp-module-content">
+					<ul class="menu">
+						<li class="item-101 default current active"><a style="cursor: pointer;" [routerLink]="['']">Home</a></li>
+						<li class="item-113 menu-deeper menu-parent"><a >About Us<span
+									class="menu-toggler"></span></a>
+							<ul class="menu-child">
+								<li class="item-114"><a style="cursor: pointer;" [routerLink]="['/about']">About
+										Company</a></li>
+								<li class="item-115"><a style="cursor: pointer;"
+                  [routerLink]="['/testimonials']">Testimonials</a></li>
+								<li class="item-116"><a style="cursor: pointer;" [routerLink]="['/faqs']">FAQ's</a></li>
+								<li class="item-117"><a >Prices
+										And Delivery</a></li>
+							</ul>
+						</li>
+						<li class="item-118 menu-deeper menu-parent"><a
+								href="/realgarden/index.php/services">Services<span class="menu-toggler"></span></a>
+							<ul class="menu-child">
+								<li class="item-119"><a
+										href="/realgarden/index.php/services/planting-and-removal">Planting And
+										Removal</a></li>
+								<li class="item-120"><a href="/realgarden/index.php/services/lawn-and-garden-care">Lawn
+										And Garden Care</a></li>
+								<li class="item-121"><a
+										href="/realgarden/index.php/services/stone-and-hartscaping">Stone And
+										Hartscaping</a></li>
+								<li class="item-122"><a href="/realgarden/index.php/services/snow-and-ice-removal">Snow
+										And Ice Removal</a></li>
+								<li class="item-123"><a
+										href="/realgarden/index.php/services/irrigation-and-drainage">Irrigation And
+										Drainage</a></li>
+								<li class="item-124"><a
+										href="/realgarden/index.php/services/spring-and-fall-cleanup">Spring And Fall
+										Cleanup</a></li>
+							</ul>
+						</li>
+						<li class="item-125 menu-deeper menu-parent"><a href="#">Gallery<span
+									class="menu-toggler"></span></a>
+							<ul class="menu-child">
+								<li class="item-126"><a href="/realgarden/index.php/gallery/gallery-fullwidth">Gallery
+										Fullwidth</a></li>
+								<li class="item-127"><a href="/realgarden/index.php/gallery/gallery-grid-view">Gallery
+										Grid View</a></li>
+								<li class="item-128"><a href="/realgarden/index.php/gallery/gallery-manasory">Gallery
+										Manasory</a></li>
+								<li class="item-129"><a
+										href="/realgarden/index.php/component/spsimpleportfolio/item/1-modern-garden">Gallery
+										Single Post</a></li>
+							</ul>
+						</li>
+						<li class="item-130 menu-deeper menu-parent"><a href="#">News<span
+									class="menu-toggler"></span></a>
+							<ul class="menu-child">
+								<li class="item-131"><a href="/realgarden/index.php/news/news-default">News Default</a>
+								</li>
+								<li class="item-132"><a href="/realgarden/index.php/news/news-grid-view">News Grid
+										View</a></li>
+								<li class="item-133"><a
+										href="/realgarden/index.php/blog-default/1-it-s-time-to-design-your-dream-outdoor-living-space">News
+										Single Post</a></li>
+							</ul>
+						</li>
+						<li class="item-134 menu-deeper menu-parent"><a >Shop<span
+									class="menu-toggler"></span></a>
+							<ul class="menu-child">
+								<li class="item-135"><a [routerLink]="['/products-list']">Products List</a></li>
+								<!-- <li class="item-136"><a
+										href="/realgarden/index.php/shop/shop-products/the-innovators">Single Shop</a>
+								</li> -->
+								<li class="item-137"><a [routerLink]="['/shopping-cart']">Shopping
+										Cart</a></li>
+								<li class="item-138"><a href="/realgarden/index.php/shop/checkout">Checkout</a></li>
+							</ul>
+						</li>
+						<li class="item-140"><a style="cursor: pointer;" [routerLink]="['/contact-us']">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
   
   <!-- Go to top -->
 	<a href="#" class="sp-scroll-up" aria-label="Scroll Up"><span class="fa fa-chevron-up"
