@@ -42,8 +42,9 @@
               "src/assets/css/custom.css",
               "src/assets/css/media/bootstrap.min.css",
               "src/assets/css/media/font-awesome.min.css",
-              "src/assets/css/media/j2store.css",
-              "src/assets/css/media/jquery-ui-custom.css"
+              "src/assets/css/media/jquery-ui-custom.css",
+              "src/assets/css/floating-wpp.min.css"            
+
             ],
             "scripts": [
               "src/assets/js/greensock.js",
@@ -63,14 +64,17 @@
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/main.js",
               "src/assets/js/core44ee.js",
-              "src/assets/js/owl.carousel.min.js",
               "src/assets/js/file.js",
+              "src/assets/js/owl.carousel.min.js",
               "src/assets/js/j2store.namespace.js",
 	            "src/assets/js/jquery-ui.min.js",
 	            "src/assets/js/jquery-ui-timepicker-addon.js",
 	            "src/assets/js/jquery.zoom.js",
 	            "src/assets/js/j2store.js",
-	            "src/assets/js/bootstrap-modal-conflit.js"            ]
+              "src/assets/js/bootstrap-modal-conflit.js",
+              "src/assets/js/filter.js",
+              "src/assets/js/floating-wpp.min.js"            
+            ]
           },
           "configurations": {
             "production": {

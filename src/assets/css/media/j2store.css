@@ -3,9 +3,9 @@
 	z-index: 2050;
 }
 
-.modal-open .dropdown.open {
+/* .modal-open .dropdown.open {
 
-}
+} */
 
 .modal-open .popover {
 	z-index: 2060;
@@ -87,16 +87,16 @@
 	margin-bottom: 0;
 }
 
-.j2store-modal .modal-footer {
-	/*    background-color: #F5F5F5;
+/*.j2store-modal .modal-footer {
+    background-color: #F5F5F5;
     border-radius: 0 0 6px 6px;
     border-top: 1px solid #DDDDDD;
     box-shadow: 0 1px 0 #FFFFFF inset;
     margin-bottom: 0;
     padding: 14px 15px 15px;
-    text-align: right; */
+    text-align: right; 
 
-}
+}*/
 
 .j2store-modal .modal-footer:before,.j2store-modal .modal-footer:after {
 	content: "";
