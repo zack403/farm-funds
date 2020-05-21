@@ -199,9 +199,9 @@
     padding-right: 19px;
     text-align: center;
     line-height: 42px;
-    border-right: 1px dashed #a0c715;
+    border-right: 1px dashed green;
     border-radius: 2px;
-    color: #a0c715;
+    color: green;
     font-size: 30px;
     -moz-transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -220,7 +220,7 @@
 
 #sppb-addon-1551227013115 .info-box strong {
     font-weight: 700;
-    color: #a0c715;
+    color: green;
     font-size: 15px;
 }
 
@@ -266,9 +266,9 @@
     padding-right: 19px;
     text-align: center;
     line-height: 42px;
-    border-right: 1px dashed #a0c715;
+    border-right: 1px dashed green;
     border-radius: 2px;
-    color: #a0c715;
+    color: green;
     font-size: 30px;
     -moz-transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -287,7 +287,7 @@
 
 #sppb-addon-1551227013112 .info-box strong {
     font-weight: 700;
-    color: #a0c715;
+    color: green;
     font-size: 15px;
 }
 

@@ -32,12 +32,12 @@ input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16p
 
 .sppb-btn {
   position: relative;
-  background: #a0c715;
+  background: green;
   font-size: 14px;
   line-height: 46px;
   font-weight: 700;
   color: #ffffff !important;
-  border: 2px solid #a0c715;
+  border: 2px solid green;
   text-transform: uppercase;
   font-family: 'Raleway', sans-serif;
   display: inline-block;
@@ -48,7 +48,7 @@ input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16p
 }
 .sppb-btn:hover {
   background: transparent;
-  color: #a0c715 !important;
+  color: green !important;
   transition: all .5s cubic-bezier(0.4, 0, 1, 1);
 }
 
@@ -141,7 +141,7 @@ input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16p
 }
 
 .sp-megamenu-parent > li.active {
-	background: #a0c715;
+	background: green;
 	z-index: 3;
 }
 
@@ -197,7 +197,7 @@ body.ltr #offcanvas-toggler.offcanvas-toggler-right {
 	right: 30px;
 	z-index: 99;
 	display: none;
-	background: #a0c715;
+	background: green;
 }
 
 .sp-scroll-up:after {
@@ -243,7 +243,7 @@ body.ltr #offcanvas-toggler.offcanvas-toggler-right {
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a:before {
 	content: "\e91a";
 	font-family: 'icomoon';
-	color: #a0c715;
+	color: green;
 	top: 19px;
 	left: 23px;
 	font-size: 14px;
@@ -509,12 +509,12 @@ text-rendering: auto;
 #sp-right .sp-module .search .sppb-btn,
 #sp-left .sp-module .search .sppb-btn  {
 	position: relative;
-	background: #a0c715;
+	background: green;
 	font-size: inherit;
 	line-height: inherit;
 	font-weight: inherit;
 	color: #ffffff !important;
-	border: 0px solid #a0c715;
+	border: 0px solid green;
 	text-transform: uppercase;
 	font-family: 'Raleway', sans-serif;
 	display: inline-block;
@@ -527,7 +527,7 @@ text-rendering: auto;
 	height: 100%;
 	position: absolute;
 	top: 0;
-	background: #a0c715;
+	background: green;
 	right: 0;
 }
 
@@ -586,7 +586,7 @@ text-rendering: auto;
 }
 
 #sp-left .sp-module ul.categories-module > li > a:hover, #sp-right .sp-module ul.categories-module > li > a:hover {
-	color: #a0c715;
+	color: green;
 	transition: .5s ease;
 }
 
@@ -641,7 +641,7 @@ transition: .5s ease;
 }
 
 .latestnews li a:hover h4 {
-	color: #a0c715;
+	color: green;
 }
 
 #sp-left .sp-module ul.latestnews > li .media-body span, #sp-right .sp-module ul.latestnews > li .media-body span {
@@ -680,8 +680,8 @@ transition: .5s ease;
 
 #sp-left .sp-module .tagspopular > ul > li > a:hover,
 #sp-right .sp-module .tagspopular > ul > li > a:hover {
-    color: #a0c715;
-    border-color: #a0c715;
+    color: green;
+    border-color: green;
     -webkit-transition: .5s ease;
     -moz-transition: .5s ease;
     -ms-transition: .5s ease;
@@ -776,7 +776,7 @@ content: "\f10d";
 }
 
 .author-comment p.a-title {
-    color: #a0c715;
+    color: green;
     font-size: 16px;
 }
 
@@ -877,7 +877,7 @@ content: "\f10d";
 }
 
 .j2store-product-images .overlay .box .content a i {
-    background: #a0c715;
+    background: green;
     border-radius: 50%;
     color: #ffffff;
     display: inline-block;
@@ -927,7 +927,7 @@ content: "\f10d";
 .product-price-container .sale-price {
 	font-size: 16px;
 	font-weight: 400;
-	color: #a0c715;
+	color: green;
 	line-height: 24px;
 }
 
@@ -969,7 +969,7 @@ content: "\f10d";
 }
 
 .j2store-single-product .content-box .price-box .j2store-add-to-cart:hover .sppb-btn {
-	color: #a0c715;
+	color: green;
 	transition: .7s ease;
 }
 
@@ -1016,9 +1016,9 @@ content: "\f10d";
 .page-item.active .page-link,
 .pagination > li > a:hover {
 	z-index: 1;
-	border-color: #a0c715;
+	border-color: green;
 	color: #fff;
-	background-color: #a0c715;
+	background-color: green;
 }
 
 
@@ -1052,7 +1052,7 @@ content: "\f10d";
 	margin: 24px 0 24px;
 	display: block;
 	height: 2px;
-	background: #a0c715;
+	background: green;
 	content:"";
 	width: 120px;
 }
@@ -1065,7 +1065,7 @@ content: "\f10d";
 }
 
 .j2store-single-product-view .product-price-container .sale-price {
-	color: #a0c715;
+	color: green;
 	font-size: 22px;
 }
 
@@ -1105,11 +1105,11 @@ input:focus, textarea:focus {box-shadow: none !important;}
 
 .j2store-single-product-view .j2store-cart-button.sppb-btn {
 	position: relative;
-	background: #a0c715;
+	background: green;
 	font-size: 14px;
 	line-height: 48px;
 	color: #ffffff;
-	border: 1px solid #a0c715;
+	border: 1px solid green;
 	text-transform: uppercase;
 	font-weight: 700;
 	display: inline-block;
@@ -1120,7 +1120,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 
 .j2store-single-product-view .j2store-cart-button.sppb-btn:hover {
 	background: transparent;
-	color: #a0c715;
+	color: green;
 	transition: all .5s cubic-bezier(0.4, 0, 1, 1);
 }
 
@@ -1151,9 +1151,9 @@ input:focus, textarea:focus {box-shadow: none !important;}
 }
 
 #j2store-product-detail-tab li.active a {
-	background: #a0c715;
+	background: green;
 	color: #fff;
-	border-color: #a0c715;
+	border-color: green;
 }
 
 .j2store-single-product-view .tab-content {
@@ -1208,7 +1208,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 }
 
 .j2store-single-product .upsell-product-image-content .content-box .price-box .sppb-btn:hover {
-	color: #a0c715;
+	color: green;
 }
 
 .j2store-single-product .upsell-product-image-content .content-box .price-box .sppb-btn:before {
@@ -1224,7 +1224,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 }
 
 .j2store-single-product .upsell-product-image-content .content-box .price-box .sppb-btn:hover:before {
-	background-color: #a0c715;
+	background-color: green;
 }
 
 .sppb-btn:focus, .sppb-btn:active {box-shadow: none !important;}
@@ -1249,11 +1249,11 @@ input:focus, textarea:focus {box-shadow: none !important;}
 .view-checkout input.btn {
 	line-height: 46px;
 	position: relative;
-	background: #a0c715;
+	background: green;
 	font-size: 14px;
 	border-radius: 0;
 	color: #ffffff !important;
-	border: 1px solid #a0c715;
+	border: 1px solid green;
 	text-transform: uppercase;
 	font-weight: 700;
 	display: inline-block;
@@ -1293,7 +1293,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 .view-checkout input.btn:active,
 .view-checkout input.btn:focus {
 	background: transparent;
-	color: #a0c715 !important;
+	color: green !important;
 	transition: all .5s cubic-bezier(0.4, 0, 1, 1);
 }
 

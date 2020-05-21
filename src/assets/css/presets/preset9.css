@@ -8,7 +8,7 @@ body, .sp-preloader {
   background-color: #fff;
 }
 .sp-preloader > div {
-  background: #a0c715;
+  background: green;
 }
 .sp-preloader > div:after {
   background: #fff;
@@ -24,7 +24,7 @@ body, .sp-preloader {
   background: #fff;
 }
 a {
-  color: #a0c715;
+  color: green;
 }
 a:hover, a:focus, a:active {
   color: #044cd0;
@@ -34,7 +34,7 @@ a:hover, a:focus, a:active {
 }
 .tags > li a {
   background: rgba(237, 20, 91, 0.1);
-  color: #a0c715;
+  color: green;
 }
 .tags > li a:hover {
   background: #044cd0;
@@ -43,7 +43,7 @@ a:hover, a:focus, a:active {
   color: #252525;
 }
 .article-social-share .social-share-icon ul li a:hover, .article-social-share .social-share-icon ul li a:focus {
-  background: #a0c715;
+  background: green;
 }
 .pager > li a {
   border: 1px solid #ededed;
@@ -53,7 +53,7 @@ a:hover, a:focus, a:active {
   color: #fff;
 }
 .sp-megamenu-parent > li:hover > a {
-  color: #a0c715;
+  color: green;
 }
 .sp-megamenu-parent > li.active > a, .sp-megamenu-parent > li.active:hover > a {
   color: #fff;
@@ -65,10 +65,10 @@ a:hover, a:focus, a:active {
   color: #878787;
 }
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a:hover {
-  color: #a0c715;
+  color: green;
 }
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item.active > a {
-  color: #a0c715;
+  color: green;
 }
 .sp-megamenu-parent .sp-mega-group > li > a {
   color: #878787;
@@ -77,7 +77,7 @@ a:hover, a:focus, a:active {
   color: #fff;
 }
 #offcanvas-toggler > .fa:hover, #offcanvas-toggler > .fa:focus, #offcanvas-toggler > .fa:active {
-  color: #a0c715;
+  color: green;
 }
 .offcanvas-menu {
   background-color: #fff;
@@ -87,7 +87,7 @@ a:hover, a:focus, a:active {
   color: #252525;
 }
 .offcanvas-menu .offcanvas-inner .sp-module ul > li a:hover, .offcanvas-menu .offcanvas-inner .sp-module ul > li span:hover, .offcanvas-menu .offcanvas-inner .sp-module ul > li a:focus, .offcanvas-menu .offcanvas-inner .sp-module ul > li span:focus {
-  color: #a0c715;
+  color: green;
 }
 .offcanvas-menu .offcanvas-inner .sp-module ul > li.menu-parent > a > .menu-toggler, .offcanvas-menu .offcanvas-inner .sp-module ul > li.menu-parent > .menu-separator > .menu-toggler {
   color: rgba(37, 37, 37, 0.5);
@@ -96,18 +96,18 @@ a:hover, a:focus, a:active {
   color: rgba(37, 37, 37, 0.8);
 }
 .btn-primary, .sppb-btn-primary {
-  border-color: #a0c715;
-  background-color: #a0c715;
+  border-color: green;
+  background-color: green;
 }
 .btn-primary:hover, .sppb-btn-primary:hover {
-  border-color: #a0c715;
+  border-color: green;
   background-color: transparent;
 }
 ul.social-icons > li a:hover {
-  color: #a0c715;
+  color: green;
 }
 .sp-page-title {
-  background: #a0c715;
+  background: green;
 }
 .layout-boxed .body-innerwrapper {
   background: #fff;
@@ -116,19 +116,19 @@ ul.social-icons > li a:hover {
   color: #252525;
 }
 .sp-module ul > li > a:hover {
-  color: #a0c715;
+  color: green;
 }
 .sp-module .latestnews > div > a {
   color: #252525;
 }
 .sp-module .latestnews > div > a:hover {
-  color: #a0c715;
+  color: green;
 }
 .sp-module .tagscloud .tag-name:hover {
-  background: #a0c715;
+  background: green;
 }
 .search .btn-toolbar button {
-  background: #a0c715;
+  background: green;
 }
 #sp-footer, #sp-bottom {
   background: #171717;
@@ -141,7 +141,7 @@ ul.social-icons > li a:hover {
   color: #fff;
 }
 .sp-comingsoon body {
-  background-color: #a0c715;
+  background-color: green;
 }
 .pagination > li > a, .pagination > li > span {
   color: #252525;
@@ -150,15 +150,15 @@ ul.social-icons > li a:hover {
   color: #252525;
 }
 .pagination > .active > a, .pagination > .active > span {
-  border-color: #a0c715;
-  background-color: #a0c715;
+  border-color: green;
+  background-color: green;
 }
 .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  border-color: #a0c715;
-  background-color: #a0c715;
+  border-color: green;
+  background-color: green;
 }
 .error-code, .coming-soon-number {
-  color: #a0c715;
+  color: green;
 }
 
-.text-primary {color: #a0c715 !important;}
+.text-primary {color: green !important;}

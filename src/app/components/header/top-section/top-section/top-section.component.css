@@ -132,7 +132,7 @@
 #sppb-addon-1551225808098 .right-column::before {
     position: absolute;
     content: "";
-    background: #a0c715;
+    background: green;
     left: 0;
     top: 0;
     bottom: 0;
@@ -143,8 +143,8 @@
     position: absolute;
     content: "";
     border: 25px solid transparent;
-    border-right-color: #a0c715;
-    border-bottom-color: #a0c715;
+    border-right-color: green;
+    border-bottom-color: green;
     left: -50px;
     top: -1px;
     bottom: 1px;
@@ -282,7 +282,7 @@
 }
 
 #sppb-addon-1551225197119 ul li i {
-    color: #a0c715;
+    color: green;
     margin-right: 10px;
 }
 

@@ -38,7 +38,7 @@
     font-size: 14px;
     text-transform: uppercase;
     font-family: "Roboto", sans-serif;
-    color: #a0c715;
+    color: green;
     font-weight: 600;
 }
 
@@ -212,7 +212,7 @@
   li
   a:hover {
   color: #fff;
-  background: #a0c715;
+  background: green;
   -webkit-transition: 0.5s ease;
   -moz-transition: 0.5s ease;
   -ms-transition: 0.5s ease;
@@ -350,7 +350,7 @@
 }
 
 #sppb-addon-1551486352082 i {
-    color: #a0c715;
+    color: green;
     font-size: 21px;
     margin-right: 8px;
     position: relative;
@@ -402,7 +402,7 @@
 }
 
 #sppb-addon-1551486352077 i {
-  color: #a0c715;
+  color: green;
   font-size: 21px;
   margin-right: 8px;
   position: relative;
@@ -461,7 +461,7 @@
 }
 
 #sppb-addon-1551485917075 i {
-  color: #a0c715;
+  color: green;
   font-size: 21px;
   margin-right: 8px;
   position: relative;
@@ -765,7 +765,7 @@
   .list
   li
   a:hover {
-  color: #a0c715;
+  color: green;
 }
 #sppb-addon-1551489344129 {
   box-shadow: 0 0 0 0 #ffffff;
@@ -873,7 +873,7 @@
   .list
   li
   a:hover {
-  color: #a0c715;
+  color: green;
 }
 
                                             

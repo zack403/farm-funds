@@ -21,6 +21,8 @@ import { ShoppingCartComponent } from './components/products/shopping-cart/shopp
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SignupComponent } from './components/auth/signup/signup.component';
     ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    GalleryGridViewComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
