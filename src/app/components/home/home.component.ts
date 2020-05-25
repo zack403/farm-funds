@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
         jQuery("#layerslider_1").layerSlider({
           createdWith: '6.6.053',
           sliderVersion: '6.6.053',
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
           popupHeight: 360,
           skinsPath: 'http://demo.joomlabuff.com/realgarden/components/com_layer_slider/base/static/layerslider/skins/'
         });
-      
+
           jQuery("#owl-example-mod_109").owlCarousel({
 
             itemsDesktop: [1199, 3],

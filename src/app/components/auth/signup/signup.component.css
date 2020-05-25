@@ -1,0 +1,10 @@
+.info {
+  margin-top: 50px;
+}
+a :hover {
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 3px;
+  /* background-color: green; */
+  color: black;
+}

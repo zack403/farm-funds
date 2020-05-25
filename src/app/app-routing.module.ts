@@ -11,6 +11,13 @@ import { ShoppingCartComponent } from './components/products/shopping-cart/shopp
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
+import { ServicesComponent } from './components/services/services.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { PackagesComponent } from './components/packages/packages.component';
+import { TeamComponent } from './components/team/team.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,6 +31,13 @@ const routes: Routes = [
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'news', component: NewsComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'gallery', component: GalleryGridViewComponent},
+  {path: 'services', component: ServicesComponent},
+  {path: 'terms', component: TermsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'packages', component: PackagesComponent},
+  {path: 'team', component: TeamComponent},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];
 

@@ -26,6 +26,9 @@ import { NewsComponent } from './components/news/news.component';
 import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
 import { FormsModule } from '@angular/forms';
 
+import { ServicesComponent } from './components/services/services.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { PackagesComponent } from './components/packages/packages.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { FormsModule } from '@angular/forms';
     SignupComponent,
     GalleryGridViewComponent,
     NewsComponent,
-    ProductsSubscriptionComponent
+    ProductsSubscriptionComponent,
+    ServicesComponent,
+    TermsComponent,
+    PackagesComponent
   ],
   imports: [
     BrowserModule,
