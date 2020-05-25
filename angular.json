@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/j2store.css",            
               "src/styles.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.min.css",
@@ -43,7 +44,8 @@
               "src/assets/css/media/bootstrap.min.css",
               "src/assets/css/media/font-awesome.min.css",
               "src/assets/css/media/jquery-ui-custom.css",
-              "src/assets/css/floating-wpp.min.css"            
+              "src/assets/css/floating-wpp.min.css",
+              "src/assets/css/jquery-ui-custom.css"
 
             ],
             "scripts": [
@@ -59,6 +61,7 @@
               "src/assets/js/jquery.shuffle.modernizr.min.js",
               "src/assets/js/featherlight.min.js",
               "src/assets/js/spsimpleportfolio.js",
+              "src/assets/js/j2store.js",
               "src/assets/js/gmap.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
@@ -70,7 +73,6 @@
 	            "src/assets/js/jquery-ui.min.js",
 	            "src/assets/js/jquery-ui-timepicker-addon.js",
 	            "src/assets/js/jquery.zoom.js",
-	            "src/assets/js/j2store.js",
               "src/assets/js/bootstrap-modal-conflit.js",
               "src/assets/js/filter.js",
               "src/assets/js/floating-wpp.min.js"            

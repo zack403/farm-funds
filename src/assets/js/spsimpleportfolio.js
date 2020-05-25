@@ -18,6 +18,7 @@ jQuery(function($) {
 			sizer: $sizer
 		});
 	});
+	
 
 
 	// Filters

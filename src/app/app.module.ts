@@ -23,6 +23,9 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
 import { NewsComponent } from './components/news/news.component';
+import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -46,11 +49,13 @@ import { NewsComponent } from './components/news/news.component';
     LoginComponent,
     SignupComponent,
     GalleryGridViewComponent,
-    NewsComponent
+    NewsComponent,
+    ProductsSubscriptionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
