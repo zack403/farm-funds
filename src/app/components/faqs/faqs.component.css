@@ -1,3 +1,8 @@
+.info {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
     .sp-page-builder .page-content #section-id-1551740902941 {
         padding-top: 80px;
         padding-right: 0px;
@@ -45,6 +50,11 @@
         background-color: #fff;
         border: 0px solid transparent;
         border-top-width: 0;
+    }
+
+    .info {
+        margin-top: 20px;
+        margin-bottom: -50px;
     }
 
     #sppb-addon-1551740902944 .sppb-panel-group>.sppb-panel:first-child {

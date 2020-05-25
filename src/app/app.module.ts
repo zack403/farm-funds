@@ -23,6 +23,9 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
 import { NewsComponent } from './components/news/news.component';
+import { ServicesComponent } from './components/services/services.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { PackagesComponent } from './components/packages/packages.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { NewsComponent } from './components/news/news.component';
     LoginComponent,
     SignupComponent,
     GalleryGridViewComponent,
-    NewsComponent
+    NewsComponent,
+    ServicesComponent,
+    TermsComponent,
+    PackagesComponent
   ],
   imports: [
     BrowserModule,
