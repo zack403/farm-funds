@@ -1150,6 +1150,8 @@ input:focus, textarea:focus {box-shadow: none !important;}
 	background: transparent;
 	color: #EBB40E;
 	transition: all .5s cubic-bezier(0.4, 0, 1, 1);
+	border: 2px solid #EBB40E;
+
 }
 
 #j2store-product-detail-tab {

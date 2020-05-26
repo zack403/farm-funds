@@ -50,8 +50,12 @@
                                                         itemtype="https://schema.org/Offer"
                                                         class="product-price-container">
     
-                                                        <div class="sale-price">
+                                                        <div *ngIf="!isSub" class="sale-price">
                                                             {{food?.price[0].value}}
+                                                        </div>
+
+                                                        <div *ngIf="isSub" class="sale-price">
+                                                            {{food?.unit}}
                                                         </div>
     
                                                     </div>
@@ -163,32 +167,20 @@
                     </main>
                     <aside id="sp-right" class="col-lg-4 ">
                         <div class="sp-column ">
-                            <!-- <div class="sp-module ">
-                                <div class="sp-module-content">
-                                    <div class="search">
-                                        <form
-                                            action="http://demo.joomlabuff.com/realgarden/index.php/shop/shop-products"
-                                            method="post">
-                                            <div class="input-group"><input name="searchword"
-                                                    id="mod-search-searchword106" class="form-control"
-                                                    type="search" placeholder="Search here..."><span
-                                                    class="input-group-btn"><button class="sppb-btn"
-                                                        onclick="this.form.searchword.focus();"><span
-                                                            class="icon fa fa-search"></span></button></span>
-                                            </div> <input type="hidden" name="task" value="search">
-                                            <input type="hidden" name="option" value="com_search">
-                                            <input type="hidden" name="Itemid" value="135">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="sp-module ">
                                 <h3 class="sp-module-title">Purchase here..</h3>
                                 <div class="sp-module-content">
                                     <form>
-                                        <div class="form-group">
+                                        <div *ngIf="!isSub" class="form-group">
                                             <select name="prices" (change)="onChange(formData.price)" id="prices" [(ngModel)]="formData.price" >
-                                                <option *ngFor="let p of food.price" value="{{p.value}}">{{p?.value}}</option>
+                                                <option *ngFor="let p of food.price" value="{{p.value}}" >{{p?.value}}</option>
+                                                
+                                            </select>
+                                        </div>
+
+                                        <div *ngIf="isSub" class="form-group">
+                                            <select name="prices" (change)="onChange(formData.price)" id="prices" [(ngModel)]="formData.price" >
+                                                <option [attr.selected]="food.subscription[0].value" *ngFor="let p of food.subscription" value="{{p.value}}">{{p?.value}}</option>
                                                 
                                             </select>
                                         </div>
@@ -213,7 +205,7 @@
                                             <input [(ngModel)]="formData.address" name="address" placeholder="Full Address" type="text">
                                         </div>
 
-                                        <input class="p-button" type="submit" value="Purchase">
+                                        <input class="p-button" style="cursor: pointer;" type="submit" value="Purchase">
                                         
                                 </form>
                                 </div>

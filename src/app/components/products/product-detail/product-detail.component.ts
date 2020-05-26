@@ -13,11 +13,13 @@ export class ProductDetailComponent implements OnInit {
   foodID: number;
   food: any = {};
   formData: any = {};
+  isSub: boolean;
   constructor(private route: ActivatedRoute, private prodSvc: ProductsService) { }
 
   ngOnInit() {
 
     this.foodID = JSON.parse(this.route.snapshot.paramMap.get("id"));
+    this.isSub = JSON.parse(this.route.snapshot.paramMap.get("sub"));
 
     this.getFoodByID();
 

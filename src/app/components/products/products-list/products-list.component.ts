@@ -10,21 +10,32 @@ declare var jQuery;
 })
 export class ProductsListComponent implements OnInit {
   foodList: Array<any>;
-  searchValue = ""
+  searchValue = "";
+  clonedfoodList : Array<any>;
+  nomatch: boolean = false;
   constructor(private router: Router, private prodSvc: ProductsService) { }
 
   ngOnInit() {
     this.foodList = this.prodSvc.getFoodList();
+    this.clonedfoodList = [...this.foodList];
   }
 
   goToDetail(id) {
-    this.router.navigate(["/food-shop-detail", {id: JSON.stringify(id)}]);
+    this.router.navigate(["/food-shop-detail", {id: JSON.stringify(id), sub: false}]);
   }
 
-  search(value) {
-    if(value === "")
-      
+  search(value) {      
     this.foodList = this.foodList.filter(x => x.foodName.toLowerCase().indexOf(value.toLowerCase()) > -1);
+    if(this.foodList.length === 0) {
+      this.nomatch = true;
+    }
+  }
+
+  onChange(value){
+    if(!this.searchValue){
+      this.nomatch = false;
+      this.foodList = this.clonedfoodList;
+    }
   }
 
 }

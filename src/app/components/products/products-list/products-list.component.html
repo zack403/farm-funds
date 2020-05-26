@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <!-- Make sure product is enabled and visible @front end -->
-                                            <div class="j2store-products-row row-0 row">
+                                            <div *ngIf="!nomatch" class="j2store-products-row row-0 row">
                                                 <div class="col-sm-4" *ngFor="let p of foodList">
                                                     <div itemprop="itemListElement" 
                                                         class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
@@ -66,7 +66,7 @@
                                                         <div class="content-box">
                                                             <div class="inner-box">   
                                                                 <h2 itemprop="name" class="product-title">    
-                                                                    <a style="cursor: pointer;" itemprop="url"
+                                                                    <a style="font-weight: bolder; cursor: pointer;" itemprop="url"
                                                                     (click)="goToDetail(p?.id)"
                                                                         title="{{p?.foodName}}">
     
@@ -98,6 +98,11 @@
                                                     </div>
                                                 </div>
                                                 
+                                            </div>
+                                            <div *ngIf="nomatch">
+                                                <span class="cart-no-items">
+                                                    Your search do not match our records
+                                                  </span>
                                             </div>
                                             
     
@@ -132,7 +137,7 @@
                                 <div class="sp-module-content">
                                     <div class="search">
                                         <form>
-                                            <div class="input-group"><input (blur)="seacrh(searchValue)" [(ngModel)]="searchValue" name="searchword"
+                                            <div class="input-group"><input (input)="onChange(searchValue)" [(ngModel)]="searchValue" name="searchword"
                                                     id="mod-search-searchword106" class="form-control"
                                                     type="search" placeholder="Search here..."><span
                                                     class="input-group-btn"><button class="sppb-btn"
@@ -147,28 +152,32 @@
                                 <h3 class="sp-module-title">Categories</h3>
                                 <div class="sp-module-content">
                                     <ul class="categories-module mod-list">
-                                        <li> <a href="">
+                                        <li> <a  (click)="onChange('')">
+                                            All ({{foodList.length}}) 
+                                        </a>
+                                     </li>
+                                        <li> <a  (click)="search('rice')">
                                                 Rice (1)
                                             </a>
     
                                         </li>
-                                        <li> <a href="">
+                                        <li> <a (click)="search('chicken')">
                                                 Chicken (1)
                                             </a>
     
                                         </li>
-                                        <li> <a href="">
+                                        <li> <a (click)="search('gizzard')">
                                                 Gizzard (1)
                                             </a>
     
                                         </li>
-                                        <li> <a href="">
-                                                Eggs (0)
+                                        <li> <a (click)="search('eggs')">
+                                                Eggs (1)
                                             </a>
     
                                         </li>
-                                        <li> <a href="">
-                                                Water Packs (0)
+                                        <li> <a (click)="search('water pack')">
+                                                Water Pack (1)
                                             </a>
     
                                         </li>
