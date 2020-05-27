@@ -17,7 +17,7 @@
       <div class="sp-column ">
           <div class="container text-center">
             <h2 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
-            <span class="text-primary">Subscribe To Any Of Our Profitable Farm Cycles.</span>
+            <small class="text-primary">Subscribe To Any Of Our Profitable Farm Cycles.</small>
           </h2>
           </div>
       </div>
@@ -35,34 +35,6 @@
                 <div id="j2store-checkout-content">
                   <!-- <h1>Sign Up</h1> -->
 
-                  <div id="checkout">
-                    <!-- <div class="checkout-heading">Checkout Options<a>Change</a></div> -->
-                    <div class="checkout-content" style="display: none;">
-                      <div id="akeeba-renderjoomla">
-                        <div class="row">
-                          <div id="login" class="col-md-6 right">
-                            <h2>Returning Customer</h2>
-                            <b>Username</b><br>
-                            <input type="text" name="email" value="" onkeypress="return loginKeyPress(event);">
-                            <br>
-                            <br>
-                            <b>Password</b><br>
-                            <input type="password" name="password" value="" onkeypress="return loginKeyPress(event);">
-                            <br>
-                            <input type="button" value="Login" id="button-login" class="button btn btn-primary"><br>
-                            <input type="hidden" name="task" value="login_validate">
-                            <input type="hidden" name="option" value="com_j2store">
-                            <input type="hidden" name="view" value="checkout">
-                            <br>
-                            <a href="/realgarden/index.php/component/users/?view=reset&amp;Itemid=101"
-                              target="_blank">Forgot your password</a>
-                          </div>
-                        </div>
-                        <input type="hidden" name="option" value="com_j2store">
-                        <input type="hidden" name="view" value="checkout">
-                      </div>
-                    </div>
-                  </div>
                   <div id="billing-address">
                     <div class="checkout-content" style="display: block;">
                       <div id="akeeba-renderjoomla">
@@ -93,12 +65,13 @@
                               <input type="password" name="confirm" placeholder="Confirm password" value="" class="large-field"> <br>
                               <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
                                 <input type="checkbox" name="tc" value="" id="tc">&nbsp;
-                                <label for="tc"> Accept Our <a [routerLink]="['/terms']"> <span style="color:green">TERMS AND CONDITIONS</span></a></label>
+                                <label for="tc"> Accept our <a [routerLink]="['/terms']"> <span class="text-primary">TERMS AND CONDITIONS</span></a></label>
                               </div>
-                              <br><br>
+                              <br><br><br>
                               <div class="buttons">
                                 <div class="left">
                                   <input type="button" value="Create Account" id="button-register" class="button btn btn-primary">
+                                  <p>Already have an account <a [routerLink]="['/login']" ><span class="text-primary">LOGIN</span></a></p>
                                 </div>
                               </div>
                             </div>
