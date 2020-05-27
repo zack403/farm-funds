@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
           showCircleTimer: false,
           popupWidth: 640,
           popupHeight: 360,
-          skinsPath: 'http://demo.joomlabuff.com/realgarden/components/com_layer_slider/base/static/layerslider/skins/'
+          skinsPath: 'https://demo.joomlabuff.com/realgarden/components/com_layer_slider/base/static/layerslider/skins/'
         });
 
           jQuery("#owl-example-mod_109").owlCarousel({
