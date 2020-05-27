@@ -3290,11 +3290,11 @@
     font-size: 16px;
 }
 
-/* @media (max-width: 1200px) {
+ @media (min-width: 768px) and (max-width: 1199px) {
     #sppb-addon-1551227013120 .search {
-        display: ;
+        margin-left: 40px ;
     }
-} */
+} 
 .sp-page-builder .page-content #section-id-1551320575334 {
     padding-top: 70px;
     padding-right: 0px;
