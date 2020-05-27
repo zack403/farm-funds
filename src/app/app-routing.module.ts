@@ -18,6 +18,7 @@ import { TermsComponent } from './components/terms/terms.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { TeamComponent } from './components/team/team.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
+  {path: 'reset-password', component: ResetPasswordComponent},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];
 

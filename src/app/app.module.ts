@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { PackagesComponent } from './components/packages/packages.component';
+import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PackagesComponent } from './components/packages/packages.component';
     ProductsSubscriptionComponent,
     ServicesComponent,
     TermsComponent,
-    PackagesComponent
+    PackagesComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
