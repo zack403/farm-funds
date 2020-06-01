@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
   foodLisT =  [
     {id: 1, foodName: 'Chicken', foodImage: '../../../../assets/images/shop/chicken.png', price: [
-      {value: 'Carton Price (12,000)'},
-      {value: 'Chicken 1KG (1,300)'},
-      {value: 'Chicken 1.5KG (1,800)'},
-      {value: 'Chicken 2KG (2,600)'}],
+      {value: 'Carton Price (N12,000)'},
+      {value: 'Chicken 1KG (N1,300)'},
+      {value: 'Chicken 1.5KG (N1,800)'},
+      {value: 'Chicken 2KG (N2,600)'}],
       unit: '10 pcs a month', subscription:[
         {value: '1 month 25,000'},
         {value: '3 months 72,000'},
@@ -19,7 +19,7 @@ export class ProductsService {
     },
     {
       id: 2, foodName: 'Gizzard', foodImage: '../../../../assets/images/shop/gizzard.png', price: [
-        {value: 'Gizzard (1,200)'}], unit: '5 kilos a month', subscription:[
+        {value: 'Gizzard (N1,200)'}], unit: '5 kilos a month', subscription:[
           {value: '1 month 6,000'},
           {value: '3 months 17,700'},
           {value: '6 months 34,500'},
