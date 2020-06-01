@@ -24,7 +24,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
@@ -63,7 +63,8 @@ import { ResetPasswordComponent } from './components/auth/reset-password/reset-p
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

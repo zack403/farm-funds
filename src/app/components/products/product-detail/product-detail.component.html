@@ -172,16 +172,16 @@
                                 <div class="sp-module-content">
                                     <form>
                                         <div *ngIf="!isSub" class="form-group">
-                                            <select name="prices" (change)="onChange(formData.price)" id="prices" [(ngModel)]="formData.price" >
-                                                <option *ngFor="let p of food.price" value="{{p.value}}" >{{p?.value}}</option>
-                                                
+                                            <select name="prices" (change)="onChange($event.target.value)" id="prices">
+                                                <option disabled >Choose your preferred price type</option>
+                                                <option *ngFor="let p of food.price" >{{p?.value}}</option>                                           
                                             </select>
                                         </div>
 
                                         <div *ngIf="isSub" class="form-group">
-                                            <select name="prices" (change)="onChange(formData.price)" id="prices" [(ngModel)]="formData.price" >
-                                                <option [attr.selected]="food.subscription[0].value" *ngFor="let p of food.subscription" value="{{p.value}}">{{p?.value}}</option>
-                                                
+                                            <select name="prices" (change)="onChange($event.target.value)" id="prices">
+                                                <option disabled >Choose your preferred price type</option>
+                                                <option *ngFor="let p of food.subscription">{{p?.value}}</option>
                                             </select>
                                         </div>
 
