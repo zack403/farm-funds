@@ -2809,9 +2809,10 @@
 
 #sppb-addon-1551225197119 ul li {
     display: inline-block;
-    margin-right: 21px;
+    margin-right: 10px;
     color: #999;
     vertical-align: middle;
+    font-size: 15px;
 }
 
 #sppb-addon-1551225197119 ul li i {
@@ -3294,7 +3295,7 @@
     #sppb-addon-1551227013120 .search {
         margin-left: 40px ;
     }
-} 
+}
 .sp-page-builder .page-content #section-id-1551320575334 {
     padding-top: 70px;
     padding-right: 0px;
