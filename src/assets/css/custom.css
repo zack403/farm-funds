@@ -64,7 +64,7 @@ input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16p
 
 #sp-logo-section {
 	position: relative;
-	padding: 19px 0px;
+	padding: 0px 0px;
 	background: #ffffff;
 	transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
