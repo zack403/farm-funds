@@ -39,4 +39,22 @@ jQuery(function($) {
 		$local.shuffle( 'shuffle', $this.data('group') );
 	});
 
+	$('.sp-menu-item a').on('click', function(event){
+		event.preventDefault();
+		var $self = $(this);
+		var $this = $(this).parent();
+
+		if($this.hasClass('active')) {
+			return;
+		}
+
+		$self.closest('ul').children().removeClass('active');
+		$self.parent().addClass('active');
+
+		var $local = $self.closest('.sp-simpleportfolio').children('.sp-simpleportfolio-items');
+		
+		$local.shuffle( 'shuffle', $this.data('group') );
+	});
+
+
 });
