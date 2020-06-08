@@ -39,18 +39,18 @@ jQuery(function($) {
 		$local.shuffle( 'shuffle', $this.data('group') );
 	});
 
-	$('.sp-menu-item a').on('click', function(event){
-		event.preventDefault();
-		var $self = $(this);
-		var $this = $(this).parent();
+	// $('.sp-menu-item a').on('click', function(event){
+	// 	event.preventDefault();
+	// 	var $self = $(this);
+	// 	var $this = $(this).parent();
 
-		if($this.hasClass('active')) {
-			return;
-		}
+	// 	if($this.hasClass('active')) {
+	// 		return;
+	// 	}
 
-		$self.closest('ul').children().removeClass('active');
-		$self.parent().addClass('active');
-	});
+	// 	$self.closest('ul').children().removeClass('active');
+	// 	$self.parent().addClass('active');
+	// });
 
 
 });
