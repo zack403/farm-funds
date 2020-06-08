@@ -100,7 +100,7 @@
                                             </div>
                                             <div *ngIf="nomatch">
                                                 <span class="cart-no-items">
-                                                    Your search do not match our records
+                                                    Your search do not match our records.
                                                   </span>
                                             </div>
                                             
@@ -155,27 +155,27 @@
                                             All ({{clonedFoodSubs.length}})
                                         </a>
                                      </li>
-                                        <li> <a  (click)="search('rice')">
+                                        <li> <a  (click)="onChange('rice')">
                                                 Rice (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('chicken')">
+                                        <li> <a (click)="onChange('chicken')">
                                                 Chicken (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('gizzard')">
+                                        <li> <a (click)="onChange('gizzard')">
                                                 Gizzard (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('eggs')">
+                                        <li> <a (click)="onChange('eggs')">
                                                 Eggs (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('water pack')">
+                                        <li> <a (click)="onChange('water pack')">
                                                 Water Pack (1)
                                             </a>
     

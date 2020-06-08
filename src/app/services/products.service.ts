@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsService {
   foodLisT =  [
-    {id: 1, foodName: 'Chicken', foodImage: '../../../../assets/images/shop/chicken.png', price: [
+    {id: 1, foodName: 'Chicken', weight: 1.6, description: 'A full Chicken', foodImage: '../../../../assets/images/shop/chicken.png', price: [
       {value: 'Carton Price (N12,000)'},
       {value: 'Chicken 1KG (N1,300)'},
       {value: 'Chicken 1.5KG (N1,800)'},
@@ -18,7 +18,7 @@ export class ProductsService {
       ]
     },
     {
-      id: 2, foodName: 'Gizzard', foodImage: '../../../../assets/images/shop/gizzard.png', price: [
+      id: 2, foodName: 'Gizzard',  weight: 1.2, description: 'A Meat', foodImage: '../../../../assets/images/shop/gizzard.png', price: [
         {value: 'Gizzard (N1,200)'}], unit: '5 kilos a month', subscription:[
           {value: '1 month 6,000'},
           {value: '3 months 17,700'},
@@ -27,7 +27,7 @@ export class ProductsService {
         ]
     },
     {
-      id: 3, foodName: 'Eggs', foodImage: '../../../../assets/images/shop/egg.png', price: [
+      id: 3, foodName: 'Eggs',  weight: 5.6, description: 'Crates of Egg', foodImage: '../../../../assets/images/shop/egg.png', price: [
         {value: 'Egg Retail 12s (N730)'},
         {value: 'Egg Retail 6s (N380)'},
         {value: 'Egg Retail 15s (N800)'},
@@ -44,7 +44,7 @@ export class ProductsService {
         
     },
     {
-      id: 4, foodName: 'Rice', foodImage: '../../../../assets/images/shop/rice.png', price: [
+      id: 4, foodName: 'Rice', weight: 50, description: 'A full bag of rice', foodImage: '../../../../assets/images/shop/rice.png', price: [
         {value: 'Rice 50KG (N20,000)'},
         {value: 'Rice 25KG (N10,000)'},
         {value: 'Rice 10KG (N4,000)'},
@@ -57,7 +57,7 @@ export class ProductsService {
         ]
     },
     {
-      id: 5, foodName: 'Water Pack', foodImage: '../../../../assets/images/shop/water.png', price: [
+      id: 5, foodName: 'Water Pack',  weight: 8.0, description: 'A carton of bottle water', foodImage: '../../../../assets/images/shop/water.png', price: [
         {value: '1 Pack Water (N500)'}],
         unit: '20 packs a month', subscription:[
           {value: '1 month 10,800'},

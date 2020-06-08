@@ -35,6 +35,7 @@ export class ProductsListComponent implements OnInit {
     if(!this.searchValue){
       this.nomatch = false;
       this.foodList = this.clonedfoodList;
+      this.foodList = this.foodList.filter(x => x.foodName.toLowerCase().indexOf(value.toLowerCase()) > -1);
     }
   }
 

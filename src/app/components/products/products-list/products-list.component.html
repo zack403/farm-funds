@@ -15,11 +15,6 @@
         </div>
 
     </section>
-    <div class="text-center">
-        <p style="margin-top: 25px;" class="text-primary">
-            Purchase a food item.
-        </p>
-    </div>
     <section id="sp-main-body">
         <div class="container">
             <div class="container-inner">
@@ -101,7 +96,7 @@
                                             </div>
                                             <div *ngIf="nomatch">
                                                 <span class="cart-no-items">
-                                                    Your search do not match our records
+                                                    Your search do not match our records.
                                                   </span>
                                             </div>
                                             
@@ -156,27 +151,27 @@
                                             All ({{clonedfoodList.length}}) 
                                         </a>
                                      </li>
-                                        <li> <a  (click)="search('rice')">
+                                        <li> <a  (click)="onChange('rice')">
                                                 Rice (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('chicken')">
+                                        <li> <a (click)="onChange('chicken')">
                                                 Chicken (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('gizzard')">
+                                        <li> <a (click)="onChange('gizzard')">
                                                 Gizzard (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('eggs')">
+                                        <li> <a (click)="onChange('eggs')">
                                                 Eggs (1)
                                             </a>
     
                                         </li>
-                                        <li> <a (click)="search('water pack')">
+                                        <li> <a (click)="onChange('water pack')">
                                                 Water Pack (1)
                                             </a>
     

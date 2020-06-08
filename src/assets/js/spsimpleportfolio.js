@@ -50,10 +50,6 @@ jQuery(function($) {
 
 		$self.closest('ul').children().removeClass('active');
 		$self.parent().addClass('active');
-
-		var $local = $self.closest('.sp-simpleportfolio').children('.sp-simpleportfolio-items');
-		
-		$local.shuffle( 'shuffle', $this.data('group') );
 	});
 
 

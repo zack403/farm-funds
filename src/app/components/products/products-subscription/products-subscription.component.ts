@@ -34,6 +34,7 @@ export class ProductsSubscriptionComponent implements OnInit {
     if(!this.searchValue){
       this.nomatch = false;
       this.foodSubs = this.clonedFoodSubs;
+      this.foodSubs = this.foodSubs.filter(x => x.foodName.toLowerCase().indexOf(value.toLowerCase()) > -1);
     }
   }
 }
