@@ -40,6 +40,7 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
+  {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];
 

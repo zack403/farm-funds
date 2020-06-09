@@ -60,9 +60,25 @@ export class HomeComponent implements OnInit {
             pagination: false,
 
             paginationNumbers: false
-
-
           });
+
+           // Filters
+        jQuery('.sp-simpleportfolio-filter li a').on('click', function(event){
+          event.preventDefault();
+          var $self = jQuery(this);
+          var $this = jQuery(this).parent();
+
+          if($this.hasClass('active')) {
+            return;
+          }
+
+          $self.closest('ul').children().removeClass('active');
+          $self.parent().addClass('active');
+
+          var $local = $self.closest('.sp-simpleportfolio').children('.sp-simpleportfolio-items');
+          
+          $local.shuffle( 'shuffle', $this.data('group') );
+        });
   }
 
 }

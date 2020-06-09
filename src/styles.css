@@ -284,7 +284,7 @@
     left: 50%;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
     margin-left: -40px;
 }
 
@@ -1132,13 +1132,13 @@
 }
 
 #sppb-addon-1551311145880 .sppb-addon-title:after {
-    content: "";
     position: absolute;
     bottom: 0px;
     left: 0;
-    width: 80px;
-    height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+	height: 1px;
+	background: green;
+	content:"";
+	width: 80px;
 }
 
 #sppb-addon-1551311145883 {
@@ -1567,7 +1567,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 #sppb-addon-1551312762399 {
@@ -1828,7 +1828,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 #sppb-addon-1551312762454 .sppb-addon-content h4 {
@@ -2224,7 +2224,7 @@
     left: 50%;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
     margin-left: -40px;
 }
 
@@ -2409,7 +2409,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 #sppb-addon-1551319445184 {
@@ -3431,7 +3431,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 #sppb-addon-1551573988809 .sppb-addon-content p {
@@ -3504,7 +3504,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 #sppb-addon-1551573988862 .sppb-addon-content p {
@@ -4693,7 +4693,7 @@
     left: 0;
     width: 80px;
     height: 1px;
-    background: url(assets/images/icons/sec-title-decoration.png);
+    background: green;
 }
 
 .sp-page-builder .page-content #section-id-1551573988981 {
@@ -5768,7 +5768,7 @@
         left: 0;
         width: 80px;
         height: 1px;
-        background: url(assets/images/icons/sec-title-decoration.png);
+        background: green;
     }
 
     #sppb-addon-1551751348513 {
