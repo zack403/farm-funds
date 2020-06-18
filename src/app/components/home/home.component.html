@@ -62,8 +62,8 @@
                                                   font-family: 'Roboto Slab';
                                                 " class="ls-l"
                                                 data-ls="texttransitionin:true;texttypein:lines_edge;textoffsetxin:-10lw;textdurationin:2000;">
-                                               Decide which farm cycle to fund. Proceed to payment.
-                                                <br />Sit back and enjoy mouth watering profits Everytime.
+                                                Decide which farm cycle to fund. Proceed to payment.
+                                                <br />Sit back and enjoy attractive profits Everytime.
                                               </p>
                                               <a class="ls-l" [routerLink]="['/login']" target="_self"
                                                 data-ls="offsetyin:50lh;durationin:2000;delayin:2200;hover:true;hovereasingin:linear;hoverbgcolor:transparent;hovercolor:#EBB40E;">
@@ -92,7 +92,7 @@
                                                     padding-right: 30px;
                                                     padding-left: 30px;
                                                     font-family: Raleway;
-                                                  " >
+                                                  ">
                                                   SIGN IN
                                                 </p>
                                               </a><a class="ls-l" [routerLink]="['/signup']" target="_self"
@@ -130,8 +130,8 @@
                                               </a>
                                             </div>
                                             <div class="ls-slide" data-ls="duration:7000;kenburnsscale:1.2;">
-                                              <img src="assets/images/farm/farm-11.jpeg" class="ls-bg" alt="Slide background"
-                                                title="Slide #1 copy" />
+                                              <img src="assets/images/farm/farm-11.jpeg" class="ls-bg"
+                                                alt="Slide background" title="Slide #1 copy" />
                                               <p style="
                                                   top: 185px;
                                                   left: 50%;
@@ -233,8 +233,8 @@
                                               </a>
                                             </div>
                                             <div class="ls-slide" data-ls="duration:7000;kenburnsscale:1.2;">
-                                              <img src="assets/images/poultry/poultry-3.jpeg" class="ls-bg" alt="Slide background"
-                                                title="Slide #1 copy copy" />
+                                              <img src="assets/images/poultry/poultry-3.jpeg" class="ls-bg"
+                                                alt="Slide background" title="Slide #1 copy copy" />
                                               <p style="
                                                   white-space: pre-wrap;
                                                   top: 175px;
@@ -270,8 +270,8 @@
                                                   font-family: 'Roboto Slab';
                                                 " class="ls-l"
                                                 data-ls="texttransitionin:true;texttypein:lines_edge;textoffsetxin:-10lw;textdurationin:2000;">
-                                                Chicken, Eggs, Yam tubers, Bottle water
-                                                <br />& Dispenser at very affordable price.
+                                                Chicken, Eggs, Yam tubers, Bottled water
+                                                <br />& Dispenser water at very affordable price.
                                               </p>
                                               <a class="ls-l" [routerLink]="['/login']" target="_self"
                                                 data-ls="offsetyin:50lh;durationin:2000;delayin:2200;hover:true;hovereasingin:linear;hoverbgcolor:transparent;hovercolor:#EBB40E;">
@@ -454,14 +454,14 @@
                                         <div class="sppb-addon-content">
                                           <div class="content">
                                             <div class="clearfix top-area">
-                                              <div class="icon_box">
+                                              <!-- <div class="icon_box">
                                                 <span class="icon-nature-1"></span>
-                                              </div>
+                                              </div> -->
                                               <div class="text">
-                                                <a href="#">
-                                                  <h4>
-                                                    SIGN UP AS A NEW FARM FUNDER
-                                                  </h4>
+                                                <a [routerLink]="['/services']">
+                                                  <h5>
+                                                    FARMFUNDING
+                                                  </h5>
                                                 </a>
                                                 <p>
                                                   Invest wisely.
@@ -469,15 +469,18 @@
                                               </div>
                                             </div>
                                             <div class="img-box">
-                                              <img src="assets/images/bg2.png" alt="" />
+                                              <img src="assets/images/about/about-4.jpeg" alt="" />
                                               <div class="default-overlay">
                                                 <div class="inner-box">
-                                                  <a href="#"><i class="icon-nature-2"></i></a>
+                                                  <a [routerLink]="['/services']"><i class="icon-nature-2"></i></a>
                                                 </div>
                                               </div>
                                             </div>
                                             <p>
-                                              Click on the signup form and fill in your details to signup as a partner. You will be required to verify your email as part of this process, this step takes less than 2 minutes.
+                                              This step takes less than 2 minutes. Click on the signup form and fill in
+                                              your details to sign up as a partner. You will be required to verify your
+                                              email as part of this process. Decide which of our farms you’d like to
+                                              fund by choosing the number <a [routerLink]="['/services']">...more</a>
                                             </p>
                                             <!-- <div class="link">
                                               <a [routerLink]="['/about']" class="default_link">Read More<i
@@ -498,17 +501,17 @@
                                         <div class="sppb-addon-content">
                                           <div class="content">
                                             <div class="clearfix top-area">
-                                              <div class="icon_box">
+                                              <!-- <div class="icon_box">
                                                 <span class="icon-nature-1"></span>
-                                              </div>
+                                              </div> -->
                                               <div class="text">
-                                                <a href="#">
-                                                  <h4>
-                                                    DECIDE WHICH OF OUR FARMS YOU’D LIKE TO FUND
-                                                  </h4>
+                                                <a [routerLink]="['/services']">
+                                                  <h5>
+                                                    FARMIFY MARKET
+                                                  </h5>
                                                 </a>
                                                 <p>
-                                                Determine your profit limit.
+                                                  A market to get the most fresh groceries
                                                 </p>
                                               </div>
                                             </div>
@@ -516,12 +519,15 @@
                                               <img src="assets/images/bg1.jpg" alt="" />
                                               <div class="default-overlay">
                                                 <div class="inner-box">
-                                                  <a [routerLink]="['/about']"><i class="icon-nature-2"></i></a>
+                                                  <a [routerLink]="['/services']"><i class="icon-nature-2"></i></a>
                                                 </div>
                                               </div>
                                             </div>
                                             <p>
-                                              Choose the number of units you want to pay for and proceed to payment. Payment is simple and easy (debit card, online transfer or bank deposit). This will automatically reflect on your user dashboard.
+                                              You can order for your fresh groceries and foodstuff by shopping with
+                                              Farmify Market. All you need to do is send in your shopping list via SMS
+                                              or Whatsapp to Bridget on 09062389773 or Evelyn on 09062389772, stating
+                                              the <a [routerLink]="['/services']">...more</a>
                                             </p>
                                             <!-- <div class="link">
                                               <a [routerLink]="['/login']" class="default_link">Read More<i
@@ -542,30 +548,34 @@
                                         <div class="sppb-addon-content">
                                           <div class="content">
                                             <div class="clearfix top-area">
-                                              <div class="icon_box">
+                                              <!-- <div class="icon_box">
                                                 <span class="icon-nature-1"></span>
-                                              </div>
+                                              </div> -->
                                               <div class="text">
-                                                <a href="#">
-                                                  <h4>
-                                                    RECEIVE YOUR FARMFUNDER INVOICE & CERTIFICATE
-                                                  </h4>
+                                                <a [routerLink]="['/services']">
+                                                  <h5>
+                                                    FOOD PURCHASE & SUBSCRIPTION
+                                                  </h5>
                                                 </a>
                                                 <p>
-                                                Become a certified Farmfunder
+                                                  Affordable prices on food items
                                                 </p>
                                               </div>
                                             </div>
                                             <div class="img-box">
-                                              <img src="assets/images/cert.jpg" alt="" style="width: 350px;height: 230px;" />
+                                              <img src="assets/images/bg2.png" alt=""
+                                                style="width: 350px;height: 230px;" />
                                               <div class="default-overlay">
                                                 <div class="inner-box">
-                                                  <a [routerLink]="['/about']"><i class="icon-nature-2"></i></a>
+                                                  <a [routerLink]="['/services']"><i class="icon-nature-2"></i></a>
                                                 </div>
                                               </div>
                                             </div>
                                             <p>
-                                              Once your payment is successfully completed, we process an invoice and a Farmfunder certificate mailed to you within 72 hours.
+                                              Purchase/subscribe for our farm fresh produce like rice, whole chicken,
+                                              chicken parts, gizzard and eggs. We also sell packs of Castle bottled
+                                              water as well as the large Evamor Dispenser Water bottles for both
+                                              purchase and refill.
                                             </p>
                                             <!-- <div class="link">
                                               <a [routerLink]="['/login']" class="default_link">Read More<i
@@ -613,19 +623,19 @@
                                 <div class="sp-simpleportfolio-filter">
                                   <ul>
                                     <li class="active" data-group="all">
-                                      <a >Show All</a>
+                                      <a>Show All</a>
                                     </li>
                                     <li data-group="poultry">
-                                      <a >Poultry Farm</a>
+                                      <a>Poultry Farm</a>
                                     </li>
                                     <li data-group="goat">
-                                      <a >Goat Farm</a>
+                                      <a>Goat Farm</a>
                                     </li>
                                     <li data-group="pig">
-                                      <a >Pig Farm</a>
+                                      <a>Pig Farm</a>
                                     </li>
                                     <li data-group="team">
-                                      <a >Team</a>
+                                      <a>Team</a>
                                     </li>
                                   </ul>
                                 </div>
@@ -633,16 +643,14 @@
                                 <div class="sp-simpleportfolio-items sp-simpleportfolio-columns-4">
                                   <div class="sp-simpleportfolio-item" data-groups='["goat"]'>
                                     <div class="sp-simpleportfolio-overlay-wrapper clearfix">
-                                      <img class="sp-simpleportfolio-img"
-                                        src="assets/images/goat/goat-13.jpeg"
+                                      <img class="sp-simpleportfolio-img" src="assets/images/goat/goat-13.jpeg"
                                         alt="Modern Garden" />
 
                                       <div class="sp-simpleportfolio-overlay">
                                         <div class="sp-vertical-middle">
                                           <div>
                                             <div class="sp-simpleportfolio-button">
-                                              <a class="btn-zoom"
-                                                href="assets/images/goat/goat-13.jpeg"
+                                              <a class="btn-zoom" href="assets/images/goat/goat-13.jpeg"
                                                 data-featherlight="image"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                             <div class="sp-simpleportfolio-bottom">
@@ -662,16 +670,14 @@
                                   </div>
                                   <div class="sp-simpleportfolio-item" data-groups='["poultry"]'>
                                     <div class="sp-simpleportfolio-overlay-wrapper clearfix">
-                                      <img class="sp-simpleportfolio-img"
-                                        src="assets/images/poultry/poultry-11.jpeg"
+                                      <img class="sp-simpleportfolio-img" src="assets/images/poultry/poultry-11.jpeg"
                                         alt="Modern Garden" />
 
                                       <div class="sp-simpleportfolio-overlay">
                                         <div class="sp-vertical-middle">
                                           <div>
                                             <div class="sp-simpleportfolio-button">
-                                              <a class="btn-zoom"
-                                                href="assets/images/poultry/poultry-11.jpeg"
+                                              <a class="btn-zoom" href="assets/images/poultry/poultry-11.jpeg"
                                                 data-featherlight="image"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                             <div class="sp-simpleportfolio-bottom">
@@ -691,16 +697,14 @@
                                   </div>
                                   <div class="sp-simpleportfolio-item" data-groups='["pig"]'>
                                     <div class="sp-simpleportfolio-overlay-wrapper clearfix">
-                                      <img class="sp-simpleportfolio-img"
-                                        src="assets/images/pig/pig-27.jpeg"
+                                      <img class="sp-simpleportfolio-img" src="assets/images/pig/pig-27.jpeg"
                                         alt="Modern Garden" />
 
                                       <div class="sp-simpleportfolio-overlay">
                                         <div class="sp-vertical-middle">
                                           <div>
                                             <div class="sp-simpleportfolio-button">
-                                              <a class="btn-zoom"
-                                                href="assets/images/pig/pig-27.jpeg"
+                                              <a class="btn-zoom" href="assets/images/pig/pig-27.jpeg"
                                                 data-featherlight="image"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                             <div class="sp-simpleportfolio-bottom">
@@ -720,16 +724,14 @@
                                   </div>
                                   <div class="sp-simpleportfolio-item" data-groups='["team"]'>
                                     <div class="sp-simpleportfolio-overlay-wrapper clearfix">
-                                      <img class="sp-simpleportfolio-img"
-                                        src="assets/images/arrival/arrival-1.jpeg"
+                                      <img class="sp-simpleportfolio-img" src="assets/images/arrival/arrival-1.jpeg"
                                         alt="Modern Garden" />
 
                                       <div class="sp-simpleportfolio-overlay">
                                         <div class="sp-vertical-middle">
                                           <div>
                                             <div class="sp-simpleportfolio-button">
-                                              <a class="btn-zoom"
-                                                href="assets/images/arrival/arrival-1.jpeg"
+                                              <a class="btn-zoom" href="assets/images/arrival/arrival-1.jpeg"
                                                 data-featherlight="image"><i class="fa fa-search-plus"></i></a>
                                             </div>
                                             <div class="sp-simpleportfolio-bottom">
@@ -799,7 +801,9 @@
                                         <div class="sppb-addon-content">
                                           <div class="sppb-addon-single-image-container">
                                             <img class="sppb-img-responsive" src="assets/images/farmify-logo.jpeg"
-                                              alt="Image" title="" />
+                                             alt="Image" title="" />
+                                             <img class="sppb-img-responsive" src="assets/images/about/shopping.jpeg"
+                                             alt="Image" title="" />
                                           </div>
                                         </div>
                                       </div>
@@ -820,9 +824,20 @@
                                           <p>
                                             Farmfunds Africa (Farmify Agro Innovations Ltd: RC 1627509) is an Agritech
                                             Company focused at empowering African Farmers whilst enabling individual
-                                            Farmfunders earn profits on their farm partnership which ultimately helps in
+                                            investors earn profits on their farm partnership which ultimately helps in
                                             strengthening global food security. We pride as Africa’s fastest growing
-                                            Agritech Company.
+                                            Agritech Company. We are raising the next generation of digital farmers and
+                                            farmvestors.
+                                            Our farms are located at several places such as Lagos, Odogbolu, Ilaro,
+                                            Ijeb-Ode, and Ilorin. They are managed by hardworking and diligent farm
+                                            managers who have a sincere passion for farming and love for rearing
+                                            animals.
+                                            You can also purchase/subscribe to our farm fresh produce like rice, whole
+                                            chicken, chicken parts, gizzard and eggs. We also sell bottled water in
+                                            packs as well as the large bottles of water for dispensers.
+                                            You can get started today by registering via our website or our app on
+                                            Google Play Store & Apple Store.
+
                                           </p>
                                           <!-- <h3>History in Words</h3> -->
                                           <!-- <p>
@@ -874,24 +889,29 @@
                             <div class="sppb-addon-content">
                               <div class="text">
                                 <p>
-                                  Subscribe to our farmify market and enjoy stress-free grocery shopping, just call the numbers below.
+                                  Subscribe to our farmify market and enjoy stress-free grocery shopping, just call the
+                                  numbers below.
                                 </p>
                               </div>
                               <h4>For queries:</h4>
                               <ul>
                                 <li>
                                   <span class="text-primary">Evelyn:</span>
-                                  +234-906-238-9772
+                                  +234 (0) 09062389772
                                 </li>
                                 <li>
                                   <span class="text-primary">Bridget:</span>
-                                  +234-906-238-9773
+                                  +234 (0) 9062389773
                                 </li>
-                                <!-- <li>
+                                <li>
                                   <span class="text-primary">Email:</span>
-                                  Mailus@RealGardencom
-                                </li> -->
+                                  info@farmfundsafrica.com
+                                </li>
                               </ul>
+                              <div class="img-box text-center">
+                                <img src="assets/images/farmfunds.JPG"
+                                  style="border-radius: 50%; width: 85px;height: 85px; margin-left:50%;margin-top:50px" />
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -1063,8 +1083,9 @@
                         <div id="sppb-addon-1551316406922" class="clearfix">
                           <div class="sppb-addon sppb-addon-text-block sppb-text-center">
                             <h3 class="sppb-addon-title">
-                              Our promise as an agritech company is to strengthen global food security by empowering African Farmers
-                             while enabling individual Farmfunders earn profits on their farm partnership.
+                              Our promise as an agritech company is to strengthen global food security by empowering
+                              African Farmers
+                              while enabling individual Farmfunders earn profits on their farm partnership.
                             </h3>
                             <div class="sppb-addon-content"></div>
                           </div>
@@ -1085,7 +1106,7 @@
                           <div class="sppb-addon sppb-addon-text-block sppb-text-center">
                             <h1 class="sppb-addon-title">
                               Words From
-                              <span class="text-primary">Customers</span>
+                              <span class="text-primary">Customers and Investors</span>
                             </h1>
                             <div class="sppb-addon-content"></div>
                           </div>
@@ -1132,16 +1153,16 @@
                                           </div>
                                           <div class="text">
                                             <p>
-                                              I'm 100% testimoney. i got paid April 17th, 2020 despite the lockdown; the very day they promised to pay
-                                              all investors whose plan was due. They pay anytime no matter the circumstances.
+                                              I'm a 100% testimony. I got paid April 17th, 2020 despite the lockdown; the very day they promised to pay all investors whose plan was due. They pay anytime no matter the circumstances.
                                             </p>
                                           </div>
                                           <br>
                                           <div class="author-info">
                                             <div class="img-box">
-                                              <img src="assets/images/farmfunds.JPG" style="border-radius: 50%; width: 85px;height: 85px;"/>
+                                              <img src="assets/images/farmfunds.JPG"
+                                                style="border-radius: 50%; width: 85px;height: 85px;" />
                                             </div>
-                                            <h4>Obado Moses</h4>
+                                            <h4>- Obado Moses</h4>
                                             <p>Farmfunder</p>
                                             <ul class="rating">
                                               <li>
@@ -1177,17 +1198,16 @@
                                           </div>
                                           <div class="text">
                                             <p>
-                                              In fact, I enjoyed all I got from Farmfunds' Farmify Market Services.
-                                              Fresh, good quality and value for me. God bless you and continue to shield you and
-                                              your team as you go out everyday in Jesus name. Amen
+                                              In fact, I enjoyed all I got from Farmfunds' Farmify Market Services. Fresh, good quality and value for me. God bless you and continue to shield you and your team as you go out every day in Jesus' name. Amen.
                                             </p>
                                           </div>
                                           <br>
                                           <div class="author-info">
                                             <div class="img-box">
-                                              <img src="assets/images/farmfunds.JPG" style="border-radius: 50%; width: 85px;height: 85px;"/>
+                                              <img src="assets/images/farmfunds.JPG"
+                                                style="border-radius: 50%; width: 85px;height: 85px;" />
                                             </div>
-                                            <h4>Kudirat</h4>
+                                            <h4>- Kudirat</h4>
                                             <p>Farmify Market Customer</p>
                                             <ul class="rating">
                                               <li>
@@ -1223,16 +1243,16 @@
                                           </div>
                                           <div class="text">
                                             <p>
-                                              You should invest with them... They are reliable. Also their customer
-                                              service is fanastic. They attend to customer fast.
+                                              You should invest with them... They are reliable. Also their customer service is superb.
                                             </p>
                                           </div>
                                           <br>
                                           <div class="author-info">
                                             <div class="img-box">
-                                              <img src="assets/images/farmfunds.JPG" style="border-radius: 50%; width: 85px;height: 85px;"/>
+                                              <img src="assets/images/farmfunds.JPG"
+                                                style="border-radius: 50%; width: 85px;height: 85px;" />
                                             </div>
-                                            <h4>Okpata Sonnie</h4>
+                                            <h4>- Okpata Sonnie Egbe</h4>
                                             <p>Farmfunder</p>
                                             <ul class="rating">
                                               <li>
@@ -1268,17 +1288,16 @@
                                           </div>
                                           <div class="text">
                                             <p>
-                                              I am happy that i got everything on my list. Some of the items were even more than
-                                              I envisaged I would get for the prices I stated.
-                                              Thanks to your team. I will definitely be coming back.
+                                              I am happy that I got everything on my list. Some of the items were even more than I envisaged I would get for the prices I stated. Thanks to your team. I will definitely be calling back.
                                             </p>
                                           </div>
                                           <br>
                                           <div class="author-info">
                                             <div class="img-box">
-                                              <img src="assets/images/farmfunds.JPG" style="border-radius: 50%; width: 85px;height: 85px;"/>
+                                              <img src="assets/images/farmfunds.JPG"
+                                                style="border-radius: 50%; width: 85px;height: 85px;" />
                                             </div>
-                                            <h4>Omotola</h4>
+                                            <h4>- Omotola</h4>
                                             <p>Farmify Market Customer</p>
                                             <ul class="rating">
                                               <li>
@@ -1441,24 +1460,23 @@
                                           <div class="sppb-row">
                                             <div class="sppb-col-md-4">
                                               <div class="sppb-addon-article">
-                                                <a class="sppb-article-img-wrap"
-                                                [routerLink]="['/packages']"
+                                                <a class="sppb-article-img-wrap" [routerLink]="['/packages']"
                                                   itemprop="url"><img class="sppb-img-responsive"
-                                                    src="assets/images/shop/turkey.JPG"
-                                                    alt=""
+                                                    src="assets/images/shop/turkey.JPG" alt=""
                                                     itemprop="thumbnailUrl" /></a>
                                                 <div class="sppb-article-info">
-                                                  <span style="cursor: pointer;" [routerLink]="['/packages']" class="sppb-meta-category">Read More</span>
+                                                  <span style="cursor: pointer;" [routerLink]="['/packages']"
+                                                    class="sppb-meta-category">Read More</span>
                                                   <div class="sppb-article-info-wrap">
-                                                    <a [routerLink]="['/packages']"
-                                                      itemprop="url">
+                                                    <a [routerLink]="['/packages']" itemprop="url">
                                                       <h4>
                                                         Turkey
                                                       </h4>
                                                     </a>
                                                     <div class="sppb-article-introtext">
                                                       <p>
-                                                  Click on the Read More to get in depth of how this package works, including the unit available and the corresponding cost
+                                                        Click on the Read More to get in depth of how this package
+                                                        works, including the unit available and the corresponding cost
                                                       </p>
                                                     </div>
                                                     <!-- <div class="sppb-article-meta">
@@ -1473,24 +1491,24 @@
                                             </div>
                                             <div class="sppb-col-md-4">
                                               <div class="sppb-addon-article">
-                                                <a class="sppb-article-img-wrap"
-                                                [routerLink]="['/packages']"
+                                                <a class="sppb-article-img-wrap" [routerLink]="['/packages']"
                                                   itemprop="url"><img class="sppb-img-responsive"
                                                     src="assets/images/fish.JPG"
                                                     alt="How Landscaping Can Add Curb Appeal to Your Home?"
                                                     itemprop="thumbnailUrl" /></a>
                                                 <div class="sppb-article-info">
-                                                  <span style="cursor: pointer;" [routerLink]="['/packages']" class="sppb-meta-category">Read More</span>
+                                                  <span style="cursor: pointer;" [routerLink]="['/packages']"
+                                                    class="sppb-meta-category">Read More</span>
                                                   <div class="sppb-article-info-wrap">
-                                                    <a [routerLink]="['/packages']"
-                                                      itemprop="url">
+                                                    <a [routerLink]="['/packages']" itemprop="url">
                                                       <h4>
-                                                      Fish Farm
+                                                        Fish Farm
                                                       </h4>
                                                     </a>
                                                     <div class="sppb-article-introtext">
                                                       <p>
-                                                        Click on the Read More to get in depth of how this package works, including the unit available and the corresponding cost
+                                                        Click on the Read More to get in depth of how this package
+                                                        works, including the unit available and the corresponding cost
                                                       </p>
                                                     </div>
                                                     <!-- <div class="sppb-article-meta">
@@ -1505,24 +1523,24 @@
                                             </div>
                                             <div class="sppb-col-md-4">
                                               <div class="sppb-addon-article">
-                                                <a class="sppb-article-img-wrap"
-                                                [routerLink]="['/packages']"
+                                                <a class="sppb-article-img-wrap" [routerLink]="['/packages']"
                                                   itemprop="url"><img class="sppb-img-responsive"
                                                     src="assets/images/pig.JPG"
                                                     alt="How Landscaping Can Add Curb Appeal to Your Home?"
                                                     itemprop="thumbnailUrl" /></a>
                                                 <div class="sppb-article-info">
-                                                  <span style="cursor: pointer;" [routerLink]="['/packages']" class="sppb-meta-category">Read More</span>
+                                                  <span style="cursor: pointer;" [routerLink]="['/packages']"
+                                                    class="sppb-meta-category">Read More</span>
                                                   <div class="sppb-article-info-wrap">
-                                                    <a [routerLink]="['/packages']"
-                                                      itemprop="url">
+                                                    <a [routerLink]="['/packages']" itemprop="url">
                                                       <h4>
-                                                      Pig Farm
+                                                        Pig Farm
                                                       </h4>
                                                     </a>
                                                     <div class="sppb-article-introtext">
                                                       <p>
-                                                        Click on the Read More to get in depth of how this package works, including the unit available and the corresponding cost
+                                                        Click on the Read More to get in depth of how this package
+                                                        works, including the unit available and the corresponding cost
                                                       </p>
                                                     </div>
                                                     <!-- <div class="sppb-article-meta">
