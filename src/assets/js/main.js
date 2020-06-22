@@ -71,7 +71,7 @@ jQuery(function ($) {
         $('.offcanvas-init').addClass('offcanvas-active');
     });
 
-    $('.close-offcanvas, .offcanvas-overlay').on('click', function (event) {
+    $('.close-offcanvas, .offcanvas-overlay, .rmv').on('click', function (event) {
         event.preventDefault();
         $('.offcanvas-init').removeClass('offcanvas-active');
     });
