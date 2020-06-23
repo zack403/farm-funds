@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Slab:400,700|Montserrat:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
 
 
 /* GENERAL */
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color:#222222;
   font-size: 16px;
 }
@@ -16,19 +16,19 @@ body {
 
 h1,h2,h3,h4,h5,h6,p,ul { margin:0;padding: 0;}
 h1,h2,h3,h4,h5 {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Montserrat Slab', sans-serif;
 }
 
 ul {list-style-type: none;}
 
-p {font-family: 'Roboto', sans-serif;font-size: 16px;color: #999;line-height: 26px; font-weight: 300;}
+p {font-family: 'Montserrat', sans-serif;font-size: 16px;color: #999;line-height: 26px; font-weight: 300;}
 a {text-decoration: none;display: inline-block;outline: none;}
 a:hover,a:focus,a:visited {text-decoration: none; outline: none;}
 
 img {max-width: 100%;display: inline-block;}
 
 button {border:none; outline:none; box-shadow: none; display: block; padding: 0; background: transparent;}
-input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16px; line-height: 28px; outline: none; box-shadow: none;-webkit-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;}
+input,textarea {font-family: 'Montserrat', sans-serif;display: block; font-size: 16px; line-height: 28px; outline: none; box-shadow: none;-webkit-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;}
 
 .sppb-btn {
   position: relative;
@@ -152,7 +152,7 @@ input,textarea {font-family: 'Roboto', sans-serif;display: block; font-size: 16p
 	font-weight: 700;
 	line-height: 1.42857143;
 	padding: 25px 0px;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	text-transform: uppercase;
 	transition: all 500ms ease 0s;
 }
@@ -226,7 +226,7 @@ body.ltr #offcanvas-toggler.offcanvas-toggler-right {
 	display: block;
 	font-size: 16px;
 	font-weight: 700;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	border-bottom: 1px solid #333;
 	line-height: 25px;
 	padding: 12px 20px;
@@ -321,7 +321,7 @@ line-height: 60px;
 color: #464646;
 font-weight: 700;
 text-transform: capitalize;
-font-family: 'Roboto Slab', sans-serif;
+font-family: 'Montserrat Slab', sans-serif;
 	text-align: center;
 }
 
@@ -393,7 +393,7 @@ font-family: 'Roboto Slab', sans-serif;
 	text-transform: uppercase;
 	font-weight: 700;
 	border-bottom: 1px solid #f4f4f4;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	line-height: 26px;
 	padding: 3px 0 20px;
@@ -819,7 +819,7 @@ content: "\f10d";
 }
 
 .article-details .article-author-information .author-bio {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	color: #999;
 	line-height: 26px;
@@ -915,7 +915,7 @@ content: "\f10d";
 	line-height: 1.4em;
 	color: #222;
 	margin-bottom: 6px;
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Montserrat Slab', serif;
 	padding: 0;
 }
 

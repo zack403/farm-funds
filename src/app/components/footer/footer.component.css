@@ -37,7 +37,7 @@
     .default_link {
     font-size: 14px;
     text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: green;
     font-weight: 600;
 }
@@ -225,7 +225,7 @@
     float: unset !important;
     margin-top: 10px;
   }
-}                                        
+}
 #sppb-addon-1551486432209 {
   box-shadow: 0 0 0 0 #ffffff;
   margin: 0px 0px 0px 0px;
@@ -250,7 +250,7 @@
 }
 
 #sppb-addon-1551486432209 .sppb-addon-content {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #999;
   line-height: 26px;
@@ -342,7 +342,7 @@
 
 #sppb-addon-1551486352082
     .sppb-addon-content {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 16px;
     color: #999;
     line-height: 26px;
@@ -360,7 +360,7 @@
 #sppb-addon-1551486352082 span {
     color: #fff;
     font-weight: 700;
-    font-family: "Roboto Slab",
+    font-family: "Montserrat Slab",
     sans-serif;
 }
 #sppb-addon-1551486352077 {
@@ -394,7 +394,7 @@
 
 #sppb-addon-1551486352077
   .sppb-addon-content {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #999;
   line-height: 26px;
@@ -412,7 +412,7 @@
 #sppb-addon-1551486352077 span {
   color: #fff;
   font-weight: 700;
-  font-family: "Roboto Slab",
+  font-family: "Montserrat Slab",
     sans-serif;
 }
 
@@ -453,7 +453,7 @@
 
 #sppb-addon-1551485917075
   .sppb-addon-content {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   color: #999;
   line-height: 26px;
@@ -471,7 +471,7 @@
 #sppb-addon-1551485917075 span {
   color: #fff;
   font-weight: 700;
-  font-family: "Roboto Slab",
+  font-family: "Montserrat Slab",
     sans-serif;
 }
 
@@ -559,7 +559,7 @@
 
 #sppb-addon-1551485434916 ul li {
   position: relative;
-  font-family: "Roboto Slab",
+  font-family: "Montserrat Slab",
     sans-serif;
   font-size: 16px;
   color: #999;
@@ -580,7 +580,7 @@
   ul
   li
   span {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #d0d0d0;
   position: absolute;
   right: 0;
@@ -683,7 +683,7 @@
   color: #999999;
   font-weight: 700;
   line-height: 26px;
-  font-family: "Roboto Slab",
+  font-family: "Montserrat Slab",
     sans-serif;
 }
 
@@ -693,7 +693,7 @@
   > a
   span {
   color: #999;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 16px;
   display: block;
@@ -743,7 +743,7 @@
   display: block;
   padding-left: 15px;
   color: #999;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
 }
 
@@ -851,7 +851,7 @@
   display: block;
   padding-left: 15px;
   color: #999;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
 }
 
@@ -876,4 +876,3 @@
   color: green;
 }
 
-                                            
