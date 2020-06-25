@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat+Slab:400,700|Montserrat:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Montserrat:400,700|Montserrat:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
@@ -16,7 +16,7 @@ body {
 
 h1,h2,h3,h4,h5,h6,p,ul { margin:0;padding: 0;}
 h1,h2,h3,h4,h5 {
-  font-family: 'Montserrat Slab', sans-serif;
+  font-family: 'Montserrat Montserrat', sans-serif;
 }
 
 ul {list-style-type: none;}
@@ -88,21 +88,23 @@ input,textarea {font-family: 'Montserrat', sans-serif;display: block; font-size:
 	left: 0;
 	position: relative;
 	top: 0;
-	width: 100%;
+	width: 102%;
 	z-index: 99;
 	box-shadow: none;
 	-webkit-animation-duration: 1s;
 	animation-duration: 1s;
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both;
-	background: transparent;
+  background: transparent;
+  margin-left: -20px;
 }
 
 .sp-megamenu-parent {
 	list-style: none;
 	padding: 0;
 	margin: 0 -35px;
-	z-index: 99;
+  z-index: 99;
+  width: 109%;
 	display: block;
 	float: unset;
 	position: relative;
@@ -321,7 +323,7 @@ line-height: 60px;
 color: #464646;
 font-weight: 700;
 text-transform: capitalize;
-font-family: 'Montserrat Slab', sans-serif;
+font-family: 'Montserrat Montserrat', sans-serif;
 	text-align: center;
 }
 
@@ -915,7 +917,7 @@ content: "\f10d";
 	line-height: 1.4em;
 	color: #222;
 	margin-bottom: 6px;
-	font-family: 'Montserrat Slab', serif;
+	font-family: 'Montserrat Montserrat', serif;
 	padding: 0;
 }
 
@@ -1458,7 +1460,7 @@ padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;
 margin-left: auto;}}
-@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1140px;width: 100%;
+@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1177px;width: 100%;
 padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;
