@@ -17,87 +17,127 @@
       <div class="row">
         <main id="sp-component" class="col-lg-12 " role="main">
           <div>
-          <div class="sp-column ">
-            <div id="system-message-container">
-            </div>
-            <div id="akeeba-renderjoomla">
-              <div id="j2store-checkout" class="j2store checkout">
-                <div id="j2store-checkout-content">
-                  <!-- <h1>Login</h1> -->
+            <div class="sp-column ">
+              <div id="system-message-container">
+              </div>
+              <div id="akeeba-renderjoomla">
+                <div id="j2store-checkout" class="j2store checkout">
+                  <div id="j2store-checkout-content">
+                    <!-- <h1>Login</h1> -->
 
-                  <div id="checkout">
-                    <!-- <div class="checkout-heading">Checkout Options</div> -->
-                    <div class="checkout-content" style="display: block;">
-                      <div id="akeeba-renderjoomla">
-                        <div class="row">
-                          <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="assets/images/chicken.JPG" class="d-block w-100" alt="Image Slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="assets/images/fish.JPG" class="d-block w-100" alt="Image Slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="assets/images/goat.JPG" class="d-block w-100" alt="Image Slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="assets/images/pig.JPG" class="d-block w-100" alt="Image Slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="assets/images/turkey.JPG" class="d-block w-100" alt="Image Slide">
-                                </div>
-                                <div class="carousel-item">
-                                  <img src="assets/images/big-farm.jpeg" class="d-block w-100" alt="Image Slide">
-                                </div>
-                              </div>
-                            </div>
-                          <div id="login" class="col-md-6">
-                            <h2>Returning Customer</h2>
-                            <br> <br>
-                            <span class="j2store_field_required text-danger"></span><label
-                              for="username">Username</label><input class="inputbox" id="username" type="text"
-                              name="email" placeholder="Enter username" value=""><br>
-                              <span class="j2store_field_required text-danger"></span><label
-                              for="password">Password</label><input class="inputbox" id="password" type="password"
-                              name="password" placeholder="Enter password" value=""><br>
-                              <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
-                                <a [routerLink]="['/reset-password']"><span class="text-primary">FORGOT YOUR PASSWORD</span></a>
-                              </div>
-                              <br><br>
-                              <div class="buttons">
-                                <div class="left">
-                                  <input type="button" value="Login" id="button-register" class="button btn btn-primary">
-                                  <p>No account? <a [routerLink]="['/signup']" ><span class="text-primary">SIGN UP</span></a> now</p>
-                                </div>
-                              </div>
-                            <br>
+                    <div id="billing-address">
+                      <div class="checkout-content" style="display: block;">
+                          <div id="akeeba-renderjoomla">
+                              <div class="j2store">
+                                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                                      <div class="form-row">
+                                          <div class="col-md-6">
+                                              <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
+                                                  <div class="carousel-inner">
+                                                      <div class="carousel-item active">
+                                                          <img src="assets/images/chicken.JPG" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                      <div class="carousel-item">
+                                                          <img src="assets/images/fish.JPG" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                      <div class="carousel-item">
+                                                          <img src="assets/images/goat.JPG" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                      <div class="carousel-item">
+                                                          <img src="assets/images/pig.JPG" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                      <div class="carousel-item">
+                                                          <img src="assets/images/turkey.JPG" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                      <div class="carousel-item">
+                                                          <img src="assets/images/big-farm.jpeg" class="d-block w-100" alt="Image Slide">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                              <h2>Returning Customer</h2> <br> <br>
+                                              <div class="form-group">
+                                                  <label for="username" class="control-label">Username</label>
+                                                  <input class="inputbox form-control" id="email" type="text" name="email"
+                                                      placeholder="Enter username" value="" formControlName="email"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                      <div *ngIf="f.email.errors.required">Username is required</div>
+                                                      <div *ngIf="f.email.errors.email">Username must be a valid email address</div>
+                                                  </div>
+                                              </div>
+
+                                              <br>
+                                              <div class="form-group">
+                                                  <label for="password" class="control-label">Password</label>
+                                                  <input class="inputbox" id="password" type="password" name="password"
+                                                      placeholder="Enter password" value="" class="form-control large-field"
+                                                      formControlName="password"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                      <div *ngIf="f.password.errors.required">Password is required</div>
+                                                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                                      </div>
+                                                  </div>
+                                              </div>
+
+                                              <br>
+                                              <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
+                                                  <a [routerLink]="['/reset-password']"><span class="text-primary">FORGOT YOUR
+                                                          PASSWORD</span></a>
+                                              </div>
+                                              <br><br>
+                                              <div class="buttons">
+                                                  <div class="left">
+                                                      <button class="btn btn-primary mr-1">LOGIN</button>
+
+
+                                                      <p>No account? <a [routerLink]="['/signup']">
+                                                              <span class="text-primary">SIGN UP</span></a> now</p>
+                                                  </div>
+                                              </div>
+                                              <br>
+                                          </div>
+                                      </div>
+                                  </form>
+
+                                  <!-- <div class="row">
+                                              <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
+                                                <input type="checkbox" name="shipping_address" value="1" id="shipping" checked="checked">
+                                                <label for="shipping">My delivery address is same as the billing</label>
+                                              </div>
+                                            </div> end of row-fluid -->
+                                  <br>
+
+                                  <input type="hidden" name="option" value="com_j2store">
+                                  <input type="hidden" name="view" value="checkout">
+                                  <input type="hidden" name="task" value="register_validate">
+
+                              </div> <!-- end of j2store -->
                           </div>
-                        </div>
-                        <input type="hidden" name="option" value="com_j2store">
-                        <input type="hidden" name="view" value="checkout">
                       </div>
-                    </div>
                   </div>
-                  <!-- <div id="billing-address">
+                    <!-- <div id="billing-address">
                     <div class="checkout-heading"><span>Account &amp; Billing Details</span></div>
                     <div class="checkout-content"></div>
                   </div> -->
-                  <!-- <div id="shipping-address">
+                    <!-- <div id="shipping-address">
                     <div class="checkout-heading">Shipping Address</div>
                     <div class="checkout-content"></div>
                   </div> -->
-                  <!-- <div id="shipping-payment-method">
+                    <!-- <div id="shipping-payment-method">
                     <div class="checkout-heading">
                       Shipping &amp; Payment Methods </div>
                     <div class="checkout-content"></div>
                   </div> -->
-                  <!-- <div id="confirm">
+                    <!-- <div id="confirm">
                     <div class="checkout-heading">Confirm order</div>
                     <div class="checkout-content"></div>
                   </div> -->
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
           </div>

@@ -30,6 +30,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
+import { FieldErrorDisplayComponent } from './components/auth/field-error-display/field-error-display.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ResetPasswordComponent } from './components/auth/reset-password/reset-p
     ServicesComponent,
     TermsComponent,
     PackagesComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    FieldErrorDisplayComponent
   ],
   imports: [
     BrowserModule,
