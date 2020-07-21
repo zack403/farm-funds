@@ -27,7 +27,7 @@ a {
   color: green;
 }
 a:hover, a:focus, a:active {
-  color: #044cd0;
+  color: #000000;
 }
 .tags > li {
   display: inline-block;

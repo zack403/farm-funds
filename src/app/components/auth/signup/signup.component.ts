@@ -20,8 +20,11 @@ export class SignupComponent implements OnInit {
       {
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        otherName: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         phone: ['', Validators.required, Validators.pattern],
+        bankName: ['', Validators.required],
+        accountNo: ['', Validators.required],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
         acceptTerms: [false, Validators.requiredTrue],
