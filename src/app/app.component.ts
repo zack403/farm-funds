@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var jQuery;
 declare var Joomla: any;
@@ -9,6 +10,9 @@ declare var Joomla: any;
 })
 export class AppComponent implements OnInit {
   title = 'farmfunds';
+
+  constructor(public router: Router) { }
+
 
   ngOnInit() {
     jQuery('#floatingWhatsAppButton').floatingWhatsApp({
