@@ -46,8 +46,8 @@
               "src/assets/css/media/font-awesome.min.css",
               "src/assets/css/media/jquery-ui-custom.css",
               "src/assets/css/floating-wpp.min.css",
-              "src/assets/css/jquery-ui-custom.css"
-
+              "src/assets/css/jquery-ui-custom.css",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
             "scripts": [
               "src/assets/js/greensock.js",

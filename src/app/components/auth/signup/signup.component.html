@@ -260,7 +260,7 @@
                               </div>
 
                                 <div class="left" style="margin-left: 40%;">
-                                  <button class="btn btn-primary mr-1">CREATE ACCOUNT</button>
+                                  <button [disabled]="submitted" class="btn btn-primary mr-1">CREATE ACCOUNT</button>
                                   <button class="btn btn-secondary" type="reset" (click)="onReset()">CANCEL</button>
                                   <p>Already have an account <a [routerLink]="['/login']"><span
                                         class="text-primary">LOGIN</span></a></p>

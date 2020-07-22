@@ -32,6 +32,17 @@ import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { FieldErrorDisplayComponent } from './components/auth/field-error-display/field-error-display.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from "@auth0/angular-jwt";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
+import { ToasterService } from './services/toaster.service';
+
+
+
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -68,9 +79,21 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:3000'],
+        blacklistedRoutes: [],
+      },
+    }),
   ],
-  providers: [],
+  providers: [
+    ToasterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
