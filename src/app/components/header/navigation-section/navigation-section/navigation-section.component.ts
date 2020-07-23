@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare var jQuery;
 @Component({
@@ -7,8 +8,7 @@ declare var jQuery;
   styleUrls: ['./navigation-section.component.css']
 })
 export class NavigationSectionComponent implements OnInit {
-
-  constructor() { }
+  constructor(private authSvc: AuthService) { }
 
   ngOnInit() {
     jQuery(".sp-megamenu-wrapper li a").click(function (event) {

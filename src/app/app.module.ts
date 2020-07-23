@@ -36,6 +36,8 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
 import { ToasterService } from './services/toaster.service';
+import { AuthGuard } from './guards/auth.guard';
+import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
 
 
 
@@ -90,7 +92,9 @@ export function tokenGetter() {
     }),
   ],
   providers: [
-    ToasterService
+    ToasterService,
+    AuthGuard,
+    PreventUnsavedChanges
   ],
   bootstrap: [AppComponent]
 })

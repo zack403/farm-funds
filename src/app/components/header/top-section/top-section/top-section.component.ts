@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-top-section',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-section.component.css']
 })
 export class TopSectionComponent implements OnInit {
+  loggedIn: boolean = false;
 
-  constructor() { }
+  constructor(private authSvc: AuthService) { }
 
   ngOnInit() {
+    this.loggedIn = this.authSvc.isLoggedIn();
   }
 
 }

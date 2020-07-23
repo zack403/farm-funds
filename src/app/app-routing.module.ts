@@ -20,6 +20,7 @@ import { PackagesComponent } from './components/packages/packages.component';
 import { TeamComponent } from './components/team/team.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path: 'faqs', component: FaqsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'food-shop', component: ProductsListComponent},
-  {path: 'food-subscription', component: ProductsSubscriptionComponent},
+  {path: 'food-subscription', canActivate: [AuthGuard], component: ProductsSubscriptionComponent},
   {path: 'food-shop-detail', component: ProductDetailComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'checkout', component: CheckoutComponent},
@@ -38,10 +39,10 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'packages', component: PackagesComponent},
+  {path: 'packages', canActivate: [AuthGuard], component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'profile', component: UserProfileComponent},
+  {path: 'profile', canActivate: [AuthGuard], component: UserProfileComponent},
   {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];

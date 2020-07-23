@@ -4,6 +4,7 @@ import { HttpService } from './http.service';
 import {tap} from 'rxjs/operators'
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from '../models/user.model';
 
 const helper = new JwtHelperService();
 
@@ -12,6 +13,7 @@ const helper = new JwtHelperService();
   providedIn: 'root'
 })
 export class AuthService {
+  currentUser: any;
 
   constructor(private httpService: HttpService, 
     private router : Router) { }
@@ -28,7 +30,8 @@ export class AuthService {
         .pipe(tap(async (res: any) => {
           console.log(res);
           if(res.data){
-            localStorage.setItem("authData", JSON.stringify(res.data));            
+            localStorage.setItem("authData", JSON.stringify(res.data));   
+            localStorage.setItem("token", res.token);                     
             return res;
           }
         }));
@@ -37,30 +40,26 @@ export class AuthService {
     logout() {
         localStorage.removeItem("authData");
         localStorage.removeItem("token");
-        this.router.navigateByUrl("login");
+        this.router.navigateByUrl("home");
     }
   
     isLoggedIn() {
       const token = localStorage.getItem("token");    
       const isTokenExpired = helper.isTokenExpired(token);
-      if(isTokenExpired){
+      if(!isTokenExpired){
         return true
       }
       return false;
     }
   
-  //  getCurrentUserData() {
-  //     this.currentUser = localStorage.getItem("authData");
-  //     if (this.currentUser) {
-  //         if (this.currentUser.companyName && this.currentUser.auth_token) {
-  //             return this.currentUser;
-  //         } else {
-  //             return this.currentUser = null;
-  //         }
-  //     } else {
-  //         return this.currentUser = null;
-  //     }
-  //   }
+   getCurrentUserData() {
+      this.currentUser = JSON.parse(localStorage.getItem("authData"));
+      if (this.currentUser) {
+          return this.currentUser;
+      } else {
+          return this.currentUser = null;
+      }
+    }
   
     handleError(error) {
       let errorMessage = '';

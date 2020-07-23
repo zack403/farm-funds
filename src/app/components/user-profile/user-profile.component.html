@@ -1,3 +1,112 @@
+<section id="sp-top">
+    <div class="row">
+        <div id="sp-top1" class="col-lg-12 ">
+            <div class="sp-column ">
+                <div class="sp-module ">
+                    <div class="sp-module-content">
+                        <div class="mod-sppagebuilder  sp-page-builder" data-module_id="104">
+                            <div class="page-content">
+                                <div id="section-id-1551225173562" class="sppb-section  ">
+                                    <div class="sppb-container-inner">
+                                        <div class="sppb-row sppb-no-gutter">
+                                            <div class="sppb-col-md-7" id="column-wrap-id-1551225173561">
+                                                <div id="column-id-1551225173561" class="sppb-column">
+                                                    <div class="sppb-column-addons">
+                                                        <div id="sppb-addon-1551225197119" class="clearfix">
+                                                            <div class="sppb-addon sppb-addon-raw-html ">
+                                                                <div class="sppb-addon-content">
+                                                                    <ul class="list_inline">
+                                                                        <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech Company</li>&nbsp;
+                                                                        <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sppb-col-md-1" id="column-wrap-id-1551225197116">
+                                                <div id="column-id-1551225197116" class="sppb-column">
+                                                    <div class="sppb-column-addons"></div>
+                                                </div>
+                                            </div>
+                                            <div class="sppb-col-md-4" id="column-wrap-id-1551226657169">
+                                                <div id="column-id-1551226657169" class="sppb-column">
+                                                    <div class="sppb-column-addons">
+                                                        <div id="sppb-addon-1551225808098" class="clearfix">
+                                                            <div class="sppb-addon sppb-addon-raw-html ">
+                                                                <div class="sppb-addon-content">
+                                                                    <div class="right-column float_right">
+
+                                                                        <ul class="social-icon">
+                                                                            <li><a href="http://www.facebook.com/farmfundsafrica"><i
+                                                                                        class="fa fa-facebook"></i></a>
+                                                                            </li>
+                                                                            <li><a href="https://www.twitter.com/farmfundsafrica"><i
+                                                                                        class="fa fa-twitter"></i></a>
+                                                                            </li>
+                                                                            <li><a href="https://www.instagram.com/farmfundsafrica"><i
+                                                                              class="fa fa-instagram"></i></a>
+                                                                            </li>
+                                                                            <!-- <li><a href="#"><i
+                                                                                        class="fa fa-google-plus"></i></a>
+                                                                            </li> -->
+                                                                            <!-- <li><a href="#"><i
+                                                                                        class="fa fa-pinterest"></i></a>
+                                                                            </li> -->
+                                                                            <!-- <li><a href="#"><i
+                                                                                        class="fa fa-youtube"></i></a>
+                                                                            </li> -->
+                                                                        </ul>
+                                                                        <div id="polyglotLanguageSwitcher"
+                                                                            class="">
+
+                                                                            <a id="en" class="current"
+                                                                                >LAGOS, NIGERIA.</a>
+                                                                        </div>
+
+                                                                        <div class="btn-group pull-right">
+                                                                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                                            style="font-size: 23px;">
+                                                                            <img src="assets/images/profile-images.png" alt="" class="text-center" style="width: 30px; height: 30px; border-radius: 50%;">
+                                                                                <!-- <i class="fa fa-user"></i> -->
+                                                                            </button>
+                                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                                <!-- <img src="assets/images/profile-images.png" alt="" style="width: 70px; height: 70px; border-radius: 50%;"> -->
+                                                                                <!-- <span class="user-name">ZACK OHIANI AMINU</span> -->
+                                                                                <button class="dropdown-item" type="button">
+                                                                                    <img src="assets/images/profile-images.png" alt="" style="margin-left: 50px; width: 70px; height: 70px; border-radius: 50%;">
+                                                                                    <br>
+                                                                                <span class="user-name">{{currentUser.fullName}}</span>
+                                                                                </button>
+                                                                                <button class="dropdown-item text-success" type="button"><a
+                                                                                    [routerLink]="['/user-profile']">Veiw Profile</a></button>
+                                                                                <div class="dropdown-divider"></div>
+                                                                              <button class="dropdown-item" type="button"><i class="icon icon-exit"></i> <a
+                                                                                class="text-danger" (click)="logout()">Log Out</a></button>
+                                                                              <!-- <button class="dropdown-item" type="button">Something else here</button> -->
+                                                                            </div>
+                                                                          </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="sp-section-4">
     <div class="row">
         <div id="sp-title" class="col-lg-12 ">
@@ -250,7 +359,7 @@
                                                                     <div class="checkout-content" style="display: block;">
                                                                       <div id="akeeba-renderjoomla">
                                                                         <div class="j2store">
-                                                                          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                                                          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
                                                                             <div class="form-row">
                                                                               <div class="col-md-6">
                                                                                 <h2>Update Profile</h2><br>
@@ -295,13 +404,7 @@
                                                                                 </div>
                                                 
                                                                                 <br>
-                                                                                <div class="form-group">
-                                                                                    <div class="form-group">
-                                                                                        <label for="accountName">Account Name</label>
-                                                                                        <input type="text" id="accountName" name="accountName" value="">
-                                                                                      </div>
-                                                                                </div>
-
+                                                                               
                                                                                 <br>
                                                                                 <div class="form-group">
                                                                                     <div class="form-group">
