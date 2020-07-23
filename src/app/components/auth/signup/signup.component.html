@@ -131,136 +131,123 @@
                               <div class="col-md-6">
                                 <h2>Information</h2> <br> <br>
 
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('firstName').errors && registerForm.get('firstName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="firstName">First name</label>
                                   <input class="inputbox form-control" id="firstName" type="text" name="firstName"
                                     placeholder="Enter first name" value="" formControlName="firstName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
-                                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
-                                  </div>
+                                    >
+                                    <div *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.get('firstName').touched" class="errormsg text-danger">First Name is required</div>
                                 </div>
 
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('lastName').errors && registerForm.get('lastName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="lastName">Last name</label>
                                   <input class="inputbox form-control" id="lastName" type="text" name="lastName"
                                     placeholder="Enter last name" value="" formControlName="lastName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-                                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                                  </div>
+                                    >
+                                    <div *ngIf="registerForm.controls['lastName'].hasError('required') && registerForm.get('lastName').touched" class="errormsg text-danger">First Name is required</div>
+
                                 </div>
 
                                 <br>
-                                <div class="form-group">
-                                  <span class="j2store_field_required text-danger">*</span>
-                                  <label for="otherName">Other name</label>
-                                  <input class="inputbox form-control" id="otherName" type="text" name="otherName"
-                                    placeholder="Enter other name" value="" formControlName="otherName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.otherName.errors }">
-                                  <div *ngIf="submitted && f.otherName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.otherName.errors.required">Other Name is required</div>
-                                  </div>
+                                <div class="form-group" >
+                                  <label for="middleName">Middle name</label>
+                                  <input class="inputbox form-control" id="middleName" type="text" name="middleName"
+                                    placeholder="Enter middle name" value="" formControlName="middleName"
+                                    >
+                                  
                                 </div>
 
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('email').errors && registerForm.get('email').touched}" >
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="email">Email</label>
                                   <input class="inputbox form-control" id="email" type="text" name="email" placeholder="Enter email"
-                                    value="" formControlName="email"
-                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                    <div *ngIf="f.email.errors.required">Email is required</div>
-                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                                  </div>
+                                    value="" formControlName="email">
+                                    <div *ngIf="registerForm.controls['email'].hasError('required') && registerForm.get('email').touched" class="errormsg text-danger">Email is required</div>
+                                    <div *ngIf="registerForm.controls['email'].hasError('email') && registerForm.get('email').touched" class="errormsg text-danger">Email is not valid</div>
                                 </div>
 
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('phoneNo').errors && registerForm.get('phoneNo').touched}">
                                   <span class="j2store_field_required text-danger">*</span><label for="phone">Phone
-                                    no.</label>
-                                  <input class="inputbox form-control" id="phone" type="text" name="phone"
-                                    placeholder="Enter phone no." value="" formControlName="phone"
-                                    [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
-                                  <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-                                    <div *ngIf="f.phone.errors.required">Phone No. is required</div>
-                                  </div>
+                                    No.</label>
+                                  <input class="inputbox form-control" id="phoneNo" type="text" name="phoneNo"
+                                    placeholder="Enter phone No." value="" formControlName="phoneNo" >
+                                      <div *ngIf="registerForm.controls['phoneNo'].hasError('required') && registerForm.get('phoneNo').touched" class="errormsg text-danger"> Phone No is required</div>
+                                      <div *ngIf="registerForm.controls['phoneNo'].hasError('pattern') && registerForm.get('phoneNo').touched" class="errormsg text-danger"> Invalid phone No</div>
+
                                   <br>
                                 </div>
                               </div>
 
                               <div class="col-md-6">
                                 <h2>Other Information</h2> <br> <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('bankName').errors && registerForm.get('bankName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="bankName">Bank name</label>
                                   <input class="inputbox form-control" id="bankName" type="text" name="bankName"
-                                    placeholder="Enter bank name" value="" formControlName="bankName"
-                                    [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }">
-                                  <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
-                                    <div *ngIf="f.bankName.errors.required">Bank Name is required</div>
-                                  </div>
+                                    placeholder="Enter bank name" value="" formControlName="bankName" >
+                                    <div *ngIf="registerForm.controls['bankName'].hasError('required') && registerForm.get('bankName').touched" class="errormsg text-danger">Bank Name is required</div>
+
                                 </div>
   
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('accountNo').errors && registerForm.get('accountNo').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="accountNo">Account number</label>
                                   <input class="inputbox form-control" id="accountNo" type="text" name="accountNo"
-                                    placeholder="Enter account number" value="" formControlName="accountNo"
-                                    [ngClass]="{ 'is-invalid': submitted && f.accountNo.errors }">
-                                  <div *ngIf="submitted && f.accountNo.errors" class="invalid-feedback">
-                                    <div *ngIf="f.accountNo.errors.required">Account Number is required</div>
-                                  </div>
+                                    placeholder="Enter account number" value="" formControlName="accountNo">
+                                    <div *ngIf="registerForm.controls['accountNo'].hasError('required') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Acct No is required</div>
+                                    <div *ngIf="registerForm.controls['accountNo'].hasError('pattern') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Invalid account Number</div>
+                                    <div *ngIf="registerForm.controls['accountNo'].hasError('minlength') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Acct No must be min 10 character long</div>
+
                                 </div>
                               
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('password').errors && registerForm.get('password').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
-                                  <label for="password">New password</label>
+                                  <label for="password">Password</label>
                                   <input type="password" name="password" placeholder="Enter password" value=""
-                                    class="form-control large-field" formControlName="password"
-                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                                    <div *ngIf="f.password.errors.required">Password is required</div>
-                                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
-                                    </div>
-                                  </div>
+                                    class="form-control large-field" formControlName="password">
+                                    <div  *ngIf="registerForm.controls['password'].hasError('required') && registerForm.get('password').touched" class="errormsg text-danger"> Password is required</div>
+                                    <div *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.get('password').touched" class=" errormsg text-danger"> Password must be atleast 8 character long</div>
                                 </div>
 
                                 <br>
-                                <div class="form-group">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
+                              || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}">
                                   <span class="j2store_field_required text-danger">*</span><label for="confirm">Confirm
                                     password</label>
                                   <input type="password" name="confirm" placeholder="Confirm password" value=""
                                     class="form-control large-field" formControlName="confirmPassword"
-                                    [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-                                  <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                    >
+                                    <div *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.get('confirmPassword').touched" class="errormsg text-danger">
+                                      Confirm Password is required
+                                  </div>
+                                  <div *ngIf="registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')" class="errormsg text-danger">
+                                      Confirm Password must match Password
                                   </div>
                                 </div>
 
                                 <br>
-                                <div class="form-group form-check">
+                                <div class="form-group form-check" [ngClass]="{'has-error': registerForm.get('acceptTerms').errors && registerForm.get('acceptTerms').touched}">
                                   <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
                                     <input type="checkbox" id="acceptTerms" name="acceptTerms" value=""
                                       formControlName="acceptTerms" class="form-check-input"
-                                      [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }">&nbsp;
+                                      >&nbsp;
                                     <label for="acceptTerms"> Accept our <a [routerLink]="['/terms']">
                                         <span class="text-primary">TERMS AND CONDITIONS</span></a></label>
-                                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts &
+                                    <div *ngIf="registerForm.controls['acceptTerms'].hasError('required') && registerForm.get('acceptTerms').touched" class="text-danger">Accept Ts &
                                       Cs is required</div>
                                   </div>
                                 </div>
                               </div>
 
                                 <div class="left" style="margin-left: 40%;">
-                                  <button [disabled]="submitted" class="btn btn-primary mr-1">CREATE ACCOUNT</button>
+                                  <button [disabled]="registerForm.invalid || isBusy" type="submit" class="btn btn-primary mr-1">{{isBusy ? 'Creating account...' : 'CREATE ACCOUNT'}}</button>
                                   <button class="btn btn-secondary" type="reset" (click)="onReset()">CANCEL</button>
                                   <p>Already have an account <a [routerLink]="['/login']"><span
                                         class="text-primary">LOGIN</span></a></p>
@@ -268,7 +255,7 @@
                             </div>
                           </form>
 
-                        </div> <!-- end of j2store -->
+                        </div>
                       </div>
                     </div>
                   </div>

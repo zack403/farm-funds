@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+.errormsg {
+    font-size: 12px;
+} 
+
 .sp-page-builder .page-content #section-id-1551223987391 {
     padding-top: 0px;
     padding-right: 0px;
