@@ -135,8 +135,7 @@
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="firstName">First name</label>
                                   <input class="inputbox form-control" id="firstName" type="text" name="firstName"
-                                    placeholder="Enter first name" value="" formControlName="firstName"
-                                    >
+                                    placeholder="Enter first name" value="" required formControlName="firstName">
                                     <div *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.get('firstName').touched" class="errormsg text-danger">First Name is required</div>
                                 </div>
 
@@ -195,14 +194,14 @@
                                 </div>
   
                                 <br>
-                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('accountNo').errors && registerForm.get('accountNo').touched}">
+                                <div class="form-group" [ngClass]="{'has-error': registerForm.get('acctNo').errors && registerForm.get('acctNo').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
-                                  <label for="accountNo">Account number</label>
-                                  <input class="inputbox form-control" id="accountNo" type="text" name="accountNo"
-                                    placeholder="Enter account number" value="" formControlName="accountNo">
-                                    <div *ngIf="registerForm.controls['accountNo'].hasError('required') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Acct No is required</div>
-                                    <div *ngIf="registerForm.controls['accountNo'].hasError('pattern') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Invalid account Number</div>
-                                    <div *ngIf="registerForm.controls['accountNo'].hasError('minlength') && registerForm.get('accountNo').touched" class="errormsg text-danger"> Acct No must be min 10 character long</div>
+                                  <label for="acctNo">Account number</label>
+                                  <input class="inputbox form-control" id="acctNo" type="text" name="acctNo"
+                                    placeholder="Enter account number" value="" formControlName="acctNo">
+                                    <div *ngIf="registerForm.controls['acctNo'].hasError('required') && registerForm.get('acctNo').touched" class="errormsg text-danger"> Acct No is required</div>
+                                    <div *ngIf="registerForm.controls['acctNo'].hasError('pattern') && registerForm.get('acctNo').touched" class="errormsg text-danger"> Invalid account Number</div>
+                                    <div *ngIf="registerForm.controls['acctNo'].hasError('minlength') && registerForm.get('acctNo').touched" class="errormsg text-danger"> Acct No must be min 10 character long</div>
 
                                 </div>
                               

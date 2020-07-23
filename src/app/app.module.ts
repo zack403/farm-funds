@@ -30,7 +30,6 @@ import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
-import { FieldErrorDisplayComponent } from './components/auth/field-error-display/field-error-display.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
@@ -72,7 +71,6 @@ export function tokenGetter() {
     TermsComponent,
     PackagesComponent,
     ResetPasswordComponent,
-    FieldErrorDisplayComponent,
     UserProfileComponent
   ],
   imports: [

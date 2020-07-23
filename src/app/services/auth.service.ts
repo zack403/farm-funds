@@ -17,18 +17,18 @@ export class AuthService {
     private router : Router) { }
 
   signup(model: any): Observable<any> {
-    return this.httpService.post('signup', model)
+    return this.httpService.post('auth/register', model)
       .pipe(tap(res => {
         return res;
       }));
   }
   
     login(model: any) {
-      return this.httpService.post('login', model)
+      return this.httpService.post('auth/login', model)
         .pipe(tap(async (res: any) => {
           console.log(res);
-          if(res){
-            
+          if(res.data){
+            localStorage.setItem("authData", JSON.stringify(res.data));            
             return res;
           }
         }));
