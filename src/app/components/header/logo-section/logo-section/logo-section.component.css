@@ -1,3 +1,57 @@
+.btn-div {
+  margin-left: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+.sign-up {
+  text-align: initial;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  line-height: 46px;
+  border-top: 2px solid #ebb40e;
+  border-right: 2px solid #ebb40e;
+  border-bottom: 2px solid #ebb40e;
+  border-left: 2px solid #ebb40e;
+  font-size: 14px;
+  background: #ebb40e;
+  color: #ffffff;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-family: Raleway;
+  margin-left: 10px;
+}
+.sign-up:hover {
+  background-color:transparent;
+  color:#ebb40e;
+}
+.sign-in {
+  text-align: initial;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  line-height: 46px;
+  font-size: 14px;
+  border-top: 2px solid green;
+  border-right: 2px solid green;
+  border-bottom: 2px solid green;
+  border-left: 2px solid green;
+  background: green;
+  color: #fff;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-family: Raleway;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.sign-in:hover {
+  background-color:transparent;
+  color:green;
+}
 /* .sp-page-builder .page-content #section-id-1551320575334 {
     padding-top: 70px;
     padding-right: 0px;

@@ -95,11 +95,11 @@ a:hover, a:focus, a:active {
 .offcanvas-menu .offcanvas-inner .sp-module ul > li ul li a {
   color: rgba(37, 37, 37, 0.8);
 }
-.btn-primary, .sppb-btn-primary {
+.sppb-btn-primary {
   border-color: green;
   background-color: green;
 }
-.btn-primary:hover, .sppb-btn-primary:hover {
+.sppb-btn-primary:hover {
   border-color: green;
   background-color: transparent;
 }
