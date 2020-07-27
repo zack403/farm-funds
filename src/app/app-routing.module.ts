@@ -42,7 +42,7 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'profile', canActivate: [AuthGuard], component: UserProfileComponent},
+  {path: 'profile', component: UserProfileComponent},
   {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];
