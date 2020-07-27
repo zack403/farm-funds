@@ -27,17 +27,13 @@ export class LoginComponent implements OnInit {
     onSubmit() {
       this.isBusy = true;
       this.authSvc.login(this.loginForm.value).subscribe(res => {
-        console.log(res);
         this.isBusy = false;
-        this.toasterSvc.Success("Login successful, Redirecting...");
+        this.toasterSvc.Success("Login successful.");
         this.loginForm.reset();
         this.router.navigateByUrl("profile");
-      }, ({error}) => {
-            this.isBusy = false;
+      }, (error) => {
             console.log(error);
-            if(error.error) {
-            this.toasterSvc.Error(error.error);
-          }
+            this.isBusy = false;
       })
   }
 

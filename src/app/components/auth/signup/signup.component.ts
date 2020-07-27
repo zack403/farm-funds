@@ -45,12 +45,9 @@ export class SignupComponent implements OnInit {
            this.toasterSvc.Success(res.message);
            this.registerForm.reset();
            this.router.navigateByUrl("login");
-      }, ({error}) => {
+      }, (error) => {
            this.isBusy = false;
            console.log(error);
-           if(error.error) {
-            this.toasterSvc.Error(error.error);
-           }
       })
     }
 

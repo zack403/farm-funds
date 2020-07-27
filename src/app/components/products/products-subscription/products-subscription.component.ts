@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-products-subscription',
@@ -12,15 +13,20 @@ export class ProductsSubscriptionComponent implements OnInit {
   searchValue = "";
   nomatch: boolean = false;
   clonedFoodSubs: Array<any>;
-  constructor(private prodSvc: ProductsService, private router : Router) { }
+  constructor(private prodSvc: ProductsService, private router : Router, private authSvc: AuthService) { }
 
   ngOnInit() {
     this.foodSubs = this.prodSvc.getFoodList();
     this.clonedFoodSubs = this.foodSubs;
   }
 
-  goToDetail(id) {
-    this.router.navigate(["/food-shop-detail", {id: JSON.stringify(id), sub: true}]);
+  subscribeToAPackage(id) {
+    if(this.authSvc.isLoggedIn()){
+      this.router.navigate(["/food-shop-detail", {id: JSON.stringify(id), sub: true}]);
+    }
+    else {
+      this.router.navigateByUrl("login");
+    }
   }
 
   search(value) {      

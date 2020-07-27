@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare var jQuery;
 @Component({
@@ -8,10 +9,11 @@ declare var jQuery;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authSvc: AuthService) { }
 
   ngOnInit() {
-
+      
+        this.authSvc.logout();
         jQuery("#layerslider_1").layerSlider({
           createdWith: '6.6.053',
           sliderVersion: '6.6.053',

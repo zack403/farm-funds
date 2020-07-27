@@ -31,13 +31,14 @@ import { TermsComponent } from './components/terms/terms.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
 import { ToasterService } from './services/toaster.service';
 import { AuthGuard } from './guards/auth.guard';
 import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
+import { ErrorInterceptor } from './interceptor/error.interceptor';
 
 
 
@@ -82,7 +83,10 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      progressBar: true
+    }),
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -94,7 +98,8 @@ export function tokenGetter() {
   providers: [
     ToasterService,
     AuthGuard,
-    PreventUnsavedChanges
+    PreventUnsavedChanges,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

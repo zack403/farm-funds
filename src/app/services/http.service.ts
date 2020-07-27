@@ -30,7 +30,7 @@ export class HttpService {
   }
   
   put(endPoint: string, data: any) {
-    return this.http.put(this.baseUrl + endPoint, JSON.stringify(data));
+    return this.http.put(this.baseUrl + endPoint, JSON.stringify(data), this.requestHeaders());
   }
 
   delete(endPoint: string) {

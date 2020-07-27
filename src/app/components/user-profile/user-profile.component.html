@@ -80,7 +80,7 @@
                                                                                 <span class="user-name">{{currentUser.fullName}}</span>
                                                                                 </button>
                                                                                 <button class="dropdown-item text-success" type="button"><a
-                                                                                    [routerLink]="['/user-profile']">Veiw Profile</a></button>
+                                                                                    [routerLink]="['/user-profile']">View Profile</a></button>
                                                                                 <div class="dropdown-divider"></div>
                                                                               <button class="dropdown-item" type="button"><i class="icon icon-exit"></i> <a
                                                                                 class="text-danger" (click)="logout()">Log Out</a></button>
@@ -113,7 +113,7 @@
             <div class="sp-column ">
                 <div class="sp-page-title" style="background-image: url(assets/images/background/inner-banner-bg.jpg);">
                     <div class="container">
-                        <h2 class="sp-page-title-heading">User Profile</h2>
+                        <h2 class="sp-page-title-heading">Profile Insights</h2>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,10 @@
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
                                                         <h1 class="sppb-addon-title">User <span
-                                                                class="text-primary">Dashboard</span></h1>
+                                                                class="text-primary">Dashboard </span>
+                                                                <small style="text-transform: none;">You are currently on <b>{{dashboardData?.count}}</b> Farm Investments.</small>
+                                                                <span [innerHTML]="emoji"></span>
+                                                            </h1>
                                                         <div class="sppb-addon-content">
                                                             <div class="text">
                                                                 <div class="row">
@@ -147,7 +150,7 @@
                                                                         class="card bg-success text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Farm Investment</span>
-                                                                            <h2>100,000</h2><br>
+                                                                            <h2>{{dashboardData?.totalInv | currency: '&#8358; '}}</h2><br>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
                                                                                 <small>
@@ -163,7 +166,7 @@
                                                                         class="card bg-info text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total ROI</span>
-                                                                            <h2>25,000</h2><br>
+                                                                            <h2>{{dashboardData?.totalRoi | currency: '&#8358; '}}</h2><br>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
                                                                                 <small>
@@ -179,7 +182,7 @@
                                                                         class="card bg-warning text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Gain</span>
-                                                                            <h2>125,000</h2><br>
+                                                                            <h2>{{dashboardData?.totalGain | currency: '&#8358; '}}</h2><br>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
                                                                                 <small>
@@ -196,8 +199,7 @@
                                                                         <blockquote class=" mb-0">
                                                                             <span><i class="fas fa-sign-out-alt"></i> My Wallet </span>
                                                                             <h2>300,000</h2>
-                                                                            <span
-                                                                            class="badge badge-primary"><a [routerLink]="['/login']">Deposit</a></span>
+                                                                            <button style="cursor: pointer;" class="badge badge-success"><a (click)="deposit()">Fund</a></button>
                                                                             <footer
                                                                                 class="blockquote-footer">
                                                                                 <small>
@@ -228,9 +230,9 @@
                                                 <div id="sppb-addon-1551573988978" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
                                                         <h1 class="sppb-addon-title">Current <span
-                                                                class="text-primary">Farm</span></h1>
+                                                                class="text-primary">Farm ({{dashboardData?.count}})</span></h1>
                                                         <div class="input-group pull-right">
-                                                            <a [routerLink]="['/packages']"> <input class="p-button"
+                                                            <a (click)="openModal('newfarm')"> <input class="p-button"
                                                                     style="cursor: pointer;" type="submit"
                                                                     value="New Farm"></a>
                                                         </div>
@@ -244,8 +246,8 @@
                                                                 <table class="table table-bordered">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th scope="col">No</th>
-                                                                            <th scope="col">Plan</th>
+                                                                            <th scope="col">S/N</th>
+                                                                            <th scope="col">Package</th>
                                                                             <th scope="col">Unit</th>
                                                                             <th scope="col">Amount</th>
                                                                             <th scope="col">ROI</th>
@@ -255,16 +257,16 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <th scope="row">1</th>
-                                                                            <td>Goat Farm</td>
-                                                                            <td>1</td>
-                                                                            <td>120,000</td>
-                                                                            <td>20%</td>
-                                                                            <td>07-02-2020</td>
-                                                                            <td>06-01-2021</td>
+                                                                        <tr *ngFor="let item of dashboardData?.rows">
+                                                                            <th scope="row">{{index}}</th>
+                                                                            <td>{{item.package}}</td>
+                                                                            <td>{{item.unit}}</td>
+                                                                            <td>{{item.amount | currency: '&#8358; '}}</td>
+                                                                            <td>{{item.roi | currency: '&#8358; '}}</td>
+                                                                            <td>{{item.startDate | date: "mediumDate"}}</td>
+                                                                            <td>{{item.endDate | date: "mediumDate"}}</td>
                                                                             <td><span
-                                                                                    class="badge badge-success">Active</span>
+                                                                                  [ngClass]="{'badge badge-success': item.status === 'active', 'badge badge-warning': item.status === 'pending'}">{{item.status}}</span>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -292,12 +294,18 @@
                                                 <div id="sppb-addon-1551573988978" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
                                                         <h1 class="sppb-addon-title">Foods <span
-                                                                class="text-primary">Purchase</span></h1>
-                                                        <div class="input-group pull-right">
-                                                            <a [routerLink]="['/products-list']"> <input
-                                                                    class="p-button" style="cursor: pointer;"
-                                                                    type="submit" value="Purchase"></a>
-                                                        </div>
+                                                                class="text-primary">Purchase ({{purchases?.count}})</span></h1>
+                                                            <div class="input-group pull-right">
+                                                                <a (click)="openModal('purchase')"> <input
+                                                                        class="p-button" style="cursor: pointer;"
+                                                                        type="submit" value="Shop Food"></a>
+                                                            </div>
+                                                            <div class="input-group pull-right">
+                                                                <a (click)="openModal('subscribe')"> <input
+                                                                        class="p-button" style="cursor: pointer;"
+                                                                        type="submit" value="Subscribe to a food"></a>
+                                                            </div>
+                                                            
                                                         <div class="sppb-addon-content"></div>
                                                     </div>
                                                 </div>
@@ -308,7 +316,7 @@
                                                                 <table class="table table-bordered">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th scope="col">No</th>
+                                                                            <th scope="col">S/N</th>
                                                                             <th scope="col">Product</th>
                                                                             <th scope="col">Amount</th>
                                                                             <th scope="col">Type</th>
@@ -317,15 +325,15 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        <tr>
-                                                                            <th scope="row">1</th>
-                                                                            <td>Rice</td>
-                                                                            <td>20,000</td>
-                                                                            <td>Bag</td>
-                                                                            <td>07-02-2020</td>
+                                                                        <tr *ngFor="let i of purchases?.rows">
+                                                                            <th scope="row">{{index}}</th>
+                                                                            <td>{{i.product}}</td>
+                                                                            <td>{{i.amount}}</td>
+                                                                            <td>{{i.type}}</td>
+                                                                            <td>{{i.createdAt}}</td>
                                                                             <td><span
-                                                                                    class="badge badge-warning">Pending</span>
-                                                                            </td>
+                                                                                [ngClass]="{'badge badge-success': item.status === 'active', 'badge badge-warning': item.status === 'pending'}">{{item.status}}</span>
+                                                                          </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -359,39 +367,38 @@
                                                                     <div class="checkout-content" style="display: block;">
                                                                       <div id="akeeba-renderjoomla">
                                                                         <div class="j2store">
-                                                                          <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                                                                          <form name="editform">
                                                                             <div class="form-row">
                                                                               <div class="col-md-6">
-                                                                                <h2>Update Profile</h2><br>
+                                                                                <h2>Edit Profile</h2><br>
                                                 
                                                                                 <div class="form-group">
                                                                                   <label for="firstName">First name</label>
-                                                                                  <input class="inputbox form-control" id="firstName" type="text" name="firstName" value="">
+                                                                                  <input class="inputbox form-control" id="firstName" [(ngModel)]="userData.firstName" type="text" name="firstName">
                                                                                 </div>
                                                 
                                                                                 <br>
                                                                                 <div class="form-group">
                                                                                   <label for="lastName">Last name</label>
-                                                                                  <input class="inputbox form-control" id="lastName" type="text" name="lastName" value="">
+                                                                                  <input class="inputbox form-control" id="lastName" [(ngModel)]="userData.lastName" type="text" name="lastName">
                                                                                 </div>
 
                                                                                 <br>
                                                                                 <div class="form-group">
-                                                                                  <label for="otherName">Other name</label>
-                                                                                  <input class="inputbox form-control" id="otherName" type="text" name="otherName" value="">
+                                                                                  <label for="middleName">Middle name</label>
+                                                                                  <input class="inputbox form-control" id="middleName" [(ngModel)]="userData.middleName" type="text" name="middleName" >
                                                                                 </div>
                                                 
                                                                                 <br>
                                                                                 <div class="form-group">
                                                                                   <label for="email">Email</label>
-                                                                                  <input class="inputbox form-control" id="email" type="text" name="email"
-                                                                                    value="">
+                                                                                  <input class="inputbox form-control" [(ngModel)]="userData.email" id="email" type="text" name="email">
                                                                                 </div>
                                                 
                                                                                 <br>
                                                                                 <div class="form-group">
                                                                                   <label for="phone">Phone no.</label>
-                                                                                  <input class="inputbox form-control" id="phone" type="text" name="phone" value="">
+                                                                                  <input class="inputbox form-control" id="phone" [(ngModel)]="userData.phoneNo" type="text" name="phone">
                                                                                   <br>
                                                                                 </div>
                                                                               </div>
@@ -400,7 +407,7 @@
                                                                                 <h2>Bank Details</h2><br>
                                                                                 <div class="form-group">
                                                                                   <label for="bankName">Bank Name</label>
-                                                                                  <input type="text" id="bankName" name="bankName" value="">
+                                                                                  <input type="text" id="bankName" name="bankName" [(ngModel)]="userData.bankName">
                                                                                 </div>
                                                 
                                                                                 <br>
@@ -408,22 +415,15 @@
                                                                                 <br>
                                                                                 <div class="form-group">
                                                                                     <div class="form-group">
-                                                                                        <label for="bankName">Account Number</label>
-                                                                                        <input type="password" id="bankName" name="bankName" value="">
+                                                                                        <label for="acctNo">Account Number</label>
+                                                                                        <input type="text" id="acctNo" [(ngModel)]="userData.acctNo" name="acctNo" >
                                                                                       </div>
-                                                                                </div>
-
-                                                                                <br>
-                                                                                <div class="form-group">
-                                                                                  <label for="phone">password</label>
-                                                                                  <input type="password" name="password" value=""
-                                                                                    class="form-control large-field">
                                                                                 </div>
                                                                               </div>
                                                                               
                                                                               <br>
                                                                                   <div class="mr-5" style="margin-left: 40%;">
-                                                                                    <button class="btn btn-primary mr-1">UPDATE PROFILE</button>
+                                                                                    <button [disabled]="isBusy" (click)="updateProfile()" class="btn btn-primary mr-1">{{isBusy ? 'Updating...' : 'UPDATE'}}</button>
                                                                                   </div>
                                                                             </div>
                                                                           </form>
@@ -448,3 +448,28 @@
         </main>
     </div>
 </section>
+
+
+<!-- modal begin -->
+<span hidden id="newfarm" data-toggle="modal" data-target="#staticBackdrop"></span>
+<span hidden id="purchase" data-toggle="modal" data-target="#staticBackdrop"></span>
+<span hidden id="subscribe" data-toggle="modal" data-target="#staticBackdrop"></span>
+
+
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div style="margin-top: -40px; padding-right: 10px;" class="pull-right">
+                <button class="btn btn-danger" data-dismiss="modal"><span class="fa fa-remove"></span>
+                    Close</button>
+            </div>
+
+            <app-packages *ngIf="pck"></app-packages>
+            <app-products-list *ngIf="pl"></app-products-list>
+            <app-products-subscription *ngIf="sub"></app-products-subscription>
+
+      </div>
+    </div>
+  </div>
+<!-- end modal -->

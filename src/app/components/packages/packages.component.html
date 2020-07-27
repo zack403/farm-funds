@@ -19,409 +19,63 @@
           <div class="sp-column ">
               <div class="container text-center">
                 <h2 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
-                <small class="text-primary">Here are our farm packages.</small>
+                <small class="text-primary">Subscribing/Investing on any of our farm packages means you get a profit which is your return on investment after some certain days...</small>
               </h2>
               </div>
             <div id="akeeba-renderjoomla">
 
               <div itemscope itemtype="https://schema.org/BreadCrumbList"
-                class="j2store-product-list bs3"
-                data-link="/realgarden/index.php/shop/shop-products">
-
-
-
+                class="j2store-product-list bs3">
                 <div class="row">
                   <div class="col-sm-12">
-                    <!-- Make sure product is enabled and visible @front end -->
                     <div class="j2store-products-row row-0 row">
-                      <div class="col-sm-3">
+                      <div *ngFor="let item of packagesList" class="col-sm-3">
                         <div itemprop="itemListElement" itemscope=""
                           itemtype="https://schema.org/Product"
                           class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
                           <div class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
+                                <img itemprop="image" alt="{{item.packageName}}"
+                                  title="{{item.packageName}}"
                                   class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/shop/pig.JPG" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
+                                  src="{{item.packageImage}}" />                              
                             </div>
                           </div>
                           <div class="content-box">
                             <div class="inner-box">
                               <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  PIG FARM </a>
+                                <a 
+                                  title="{{item.packageName}}">
+                                  {{item.packageName}}</a>
                               </h2>
                               <div itemprop="offers" itemscope
                                 itemtype="https://schema.org/Offer"
                                 class="product-price-container">
                                 <div class="sale-price">
-                                  <span>Profit: 30%</span>
+                                  <span>Profit: {{item.profit}}%</span>
                                 </div><br>
                                 <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">270 Days</span></p>
+                                  <p>Farm Cycle: <span class="sale-price">{{item.cycle}} Days</span></p>
                                 </div><br>
                                 <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Ijebu ode</span></p>
+                                  <p>Location: <span class="sale-price">{{item.location}}</span></p>
                                 </div><br>
                                 <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">749</span></p>
+                                  <p>Unit Available: <span class="sale-price">{{item.unit ? item.unit : 'Sold Out'}}</span></p>
                                 </div><br>
                               </div>
                             </div>
                             <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
+                              <a><button [disabled]="item.unit === 0" class="btn btn-buy" (click)="subscribeToAPackage()"> <i
                                 class="fa fa-shopping-cart"></i> Subscribe </button></a>
                             </div>
                           </div>
-
-                          <!-- QUICK VIEW OPTION -->
-                        </div>
-                      </div>
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope=""
-                          itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
-                                  class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/chicken.JPG" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  CHICKEN FARM </a>
-                              </h2>
-                              <div itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <span>Profits: 20%</span>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">120 Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Ilorin</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">Sold out</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
-                                class="fa fa-shopping-cart"></i> Subscribe </button></a>
-                            </div>
-                          </div>
-
-                          <!-- QUICK VIEW OPTION -->
-                        </div>
-                      </div>
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope=""
-                          itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
-                                  class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/shop/turkey.JPG" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  TURKEY FARM </a>
-                              </h2>
-                              <div itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <span>Profits: 23%</span>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">150 Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Ilaro</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">847</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
-                                class="fa fa-shopping-cart"></i> Subscribe </button></a>
-                            </div>
-                          </div>
-
-                          <!-- QUICK VIEW OPTION -->
-                        </div>
-                      </div>
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope=""
-                          itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
-                                  class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/shop/goat.JPG" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  GOAT FARM </a>
-                              </h2>
-                              <div itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <span>Profit: 38%</span>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">240 Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Ilaro</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">4182</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
-                                class="fa fa-shopping-cart"></i> Subscribe </button></a>
-                            </div>
-                          </div>
-
-                          <!-- QUICK VIEW OPTION -->
-                        </div>
-                      </div>
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope=""
-                          itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
-                                  class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/big-farm.jpeg" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  MECHANIZED PROCESSING FARM </a>
-                              </h2>
-                              <div itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <span>Profit: 50%</span>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">360 Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Lagos</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">Sold out</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
-                                class="fa fa-shopping-cart"></i> Subscribe </button></a>
-                            </div>
-                          </div>
-
-                          <!-- QUICK VIEW OPTION -->
-                        </div>
-                      </div>
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope=""
-                          itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <a href="shop-products/the-innovators.html">
-                                <img itemprop="image" alt="The Innovators"
-                                  title="The Innovators"
-                                  class="j2store-img-responsive j2store-product-thumb-image-1"
-                                  src="assets/images/fish.JPG" />
-                              </a>
-                              <figcaption class="overlay">
-                                <div class="box">
-                                  <div class="content">
-                                    <a
-                                    [routerLink]="['/signup']"><i
-                                        class="fa fa-link"
-                                        aria-hidden="true"></i></a>
-                                  </div>
-                                </div>
-                              </figcaption>
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a itemprop="url"
-                                  href="shop-products/the-innovators.html"
-                                  title="The Innovators">
-                                  FISH FARM </a>
-                              </h2>
-                              <div itemprop="offers" itemscope
-                                itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <span>Profit: 27.5%</span>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">180 Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">Odogbolu</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span class="sale-price">Sold out</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button class="btn btn-buy" [routerLink]="['/signup']"> <i
-                                class="fa fa-shopping-cart"></i> Subscribe </button></a>
-                            </div>
-                          </div>
-
-                          <!-- QUICK VIEW OPTION -->
                         </div>
                       </div>
                     </div>
-
-                    <!-- <form id="j2store-pagination" name="j2storepagination"
-                      action="http://demo.joomlabuff.com/realgarden/index.php/shop/shop-products?filter_catid="
-                      method="post">
-                      <input type="hidden" name="option" value="com_j2store" /> <input
-                        type="hidden" name="view" value="products" /> <input
-                        type="hidden" name="task" id="task" value="browse" /> <input
-                        type="hidden" name="boxchecked" value="0" /> <input
-                        type="hidden" name="filter_order" value="" /> <input
-                        type="hidden" name="filter_order_Dir" value="" /> <input
-                        type="hidden" name="filter_catid" value="" />
-                      <input type="hidden" name="f18ac3a8962039877f96f1c75363fa69"
-                        value="1" />
-                      <div class="pagination">
-                        <ul class="pagination">
-                          <li class="page-item active"><a class="page-link">1</a>
-                          </li>
-                          <li class="page-item"><a class="page-link "
-                              href="shop-products0765.html?start=9"
-                              title="2">2</a></li>
-                          <li class="page-item"><a class="page-link next"
-                              href="shop-products0765.html?start=9"
-                              title="&raquo;">&raquo;</a></li>
-                          <li class="page-item"><a class="page-link "
-                              href="shop-products0765.html?start=9"
-                              title="End">End</a></li>
-                        </ul>
-                      </div>
-                    </form> -->
-
                   </div>
-
-                </div> <!-- end of row-fluid -->
-              </div> <!-- end of product list -->
+                </div>
+              </div> 
             </div>
           </div>
         </main>

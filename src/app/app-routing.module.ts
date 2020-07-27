@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'faqs', component: FaqsComponent},
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'food-shop', component: ProductsListComponent},
-  {path: 'food-subscription', canActivate: [AuthGuard], component: ProductsSubscriptionComponent},
+  {path: 'food-subscription',  component: ProductsSubscriptionComponent},
   {path: 'food-shop-detail', component: ProductDetailComponent},
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'checkout', component: CheckoutComponent},
@@ -39,7 +39,7 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'terms', component: TermsComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'packages', canActivate: [AuthGuard], component: PackagesComponent},
+  {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'profile', canActivate: [AuthGuard], component: UserProfileComponent},
@@ -48,7 +48,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
