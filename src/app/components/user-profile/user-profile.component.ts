@@ -97,7 +97,6 @@ export class UserProfileComponent implements OnInit {
                 that.toastr.Success(`Deposit Successful, your transaction reference is ${response.reference}`);
             },
             onClose: function(){
-                alert('You may want to complete your payment.');
             }
           });
           handler.openIframe(); 
