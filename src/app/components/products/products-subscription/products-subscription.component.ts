@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./products-subscription.component.css']
 })
 export class ProductsSubscriptionComponent implements OnInit {
+  @Input() shouldShow : boolean = true;
   foodSubs: Array<any>;
   searchValue = "";
   nomatch: boolean = false;

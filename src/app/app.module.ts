@@ -39,6 +39,9 @@ import { ToasterService } from './services/toaster.service';
 import { AuthGuard } from './guards/auth.guard';
 import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule,  SPINNER,
+  POSITION,
+  PB_DIRECTION , NgxUiLoaderHttpModule  } from 'ngx-ui-loader';
 
 
 
@@ -83,6 +86,21 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxUiLoaderModule.forRoot({
+      bgsColor: 'green',
+      bgsPosition: POSITION.bottomCenter,
+      bgsSize: 40,
+      bgsType: SPINNER.rectangleBounce, // background spinner type
+      fgsColor: 'green',
+      fgsType: SPINNER.ballScaleMultiple, // foreground spinner type
+      pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
+      pbColor: 'green',
+      masterLoaderId: 'master',
+    }),
+    NgxUiLoaderRouterModule.forRoot({
+      loaderId: 'master'
+    }),
+    NgxUiLoaderHttpModule.forRoot({showForeground: true}),
     ToastrModule.forRoot({
       preventDuplicates: true,
       progressBar: true

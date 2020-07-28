@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,6 +9,7 @@ declare var jQuery;
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+  @Input() shouldShow : boolean = true;
   foodList: Array<any>;
   searchValue = "";
   clonedfoodList : Array<any>;

@@ -1,26 +1,29 @@
 <div class="site helix-ultimate com-j2store view-products layout-default task-view itemid-135">
-  <section id="sp-section-4">
+  <section *ngIf="shouldShow" id="sp-section-4">
     <div class="row">
       <div id="sp-title" class="col-lg-12 ">
         <div class="sp-column ">
           <div class="sp-page-title"
             style="background-image: url(../../../../../assets/images/background/inner-banner-bg.jpg);">
             <div class="container">
-              <h2 class="sp-page-title-heading">Food Subscription</h2>
+              <h2 class="sp-page-title-heading">Food Subscription
+                <p>
+                  Subscribe to our food plan and never run out of food again.
+                </p>
+              </h2>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div class="text-center">
-    <p style="margin-top: 25px;" class="text-primary">
-      Subscribe to our food plan and never run out of food again.
-    </p>
-  </div>
-
   <section id="sp-main-body">
     <div class="container">
+      <h2 *ngIf="!shouldShow" class="sp-page-title-heading">Food Subscription
+        <p>
+          By clicking on buy, you are saying you want us to keep supplying you the food for said the duration.
+        </p>
+      </h2>
       <div class="container-inner">
         <div class="row">
           <main id="sp-component" class="col-lg-8 " role="main">

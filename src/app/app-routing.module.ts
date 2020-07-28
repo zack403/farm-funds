@@ -21,6 +21,8 @@ import { TeamComponent } from './components/team/team.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ProfileDataService } from './resolvers/profile-data.service';
+import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -42,7 +44,7 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'profile', component: UserProfileComponent},
+  {path: 'profile', canActivate: [AuthGuard], canDeactivate: [PreventUnsavedChanges], component: UserProfileComponent, resolve: {user: ProfileDataService}},
   {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];

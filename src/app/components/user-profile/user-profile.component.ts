@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { ProfileService } from 'src/app/services/profile.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToasterService } from 'src/app/services/toaster.service';
 
 declare var PaystackPop: any;
@@ -15,8 +15,6 @@ declare var PaystackPop: any;
 })
 export class UserProfileComponent implements OnInit {
   @ViewChild('editForm')  editForm: NgForm;
-  loggedIn: boolean;
-  currentUser: User;
   userData: User;
   dashboardData: any;
   purchases: any;
@@ -25,65 +23,52 @@ export class UserProfileComponent implements OnInit {
   emoji = '&#128591;&#127999';
   isBusy: boolean = false;
   sub: boolean = false;
+  myWallet: number = 0;
 
   constructor(private authSvc: AuthService, private router: Router, 
     private profileSvc: ProfileService,
-    private toastr: ToasterService) { }
+    private toastr: ToasterService,
+    private route: ActivatedRoute) { }
+
 
   ngOnInit() {
-    this.loggedIn = this.authSvc.isLoggedIn();
-    this.currentUser = this.authSvc.getCurrentUserData();
-    this.onLoad();
+    const result = this.route.snapshot.data.user;
+    this.userData = result[0].data;
+    this.dashboardData = result[1].investments;
+    this.purchases = result[1].purchases;
   }
 
-  logout() {
-    this.authSvc.logout();
-  }
 
-  getUser(){
-    this.profileSvc.getMyDetails(this.currentUser.id).subscribe((res: any ) => {
-      this.userData = res.data;
-      console.log("userdt", this.userData);
-    }, error => {
-      console.log("userdt", error);
-    })
-  }
-
-  getDashDta() {
-    this.profileSvc.getDashboardData(this.currentUser.id).subscribe((res: any) => {
-      console.log("dash", res);
-      this.dashboardData = res.investments;
-      this.purchases = res.purchases;
-    }, err => {
-      console.log("dasherr", err);
-    })
-  }
-
-  openModal(val) {
-    if(val === 'newfarm'){
-      document.getElementById(val).click();
+  openModal(type) {
+    document.getElementById('util').classList.add('modal-lg');
+    if(type === 'newfarm'){
+      document.getElementById(type).click();
       this.pl = false;
       this.pck = true;
       this.sub = false;
     }
-    else if (val === 'subscribe') {
-      document.getElementById(val).click();
+    else if (type === 'subscribe') {
+      document.getElementById(type).click();
       this.pl = false;
       this.pck = false
       this.sub = true;
     }
-    else {
-      document.getElementById(val).click();
+    else if(type === 'purchase') {
+      document.getElementById(type).click();
       this.pck = false;
       this.pl = true;
       this.sub = false;
     }
+    else {
+      this.pl = false;
+      this.pck = false;
+      this.sub = false;
+      document.getElementById('util').classList.remove('modal-lg');
+      document.getElementById('util').classList.add('modal-sm');
+      document.getElementById(type).click();
+    }
   }
 
-  onLoad(){
-    this.getDashDta();
-    this.getUser();
-  }
 
   updateProfile() {
     this.isBusy = true;
@@ -96,14 +81,14 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
-  deposit() {
+  deposit(amt) {
     const that = this;
     const {email, firstName, lastName} = this.authSvc.getCurrentUserData();
       try {
           var handler = PaystackPop.setup({
             key: 'pk_test_801d715bb68f121b21aac949a0f65b3a93dfb3d0',
             email: email,
-            amount: 150000,
+            amount: amt*100,
             currency: "NGN",
             firstname: firstName,
             lastname: lastName,
@@ -119,7 +104,10 @@ export class UserProfileComponent implements OnInit {
       } catch (error) {
         console.log("PayStackError",error);
       }
+  }
 
+  logout() {
+    this.authSvc.logout();
   }
 
 }

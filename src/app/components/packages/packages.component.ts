@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Package } from 'src/app/models/packages.model';
 import { PackagesService } from 'src/app/services/packages.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class PackagesComponent implements OnInit {
   packagesList: Array<Package>;
+  @Input() shouldShow : boolean = true;
+
 
 
   constructor(private pckSvc: PackagesService, private authSvc: AuthService, private router: Router) { }
