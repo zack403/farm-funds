@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   isBusy = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    private authSvc: AuthService, private toasterSvc: ToasterService) {}
+    private authSvc: AuthService, private toasterSvc: ToasterService, private loginCmpt: LoginComponent) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -43,8 +44,16 @@ export class SignupComponent implements OnInit {
            console.log(res);
            this.isBusy = false;
            this.toasterSvc.Success(res.message);
+          
+           //log user in upon successful registration
+           const model = {
+             email: this.registerForm.value.email,
+             password: this.registerForm.value.password
+           }
+
            this.registerForm.reset();
-           this.router.navigateByUrl("login");
+           this.loginCmpt.onSubmit(model);
+           
       }, (error) => {
            this.isBusy = false;
            console.log(error);

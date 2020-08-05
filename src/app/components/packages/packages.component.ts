@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class PackagesComponent implements OnInit {
   packagesList: Array<Package>;
   @Input() shouldShow : boolean = true;
+  isBusy: boolean;
 
 
 
@@ -21,9 +22,15 @@ export class PackagesComponent implements OnInit {
     this.packagesList = this.pckSvc.getPackages();
   }
 
+  onSubmit() {
+    this.isBusy = true;
+  }
+
   subscribeToAPackage() {
+    return       document.getElementById('unit').click(); 
+
     if(this.authSvc.isLoggedIn()){
-      console.log("loggedIn");
+      document.getElementById('unit').click(); 
     }
     else {
       this.router.navigateByUrl("login");

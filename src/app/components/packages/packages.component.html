@@ -81,3 +81,26 @@
     </div>
   </div>
 </section>
+
+<span hidden id="unit" data-toggle="modal" data-target="#staticBackdrop"></span>
+
+
+
+  <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+    <div id="util" class="modal-dialog modal-sm modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-body">
+
+
+            <div >
+                <label>Unit</label>
+                <input [(ngModel)]="unit" placeholder="Enter unit" required type="number" class="form-control">
+            </div>
+
+      </div>
+      <div *ngIf="!pck && !pl && !sub" class="modal-footer">
+        <button type="button" (click)="onSubmit(unit)" [disabled]="!unit" data-dismiss="modal" class="btn btn-primary">SUBMIT</button>
+      </div>
+    </div>
+  </div>
+<!-- end modal -->

@@ -117,6 +117,7 @@ export function tokenGetter() {
     ToasterService,
     AuthGuard,
     PreventUnsavedChanges,
+    LoginComponent,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
