@@ -1087,10 +1087,10 @@ content: "\f10d";
 
 input:focus, textarea:focus {box-shadow: none !important;}
 
-.product-qty input[type="text"], .product-qty input[type="number"],
-.product-qty input[type="text"]:focus, .product-qty input[type="number"]:focus {
+.product input[type="text"], .product input[type="number"],
+.product input[type="text"]:focus, .product input[type="number"]:focus {
 	display: inline;
-	width: 70px !important;
+	width: 105px !important;
 	margin-right: 20px;
 	background-color: #fff;
 	background-image: none;
@@ -1098,9 +1098,9 @@ input:focus, textarea:focus {box-shadow: none !important;}
 	border-radius: 0 !important;
 	box-shadow: none;
 	color: #272727;
-	font-size: 18px;
+	font-size: 12px;
 	font-weight: 500;
-	height: 50px;
+	height: 25px;
 	padding: 6px 0 8px !important;
 	text-align: center;
 }
@@ -1460,7 +1460,7 @@ padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;
 margin-left: auto;}}
-@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1177px;width: 100%;
+@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1339px;width: 100%;
 padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;

@@ -20,167 +20,22 @@
   <section id="sp-main-body">
     <div class="container">
       <h2 *ngIf="!shouldShow" class="sp-page-title-heading">Food Subscription
-        <p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, magni fugiat saepe, totam quae id cum ipsam, aspernatur perferendis iure cupiditate molestiae tempore blanditiis vero culpa? Iure quo repellat non!
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi provident consequatur molestias similique quaerat quos adipisci error ipsa ea nemo exercitationem hic, ut consectetur maiores tenetur! Ducimus minima quam tempora.
           By clicking on buy, you are saying you want us to keep supplying you the food for said the duration.
         </p>
-      </h2>
-      <div class="container-inner">
         <div class="row">
-          <main id="sp-component" class="col-lg-8 " role="main">
-            <div class="sp-column ">
-              <div id="system-message-container">
-              </div>
-              <div id="akeeba-renderjoomla">
-
-                <div itemscope class="j2store-product-list bs3">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <!-- Make sure product is enabled and visible @front end -->
-                      <div *ngIf="!nomatch" class="j2store-products-row row-0 row">
-                        <div class="col-sm-4" *ngFor="let p of foodSubs">
-                          <div itemprop="itemListElement"
-                            class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-
-                            <div class="j2store-product-images">
-
-                              <div class="j2store-thumbnail-image">
-
-                                <a style="cursor: pointer;" (click)="subscribeToAPackage(p?.id)">
-
-                                  <img itemprop="image" alt="{{p?.foodName}}" title="{{p?.foodName}}"
-                                    class="j2store-img-responsive j2store-product-thumb-image-1"
-                                    src="{{p?.foodImage}}" />
-                                </a>
-                                <figcaption class="overlay">
-                                  <div class="box">
-                                    <div class="content">
-                                      <a (click)="subscribeToAPackage(p?.id)"><i style="cursor: pointer;" class="fa fa-eye"
-                                          aria-hidden="true"></i></a>
-                                    </div>
-                                  </div>
-                                </figcaption>
-                              </div>
-                            </div>
-                            <div class="content-box">
-                              <div class="inner-box">
-                                <h2 itemprop="name" class="product-title">
-                                  <a style="font-weight: bolder; cursor: pointer;" itemprop="url"
-                                    (click)="subscribeToAPackage(p?.id)" title="{{p?.foodName}}">
-
-                                    {{p?.foodName}} </a>
-                                </h2>
-                                <div itemprop="offers" class="product-price-container">
-                                  <div class="sale-price">
-                                    {{p?.unit}}
-                                  </div>
-                                </div>
-                                <div class="product-sku">
-                                  <span class="sku-text">SKU</span>
-                                  <span style="cursor: pointer;" itemprop="sku" class="sku">
-                                    {{p?.foodName}} </span>
-                                </div>
-                              </div>
-                              <div class="text-center  price-box">
-                                <div id="add-to-cart-1" class="2store-add-to-cart">
-
-                                  <button (click)="subscribeToAPackage(p?.id)" class="btn btn-buy"> <i
-                                      class="fa fa-shopping-cart"></i> Buy</button>
-
-                                </div>
-                              </div>
-                            </div>
-
-                            <!-- QUICK VIEW OPTION -->
-                          </div>
-                        </div>
-
-                      </div>
-                      <div *ngIf="nomatch">
-                        <span class="cart-no-items">
-                          Your search do not match our records.
-                        </span>
-                      </div>
-
-
-                      <form id="j2store-pagination" name="j2storepagination">
-                        <div class="pagination">
-                          <ul class="pagination">
-                            <li class="page-item active"><a class="page-link">1</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" [routerLink]="['/food-shop']" title="2">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link next" [routerLink]="['/food-shop']"
-                                title="&raquo;">&raquo;</a></li>
-                            <li class="page-item"><a class="page-link " [routerLink]="['/food-shop']"
-                                title="End">End</a></li>
-                          </ul>
-                        </div>
-                      </form>
-
-                    </div>
-
-                  </div> <!-- end of row-fluid -->
-                </div> <!-- end of product list -->
-              </div>
-            </div>
-          </main>
-          <aside id="sp-right" class="col-lg-4 ">
-            <div class="sp-column ">
-              <div class="sp-module ">
-                <div class="sp-module-content">
-                  <div class="search">
-                    <form>
-                      <div class="input-group"><input (input)="onChange(searchValue)" [(ngModel)]="searchValue"
-                          name="searchword" id="mod-search-searchword106" class="form-control" type="search"
-                          placeholder="Search here..."><span class="input-group-btn"><button class="sppb-btn"
-                            (click)="search(searchValue);"><span class="icon fa fa-search"></span></button></span>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <div class="sp-module ">
-                <h3 class="sp-module-title">Categories</h3>
-                <div class="sp-module-content">
-                  <ul class="categories-module mod-list">
-                    <li> <a (click)="onChange('')">
-                        All ({{clonedFoodSubs.length}})
-                      </a>
-                    </li>
-                    <li> <a (click)="onChange('rice')">
-                        Rice (1)
-                      </a>
-
-                    </li>
-                    <li> <a (click)="onChange('chicken')">
-                        Chicken (1)
-                      </a>
-
-                    </li>
-                    <li> <a (click)="onChange('gizzard')">
-                        Gizzard (1)
-                      </a>
-
-                    </li>
-                    <li> <a (click)="onChange('eggs')">
-                        Eggs (1)
-                      </a>
-
-                    </li>
-                    <li> <a (click)="onChange('water pack')">
-                        Water Pack (1)
-                      </a>
-                    <li> <a (click)="onChange('yam')">
-                        Yam Tuber (1)
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </aside>
+          <div class="col-md-3"></div>
+          <div class="col-md-3">
+            <input id="unit" type="number" placeholder="Units">
+          </div>
+          <div class="col-md-3">
+            <button (click)="sub()"  type="button" class="btn btn-primary">Subscribe</button>
+          </div>
+          <div class="col-md-3"></div>
         </div>
-      </div>
+      </h2>
+      <img src="assets/images/farmify-slide.jpeg" alt="Slide background" />
     </div>
   </section>
 </div>

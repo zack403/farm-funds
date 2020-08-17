@@ -233,8 +233,8 @@
                                   [ngClass]="{'has-error': registerForm.get('password').errors && registerForm.get('password').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="password">Password</label>
-                                  <input type="password" name="password" placeholder="Enter password" value=""
-                                    class="form-control large-field" formControlName="password">
+                                  <input type="password" id="myInput" name="password" placeholder="Enter password"
+                                    value="" class="form-control large-field" formControlName="password">
                                   <div
                                     *ngIf="registerForm.controls['password'].hasError('required') && registerForm.get('password').touched"
                                     class="errormsg text-danger"> Password is required</div>

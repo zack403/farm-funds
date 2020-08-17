@@ -26,6 +26,7 @@
 .sign-up:hover {
   background-color:transparent;
   color:#ebb40e;
+  cursor: pointer !important;
 }
 .sign-in {
   text-align: initial;
@@ -51,6 +52,7 @@
 .sign-in:hover {
   background-color:transparent;
   color:green;
+  cursor: pointer !important;
 }
 /* .sp-page-builder .page-content #section-id-1551320575334 {
     padding-top: 70px;

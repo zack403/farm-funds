@@ -42,6 +42,8 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule,  SPINNER,
   POSITION,
   PB_DIRECTION , NgxUiLoaderHttpModule  } from 'ngx-ui-loader';
+import { FarmifyShoppingComponent } from './components/farmify-shopping/farmify-shopping.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 
@@ -77,7 +79,9 @@ export function tokenGetter() {
     TermsComponent,
     PackagesComponent,
     ResetPasswordComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FarmifyShoppingComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

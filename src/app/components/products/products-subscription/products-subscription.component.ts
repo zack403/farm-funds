@@ -1,7 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ProductsService } from 'src/app/services/products.service';
-import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { ToasterService } from 'src/app/services/toaster.service';
+
+declare var PaystackPop: any;
+
 
 @Component({
   selector: 'app-products-subscription',
@@ -9,39 +12,50 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./products-subscription.component.css']
 })
 export class ProductsSubscriptionComponent implements OnInit {
-  @Input() shouldShow : boolean = true;
-  foodSubs: Array<any>;
-  searchValue = "";
-  nomatch: boolean = false;
-  clonedFoodSubs: Array<any>;
-  constructor(private prodSvc: ProductsService, private router : Router, private authSvc: AuthService) { }
+  unit: boolean = false;
+  proceed: boolean  = false;
+  susbcribe : boolean  = false;
+  msg: boolean = false;
+  message: string;
+
+  constructor(private authSvc: AuthService, private toastr: ToasterService, private router : Router) { }
 
   ngOnInit() {
-    this.foodSubs = this.prodSvc.getFoodList();
-    this.clonedFoodSubs = this.foodSubs;
+    this.unit = true;
+    this.susbcribe = true;
   }
 
-  subscribeToAPackage(id) {
-    if(this.authSvc.isLoggedIn()){
-      this.router.navigate(["/food-shop-detail", {id: JSON.stringify(id), sub: true}]);
-    }
-    else {
-      this.router.navigateByUrl("login");
-    }
+
+  deposit(amt) {
+   amt *= 100000;
+    const that = this;
+    const {email, firstName, lastName} = this.authSvc.getCurrentUserData();
+      try {
+          var handler = PaystackPop.setup({
+            key: 'pk_test_801d715bb68f121b21aac949a0f65b3a93dfb3d0',
+            email: email,
+            amount: amt*100,
+            currency: "NGN",
+            firstname: firstName,
+            lastname: lastName,
+
+            callback: function(response){
+              if(response.reference) {
+                that.unit = false;
+                that.susbcribe = false;
+                that.msg = true;
+                that.proceed = true;
+                that.message = `Your payment is successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest`
+              }
+            },
+            onClose: function(){
+            }
+          });
+          handler.openIframe(); 
+      } catch (error) {
+        that.toastr.Error(error);
+        console.log("PayStackError",error);
+      }
   }
 
-  search(value) {      
-    this.foodSubs = this.foodSubs.filter(x => x.foodName.toLowerCase().indexOf(value.toLowerCase()) > -1);
-    if(this.foodSubs.length === 0) {
-      this.nomatch = true;
-    }
-  }
-
-  onChange(value){
-    if(!this.searchValue){
-      this.nomatch = false;
-      this.foodSubs = this.clonedFoodSubs;
-      this.foodSubs = this.foodSubs.filter(x => x.foodName.toLowerCase().indexOf(value.toLowerCase()) > -1);
-    }
-  }
 }

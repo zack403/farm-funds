@@ -25,7 +25,7 @@
               "src/_redirects"
             ],
             "styles": [
-              "src/assets/css/j2store.css",            
+              "src/assets/css/j2store.css",
               "src/styles.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.min.css",
@@ -47,7 +47,8 @@
               "src/assets/css/media/jquery-ui-custom.css",
               "src/assets/css/floating-wpp.min.css",
               "src/assets/css/jquery-ui-custom.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": [
               "src/assets/js/greensock.js",
@@ -71,12 +72,12 @@
               "src/assets/js/file.js",
               "src/assets/js/owl.carousel.min.js",
               "src/assets/js/j2store.namespace.js",
-	            "src/assets/js/jquery-ui.min.js",
-	            "src/assets/js/jquery-ui-timepicker-addon.js",
-	            "src/assets/js/jquery.zoom.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/jquery-ui-timepicker-addon.js",
+              "src/assets/js/jquery.zoom.js",
               "src/assets/js/bootstrap-modal-conflit.js",
               "src/assets/js/filter.js",
-              "src/assets/js/floating-wpp.min.js"            
+              "src/assets/js/floating-wpp.min.js"
             ]
           },
           "configurations": {
@@ -166,6 +167,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "farmfunds"
+    }
+  },
+  "defaultProject": "farmfunds",
+  "cli": {
+    "analytics": "8b225420-7873-4782-9f05-b16a042b2d51"
+  }
 }

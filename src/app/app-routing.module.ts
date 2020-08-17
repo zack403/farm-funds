@@ -23,6 +23,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileDataService } from './resolvers/profile-data.service';
 import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
+import { FarmifyShoppingComponent } from './components/farmify-shopping/farmify-shopping.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -44,7 +46,9 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'profile', canActivate: [AuthGuard], canDeactivate: [PreventUnsavedChanges], component: UserProfileComponent, resolve: {user: ProfileDataService}},
+  {path: 'farmify-shopping', component: FarmifyShoppingComponent},
+  {path: 'profile/modal', component: ModalComponent},
+  {path: 'profile', canActivate: [AuthGuard],  component: UserProfileComponent, resolve: {user: ProfileDataService}},
   {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];

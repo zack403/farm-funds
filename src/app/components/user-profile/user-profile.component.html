@@ -65,7 +65,12 @@
                                                                                 >LAGOS, NIGERIA.</a>
                                                                         </div>
 
+                                                                        
                                                                         <div class="btn-group pull-right">
+                                                                            <button class="btn text-light"><i class="fa fa-shopping-cart" style="font-size: 23px; margin-right: -21px;">
+                                                                            <small class="badge badge-danger" style="z-index: 2; top: -20px; left: -7px;">10+</small>
+                                                                            </i>
+                                                                            </button> &nbsp;&nbsp;
                                                                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                                                             style="font-size: 23px;">
                                                                             <img src="assets/images/profile-images.png" alt="" class="text-center" style="width: 30px; height: 30px; border-radius: 50%;">
@@ -75,19 +80,18 @@
                                                                                 <!-- <img src="assets/images/profile-images.png" alt="" style="width: 70px; height: 70px; border-radius: 50%;"> -->
                                                                                 <!-- <span class="user-name">ZACK OHIANI AMINU</span> -->
                                                                                 <button class="dropdown-item" type="button">
-                                                                                    <img src="assets/images/profile-images.png" alt="" style="margin-left: 50px; width: 70px; height: 70px; border-radius: 50%;">
-                                                                                    <br>
-                                                                                <span class="user-name">{{userData.firstName}} {{userData.lastName}}</span>
+                                                                                    <!-- <img src="assets/images/profile-images.png" alt="" class="text-center" > -->
+                                                                                    <small class="text-success">Signed in as</small>&nbsp;
+                                                                                <strong class="user-name text-strong display-10">{{userData.firstName}} {{userData.middleName}} {{userData.lastName}}</strong>
                                                                                 </button>
-                                                                                <button class="dropdown-item text-success" type="button"><a
-                                                                                    [routerLink]="['/user-profile']">Edit Profile</a></button>
+                                                                                <!-- <button class="dropdown-item text-success" type="button"><a
+                                                                                    [routerLink]="['/user-profile']">Edit Profile</a></button> -->
                                                                                 <div class="dropdown-divider"></div>
-                                                                              <button class="dropdown-item" type="button"><i class="icon icon-exit"></i> <a
-                                                                                class="text-danger" (click)="logout()">Log Out</a></button>
+                                                                              <button class="dropdown-item" type="button"><a
+                                                                                class="text-danger display-10" (click)="logout()"><i class="fa fa-sign-out"></i> Log Out</a></button>
                                                                               <!-- <button class="dropdown-item" type="button">Something else here</button> -->
                                                                             </div>
                                                                           </div>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -221,7 +225,7 @@
                                 </div>
                             </div>
                         </section>
-                        <section id="section-id-1551573988958" class="sppb-section  ">
+                        <!-- <section id="section-id-1551573988958" class="sppb-section  ">
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
@@ -284,7 +288,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
+                        </section> -->
                         <section id="section-id-1551573988958" class="sppb-section  ">
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
@@ -301,7 +305,7 @@
                                                                         type="submit" value="Shop Food"></a>
                                                                         &nbsp;
                                                                         &nbsp;
-                                                                        <a (click)="openModal('subscribe')"> <input
+                                                                        <a (click)="openswal()"> <input
                                                                             class="p-button" style="cursor: pointer;"
                                                                             type="submit" value="Subscribe to a food"></a>
                                                             </div>
@@ -458,6 +462,7 @@
   <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
     <div id="util" class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
+          <button id="cl" hidden data-dismiss="modal"></button>
         <div class="modal-body">
         
             <app-packages [shouldShow]="false" *ngIf="pck"></app-packages>
