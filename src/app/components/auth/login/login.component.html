@@ -75,8 +75,16 @@
                                     [ngClass]="{'has-error': loginForm.get('password').errors && loginForm.get('password').touched}">
                                     <span class="j2store_field_required text-danger">*</span>
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" placeholder="Enter password" value=""
+                                    <div class="input-group">
+                                    <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Enter password" aria-label="Recipient's username" aria-describedby="button-addon2" value=""
                                       class="form-control large-field" formControlName="password">
+                                      <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button" id="button-addon2">
+                                          <!-- <i class="fa fa-eye-slash"></i> -->
+                                          <i class="fa fa-eye" (click)="togglePassword()"></i>
+                                        </button>
+                                      </div>
+                                    </div>
                                       <a [routerLink]="['/reset-password']" class="pull-right"><small class="text-primary">FORGOT YOUR
                                         PASSWORD</small></a>
                                     <div

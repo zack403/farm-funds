@@ -14,6 +14,8 @@ import { LoginComponent } from '../login/login.component';
 export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   isBusy = false;
+  showPassword: boolean = false;
+  showConfirm: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
     private authSvc: AuthService, private toasterSvc: ToasterService, private loginCmpt: LoginComponent) {}
@@ -31,6 +33,15 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
         acceptTerms: [false, Validators.requiredTrue],
       }, {validator: this.passwordMatchValidator})
+  }
+
+  // password hide/show
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  toggleConfirm() {
+    this.showConfirm = !this.showConfirm;
   }
 
      passwordMatchValidator(c: FormGroup) {

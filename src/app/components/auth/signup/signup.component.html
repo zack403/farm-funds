@@ -16,6 +16,7 @@
                               <div class="sppb-addon sppb-addon-raw-html ">
                                 <div class="sppb-addon-content">
                                   <ul class="list_inline">
+                                    <li></li><img src="assets/images/logo-2.jpg" alt="">&nbsp;&nbsp;
                                     <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech
                                       Company</li>&nbsp;
                                     <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
@@ -233,8 +234,17 @@
                                   [ngClass]="{'has-error': registerForm.get('password').errors && registerForm.get('password').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="password">Password</label>
-                                  <input type="password" id="myInput" name="password" placeholder="Enter password"
-                                    value="" class="form-control large-field" formControlName="password">
+                                  <div class="input-group">
+                                    <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Enter password"
+                                      aria-label="Recipient's username" aria-describedby="button-addon2" value=""
+                                      class="form-control large-field" formControlName="password">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary" type="button" id="button-addon2">
+                                        <!-- <i class="fa fa-eye-slash"></i> -->
+                                        <i class="fa fa-eye" (click)="togglePassword()"></i>
+                                      </button>
+                                    </div>
+                                  </div>
                                   <div
                                     *ngIf="registerForm.controls['password'].hasError('required') && registerForm.get('password').touched"
                                     class="errormsg text-danger"> Password is required</div>
@@ -248,8 +258,17 @@
                               || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}">
                                   <span class="j2store_field_required text-danger">*</span><label for="confirm">Confirm
                                     password</label>
-                                  <input type="password" name="confirm" placeholder="Confirm password" value=""
-                                    class="form-control large-field" formControlName="confirmPassword">
+                                  <div class="input-group">
+                                    <input [type]="showConfirm ? 'text' : 'password'" name="confirm" placeholder="Confirm password"
+                                      aria-label="Recipient's username" aria-describedby="button-addon2" value=""
+                                      class="form-control large-field" formControlName="confirmPassword">
+                                    <div class="input-group-append">
+                                      <button class="btn btn-primary" type="button" id="button-addon2">
+                                        <!-- <i class="fa fa-eye-slash"></i> -->
+                                        <i class="fa fa-eye" (click)="toggleConfirm()"></i>
+                                      </button>
+                                    </div>
+                                  </div>
                                   <div
                                     *ngIf="registerForm.controls['confirmPassword'].hasError('required') && registerForm.get('confirmPassword').touched"
                                     class="errormsg text-danger">

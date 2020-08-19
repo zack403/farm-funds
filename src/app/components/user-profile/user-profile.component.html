@@ -16,6 +16,7 @@
                                                             <div class="sppb-addon sppb-addon-raw-html ">
                                                                 <div class="sppb-addon-content">
                                                                     <ul class="list_inline">
+                                                                        <li></li><img src="assets/images/logo-2.jpg" alt="">&nbsp;&nbsp;
                                                                         <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech Company</li>&nbsp;
                                                                         <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
                                                                     </ul>
@@ -84,8 +85,9 @@
                                                                                     <small class="text-success">Signed in as</small>&nbsp;
                                                                                 <strong class="user-name text-strong display-10">{{userData.firstName}} {{userData.middleName}} {{userData.lastName}}</strong>
                                                                                 </button>
-                                                                                <!-- <button class="dropdown-item text-success" type="button"><a
-                                                                                    [routerLink]="['/user-profile']">Edit Profile</a></button> -->
+                                                                                <div class="dropdown-divider"></div>
+                                                                                <button class="dropdown-item text-success" type="button"><a
+                                                                                    [routerLink]="['/user-profile']"><i class="fa fa-user"></i> Profile</a></button>
                                                                                 <div class="dropdown-divider"></div>
                                                                               <button class="dropdown-item" type="button"><a
                                                                                 class="text-danger display-10" (click)="logout()"><i class="fa fa-sign-out"></i> Log Out</a></button>

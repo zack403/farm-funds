@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isBusy: boolean = false;
+  showPassword: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
     private authSvc: AuthService, private toasterSvc: ToasterService) {}
@@ -23,6 +24,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // password hide/show
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
     onSubmit(model) {
       this.isBusy = true;
