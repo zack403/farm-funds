@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from './http.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -75,7 +77,7 @@ export class ProductsService {
       ]
     }
   ]
-  constructor() { }
+  constructor(private httpSvc: HttpService) { }
 
   getFoodList() {
     return this.foodLisT;
@@ -84,4 +86,10 @@ export class ProductsService {
   getFoodListById(id: number) {
     return this.foodLisT.find(x => x.id === id);
   }
+
+    GetProducts(page, size, search) {
+      return this.httpSvc.get(`foodmarket?page=${page}&size=${size}&search=${search}`).pipe(tap(res => {
+        return res;
+      }))
+    }
 }

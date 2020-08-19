@@ -7,7 +7,6 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
-import { ShoppingCartComponent } from './components/products/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
@@ -19,12 +18,6 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { TeamComponent } from './components/team/team.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { AuthGuard } from './guards/auth.guard';
-import { ProfileDataService } from './resolvers/profile-data.service';
-import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
-import { FarmifyShoppingComponent } from './components/farmify-shopping/farmify-shopping.component';
-import { ModalComponent } from './components/modal/modal.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -35,7 +28,6 @@ const routes: Routes = [
   {path: 'food-shop', component: ProductsListComponent},
   {path: 'food-subscription',  component: ProductsSubscriptionComponent},
   {path: 'food-shop-detail', component: ProductDetailComponent},
-  {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'news', component: NewsComponent},
   {path: 'signup', component: SignupComponent},
@@ -46,10 +38,6 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'farmify-shopping', component: FarmifyShoppingComponent},
-  {path: 'profile/modal', component: ModalComponent},
-  {path: 'profile', canActivate: [AuthGuard],  component: UserProfileComponent, resolve: {user: ProfileDataService}},
-  {path: '**', redirectTo: ''},
   {path: '', redirectTo:'home', pathMatch: 'full'},
 ];
 

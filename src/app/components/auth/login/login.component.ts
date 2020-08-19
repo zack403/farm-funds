@@ -34,10 +34,9 @@ export class LoginComponent implements OnInit {
       this.authSvc.login(model ? model : this.loginForm.value).subscribe(res => {
         this.isBusy = false;
         if(!model){
-          this.toasterSvc.Success("Login successful.");
           this.loginForm.reset();
         }
-        this.router.navigateByUrl("profile");
+        this.router.navigateByUrl("app/profile");
       }, (error) => {
             console.log(error);
             this.isBusy = false;

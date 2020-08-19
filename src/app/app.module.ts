@@ -17,7 +17,6 @@ import { NavigationSectionComponent } from './components/header/navigation-secti
 import { FaqsComponent } from './components/faqs/faqs.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
-import { ShoppingCartComponent } from './components/products/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
@@ -30,7 +29,6 @@ import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -42,8 +40,9 @@ import { ErrorInterceptor } from './interceptor/error.interceptor';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule,  SPINNER,
   POSITION,
   PB_DIRECTION , NgxUiLoaderHttpModule  } from 'ngx-ui-loader';
-import { FarmifyShoppingComponent } from './components/farmify-shopping/farmify-shopping.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { UserappModule } from './components/userapp/userapp.module';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 
 
@@ -68,7 +67,6 @@ export function tokenGetter() {
     FaqsComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    ShoppingCartComponent,
     CheckoutComponent,
     LoginComponent,
     SignupComponent,
@@ -78,14 +76,13 @@ export function tokenGetter() {
     ServicesComponent,
     TermsComponent,
     PackagesComponent,
-    ResetPasswordComponent,
-    UserProfileComponent,
-    FarmifyShoppingComponent,
-    ModalComponent
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    UserappModule,
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

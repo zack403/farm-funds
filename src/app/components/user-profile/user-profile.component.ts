@@ -108,7 +108,7 @@ export class UserProfileComponent implements OnInit {
                  }).then(res => {
                    if(res) {
                      that.angularZone.run(() => {
-                      that.router.navigateByUrl("farmify-shopping");
+                      that.router.navigateByUrl("app/farmify-shopping");
                      })
                    }
                  })
@@ -125,9 +125,7 @@ export class UserProfileComponent implements OnInit {
    }
  
 
-  logout() {
-    this.authSvc.logout();
-  }
+  
 
   openswal() {
     Swal.fire({
