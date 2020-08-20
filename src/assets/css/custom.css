@@ -852,6 +852,14 @@ content: "\f10d";
 	text-align: center;
 }
 
+#farmify-item {
+	height: 150px;
+}
+
+#farmify-item:hover {
+	cursor: pointer;
+}
+
 .j2store-product-images .overlay {
     text-align: center;
     position: absolute;
@@ -888,6 +896,11 @@ content: "\f10d";
     line-height: 48px;
     transition: all 500ms ease 0s;
     width: 45px;
+}
+
+.j2store-product-images .overlay .box .content a i:hover {
+	background-color: rgb(6, 70, 30);
+	cursor: pointer;
 }
 
 .j2store-single-product:hover .j2store-product-images {

@@ -6,8 +6,21 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToasterService } from 'src/app/services/toaster.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { UtilityService } from 'src/app/services/utility.service';
 
 declare var PaystackPop: any;
+
+
+const inputOptions = {
+  'card': 'card',
+  'other' : 'other'
+};
+
+const formatter = new Intl.NumberFormat('en-NI', {
+  style: 'currency',
+  currency: 'NGN',
+  minimumFractionDigits: 2
+})
 
 @Component({
   selector: 'app-user-profile',
@@ -30,6 +43,7 @@ export class UserProfileComponent implements OnInit {
   constructor(private authSvc: AuthService, private router: Router, 
     private profileSvc: ProfileService,
     private toastr: ToasterService,
+    private utilSvc: UtilityService,
     private angularZone : NgZone,
     private route: ActivatedRoute) { }
 
@@ -137,12 +151,56 @@ export class UserProfileComponent implements OnInit {
       imageHeight: 300,
       imageWidth: 700,
       input: 'number',
-      inputPlaceholder: 'Unit Amout',
+      inputPlaceholder: 'Unit',
       confirmButtonColor: 'green',
-      confirmButtonText: "Subscribe"
-    }).then( res => {
+      confirmButtonText: "Subscribe",
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Please input unit!'
+        }
+      }
+    }).then( async res => {
       if(res.value) {
-         this.deposit(parseInt(res.value));
+        const { value: answer } = await Swal.fire({
+          title: 'Choose payment method',
+          input: 'radio',
+          confirmButtonColor: 'green',
+          inputOptions: inputOptions,
+          inputValidator: (value) => {
+            if (!value) {
+              return 'Please select one of the options above.'
+            }
+          }
+        });
+
+        if(answer === 'card') {
+          this.deposit(parseInt(res.value));
+        }
+        else {
+          const { value: file } = await Swal.fire({
+            title: `Partnership fee ${formatter.format(res.value * 100000)}`,
+            text: 'Please upload your proof of payment.',
+            input: 'file',
+            confirmButtonColor: 'green',
+            showLoaderOnConfirm: true,
+            inputValidator: (value) => {
+              if (!value) {
+                return 'Please choose proof of payment'
+              }
+            },
+            preConfirm: (event) => {
+              const formData = new FormData();
+              formData.append("proofofpayment", event);
+              this.utilSvc.uploadProofOfPayment(event).subscribe((r:any) => {
+                console.log(r);
+              })
+            },
+            inputAttributes: {
+              'accept': 'image/*',
+              'aria-label': 'Upload your proof of payment'
+            }
+          });
+        }
       }
     })
   }
