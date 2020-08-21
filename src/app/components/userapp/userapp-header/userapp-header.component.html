@@ -49,15 +49,6 @@
                                                                             <li><a href="https://www.instagram.com/farmfundsafrica"><i
                                                                               class="fa fa-instagram"></i></a>
                                                                             </li>
-                                                                            <!-- <li><a href="#"><i
-                                                                                        class="fa fa-google-plus"></i></a>
-                                                                            </li> -->
-                                                                            <!-- <li><a href="#"><i
-                                                                                        class="fa fa-pinterest"></i></a>
-                                                                            </li> -->
-                                                                            <!-- <li><a href="#"><i
-                                                                                        class="fa fa-youtube"></i></a>
-                                                                            </li> -->
                                                                         </ul>
                                                                         <div id="polyglotLanguageSwitcher"
                                                                             class="">
@@ -68,8 +59,8 @@
 
                                                                         
                                                                         <div class="btn-group pull-right">
-                                                                            <button class="btn text-light"><i class="fa fa-shopping-cart" style="font-size: 23px; margin-right: -21px;">
-                                                                            <small class="badge badge-danger" style="z-index: 2; top: -20px; left: -7px;">10+</small>
+                                                                            <button (click)="cart.length > 0 ? viewCart() : ''" class="btn text-light"><i class="fa fa-shopping-cart" style="font-size: 23px; margin-right: -21px;">
+                                                                            <small *ngIf="cart.length > 0" class="badge badge-danger" style="z-index: 2; top: -20px; left: -7px;">{{cart.length}}</small>
                                                                             </i>
                                                                             </button> &nbsp;&nbsp;
                                                                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

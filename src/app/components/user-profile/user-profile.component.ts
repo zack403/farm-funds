@@ -176,7 +176,7 @@ export class UserProfileComponent implements OnInit {
         if(answer === 'card') {
           this.deposit(parseInt(res.value));
         }
-        else {
+        else if (answer === 'other') {
           const { value: file } = await Swal.fire({
             title: `Partnership fee ${formatter.format(res.value * 100000)}`,
             text: 'Please upload your proof of payment.',
@@ -191,7 +191,7 @@ export class UserProfileComponent implements OnInit {
             preConfirm: (event) => {
               const formData = new FormData();
               formData.append("proofofpayment", event);
-              this.utilSvc.uploadProofOfPayment(event).subscribe((r:any) => {
+              this.utilSvc.uploadProofOfPayment(formData).subscribe((r:any) => {
                 console.log(r);
               })
             },

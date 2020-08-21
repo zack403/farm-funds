@@ -39,7 +39,7 @@
                         itemsPerPage: size,
                         currentPage: page,
                         totalItems: products.totalItems
-                    };"  class="col-md-2">
+                    }; let i = index"  class="col-md-2">
                         <div class="j2store-single-product">
                           <div class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
@@ -51,7 +51,7 @@
                               <figcaption class="overlay">
                                 <div class="box">
                                   <div class="content">
-                                    <a title="Add to cart" (click)="addToCart(p)"><i class="fa fa-plus"
+                                    <a title="Add to cart" (click)="addToCart(p, i)"><i class="fa fa-plus"
                                         aria-hidden=""></i></a>
                                   </div>
                                 </div>
@@ -70,7 +70,7 @@
                                   {{p?.price | currency: '&#8358; '}}
                                 </div>
                                 <div class="product">
-                                  <input type="text" name="brand"  class="input-mini form-control " min="0"
+                                  <input type="text" [(ngModel)]="p[i]" name="brand"  class="input-mini form-control" 
                                      placeholder="Type Brand Here" />
                                 </div>
                               </div>
