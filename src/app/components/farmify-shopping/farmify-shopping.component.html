@@ -60,18 +60,20 @@
                           </div>
                           <div class="content-box">
                             <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
+                              <strong itemprop="name" class="product-title">
                                 <a href="" title="{{p?.productName}}">
                                   {{p?.productName}} </a>
-                              </h2>
+                                </strong>
                               <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
                                 class="product-price-container">
-                                <div class="sale-price">
+                                <div class="sale-price product">
                                   {{p?.price | currency: '&#8358; '}}
-                                </div>
+                                  <input type="text" name="price"  class="input-mini form-control" 
+                                     placeholder="Enter price" />
+                                </div> <br>
                                 <div class="product">
                                   <input type="text" [(ngModel)]="p[i]" name="brand"  class="input-mini form-control" 
-                                     placeholder="Type Brand Here" />
+                                     placeholder="Enter brand" />
                                 </div>
                               </div>
                             </div>

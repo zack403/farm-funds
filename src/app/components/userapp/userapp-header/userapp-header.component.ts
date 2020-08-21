@@ -38,10 +38,10 @@ export class UserappHeaderComponent implements OnInit {
  
   ngOnInit(): void {
     this.userData = this.authSvc.getCurrentUserData();
-    const result = localStorage.getItem("cart");
-    if(result) {
-      this.cart = JSON.parse(result);
-    } 
+    // const result = localStorage.getItem("cart");
+    // if(result) {
+    //   this.cart = JSON.parse(result);
+    // } 
   }
 
   logout() {
