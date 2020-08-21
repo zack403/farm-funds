@@ -15,6 +15,7 @@
   <section id="sp-main-body">
     <div class="container">
       <div class="container-inner">
+      <a [routerLink]="['app/farmify-shopping']" class="back"><i class="fa fa-arrow-left"> Back to list</i></a>
         <div class="row">
           <main id="sp-component" class="col-lg-12 " role="main">
             <div class="sp-column ">
@@ -61,12 +62,12 @@
                                 </td>
 
                                 <td>
-                                  <div class="product"><input type="text" name="price" value="1"
-                                      class="input-mini " min="0" step="1">
-                                    </div>
-                                    <div class="sale-price">
-                                      $24.99
-                                    </div>
+                                  <div class="product"><input type="text" name="price" value="1" class="input-mini "
+                                      min="0" step="1">
+                                  </div>
+                                  <div class="sale-price">
+                                    $24.99
+                                  </div>
                                 </td>
 
                                 <td>
@@ -91,14 +92,18 @@
                             <div class="buttons-right">
                             </div>
                           </div>
+                          <div class="note" style="margin-left: 51.5%;">
+                            <strong class="text-warning">Note to Farmify Market</strong>
+                            <textarea id="comment" name="comment" placeholder="Type a comment here"
+                              style="width: 100%;"></textarea>
+                          </div>
+                          <br>
                         </form>
-                        <!-- Display plugin results -->
                       </div>
                     </div>
 
                     <div class="row">
                       <div class="col-md-6">
-
                         <div class="cart-estimator-discount-block">
                           <div id="j2store-cart-modules">
                           </div>

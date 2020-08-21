@@ -1,88 +1,63 @@
-<div
-  class="site helix-ultimate com-j2store view-products layout-default task-view itemid-135"
->
-  <section id="sp-section-4">
-    <div class="row">
-      <div id="sp-title" class="col-lg-12">
-        <div class="sp-column"></div>
-      </div>
-    </div>
-  </section>
-  <section id="sp-main-body">
-    <div class="container">
-      <div class="container-inner">
-        <div class="row">
-          <main id="sp-component" class="col-lg-12" role="main">
-            <div class="sp-column">
-              <div id="system-message-container"></div>
-              <div id="akeeba-renderjoomla">
-                <div class="j2store-single-product simple detail bs3">
-                  <div
-                    itemscope
-                    itemtype="https://schema.org/Product"
-                    class="product-1 simple-product"
-                  >
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="j2store-mainimage">
-                          <span class="nozoom" id="j2store-item-main-image-1">
-                            <img src="assets/images/big-farm.jpeg" class="d-block w-100" alt="Image Slide">
-                          </span>
-                        </div>
+<section id="sp-main-body">
+  <div class="container">
+    <br>
+  <a [routerLink]="['app/farmify-shopping']"><i class="fa fa-arrow-left back"> Back to list</i></a>
+    <div class="container-inner">
+      <div class="row">
+        <main id="sp-component" class="col-lg-12" role="main">
+          <div class="sp-column">
+            <div id="system-message-container"></div>
+            <div id="akeeba-renderjoomla">
+              <div class="j2store-single-product simple detail bs3">
+                <div itemscope itemtype="https://schema.org/Product" class="product-1 simple-product">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="j2store-mainimage">
+                        <span class="nozoom" id="j2store-item-main-image-1">
+                          <img src="assets/images/big-farm.jpeg" alt="Product detauil">
+                        </span>
                       </div>
+                    </div>
 
-                      <div class="col-sm-6" style="margin-top: 20%;">
-                        <h1 itemprop="name" class="product-title">
-                          {{ food?.foodName }}
-                        </h1>
+                    <div class="col-sm-6 text-primary" style="margin-top: 130px;">
+                      <h1 itemprop="name" class="product-title">
+                        Rice (50kg Bag)
+                      </h1>
 
-                        <div class="price-sku-brand-container row">
-                          <div
-                            itemprop="offers"
-                            itemscope
-                            itemtype="https://schema.org/Offer"
-                            class="product-price-container"
-                          >
-                            <div *ngIf="!isSub" class="sale-price">
-                              {{ (food?.price)[0].value }}
-                            </div>
-
-                            <div *ngIf="isSub" class="sale-price">
-                              {{ food?.unit }}
-                            </div>
+                      <div class="price-sku-brand-container row">
+                        <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
+                          class="product-price-container">
+                          <div *ngIf="!isSub" class="sale-price">
+                            {{ (food?.price)[0].value }}
                           </div>
 
-                          <div class="product-sdesc-top">
-                            <p>
-                              Purchase a food item and have it delivered to your
-                              doorstep.
-                              <b
-                                >Delivery is free within Lagos for purchases
-                                worth N7,000 and above</b
-                              >
-                            </p>
+                          <div *ngIf="isSub" class="sale-price">
+                            {{ food?.unit }}
                           </div>
+                        </div>
 
-                          <div class="product-sku">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                  <ul
-                                    class="nav nav-tabs"
-                                    id="j2store-product-detail-tab"
-                                  >
-                                  <li class="product">
-                                    <input type="text" name="brand"  class="input-mini form-control " min="0"
-                                       placeholder="Type Brand Here" />
-                                  </li>
-          
-                                    <li class="active">
-                                      <a href="#description" data-toggle="tab"
-                                        >Add to Cart</a
-                                      >
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
+                        <div class="product-sdesc-top">
+                          <p>
+                            Purchase food items with your ROI and have it delivered to your
+                            doorstep.
+                            <b>Delivery is free.</b>
+                          </p><br>
+                        </div>
+
+                        <div class="product-sku">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <ul class="nav nav-tabs" id="j2store-product-detail-tab">
+                                <li class="product">
+                                  <input type="text" name="qty" class="input-mini form-control " min="0"
+                                    placeholder="Type Brand Here" />
+                                </li>
+
+                                <li class="active">
+                                  <a href="#description" data-toggle="tab">Add to Cart</a>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -91,9 +66,9 @@
                 </div>
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+        </main>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

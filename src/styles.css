@@ -747,6 +747,21 @@ display: none;
     }
 }
 
+@media (min-width:320px) and (max-width:500px) {
+    .cart-continue-shopping-button {
+display: none;
+    }
+    .back {
+        display: block;
+    }
+}
+
+@media (min-width:620px) and (max-width:10800px) {
+    .back {
+        display: none;
+    }
+}
+
 #sppb-addon-1551311145863 .top-area {
     position: relative;
     border: 1px solid #f4f4f4;
