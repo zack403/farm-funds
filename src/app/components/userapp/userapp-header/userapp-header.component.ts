@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,10 @@ import { ToasterService } from 'src/app/services/toaster.service';
 })
 export class UserappHeaderComponent implements OnInit {
   userData: User;
-  cart: any[] = [];
+  cart: any = {
+    purchaseDetails: []
+  };
+  itemsInCart: any = {};
   subscription: Subscription;
 
   constructor(
@@ -27,8 +30,17 @@ export class UserappHeaderComponent implements OnInit {
             //check if item is already in cart before pushing
             const isExist = this.cart.find(x => x.id === data.id);
             if(isExist) return this.toastr.Info("Product already in the cart.");
-            this.cart.push(data);
-            localStorage.setItem("cart", JSON.stringify(data));
+            this.cart.name = this.userData.fullName;
+            this.cart.email = this.userData.email;
+            this.cart.UserId = this.userData.id;
+            this.cart.type = "subscription";
+            this.cart.phoneNo = this.userData.phoneNo;
+            this.itemsInCart.productName = data.productName;
+            this.itemsInCart.productId = data.id;
+            this.itemsInCart.price = data.price;
+            this.itemsInCart.brand = data.brand ? data.brand : '';
+            this.cart.purchaseDetails.push(this.itemsInCart);
+            localStorage.setItem("cart", this.cart);
         } else {
             // clear messages when empty message received
             this.cart = [];
@@ -40,7 +52,7 @@ export class UserappHeaderComponent implements OnInit {
     this.userData = this.authSvc.getCurrentUserData();
     const result = localStorage.getItem("cart");
     if(result) {
-      this.cart = JSON.parse(result);
+      this.cart.push(result);
     } 
   }
 
@@ -58,7 +70,12 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   viewCart() {
-    
+    let navigationExtras: NavigationExtras = {
+      state: {
+        cartItems: this.cart
+      }
+    }
+    this.router.navigateByUrl("app/shopping-cart", navigationExtras);
   }
 
 }
