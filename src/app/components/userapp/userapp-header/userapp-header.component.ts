@@ -6,6 +6,13 @@ import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 
+let totalCartPrice = 0;
+const formatter = new Intl.NumberFormat('en-NI', {
+  style: 'currency',
+  currency: 'NGN',
+  minimumFractionDigits: 2
+})
+
 @Component({
   selector: 'app-userapp-header',
   templateUrl: './userapp-header.component.html',
@@ -18,18 +25,27 @@ export class UserappHeaderComponent implements OnInit {
   };
   itemsInCart: any = {};
   subscription: Subscription;
+  basketTotal: number = 0;
 
   constructor(
     private authSvc: AuthService, 
-    private router: Router, 
+    public router: Router, 
     private messageService: MessageService,
     private toastr: ToasterService) { 
       // subscribe to home component messages
-      this.subscription = this.messageService.onMessage().subscribe(({data}) => {
-        if (data) {
+      this.subscription = this.messageService.onMessage().subscribe(({data, deleted}) => {
+        if (data && !deleted) {
             //check if item is already in cart before pushing
-            const isExist = this.cart.find(x => x.id === data.id);
-            if(isExist) return this.toastr.Info("Product already in the cart.");
+            const isExist = this.cart.purchaseDetails.find(x => x.productId === data.id);
+            if(isExist) return this.toastr.Info("Product already in the basket.");
+            totalCartPrice += data.price * data.unit;
+            
+            // check if basket total is greater than user purchase power
+            if(totalCartPrice > data.interest) {
+              totalCartPrice -= data.price * data.unit;
+              return this.toastr.Info(`Sorry we are unable to add to the basket, because adding ${formatter.format(data.price * data.unit)} to ${formatter.format(this.basketTotal)} exceeds your purchase power of ${formatter.format(data.interest)}`);
+            }
+            this.basketTotal = totalCartPrice;
             this.cart.name = this.userData.fullName;
             this.cart.email = this.userData.email;
             this.cart.UserId = this.userData.id;
@@ -37,22 +53,39 @@ export class UserappHeaderComponent implements OnInit {
             this.cart.phoneNo = this.userData.phoneNo;
             this.itemsInCart.productName = data.productName;
             this.itemsInCart.productId = data.id;
-            this.itemsInCart.price = data.price;
+            this.itemsInCart.price = data.price * data.unit;
             this.itemsInCart.brand = data.brand ? data.brand : '';
+            this.itemsInCart.unit = data.unit;
             this.cart.purchaseDetails.push(this.itemsInCart);
-            localStorage.setItem("cart", this.cart);
-        } else {
+            localStorage.setItem("cart", JSON.stringify(this.cart));
+            this.itemsInCart = {};
+        } else if(data && deleted) {
+            this.basketTotal -= data.price;
+            totalCartPrice -= data.price;
+            this.cart.purchaseDetails = this.cart.purchaseDetails.filter((doc) => {
+              return doc.productId != data.productId;
+            });
+        } 
+        else {
             // clear messages when empty message received
-            this.cart = [];
+            this.basketTotal = 0;
+            totalCartPrice = 0;
+            this.cart = {
+              purchaseDetails: []
+            };
         }
     });
   }
  
   ngOnInit(): void {
     this.userData = this.authSvc.getCurrentUserData();
-    const result = localStorage.getItem("cart");
+    const result = JSON.parse(localStorage.getItem("cart"));
     if(result) {
-      this.cart.push(result);
+      this.cart = result;
+      for(const p of this.cart.purchaseDetails){
+        this.basketTotal += p.price;
+      }
+      totalCartPrice = this.basketTotal;
     } 
   }
 
@@ -70,12 +103,7 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   viewCart() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        cartItems: this.cart
-      }
-    }
-    this.router.navigateByUrl("app/shopping-cart", navigationExtras);
+    this.router.navigateByUrl("app/shopping-cart");
   }
 
 }

@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { MessageService } from 'src/app/services/message.service';
+import { Router } from '@angular/router';
+import { UtilityService } from 'src/app/services/utility.service';
+import { ToasterService } from 'src/app/services/toaster.service';
+
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,21 +13,106 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  cartData: any;
-
-  constructor(private route: ActivatedRoute, private router: Router) { 
-    this.route.queryParams.subscribe( params => {
-      if (this.router.getCurrentNavigation().extras.state.invoice) {
-        const {cartItems} = this.router.getCurrentNavigation().extras.state;
-        if(cartItems){
-           this.cartData = cartItems;
-        }
-      }
-    });
-  }
-  
+  cart: any = {
+    purchaseDetails: []
+  };
+  apiUrl = environment.imagePath;
+  totalAmount: Array<any> = [];
+  totalQty: Array<any> = [];
+  orderTotalAmount: any;
+  orderTotalQty: any;
+  isBusy: boolean = false;
+  constructor(
+    private messageService: MessageService, 
+    private router: Router, 
+    private utilSvc: UtilityService,
+    private toastr: ToasterService) { }
 
   ngOnInit() {
+    const result = JSON.parse(localStorage.getItem("cart"));
+    if(result){
+      this.cart = result;
+      for (const {price} of this.cart.purchaseDetails) {
+        this.totalAmount.push(price);
+      }
+      this.orderTotalAmount = this.totalAmount.reduce(this.sumTotal); 
+    }
+  }
+
+  deleteItem(item, index) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'green',
+      closeOnConfirm: true,
+      closeOnCancel: true
+    }).then((result) => {
+      if(result.value) {
+            let itemInStorage: any = JSON.parse(localStorage.getItem('cart'));
+            let itemToRemove = itemInStorage.purchaseDetails[index];
+            this.orderTotalAmount += - itemToRemove.price;
+            itemInStorage.purchaseDetails.splice([index], 1);
+            this.cart.purchaseDetails.splice([index], 1);          
+            localStorage.setItem("cart", JSON.stringify(itemInStorage));
+            this.messageService.clearMessage(item, true);
+      }
+    })
+  }
+  
+  sumTotal(total, num) {
+    return total + num;
+  }
+
+  clearBaket() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'green',
+      closeOnConfirm: true,
+      closeOnCancel: true
+    }).then((result) => {
+      if(result.value) {
+        localStorage.removeItem("cart");
+        this.messageService.clearMessages();
+        this.router.navigateByUrl("app/farmify-shopping");
+      }
+    })
+    
+  }
+
+  saveItems() {
+    if(!this.cart.address) return this.toastr.Error("Shipping address is required.")
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Your order will be sent for processing!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'green',
+      closeOnConfirm: true,
+      closeOnCancel: true
+    }).then((result) => {
+      if(result.value) {
+        this.isBusy = true;
+        this.cart.cartTotal = this.orderTotalAmount;
+        this.utilSvc.saveItems(this.cart).subscribe((res: any) => {
+          this.isBusy = false;
+          this.toastr.Success(res.message);
+        })
+      }
+    })
   }
 
 }

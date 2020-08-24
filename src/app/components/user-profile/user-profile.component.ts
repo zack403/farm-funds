@@ -39,6 +39,7 @@ export class UserProfileComponent implements OnInit {
   sub: boolean = false;
   myWallet: number = 0;
   message: string;
+  interest: number;
 
   constructor(private authSvc: AuthService, private router: Router, 
     private profileSvc: ProfileService,
@@ -100,6 +101,7 @@ export class UserProfileComponent implements OnInit {
 
   deposit(amt) {
     amt *= 100000;
+    this.interest = (amt * 5) / 100;
      const that = this;
      const {email, firstName, lastName} = this.authSvc.getCurrentUserData();
        try {
@@ -122,7 +124,7 @@ export class UserProfileComponent implements OnInit {
                  }).then(res => {
                    if(res) {
                      that.angularZone.run(() => {
-                      that.router.navigateByUrl("app/farmify-shopping");
+                      that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest} });
                      })
                    }
                  })
@@ -177,8 +179,10 @@ export class UserProfileComponent implements OnInit {
           this.deposit(parseInt(res.value));
         }
         else if (answer === 'other') {
+          res.value = res.value * 100000;
+          this.interest = (res.value * 5) / 100;
           const { value: file } = await Swal.fire({
-            title: `Partnership fee ${formatter.format(res.value * 100000)}`,
+            title: `Partnership fee ${formatter.format(res.value)}`,
             text: 'Please upload your proof of payment.',
             input: 'file',
             confirmButtonColor: 'green',

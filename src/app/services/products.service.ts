@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { tap } from 'rxjs/operators';
+import { Cacheable } from 'ngx-cacheable';
+
 
 @Injectable({
   providedIn: 'root'
@@ -89,6 +91,13 @@ export class ProductsService {
 
     GetProducts(page, size, search) {
       return this.httpSvc.get(`foodmarket?page=${page}&size=${size}&search=${search}`).pipe(tap(res => {
+        return res;
+      }))
+    }
+
+    @Cacheable()
+    GetById(id: any){
+      return this.httpSvc.getById('foodmarket/', id).pipe(tap(res => {
         return res;
       }))
     }

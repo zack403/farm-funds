@@ -7,9 +7,14 @@
             <div id="system-message-container">
             </div>
             <div id="akeeba-renderjoomla">
+             
+              <div class="j2store-product-list bs3">
 
-              <div itemscope itemtype="https://schema.org/BreadCrumbList" class="j2store-product-list bs3"
-                data-link="/realgarden/index.php/shop/shop-products">
+                
+
+                <div *ngIf="interest" class="alert alert-info">
+                  <span >Pick items worth your purchase power of <strong>{{interest | currency: '&#8358; '}}</strong></span>
+                </div>
 
                 <div class="sp-column ">
                   <div class="sp-module ">
@@ -35,15 +40,15 @@
                   <div class="col-md-12">
                     <!-- Make sure product is enabled and visible @front end -->
                     <div class="j2store-products-row row-0 row">
-                      <div *ngFor="let p of products.data | paginate : {
+                      <div *ngFor="let p of products?.data | paginate : {
                         itemsPerPage: size,
                         currentPage: page,
-                        totalItems: products.totalItems
+                        totalItems: products?.totalItems
                     }; let i = index"  class="col-md-2">
-                        <div class="j2store-single-product">
-                          <div class="j2store-product-images">
+                        <div  class="j2store-single-product">
+                          <div  class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
-                              <a (click)="goToDetail(p?.id)">
+                              <a [routerLink]="['/app/farmify-shopping-detail', p.id]">
                                 <img id="farmify-item" itemprop="image" alt="{{p?.productName}}" title="{{p?.productName}}"
                                   class="j2store-img-responsive j2store-product-thumb-image-1"
                                   src="{{apiUrl}}/{{p?.imageUrl}}" />
@@ -51,7 +56,7 @@
                               <figcaption class="overlay">
                                 <div class="box">
                                   <div class="content">
-                                    <a title="Add to cart" (click)="addToCart(p, i)"><i class="fa fa-plus"
+                                    <a title="Add to basket" (click)="addToCart(p)"><i class="fa fa-plus"
                                         aria-hidden=""></i></a>
                                   </div>
                                 </div>
@@ -60,18 +65,28 @@
                           </div>
                           <div class="content-box">
                             <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
+                              <p itemprop="name" class="product-title">
                                 <a href="" title="{{p?.productName}}">
                                   {{p?.productName}} </a>
-                              </h2>
+                                </p>
                               <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
                                 class="product-price-container">
-                                <div class="sale-price">
+                                <div  *ngIf="p.price" class="sale-price">
                                   {{p?.price | currency: '&#8358; '}}
                                 </div>
+                                <div *ngIf="!p.price" class="sale-price product">
+                                  <span (click)="enterPrice(i)" style="cursor: pointer; color: black; border: 1px solid; padding: 3px;">Enter Price</span>
+                                </div>
+                                <br>
                                 <div class="product">
-                                  <input type="text" [(ngModel)]="p[i]" name="brand"  class="input-mini form-control" 
-                                     placeholder="Type Brand Here" />
+                                  <small> Quantity </small>
+                                  <input type="number" required [(ngModel)]="p.unit" name="unit" class="input-mini form-control" 
+                                     placeholder="Enter quantity"/>
+                                </div>
+                                <br>
+                                <div class="product">
+                                  <input type="text" [(ngModel)]="p.brand" name="brand"  class="input-mini form-control" 
+                                     placeholder="Enter brand" />
                                 </div>
                               </div>
                             </div>
@@ -81,7 +96,7 @@
                       
                     </div>
 
-                    <div *ngIf="products.data.length > 0" >
+                    <div *ngIf="products?.data.length > 0" >
                       <pagination-controls
                       class="my-pagination"
                           previousLabel="Prev"

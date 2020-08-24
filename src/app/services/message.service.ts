@@ -11,8 +11,12 @@ export class MessageService {
       this.subject.next({ data: message });
   }
 
+  clearMessage(message: string, deleted: boolean) {
+    this.subject.next({data: message, deleted});
+  }
+
   clearMessages() {
-      this.subject.next();
+      this.subject.next({data: ''});
   }
 
   onMessage(): Observable<any> {

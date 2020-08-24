@@ -2,9 +2,9 @@
     <ngx-ui-loader></ngx-ui-loader>
 
     <div class="body-innerwrapper">
-        <app-header *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && router.url !== '/app/farmify-shopping-detail'"></app-header>
+        <app-header *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail')"></app-header>
         <router-outlet></router-outlet>
-        <app-footer *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && router.url !== '/app/farmify-shopping-detail'"></app-footer>
+        <app-footer *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail')"></app-footer>
     </div>
 </div>
 <!-- Off Canvas Menu -->

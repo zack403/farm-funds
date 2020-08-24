@@ -937,6 +937,7 @@ content: "\f10d";
 .j2store-single-product .content-box .inner-box .product-title a,
 .j2store-single-product .content-box .inner-box .product-title a:hover {
 	color: #252525;
+	font-size: 20px;
 }
 
 .product-price-container .sale-price {
@@ -1103,7 +1104,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 .product input[type="text"], .product input[type="number"],
 .product input[type="text"]:focus, .product input[type="number"]:focus {
 	display: inline;
-	width: 105px !important;
+	width: 120px;
 	margin-right: 20px;
 	background-color: #fff;
 	background-image: none;
@@ -1473,7 +1474,7 @@ padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;
 margin-left: auto;}}
-@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1339px;width: 100%;
+@media (min-width: 1200px) {#sp-top1 .sppb-container-inner {max-width: 1344px;width: 100%;
 padding-right: 15px;
 padding-left: 15px;
 margin-right: auto;

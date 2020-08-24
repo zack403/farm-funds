@@ -98,9 +98,7 @@ export function tokenGetter() {
       pbColor: 'green',
       masterLoaderId: 'master',
     }),
-    NgxUiLoaderRouterModule.forRoot({
-      loaderId: 'master'
-    }),
+  
     NgxUiLoaderHttpModule.forRoot({showForeground: true}),
     ToastrModule.forRoot({
       preventDuplicates: true,

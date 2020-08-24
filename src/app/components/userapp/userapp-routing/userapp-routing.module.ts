@@ -34,7 +34,7 @@ const userAppRouter: Routes = [
         component: ShoppingCartComponent,
       },
       {
-        path: 'farmify-shopping-detail',
+        path: 'farmify-shopping-detail/:id',
         component: FarmifyShoppingDetailComponent,
       }
     ]

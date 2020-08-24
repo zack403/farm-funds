@@ -1,42 +1,28 @@
 <div class="site helix-ultimate com-j2store view-carts itemid-137 ">
-  <section id="sp-section-4">
-    <div class="row">
-      <div id="sp-title" class="col-lg-12 ">
-        <div class="sp-column ">
-          <div class="sp-page-title" style="background-image: url(assets/images/background/inner-banner-bg.jpg);">
-            <div class="container">
-              <h2 class="sp-page-title-heading">Shopping Cart</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section id="sp-main-body">
     <div class="container">
-      <div class="container-inner">
-      <a [routerLink]="['app/farmify-shopping']" class="back"><i class="fa fa-arrow-left"> Back to list</i></a>
+      <div class="container-inner"><br>
+      <a [routerLink]="['/app/farmify-shopping']" class="back"><i class="fa fa-arrow-left"> Back to list</i></a>
         <div class="row">
           <main id="sp-component" class="col-lg-12 " role="main">
-            <div class="sp-column ">
-              <div id="system-message-container">
-              </div>
+            <div style="display: flex; justify-content: space-between;">
+              <h4>YOUR BASKET ({{cart.purchaseDetails.length}} item{{cart.purchaseDetails.length > 1 ? 's' : ''}}) </h4>
+              <h4 *ngIf="cart.purchaseDetails.length > 0" style="cursor: pointer;" (click)="clearBaket()" class="text-danger">Clear basket</h4>
+            </div>
+            
+            <div style="margin-top: 10px;" class="sp-column">
               <div id="akeeba-renderjoomla">
                 <div class="j2store">
                   <div class="j2store-cart">
                     <div class="col-md-12"></div>
                     <div class="row">
                       <div class="col-md-12">
-                        <form action="/realgarden/index.php/shop/shopping-cart" method="post" name="j2store-cart-form"
-                          id="j2store-cart-form" enctype="multipart/form-data">
-
-                          <input type="hidden" name="option" value="com_j2store">
-                          <input type="hidden" name="view" value="carts">
-                          <input type="hidden" id="j2store-cart-task" name="task" value="update">
-
+                        <form name="j2store-cart-form"
+                          id="j2store-cart-form">
                           <table class="j2store-cart-table table table-bordered">
                             <thead>
                               <tr>
+                                <th>S/N</th>
                                 <th>Product</th>
                                 <th>Quantity</th>
                                 <th>Price &#x20A6;</th>
@@ -45,33 +31,33 @@
                             </thead>
 
                             <tbody>
-                              <tr>
+                              <tr *ngFor="let item of cart.purchaseDetails; let i = index">
+                                <td>{{i + 1}}</td>
                                 <td>
                                   <span class="cart-thumb-image">
-                                    <img alt="The Innovators" src="assets/images/shop/1.jpg">
+                                    <img alt="{{item.productImage}}" src="{{apiUrl}}/{{item.productImage}}">
                                   </span>
                                   <span class="cart-product-name">
-                                    The Innovators </span>
+                                    {{item.productName}} </span>
                                   <br>
                                   <br>
                                 </td>
 
                                 <td>
-                                  <div class="product"><input type="number" name="quantities[43]" value="1"
-                                      class="input-mini " min="0" step="1"></div>
+                                  {{item.unit}}
+                                  <!-- <div class="product">
+                                    <input type="number" name="unit" class="input-mini form-control" [(ngModel)]="item.unit">
+                                  </div> -->
                                 </td>
 
                                 <td>
-                                  <div class="product"><input type="text" name="price" value="1" class="input-mini "
-                                      min="0" step="1">
-                                  </div>
                                   <div class="sale-price">
-                                    $24.99
+                                    {{item.price | currency: '&#8358; '}}
                                   </div>
                                 </td>
 
                                 <td>
-                                  <a class="btn btn-small btn-danger btn-xs text-light">
+                                  <a (click)="deleteItem(item, i)" title="delete" class="btn btn-small btn-danger btn-xs text-light">
                                     <i class="fa fa-trash-o"></i>
                                   </a>
                                 </td>
@@ -81,7 +67,7 @@
                           <div class="j2store-cart-buttons">
                             <div class="buttons-left">
                               <span class="cart-continue-shopping-button">
-                                <a [routerLink]="['/farmify-shopping']">
+                                <a [routerLink]="['/app/farmify-shopping']">
                                   <input class="btn btn-primary" type="button" value="Continue Shopping">
                                 </a>
                               </span>
@@ -89,12 +75,16 @@
                                     <input class="btn btn-warning ml-2" type="submit" value="Update">
                                   </span> -->
                             </div>
-                            <div class="buttons-right">
-                            </div>
                           </div>
+                          <div class="form-group note" style="margin-left: 51.5%;">
+                            <label for="address" class="text-primary font-weight-bold"><span class="text-danger">*</span>Shipping Address</label>
+                            <input id="address" [(ngModel)]="cart.address" name="address" placeholder="Enter Address in full"
+                              style="width: 100%;">
+                          </div>
+                          <br>
                           <div class="note" style="margin-left: 51.5%;">
-                            <strong class="text-warning">Note to Farmify Market</strong>
-                            <textarea id="comment" name="comment" placeholder="Type a comment here"
+                            <strong class="text-warning">Note to Farmify Market Shopper</strong>
+                            <textarea id="note" [(ngModel)]="cart.note" name="note" placeholder="Add prepping and shopping instructions here"
                               style="width: 100%;"></textarea>
                           </div>
                           <br>
@@ -117,14 +107,14 @@
                             <tr valign="top">
                               <th scope="row">
                                 Total </th>
-                              <td>$29.00</td>
+                              <td>{{orderTotalAmount | currency: '&#8358; '}}</td>
                             </tr>
                           </tbody>
                         </table>
 
                         <div class="buttons-right">
                           <span class="cart-checkout-button">
-                            <a class="btn btn-large btn-success" [routerLink]="['/profile']">Save Items</a>
+                            <a class="btn btn-large btn-success" [disabled]="isBusy" (click)="saveItems()">Save Items</a>
                           </span>
 
                         </div>
