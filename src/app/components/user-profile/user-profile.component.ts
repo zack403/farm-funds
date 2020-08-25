@@ -145,14 +145,20 @@ export class UserProfileComponent implements OnInit {
 
   openswal() {
     Swal.fire({
-      html: '<p class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, magni fugiat saepe, totam quae id cum ipsam, aspernatur perferendis iure cupiditate molestiae tempore blanditiis vero culpa? Iure quo repellat non' +
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi provident consequatur molestias similique quaerat quos adipisci error ipsa ea nemo exercitationem hic, ut consectetur maiores tenetur! Ducimus minima quam tempora.' +
-      'By clicking on buy, you are saying you want us to keep supplying you the food for said the duration.</p>',
+      html: '<hr><br><p class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
+      '<p class="text-left text-dark">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
+      '<p class="text-left text-dark">The 60% will be broken down into 12 parts which means you will be paid 5% of your ROI monthly in form of Groceries, Foodstuffs and Household items.</p><br>' +
+      '<p class="text-left text-dark">After a whole year of grocery shopping for your home, you get a whopping 70% of your capital back</p><br>' +
+      '<p class="text-left text-dark">The remaining 30% will be used as your service charge throughout the year which includes the delivery to your doorstep.</p><br>' +
+      '<p class="text-left text-dark">In other words, within a year, you spent just 30% of your investment on grocery shopping and household items.</p><br><hr>',
       imageUrl: 'assets/images/farmify-slide.jpeg',
       width: 800,
       imageHeight: 300,
       imageWidth: 700,
       input: 'number',
+      inputAttributes: {
+        'min' : 1
+      },
       inputPlaceholder: 'Unit',
       confirmButtonColor: 'green',
       confirmButtonText: "Subscribe",
@@ -183,7 +189,10 @@ export class UserProfileComponent implements OnInit {
           this.interest = (res.value * 5) / 100;
           const { value: file } = await Swal.fire({
             title: `Partnership fee ${formatter.format(res.value)}`,
-            text: 'Please upload your proof of payment.',
+            html:'<hr><br><p class="text-left text-dark font-weight-bold">BANK NAME: &nbsp;&nbsp;&nbsp; Access Bank</p><br>' +
+            '<p class="text-left text-dark font-weight-bold">ACCOUNT NAME: &nbsp;&nbsp; Farmify Agro Innovations Ltd.</p><br>' +
+            '<p class="text-left text-dark font-weight-bold">ACCOUNT NUMBER: &nbsp;&nbsp;&nbsp; 1404450358</p><br><hr>' +
+            '<strong>Please upload your proof of payment.</strong>',
             input: 'file',
             confirmButtonColor: 'green',
             showLoaderOnConfirm: true,
