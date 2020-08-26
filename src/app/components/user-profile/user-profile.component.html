@@ -15,13 +15,53 @@
     <div class="row">
         <main id="sp-component" class="col-lg-12 " role="main">
             <div class="sp-column ">
-                <div id="system-message-container">
-                </div>
-
                 <div id="sp-page-builder" class="sp-page-builder  page-2">
                     <div class="page-content">
+                        <!-- dashboard-header -->
+                        <section id="section-id-1551490002720" class="sppb-section" style="padding-bottom: 0%;">
+                            <div class="sppb-row-container">
+                                <div class="sppb-row">
+                                    <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
+                                        <div id="column-id-1551490002719" class="sppb-column">
+                                            <div class="sppb-column-addons">
+                                                <div id="sppb-addon-1551573988809" class="clearfix">
+                                                    <h1 class="sppb-addon-title">User <span
+                                                            class="text-primary">Dashboard </span>
+                                                        <small style="text-transform: none;">You are currently on
+                                                            <b>{{dashboardData.count}}</b> Food
+                                                            Subscription.</small>
+
+                                                        <span *ngIf="dashboardData.count > 0"
+                                                            [innerHTML]="emoji"></span>
+
+                                                        <span class="add-item pull-right">
+                                                            <a [routerLink]="['/app/farmify-shopping']"> <input
+                                                                    class="p-button" style="cursor: pointer;"
+                                                                    type="submit" value="Add Items">
+                                                            </a>
+                                                        </span>
+                                                    </h1>
+                                                    <!-- switch-button -->
+                                                    <small class="text-warning font-weight-bold"
+                                                        style="font-size: 16px; margin-right: 10px;">Food Sub.</small>
+                                                    <label class="switch">
+                                                        <input [(ngModel)]="selected" type="checkbox">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                    <small class="text-primary font-weight-bold"
+                                                        style="font-size: 16px;margin-left: 10px;">Farm Inv.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- end-dashboard-header -->
+
                         <!-- farm-subscription -->
-                        <!-- <section id="section-id-1551490002720" class="sppb-section  ">
+                        <section *ngIf="selected" id="section-id-1551490002720" class="sppb-section farm-subscription"
+                            style="padding-top: 0%;">
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
@@ -29,13 +69,13 @@
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <h1 class="sppb-addon-title">User <span
+                                                        <!-- <h1 class="sppb-addon-title">User <span
                                                                 class="text-primary">Dashboard </span>
                                                             <small style="text-transform: none;">You are currently on
                                                                 <b>{{dashboardData.count}}</b> Farm Investments.</small>
                                                             <span *ngIf="dashboardData.count > 0"
                                                                 [innerHTML]="emoji"></span>
-                                                        </h1>
+                                                        </h1> -->
                                                         <div class="sppb-addon-content">
                                                             <div class="text">
                                                                 <div class="row">
@@ -120,75 +160,83 @@
                                     </div>
                                 </div>
                             </div>
-                        </section> -->
-                        <!-- <section id="section-id-1551573988958" class="sppb-section  ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
-                                        <div id="column-id-1551573988957" class="sppb-column">
-                                            <div class="sppb-column-addons">
-                                                <div id="sppb-addon-1551573988978" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <h1 class="sppb-addon-title">Current <span
-                                                                class="text-primary">Farm ({{dashboardData.count}})</span></h1>
-                                                        <div class="input-group pull-right">
-                                                            <a (click)="openModal('newfarm')"> <input class="p-button"
-                                                                    style="cursor: pointer;" type="submit"
-                                                                    value="New Farm"></a>
+                            <br><br>
+                            <!-- farm-investment-table -->
+                            <div id="section-id-1551573988958" class="sppb-section  ">
+                                <div class="sppb-row-container">
+                                    <div class="sppb-row">
+                                        <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                            <div id="column-id-1551573988957" class="sppb-column">
+                                                <div class="sppb-column-addons">
+                                                    <div id="sppb-addon-1551573988978" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-text-block  ">
+                                                            <h1 class="sppb-addon-title">Current <span
+                                                                    class="text-primary">Farm
+                                                                    ({{dashboardData.count}})</span></h1>
+                                                            <div class="input-group pull-right">
+                                                                <a (click)="openModal('newfarm')"> <input
+                                                                        class="p-button" style="cursor: pointer;"
+                                                                        type="submit" value="New Farm"></a>
+                                                            </div>
+                                                            <div class="sppb-addon-content"></div>
                                                         </div>
-                                                        <div class="sppb-addon-content"></div>
                                                     </div>
-                                                </div>
-                                                <div id="sppb-addon-1551573988963" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-raw-html ">
-                                                        <div class="sppb-addon-content">
-                                                            <div class="single-item">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">S/N</th>
-                                                                            <th scope="col">Package</th>
-                                                                            <th scope="col">Unit</th>
-                                                                            <th scope="col">Amount</th>
-                                                                            <th scope="col">ROI</th>
-                                                                            <th scope="col">Start Date</th>
-                                                                            <th scope="col">End Date</th>
-                                                                            <th scope="col">Status</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr *ngFor="let item of dashboardData.rows">
-                                                                            <th scope="row">{{index}}</th>
-                                                                            <td>{{item.package}}</td>
-                                                                            <td>{{item.unit}}</td>
-                                                                            <td>{{item.amount | currency: '&#8358; '}}</td>
-                                                                            <td>{{item.roi | currency: '&#8358; '}}</td>
-                                                                            <td>{{item.startDate | date: "mediumDate"}}</td>
-                                                                            <td>{{item.endDate | date: "mediumDate"}}</td>
-                                                                            <td><span
-                                                                                  [ngClass]="{'badge badge-success': item.status === 'active', 'badge badge-warning': item.status === 'pending'}">{{item.status}}</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                    <div id="sppb-addon-1551573988963" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-raw-html ">
+                                                            <div class="sppb-addon-content">
+                                                                <div class="single-item">
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">S/N</th>
+                                                                                <th scope="col">Package</th>
+                                                                                <th scope="col">Unit</th>
+                                                                                <th scope="col">Amount</th>
+                                                                                <th scope="col">ROI</th>
+                                                                                <th scope="col">Start Date</th>
+                                                                                <th scope="col">End Date</th>
+                                                                                <th scope="col">Status</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr *ngFor="let item of dashboardData.rows">
+                                                                                <th scope="row">{{index}}</th>
+                                                                                <td>{{item.package}}</td>
+                                                                                <td>{{item.unit}}</td>
+                                                                                <td>{{item.amount | currency: '&#8358; '}}
+                                                                                </td>
+                                                                                <td>{{item.roi | currency: '&#8358; '}}
+                                                                                </td>
+                                                                                <td>{{item.startDate | date: "mediumDate"}}
+                                                                                </td>
+                                                                                <td>{{item.endDate | date: "mediumDate"}}
+                                                                                </td>
+                                                                                <td><span
+                                                                                        [ngClass]="{'badge badge-success': item.status === 'active', 'badge badge-warning': item.status === 'pending'}">{{item.status}}</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div id="sppb-addon-1551578090420"
-                                                    class="sppb-hidden-md sppb-hidden-lg clearfix">
-                                                    <div class="sppb-empty-space  clearfix"></div>
+                                                    <div id="sppb-addon-1551578090420"
+                                                        class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                                        <div class="sppb-empty-space  clearfix"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section> -->
+                        </section>
                         <!-- end-farm-subscription -->
 
                         <!-- food-subscription -->
-                        <section id="section-id-1551490002720" class="sppb-section  ">
+                        <section *ngIf="!selected" id="section-id-1551490002720" class="sppb-section food-subscription"
+                            style="padding-top: 0%;">
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
@@ -196,7 +244,7 @@
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <h1 class="sppb-addon-title">User <span
+                                                        <!-- <h1 class="sppb-addon-title">User <span
                                                                 class="text-primary">Dashboard </span>
                                                             <small style="text-transform: none;">You are currently on
                                                                 <b>{{dashboardData.count}}</b> Food
@@ -210,7 +258,7 @@
                                                                             value="Add Items">
                                                                     </a>
                                                                 </span>
-                                                        </h1>
+                                                        </h1> -->
                                                         <div class="sppb-addon-content">
                                                             <div class="text">
                                                                 <div class="row">
@@ -295,67 +343,149 @@
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                        <section id="section-id-1551573988958" class="sppb-section  ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
-                                        <div id="column-id-1551573988957" class="sppb-column">
-                                            <div class="sppb-column-addons">
-                                                <div id="sppb-addon-1551573988978" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <h1 class="sppb-addon-title">Foods <span
-                                                                class="text-primary">Purchase
-                                                                ({{purchases.count}})</span></h1>
-                                                        <div class="input-group pull-right">
-                                                            <!-- <a (click)="openModal('purchase')"> <input class="p-button"
-                                                                    style="cursor: pointer;" type="submit"
-                                                                    value="Shop Food">
-                                                                </a> -->
-                                                            <!-- &nbsp;
-                                                            &nbsp; -->
-                                                            <a (click)="openswal()"> <input class="p-button"
-                                                                    style="cursor: pointer;" type="submit"
-                                                                    value="Subscribe to a food"></a>
+                            <br><br>
+                            <!-- food-subdcription-table -->
+                            <div id="section-id-1551573988958" class="sppb-section  ">
+                                <div class="sppb-row-container">
+                                    <div class="sppb-row">
+                                        <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                            <div id="column-id-1551573988957" class="sppb-column">
+                                                <div class="sppb-column-addons">
+                                                    <div id="sppb-addon-1551573988978" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-text-block  ">
+                                                            <h1 class="sppb-addon-title">Foods <span
+                                                                    class="text-primary">Subscriptions
+                                                                    ({{purchases.count}})</span></h1>
+                                                            <div class="input-group pull-right">
+                                                                <!-- <a (click)="openModal('purchase')"> <input class="p-button"
+                                                                                                    style="cursor: pointer;" type="submit"
+                                                                                                    value="Shop Food">
+                                                                                                </a> -->
+                                                                <!-- &nbsp;
+                                                                                            &nbsp; -->
+                                                                <a (click)="openswal()"> <input class="p-button"
+                                                                        style="cursor: pointer;" type="submit"
+                                                                        value="Subscribe"></a>
+                                                            </div>
+                                                            <div class="sppb-addon-content"></div>
                                                         </div>
-                                                        <div class="sppb-addon-content"></div>
                                                     </div>
-                                                </div>
-                                                <div id="sppb-addon-1551573988963" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-raw-html ">
-                                                        <div class="sppb-addon-content">
-                                                            <div class="single-item">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">S/N</th>
-                                                                            <th scope="col">Product</th>
-                                                                            <th scope="col">Amount</th>
-                                                                            <th scope="col">Type</th>
-                                                                            <th scope="col">Purchase Date</th>
-                                                                            <th scope="col">Status</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr *ngFor="let i of purchases.rows">
-                                                                            <th scope="row">{{index}}</th>
-                                                                            <td>{{i.product}}</td>
-                                                                            <td>{{i.amount}}</td>
-                                                                            <td>{{i.type}}</td>
-                                                                            <td>{{i.createdAt}}</td>
-                                                                            <td><span
-                                                                                    [ngClass]="{'badge badge-success': i.status === 'Active', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                    <div id="sppb-addon-1551573988963" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-raw-html ">
+                                                            <div class="sppb-addon-content">
+                                                                <div class="single-item">
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">S/N</th>
+                                                                                <th scope="col">Name</th>
+                                                                                <th scope="col">Phone No.</th>
+                                                                                <th scope="col">Unit</th>
+                                                                                <th scope="col">Amount</th>
+                                                                                <th scope="col">Payment Type</th>
+                                                                                <th scope="col">Start Date</th>
+                                                                                <th scope="col">End Date</th>
+                                                                                <th scope="col">ROI</th>
+                                                                                <th scope="col">ROC</th>
+                                                                                <th scope="col">Status</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr *ngFor="let i of purchases.rows">
+                                                                                <th scope="row">{{index}}</th>
+                                                                                <td>{{i.name}}</td>
+                                                                                <td>{{i.phone}}</td>
+                                                                                <td>{{i.unit}}</td>
+                                                                                <td>{{i.amount}}</td>
+                                                                                <td>{{i.type}}</td>
+                                                                                <td>{{i.start}}</td>
+                                                                                <td>{{i.end}}</td>
+                                                                                <td>{{i.roi}}</td>
+                                                                                <td>{{i.roc}}</td>
+                                                                                <td><span
+                                                                                        [ngClass]="{'badge badge-success': i.status === 'Active', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div id="sppb-addon-1551578090420"
+                                                        class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                                        <div class="sppb-empty-space  clearfix"></div>
+                                                    </div>
                                                 </div>
-                                                <div id="sppb-addon-1551578090420"
-                                                    class="sppb-hidden-md sppb-hidden-lg clearfix">
-                                                    <div class="sppb-empty-space  clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <!-- item-other-table -->
+                            <div id="section-id-1551573988958" class="sppb-section  ">
+                                <div class="sppb-row-container">
+                                    <div class="sppb-row">
+                                        <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                            <div id="column-id-1551573988957" class="sppb-column">
+                                                <div class="sppb-column-addons">
+                                                    <div id="sppb-addon-1551573988978" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-text-block  ">
+                                                            <h1 class="sppb-addon-title">Farmify-Market <span
+                                                                    class="text-primary">Orders
+                                                                    ({{purchases.count}})</span></h1>
+                                                            <div class="input-group pull-right">
+                                                                <!-- <a (click)="openModal('purchase')"> <input class="p-button"
+                                                                        style="cursor: pointer;" type="submit"
+                                                                        value="Shop Food">
+                                                                    </a> -->
+                                                                <!-- &nbsp;
+                                                                &nbsp; -->
+                                                                <a (click)="openswal()"> <input class="p-button"
+                                                                        style="cursor: pointer;" type="submit"
+                                                                        value="View"></a>
+                                                            </div>
+                                                            <div class="sppb-addon-content"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="sppb-addon-1551573988963" class="clearfix">
+                                                        <div class="sppb-addon sppb-addon-raw-html ">
+                                                            <div class="sppb-addon-content">
+                                                                <div class="single-item">
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">S/N</th>
+                                                                                <th scope="col">Product</th>
+                                                                                <th scope="col">Amount</th>
+                                                                                <th scope="col">Type</th>
+                                                                                <th scope="col">Order Date</th>
+                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr *ngFor="let i of purchases.rows">
+                                                                                <th scope="row">{{index}}</th>
+                                                                                <td>{{i.product}}</td>
+                                                                                <td>{{i.amount}}</td>
+                                                                                <td>{{i.type}}</td>
+                                                                                <td>{{i.createdAt}}</td>
+                                                                                <td>{{i.action}}</td>
+                                                                                <td><span
+                                                                                        [ngClass]="{'badge badge-success': i.status === 'Active', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="sppb-addon-1551578090420"
+                                                        class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                                        <div class="sppb-empty-space  clearfix"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

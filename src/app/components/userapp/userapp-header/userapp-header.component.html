@@ -74,14 +74,14 @@
                                                                                 <!-- <span class="user-name">ZACK OHIANI AMINU</span> -->
                                                                                 <button class="dropdown-item" type="button">
                                                                                     <!-- <img src="assets/images/profile-images.png" alt="" class="text-center" > -->
-                                                                                    <small class="text-success">Signed in as</small>&nbsp;
-                                                                                <strong class="user-name text-strong display-10">{{userData.firstName}} {{userData.middleName}} {{userData.lastName}}</strong>
+                                                                                    <small class="text-success" style="cursor: pointer;">Signed in as</small>&nbsp;
+                                                                                <strong class="user-name text-strong text-secondary display-10" style="cursor: pointer;">{{userData.firstName}} {{userData.middleName}} {{userData.lastName}}</strong>
                                                                                 </button>
                                                                                 <div class="dropdown-divider"></div>
-                                                                                <button class="dropdown-item text-success" type="button"><a
+                                                                                <button class="dropdown-item text-success" type="button" style="cursor: pointer;"><a
                                                                                     (click)="go()"><i class="fa fa-user"></i> Profile</a></button>
                                                                                 <div class="dropdown-divider"></div>
-                                                                              <button class="dropdown-item" type="button"><a
+                                                                              <button class="dropdown-item" type="button" style="cursor: pointer;"><a
                                                                                 class="text-danger display-10" (click)="logout()"><i class="fa fa-sign-out"></i> Log Out</a></button>
                                                                               <!-- <button class="dropdown-item" type="button">Something else here</button> -->
                                                                             </div>
