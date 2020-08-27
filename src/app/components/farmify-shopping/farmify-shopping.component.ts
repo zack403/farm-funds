@@ -20,7 +20,7 @@ export class FarmifyShoppingComponent implements OnInit {
   size: number = 15;
   search: string = "";
   products: any;
-  interest: number = 15000;
+  interest: number = 0;
   constructor(private prodSvc: ProductsService, private toastr: ToasterService, private router: Router,private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -28,15 +28,18 @@ export class FarmifyShoppingComponent implements OnInit {
     this.getProducts();
     if(history.state.interest){
       this.interest = history.state.interest;
+      localStorage.setItem("interest", `${this.interest}`);
+    }else {
+      const int = parseInt(localStorage.getItem("interest"));
+      if(int){
+        this.interest = int;
+      }
     }
   }
 
     getProducts(){
       this.prodSvc.GetProducts(this.page, this.size, this.search).subscribe((res: any) => {
       this.products = res;
-      for(const p of this.products.data){
-        p.unit = 1;
-      }
       if(res.data.length === 0) return this.toastr.Info("No record found");  
       }, err => {
         console.log(err);
@@ -56,6 +59,9 @@ export class FarmifyShoppingComponent implements OnInit {
   addToCart(item) {
     if(!item.price){
       return;
+    }
+    if(!item.unit || item.unit <= 0){
+      return this.toastr.Error(`Please input quantity greater than 0 for ${item.productName}`)
     }
     item.interest = this.interest;
     item.price = parseInt(item.price);

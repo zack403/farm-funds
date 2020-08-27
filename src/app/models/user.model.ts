@@ -8,5 +8,6 @@ export interface User {
     email: string;
     phoneNo: string;
     isAdmin: boolean;
-    createdAt: Date
+    createdAt: Date,
+    middleName: string;
 }

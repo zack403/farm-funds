@@ -9,6 +9,7 @@ import { FarmifyShoppingComponent } from '../farmify-shopping/farmify-shopping.c
 import { ShoppingCartComponent } from '../products/shopping-cart/shopping-cart.component';
 import {NgxPaginationModule} from 'ngx-pagination'; 
 import { FarmifyShoppingDetailComponent } from '../farmify-shopping-detail/farmify-shopping-detail.component';
+import { PackagesComponent } from '../packages/packages.component';
 
 
 
@@ -27,7 +28,8 @@ import { FarmifyShoppingDetailComponent } from '../farmify-shopping-detail/farmi
       UserProfileComponent,
       FarmifyShoppingComponent,
       ShoppingCartComponent,
-      FarmifyShoppingDetailComponent
+      FarmifyShoppingDetailComponent,
+      PackagesComponent
 
   ],
   exports: [UserappComponent]

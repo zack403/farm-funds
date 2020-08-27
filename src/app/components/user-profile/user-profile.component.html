@@ -22,23 +22,27 @@
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
+                                        <div *ngIf="success" class="alert alert-success alert-dissmissible">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <span><strong>{{success}}</strong></span>
+                                          </div>
                                         <div id="column-id-1551490002719" class="sppb-column">
+                                           
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <h1 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
                                                         <small style="text-transform: none;">You are currently on
-                                                            <b>{{dashboardData.count}}</b> Food
+                                                            <b>{{subscribers.length}}</b> Food
                                                             Subscription.</small>
 
-                                                        <span *ngIf="dashboardData.count > 0"
+                                                        <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span>
 
                                                         <span class="add-item pull-right">
-                                                            <a [routerLink]="['/app/farmify-shopping']"> <input
-                                                                    class="p-button" style="cursor: pointer;"
-                                                                    type="submit" value="Add Items">
-                                                            </a>
+                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases[0].status === 'Pending'" (click)="AddItems()">
+                                                                     Add Items
+                                                            </button>
                                                         </span>
                                                     </h1>
                                                     <!-- switch-button -->
@@ -140,7 +144,7 @@
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
-                                                                                        (click)="openModal('smallmodal')">Fund</a></button>
+                                                                                        (click)="openModa('smallmoda')">Fund</a></button>
                                                                                 <footer class="blockquote-footer">
                                                                                     <small>
                                                                                         Farmfunds <cite
@@ -172,7 +176,7 @@
                                                         <div class="sppb-addon sppb-addon-text-block  ">
                                                             <h1 class="sppb-addon-title">Current <span
                                                                     class="text-primary">Farm
-                                                                    ({{dashboardData.count}})</span></h1>
+                                                                    ({{dashboardData.length}})</span></h1>
                                                             <div class="input-group pull-right">
                                                                 <a (click)="openModal('newfarm')"> <input
                                                                         class="p-button" style="cursor: pointer;"
@@ -199,7 +203,7 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let item of dashboardData.rows">
+                                                                            <tr *ngFor="let item of dashboardData.inv">
                                                                                 <th scope="row">{{index}}</th>
                                                                                 <td>{{item.package}}</td>
                                                                                 <td>{{item.unit}}</td>
@@ -267,7 +271,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Current Food Subscription</span>
-                                                                                <h2>{{dashboardData.totalInv | currency: '&#8358; '}}
+                                                                                <h2>{{subscribers[0].amount | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -283,8 +287,8 @@
                                                                         <div
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
-                                                                                <span>Total ROI</span>
-                                                                                <h2>{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                                                                <span>Your ROI</span>
+                                                                                <h2>{{subscribers[0].roi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -300,8 +304,8 @@
                                                                         <div
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
-                                                                                <span>Gain Packages</span>
-                                                                                <h2>{{dashboardData.totalGain | currency: '&#8358; '}}
+                                                                                <span>Your ROC</span>
+                                                                                <h2>{{subscribers[0].roc | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -323,7 +327,7 @@
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
-                                                                                        (click)="openModal('smallmodal')">Fund</a></button>
+                                                                                        (click)="openModal('smallmoda')">Fund</a></button>
                                                                                 <footer class="blockquote-footer">
                                                                                     <small>
                                                                                         Farmfunds <cite
@@ -355,7 +359,7 @@
                                                         <div class="sppb-addon sppb-addon-text-block  ">
                                                             <h1 class="sppb-addon-title">Foods <span
                                                                     class="text-primary">Subscriptions
-                                                                    ({{purchases.count}})</span></h1>
+                                                                    ({{subscribers.length}})</span></h1>
                                                             <div class="input-group pull-right">
                                                                 <!-- <a (click)="openModal('purchase')"> <input class="p-button"
                                                                                                     style="cursor: pointer;" type="submit"
@@ -391,19 +395,19 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of purchases.rows">
-                                                                                <th scope="row">{{index}}</th>
+                                                                            <tr *ngFor="let i of subscribers; let index = index">
+                                                                                <th scope="row">{{index + 1}}</th>
                                                                                 <td>{{i.name}}</td>
-                                                                                <td>{{i.phone}}</td>
+                                                                                <td>{{i.phoneNo}}</td>
                                                                                 <td>{{i.unit}}</td>
-                                                                                <td>{{i.amount}}</td>
-                                                                                <td>{{i.type}}</td>
-                                                                                <td>{{i.start}}</td>
-                                                                                <td>{{i.end}}</td>
-                                                                                <td>{{i.roi}}</td>
-                                                                                <td>{{i.roc}}</td>
+                                                                                <td class="text-right">{{i.amount | currency: '&#8358; '}}</td>
+                                                                                <td>{{i.paymentType}}</td>
+                                                                                <td>{{i.startDate | date: "mediumDate"}}</td>
+                                                                                <td>{{i.endDate | date: "mediumDate"}}</td>
+                                                                                <td class="text-right">{{i.roi | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right">{{i.roc | currency: '&#8358; '}}</td>
                                                                                 <td><span
-                                                                                        [ngClass]="{'badge badge-success': i.status === 'Active', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                                        [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -433,7 +437,7 @@
                                                         <div class="sppb-addon sppb-addon-text-block  ">
                                                             <h1 class="sppb-addon-title">Farmify-Market <span
                                                                     class="text-primary">Orders
-                                                                    ({{purchases.count}})</span></h1>
+                                                                    ({{purchases.length}})</span></h1>
                                                             <div class="input-group pull-right">
                                                                 <!-- <a (click)="openModal('purchase')"> <input class="p-button"
                                                                         style="cursor: pointer;" type="submit"
@@ -441,10 +445,16 @@
                                                                     </a> -->
                                                                 <!-- &nbsp;
                                                                 &nbsp; -->
-                                                                <a (click)="openswal()"> <input class="p-button"
-                                                                        style="cursor: pointer;" type="submit"
-                                                                        value="View"></a>
+                                                            
+                                                                        
                                                             </div>
+                                                            <span *ngIf="showDetails" class="add-item pull-right">
+                                                                <a> 
+                                                                    <button title="View parent" (click)="back()"
+                                                                    class="btn btn-outline-success"><i class="fa fa-arrow-left"></i> 
+                                                                </button>
+                                                                </a>
+                                                            </span>
                                                             <div class="sppb-addon-content"></div>
                                                         </div>
                                                     </div>
@@ -452,12 +462,12 @@
                                                         <div class="sppb-addon sppb-addon-raw-html ">
                                                             <div class="sppb-addon-content">
                                                                 <div class="single-item">
-                                                                    <table class="table table-bordered">
+                                                                    <table *ngIf="!showDetails"  class="table table-bordered">
                                                                         <thead>
                                                                             <tr>
                                                                                 <th scope="col">S/N</th>
-                                                                                <th scope="col">Product</th>
-                                                                                <th scope="col">Amount</th>
+                                                                                <th scope="col">Name</th>
+                                                                                <th scope="col">Phone No</th>
                                                                                 <th scope="col">Type</th>
                                                                                 <th scope="col">Order Date</th>
                                                                                 <th scope="col">Status</th>
@@ -465,16 +475,47 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of purchases.rows">
-                                                                                <th scope="row">{{index}}</th>
-                                                                                <td>{{i.product}}</td>
-                                                                                <td>{{i.amount}}</td>
+                                                                            <tr *ngFor="let i of purchases let index = index">
+                                                                                <th>{{index + 1}}</th>
+                                                                                <td>{{i.name}}</td>
+                                                                                <td>{{i.phoneNo}}</td>
                                                                                 <td>{{i.type}}</td>
-                                                                                <td>{{i.createdAt}}</td>
-                                                                                <td>{{i.action}}</td>
+                                                                                <td>{{i.createdAt | date: "mediumDate"}}</td>
                                                                                 <td><span
-                                                                                        [ngClass]="{'badge badge-success': i.status === 'Active', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                                        [ngClass]="{'badge badge-success badge-pill': i.status === 'Delivered', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
+                                                                                <td>
+                                                                                    <button title="View Order detail" (click)="viewOrder(i.id)"
+                                                                                        class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
+                                                                                    </button>
+                                                                                </td>
+
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <table *ngIf="showDetails" class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">S/N</th>
+                                                                                <th scope="col">Product</th>
+                                                                                <th scope="col">Price</th>
+                                                                                <th scope="col">Quantity</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr *ngFor="let detail of details let index = index">
+                                                                                <th>{{index + 1}}</th>
+                                                                                <td>{{detail.productName}}</td>
+                                                                                <td class="text-right">{{detail.price | currency: '&#8358; '}}</td>
+                                                                                <td>{{detail.unit}}</td>
+                                                                                
+                                                                            
+                                                                                <!-- <td>
+                                                                                    <button title="View Order detail" (click)="viewOrder(item.id)"
+                                                                                        class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
+                                                                                    </button>
+                                                                                </td> -->
+
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>

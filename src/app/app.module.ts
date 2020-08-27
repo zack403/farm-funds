@@ -27,7 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ServicesComponent } from './components/services/services.component';
 import { TermsComponent } from './components/terms/terms.component';
-import { PackagesComponent } from './components/packages/packages.component';
 import { ResetPasswordComponent } from './components/auth/reset-password/reset-password.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
@@ -37,11 +36,12 @@ import { ToasterService } from './services/toaster.service';
 import { AuthGuard } from './guards/auth.guard';
 import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
-import { NgxUiLoaderModule, NgxUiLoaderRouterModule,  SPINNER,
-  POSITION,
-  PB_DIRECTION , NgxUiLoaderHttpModule  } from 'ngx-ui-loader';
 import { UserappModule } from './components/userapp/userapp.module';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
+// for Router import:
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 
 
@@ -75,7 +75,6 @@ export function tokenGetter() {
     ProductsSubscriptionComponent,
     ServicesComponent,
     TermsComponent,
-    PackagesComponent,
     ResetPasswordComponent
   ],
   imports: [
@@ -87,19 +86,8 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxUiLoaderModule.forRoot({
-      bgsColor: 'green',
-      bgsPosition: POSITION.bottomCenter,
-      bgsSize: 40,
-      bgsType: SPINNER.rectangleBounce, // background spinner type
-      fgsColor: 'green',
-      fgsType: SPINNER.ballScaleMultiple, // foreground spinner type
-      pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
-      pbColor: 'green',
-      masterLoaderId: 'master',
-    }),
-  
-    NgxUiLoaderHttpModule.forRoot({showForeground: true}),
+    LoadingBarHttpClientModule,
+    LoadingBarRouterModule,
     ToastrModule.forRoot({
       preventDuplicates: true,
       progressBar: true

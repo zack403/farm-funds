@@ -32,6 +32,7 @@ export class UserProfileComponent implements OnInit {
   userData: User;
   dashboardData: any;
   purchases: any;
+  subscribers: any;
   pck: boolean = false;
   pl: boolean = false;
   emoji = '&#128591;&#127999';
@@ -40,6 +41,11 @@ export class UserProfileComponent implements OnInit {
   myWallet: number = 0;
   message: string;
   interest: number;
+  paymentType: string;
+  success: string;
+  selected: boolean = false;
+  showDetails: boolean = false;
+  details: any;
 
   constructor(private authSvc: AuthService, private router: Router, 
     private profileSvc: ProfileService,
@@ -54,6 +60,8 @@ export class UserProfileComponent implements OnInit {
     this.userData = result[0].data;
     this.dashboardData = result[1].investments;
     this.purchases = result[1].purchases;
+    this.subscribers = result[1].subscribers;
+    console.log(result)
   }
 
 
@@ -99,7 +107,7 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
-  deposit(amt) {
+  deposit(amt, data) {
     amt *= 100000;
     this.interest = (amt * 5) / 100;
      const that = this;
@@ -120,11 +128,15 @@ export class UserProfileComponent implements OnInit {
                    html: `<p>Your payment is successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest.</p>`,
                    confirmButtonColor: 'green',
                    icon: 'success',
+                   allowOutsideClick: false,
+                   allowEscapeKey: false,
                    confirmButtonText: "Proceed"
                  }).then(res => {
                    if(res) {
                      that.angularZone.run(() => {
-                      that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest} });
+                      that.utilSvc.uploadProofOfPayment(data).subscribe((res:any) => {
+                        that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest} });
+                      })
                      })
                    }
                  })
@@ -182,13 +194,22 @@ export class UserProfileComponent implements OnInit {
         });
 
         if(answer === 'card') {
-          this.deposit(parseInt(res.value));
+          this.paymentType = "Card";
+          const formData = new FormData();
+          formData.append('name', this.userData.middleName ? `${this.userData.firstName} ${this.userData.middleName} ${this.userData.lastName}` : `${this.userData.firstName} ${this.userData.lastName}`);
+          formData.append('phoneNo', this.userData.phoneNo);
+          formData.append('UserId', this.userData.id);
+          formData.append('paymentType', this.paymentType);
+          formData.append('unit', res.value);
+          formData.append('email', this.userData.email);
+          this.deposit(parseInt(res.value), formData);
         }
         else if (answer === 'other') {
-          res.value = res.value * 100000;
+          this.paymentType = "Transfer";
+          const fee = res.value * 100000;
           this.interest = (res.value * 5) / 100;
           const { value: file } = await Swal.fire({
-            title: `Partnership fee ${formatter.format(res.value)}`,
+            title: `Partnership fee ${formatter.format(fee)}`,
             html:'<hr><br><p class="text-left text-dark font-weight-bold">BANK NAME: &nbsp;&nbsp;&nbsp; Access Bank</p><br>' +
             '<p class="text-left text-dark font-weight-bold">ACCOUNT NAME: &nbsp;&nbsp; Farmify Agro Innovations Ltd.</p><br>' +
             '<p class="text-left text-dark font-weight-bold">ACCOUNT NUMBER: &nbsp;&nbsp;&nbsp; 1404450358</p><br><hr>' +
@@ -203,9 +224,16 @@ export class UserProfileComponent implements OnInit {
             },
             preConfirm: (event) => {
               const formData = new FormData();
+              formData.append('name', this.userData.middleName ? `${this.userData.firstName} ${this.userData.middleName} ${this.userData.lastName}` : `${this.userData.firstName} ${this.userData.lastName}`);
+              formData.append('phoneNo', this.userData.phoneNo);
+              formData.append('UserId', this.userData.id);
+              formData.append('paymentType', this.paymentType);
+              formData.append('unit', res.value);
               formData.append("proofofpayment", event);
-              this.utilSvc.uploadProofOfPayment(formData).subscribe((r:any) => {
-                console.log(r);
+              formData.append('email', this.userData.email);
+              this.utilSvc.uploadProofOfPayment(formData).subscribe((res:any) => {
+                console.log(res.message);
+                this.success = res.message;
               })
             },
             inputAttributes: {
@@ -218,4 +246,21 @@ export class UserProfileComponent implements OnInit {
     })
   }
 
+  viewOrder(id) {
+    const item = this.purchases.find(x => x.id === id);
+    if(item){
+      this.showDetails = true;
+      this.details = item.PurchaseDetails;
+    }
+  }
+
+  back() {
+    this.showDetails = false;
+  }
+
+  AddItems() {
+    console.log('ddd');
+    this.interest = (this.subscribers[0].amount) * 5 / 100
+    this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+  }
 }

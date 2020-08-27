@@ -110,6 +110,9 @@ export class ShoppingCartComponent implements OnInit {
         this.utilSvc.saveItems(this.cart).subscribe((res: any) => {
           this.isBusy = false;
           this.toastr.Success(res.message);
+          localStorage.removeItem("interest");
+          localStorage.removeItem("cart");
+          this.router.navigateByUrl("app/profile");
         })
       }
     })
