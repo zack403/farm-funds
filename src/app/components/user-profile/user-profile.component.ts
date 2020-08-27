@@ -260,7 +260,7 @@ export class UserProfileComponent implements OnInit {
 
   AddItems() {
     console.log('ddd');
-    this.interest = (this.subscribers[0].amount) * 5 / 100
+    this.interest = (this.subscribers.amount) * 5 / 100
     this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
   }
 }

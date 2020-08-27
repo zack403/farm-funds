@@ -33,14 +33,14 @@
                                                     <h1 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
                                                         <small style="text-transform: none;">You are currently on
-                                                            <b>{{subscribers.length}}</b> Food
+                                                            <b>{{subscribers.subs.length}}</b> Food
                                                             Subscription.</small>
 
                                                         <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span>
 
                                                         <span class="add-item pull-right">
-                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases[0].status === 'Pending' || subscribers[0].status === 'Pending'" (click)="AddItems()">
+                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases.length && subscribers.length > 0 ? purchases[0].status === 'Pending' || subscribers[0].status === 'Pending' : ''" (click)="AddItems()">
                                                                      Add Items
                                                             </button>
                                                         </span>
@@ -271,7 +271,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Current Food Subscription</span>
-                                                                                <h2>{{subscribers[0].amount | currency: '&#8358; '}}
+                                                                                <h2>{{subscribers.amount | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -288,7 +288,7 @@
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROI</span>
-                                                                                <h2>{{subscribers[0].roi | currency: '&#8358; '}}
+                                                                                <h2>{{subscribers.roi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -305,7 +305,7 @@
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROC</span>
-                                                                                <h2>{{subscribers[0].roc | currency: '&#8358; '}}
+                                                                                <h2>{{subscribers.roc | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -359,7 +359,7 @@
                                                         <div class="sppb-addon sppb-addon-text-block  ">
                                                             <h1 class="sppb-addon-title">Foods <span
                                                                     class="text-primary">Subscriptions
-                                                                    ({{subscribers.length}})</span></h1>
+                                                                    ({{subscribers.subs.length}})</span></h1>
                                                             <div class="input-group pull-right">
                                                                 <!-- <a (click)="openModal('purchase')"> <input class="p-button"
                                                                                                     style="cursor: pointer;" type="submit"
@@ -395,7 +395,7 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of subscribers; let index = index" style="width: 50%;">
+                                                                            <tr *ngFor="let i of subscribers.subs; let index = index" style="width: 50%;">
                                                                                 <th scope="row">{{index + 1}}</th>
                                                                                 <td>{{i.name}}</td>
                                                                                 <td>{{i.phoneNo}}</td>
