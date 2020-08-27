@@ -156,6 +156,13 @@ export class UserProfileComponent implements OnInit {
   
 
   openswal() {
+    if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+      return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+    } else {
+      if(this.purchases.length> 0 && this.purchases[0].status === 'Pending') {
+        return this.toastr.Info("You cannot add items now as you have a pending order.");
+      }
+    }
     Swal.fire({
       html: '<hr><br><p class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
       '<p class="text-left text-dark">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
