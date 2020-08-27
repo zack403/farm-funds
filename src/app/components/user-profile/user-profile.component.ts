@@ -162,6 +162,9 @@ export class UserProfileComponent implements OnInit {
       if(this.purchases.length> 0 && this.purchases[0].status === 'Pending') {
         return this.toastr.Info("You cannot add items now as you have a pending order.");
       }
+      if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
+        return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+      }
     }
     Swal.fire({
       html: '<hr><br><p class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
@@ -266,10 +269,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   AddItems() {
+    let delDate = new Date(this.purchases[0].deliveredDate);
     if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
       return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
     } else {
-      if(this.purchases.length> 0 && this.purchases[0].status === 'Pending') {
+      if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+        return this.toastr.Info("You cannot add items now as you have a pending order.");
+      }
+      if(this.purchases.length > 0 && new Date(delDate.setDate(delDate.getDate() + 2 * 7)) != new Date()) {
         return this.toastr.Info("You cannot add items now as you have a pending order.");
       }
     }

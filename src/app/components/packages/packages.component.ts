@@ -23,7 +23,7 @@ export class PackagesComponent implements OnInit {
     this.packagesList = this.pckSvc.getPackages();
   }
 
-  onSubmit() {
+  onSubmit(u) {
     this.isBusy = true;
   }
 
