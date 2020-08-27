@@ -113,6 +113,8 @@ export class ShoppingCartComponent implements OnInit {
           localStorage.removeItem("interest");
           localStorage.removeItem("cart");
           this.router.navigateByUrl("app/profile");
+        }, err => {
+          this.isBusy = false;
         })
       }
     })

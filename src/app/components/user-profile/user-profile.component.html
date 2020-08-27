@@ -40,7 +40,7 @@
                                                             [innerHTML]="emoji"></span>
 
                                                         <span class="add-item pull-right">
-                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases[0].status === 'Pending'" (click)="AddItems()">
+                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases[0].status === 'Pending' || subscribers[0].status === 'Pending'" (click)="AddItems()">
                                                                      Add Items
                                                             </button>
                                                         </span>
@@ -191,7 +191,7 @@
                                                                 <div class="single-item">
                                                                     <table class="table table-bordered">
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr class="bg-success">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Package</th>
                                                                                 <th scope="col">Unit</th>
@@ -380,7 +380,7 @@
                                                                 <div class="single-item">
                                                                     <table class="table table-bordered">
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr class="bg-success">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Name</th>
                                                                                 <th scope="col">Phone No.</th>
@@ -395,17 +395,17 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of subscribers; let index = index">
+                                                                            <tr *ngFor="let i of subscribers; let index = index" style="width: 50%;">
                                                                                 <th scope="row">{{index + 1}}</th>
                                                                                 <td>{{i.name}}</td>
                                                                                 <td>{{i.phoneNo}}</td>
                                                                                 <td>{{i.unit}}</td>
-                                                                                <td class="text-right">{{i.amount | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right" style="width: 140px;">{{i.amount | currency: '&#8358; '}}</td>
                                                                                 <td>{{i.paymentType}}</td>
                                                                                 <td>{{i.startDate | date: "mediumDate"}}</td>
                                                                                 <td>{{i.endDate | date: "mediumDate"}}</td>
-                                                                                <td class="text-right">{{i.roi | currency: '&#8358; '}}</td>
-                                                                                <td class="text-right">{{i.roc | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right" style="width: 140px;">{{i.roi | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right" style="width: 140px;">{{i.roc | currency: '&#8358; '}}</td>
                                                                                 <td><span
                                                                                         [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
@@ -464,7 +464,7 @@
                                                                 <div class="single-item">
                                                                     <table *ngIf="!showDetails"  class="table table-bordered">
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr class="bg-success">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Name</th>
                                                                                 <th scope="col">Phone No</th>
@@ -495,7 +495,7 @@
                                                                     </table>
                                                                     <table *ngIf="showDetails" class="table table-bordered">
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr class="bg-success">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Product</th>
                                                                                 <th scope="col">Price</th>

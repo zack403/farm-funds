@@ -21,7 +21,7 @@
                           id="j2store-cart-form">
                           <table class="j2store-cart-table table table-bordered">
                             <thead>
-                              <tr>
+                              <tr class="bg-success">
                                 <th>S/N</th>
                                 <th>Product</th>
                                 <th>Quantity</th>
@@ -111,17 +111,12 @@
                             </tr>
                           </tbody>
                         </table>
-
-                        <div class="buttons-right">
-                          <span class="cart-checkout-button">
-                            <a class="btn btn-large btn-success" [disabled]="isBusy" (click)="saveItems()">Save Items</a>
-                          </span>
-
+                        <div>
+                        <button [disabled]="isBusy || this.cart.purchaseDetails.length === 0" (click)="saveItems()"
+                            class="btn btn-primary mr-1">{{isBusy ? 'Saving...' : 'SAVE ITEMS'}}</button>
                         </div>
                       </div>
                     </div>
-
-
                   </div>
                 </div>
               </div>
