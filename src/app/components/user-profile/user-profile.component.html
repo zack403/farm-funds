@@ -40,7 +40,7 @@
                                                             [innerHTML]="emoji"></span>
 
                                                         <span class="add-item pull-right">
-                                                            <button style="cursor: pointer;" type="submit" class="p-button" [disabled]="purchases.length && subscribers.length > 0 ? purchases[0].status === 'Pending' || subscribers[0].status === 'Pending' : ''" (click)="AddItems()">
+                                                            <button style="cursor: pointer;" type="submit" class="p-button" (click)="AddItems()">
                                                                      Add Items
                                                             </button>
                                                         </span>
@@ -697,21 +697,20 @@
             <button id="cl" hidden data-dismiss="modal"></button>
             <div class="modal-body">
 
-                <app-packages [shouldShow]="false" *ngIf="pck"></app-packages>
-                <app-products-list [shouldShow]="false" *ngIf="pl"></app-products-list>
-                <app-products-subscription [shouldShow]="false" *ngIf="sub"></app-products-subscription>
-
+                <app-packages [shouldShow]="false" ></app-packages>
+                
+<!-- 
                 <div *ngIf="!pck && !pl && !sub">
                     <label>Topup Amount</label>
                     <input [(ngModel)]="amt" placeholder="Enter amount to topup" required type="text"
                         class="form-control">
-                </div>
+                </div> -->
 
             </div>
-            <div *ngIf="!pck && !pl && !sub" class="modal-footer">
+            <!-- <div *ngIf="!pck && !pl && !sub" class="modal-footer">
                 <button type="button" (click)="deposit(amt)" [disabled]="!amt" data-dismiss="modal"
                     class="btn btn-primary">SUBMIT</button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- end modal -->

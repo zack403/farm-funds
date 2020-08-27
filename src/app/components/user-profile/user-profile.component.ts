@@ -259,7 +259,14 @@ export class UserProfileComponent implements OnInit {
   }
 
   AddItems() {
-    console.log('ddd');
+    if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+      return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+    } else {
+      if(this.purchases.length> 0 && this.purchases[0].status === 'Pending') {
+        return this.toastr.Info("You cannot add items now as you have a pending order.");
+      }
+    }
+
     this.interest = (this.subscribers.amount) * 5 / 100
     this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
   }
