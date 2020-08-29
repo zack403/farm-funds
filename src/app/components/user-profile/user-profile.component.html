@@ -23,11 +23,12 @@
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                                         <div *ngIf="success" class="alert alert-success alert-dissmissible">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <a href="#" class="close" data-dismiss="alert"
+                                                aria-label="close">&times;</a>
                                             <span><strong>{{success}}</strong></span>
-                                          </div>
+                                        </div>
                                         <div id="column-id-1551490002719" class="sppb-column">
-                                           
+
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <h1 class="sppb-addon-title">User <span
@@ -39,10 +40,10 @@
                                                         <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span>
 
-                                                        <span class="add-item pull-right">
-                                                            <button style="cursor: pointer;" type="submit" class="p-button" (click)="AddItems()">
-                                                                     Add Items
-                                                            </button>
+                                                        <span class="pull-right">
+                                                            <a (click)="AddItems()"> <input class="p-button"
+                                                                    style="cursor: pointer;" type="submit"
+                                                                    value="Add Items"></a>
                                                         </span>
                                                     </h1>
                                                     <!-- switch-button -->
@@ -191,7 +192,7 @@
                                                                 <div class="single-item">
                                                                     <table class="table table-bordered">
                                                                         <thead>
-                                                                            <tr class="bg-success">
+                                                                            <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Package</th>
                                                                                 <th scope="col">Unit</th>
@@ -380,32 +381,44 @@
                                                                 <div class="single-item">
                                                                     <table class="table table-bordered">
                                                                         <thead>
-                                                                            <tr class="bg-success">
+                                                                            <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Name</th>
-                                                                                <th scope="col">Phone No.</th>
+                                                                                <th scope="col" class="phone">Phone No.</th>
                                                                                 <th scope="col">Unit</th>
-                                                                                <th scope="col">Amount</th>
+                                                                                <th scope="col" class="amount">Amount</th>
                                                                                 <th scope="col">Payment Type</th>
                                                                                 <th scope="col">Start Date</th>
                                                                                 <th scope="col">End Date</th>
-                                                                                <th scope="col">ROI</th>
-                                                                                <th scope="col">ROC</th>
+                                                                                <th scope="col" class="roi">ROI</th>
+                                                                                <th scope="col" class="roc">ROC</th>
                                                                                 <th scope="col">Status</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of subscribers.subs; let index = index" style="width: 50%;">
+                                                                            <tr *ngFor="let i of subscribers.subs; let index = index"
+                                                                                style="width: 50%;">
                                                                                 <th scope="row">{{index + 1}}</th>
                                                                                 <td>{{i.name}}</td>
-                                                                                <td>{{i.phoneNo}}</td>
+                                                                                <td class="phone">{{i.phoneNo}}</td>
                                                                                 <td>{{i.unit}}</td>
-                                                                                <td class="text-right" style="width: 140px;">{{i.amount | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right"
+                                                                                    style="width: 140px;" class="amount">
+                                                                                    {{i.amount | currency: '&#8358; '}}
+                                                                                </td>
                                                                                 <td>{{i.paymentType}}</td>
-                                                                                <td>{{i.startDate | date: "mediumDate"}}</td>
-                                                                                <td>{{i.endDate | date: "mediumDate"}}</td>
-                                                                                <td class="text-right" style="width: 140px;">{{i.roi | currency: '&#8358; '}}</td>
-                                                                                <td class="text-right" style="width: 140px;">{{i.roc | currency: '&#8358; '}}</td>
+                                                                                <td>{{i.startDate | date: "mediumDate"}}
+                                                                                </td>
+                                                                                <td>{{i.endDate | date: "mediumDate"}}
+                                                                                </td>
+                                                                                <td class="text-right"
+                                                                                    style="width: 140px;" class="roi">
+                                                                                    {{i.roi | currency: '&#8358; '}}
+                                                                                </td>
+                                                                                <td class="text-right"
+                                                                                    style="width: 140px;" class="roc">
+                                                                                    {{i.roc | currency: '&#8358; '}}
+                                                                                </td>
                                                                                 <td><span
                                                                                         [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
@@ -445,15 +458,19 @@
                                                                     </a> -->
                                                                 <!-- &nbsp;
                                                                 &nbsp; -->
-                                                            
-                                                                        
+
+
                                                             </div>
                                                             <span *ngIf="showDetails" class="add-item pull-right">
-                                                                <a> 
+                                                                <a title="View parent" class="text-primary detail"
+                                                                    (click)="back()"><i class="fa fa-arrow-left">
+                                                                        Back</i></a>
+
+                                                                <!-- <a> 
                                                                     <button title="View parent" (click)="back()"
                                                                     class="btn btn-outline-success"><i class="fa fa-arrow-left"></i> 
                                                                 </button>
-                                                                </a>
+                                                                </a> -->
                                                             </span>
                                                             <div class="sppb-addon-content"></div>
                                                         </div>
@@ -462,40 +479,46 @@
                                                         <div class="sppb-addon sppb-addon-raw-html ">
                                                             <div class="sppb-addon-content">
                                                                 <div class="single-item">
-                                                                    <table *ngIf="!showDetails"  class="table table-bordered">
+                                                                    <table *ngIf="!showDetails"
+                                                                        class="table table-bordered">
                                                                         <thead>
-                                                                            <tr class="bg-success">
+                                                                            <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
-                                                                                <th scope="col">Name</th>
+                                                                                <th scope="col" class="name">Name</th>
                                                                                 <th scope="col">Phone No</th>
-                                                                                <th scope="col">Type</th>
+                                                                                <th scope="col" class="type">Type</th>
                                                                                 <th scope="col">Order Date</th>
                                                                                 <th scope="col">Status</th>
                                                                                 <th scope="col">Action</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let i of purchases let index = index">
+                                                                            <tr
+                                                                                *ngFor="let i of purchases let index = index">
                                                                                 <th>{{index + 1}}</th>
-                                                                                <td>{{i.name}}</td>
+                                                                                <td class="name">{{i.name}}</td>
                                                                                 <td>{{i.phoneNo}}</td>
-                                                                                <td>{{i.type}}</td>
-                                                                                <td>{{i.createdAt | date: "mediumDate"}}</td>
+                                                                                <td class="type">{{i.type}}</td>
+                                                                                <td>{{i.createdAt | date: "mediumDate"}}
+                                                                                </td>
                                                                                 <td><span
                                                                                         [ngClass]="{'badge badge-success badge-pill': i.status === 'Delivered', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <button title="View Order detail" (click)="viewOrder(i.id)"
-                                                                                        class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
+                                                                                    <button title="View Order detail"
+                                                                                        (click)="viewOrder(i.id)"
+                                                                                        class="btn btn-outline-success"><i
+                                                                                            class="fa fa-eye"></i> View Details
                                                                                     </button>
                                                                                 </td>
 
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <table *ngIf="showDetails" class="table table-bordered">
+                                                                    <table *ngIf="showDetails"
+                                                                        class="table table-bordered">
                                                                         <thead>
-                                                                            <tr class="bg-success">
+                                                                            <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
                                                                                 <th scope="col">Product</th>
                                                                                 <th scope="col">Price</th>
@@ -503,13 +526,16 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let detail of details let index = index">
+                                                                            <tr
+                                                                                *ngFor="let detail of details let index = index">
                                                                                 <th>{{index + 1}}</th>
                                                                                 <td>{{detail.productName}}</td>
-                                                                                <td class="text-right">{{detail.price | currency: '&#8358; '}}</td>
+                                                                                <td class="text-right">
+                                                                                    {{detail.price | currency: '&#8358; '}}
+                                                                                </td>
                                                                                 <td>{{detail.unit}}</td>
-                                                                                
-                                                                            
+
+
                                                                                 <!-- <td>
                                                                                     <button title="View Order detail" (click)="viewOrder(item.id)"
                                                                                         class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
@@ -697,9 +723,9 @@
             <button id="cl" hidden data-dismiss="modal"></button>
             <div class="modal-body">
 
-                <app-packages [shouldShow]="false" ></app-packages>
-                
-<!-- 
+                <app-packages [shouldShow]="false"></app-packages>
+
+                <!-- 
                 <div *ngIf="!pck && !pl && !sub">
                     <label>Topup Amount</label>
                     <input [(ngModel)]="amt" placeholder="Enter amount to topup" required type="text"

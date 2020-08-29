@@ -65,3 +65,14 @@
     transform: scale(1.2);
     cursor: pointer;
   }
+
+  a:hover {
+    color: black;
+    cursor: pointer;
+  }
+
+  @media (min-width:300px) and (max-width:1000px) {
+    .name, .type, .roi, .roc, .amount, .phone {
+        display: none;
+    }
+}
