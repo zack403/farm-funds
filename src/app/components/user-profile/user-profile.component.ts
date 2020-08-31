@@ -289,13 +289,17 @@ export class UserProfileComponent implements OnInit {
       }
       let today = new Date();
       if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
-        return this.toastr.Info("Sorry you cannot perform this operation at this time.");
+        return this.toastr.Info("You can only add new items two weeks after current delivery.");
       }
     }
 
     this.interest = (this.subscribers.amount) * 5 / 100
     this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
   } else {
+    if(this.subscribers.subs.length > 0 ){
+      this.interest = (this.subscribers.amount) * 5 / 100
+      return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+    }
     return this.toastr.Info("Please subscribe first before adding items");
   }
     
