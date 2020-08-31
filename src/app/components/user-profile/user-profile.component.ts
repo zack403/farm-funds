@@ -160,14 +160,16 @@ export class UserProfileComponent implements OnInit {
   
 
   openswal() {
-    if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-      return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
-    } else {
-      if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
-        return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
-      }
-      if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
-        return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+    if(this.subscribers.subs.length > 0) {
+      if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+        return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+      } else {
+        if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+          return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+        }
+        if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
+          return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+        }
       }
     }
     Swal.fire({
@@ -274,6 +276,7 @@ export class UserProfileComponent implements OnInit {
 
   AddItems() {
     let deliveryDateDate;
+  if(this.purchases.length > 0){
     if(this.purchases[0].deliveredDate) {
       deliveryDateDate = new Date(this.purchases[0].deliveredDate);
       deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
@@ -292,5 +295,9 @@ export class UserProfileComponent implements OnInit {
 
     this.interest = (this.subscribers.amount) * 5 / 100
     this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+  } else {
+    return this.toastr.Info("Please subscribe first before adding items");
+  }
+    
   }
 }
