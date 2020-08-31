@@ -37,10 +37,12 @@ export class SignupComponent implements OnInit {
 
   // password hide/show
   togglePassword() {
+    if(!this.registerForm.value.password) return;
     this.showPassword = !this.showPassword;
   }
 
   toggleConfirm() {
+    if(!this.registerForm.value.confirmPassword) return;
     this.showConfirm = !this.showConfirm;
   }
 

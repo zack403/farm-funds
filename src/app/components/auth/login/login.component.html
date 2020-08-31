@@ -79,9 +79,10 @@
                                     <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Enter password" aria-label="Recipient's username" aria-describedby="button-addon2" value=""
                                       class="form-control large-field" formControlName="password">
                                       <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" id="button-addon2">
+                                        <button (click)="togglePassword()" class="btn btn-primary" type="button" id="button-addon2">
                                           <!-- <i class="fa fa-eye-slash"></i> -->
-                                          <i class="fa fa-eye" (click)="togglePassword()"></i>
+                                          <i [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" ></i>
+                                          
                                         </button>
                                       </div>
                                     </div>

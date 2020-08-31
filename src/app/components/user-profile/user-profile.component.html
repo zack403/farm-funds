@@ -35,7 +35,7 @@
                                                             class="text-primary">Dashboard </span>
                                                         <small style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
-                                                            Subscription.</small>
+                                                            Subscription. </small> <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
 
                                                         <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span>
@@ -489,6 +489,7 @@
                                                                                 <th scope="col" class="type">Type</th>
                                                                                 <th scope="col">Order Date</th>
                                                                                 <th scope="col">Status</th>
+                                                                                <th scope="col">Delivered Date</th>
                                                                                 <th scope="col">Action</th>
                                                                             </tr>
                                                                         </thead>
@@ -504,6 +505,7 @@
                                                                                 <td><span
                                                                                         [ngClass]="{'badge badge-success badge-pill': i.status === 'Delivered', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
+                                                                                <td>{{i.deliveredDate | date: "mediumDate"}}
                                                                                 <td>
                                                                                     <button title="View Order detail"
                                                                                         (click)="viewOrder(i.id)"

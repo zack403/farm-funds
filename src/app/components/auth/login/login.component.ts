@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   // password hide/show
   togglePassword() {
+    if(!this.loginForm.value.password) return;
     this.showPassword = !this.showPassword;
   }
 

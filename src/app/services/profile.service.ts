@@ -29,7 +29,7 @@ export class ProfileService {
     );
   }
 
-  @Cacheable()
+  
   getDashboardData(id: string) {
     return this.httpSvc.getById('dashboard/', id).pipe(
       tap(res => {

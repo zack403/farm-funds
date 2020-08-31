@@ -55,6 +55,10 @@ export class UserProfileComponent implements OnInit {
     private route: ActivatedRoute) { }
 
 
+    Refresh() {
+      window.location.reload();
+    }
+
   ngOnInit() {
     const result = this.route.snapshot.data.user;
     this.userData = result[0].data;
@@ -159,8 +163,8 @@ export class UserProfileComponent implements OnInit {
     if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
       return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
     } else {
-      if(this.purchases.length> 0 && this.purchases[0].status === 'Pending') {
-        return this.toastr.Info("You cannot add items now as you have a pending order.");
+      if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+        return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
       }
       if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
         return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
@@ -185,8 +189,8 @@ export class UserProfileComponent implements OnInit {
       confirmButtonColor: 'green',
       confirmButtonText: "Subscribe",
       inputValidator: (value) => {
-        if (!value) {
-          return 'Please input unit!'
+        if (!value || value < 1) {
+          return 'Your input is not valid!'
         }
       }
     }).then( async res => {
@@ -269,15 +273,20 @@ export class UserProfileComponent implements OnInit {
   }
 
   AddItems() {
-    let delDate = new Date(this.purchases[0].deliveredDate);
+    let deliveryDateDate;
+    if(this.purchases[0].deliveredDate) {
+      deliveryDateDate = new Date(this.purchases[0].deliveredDate);
+      deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
+    }
     if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
       return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
     } else {
       if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
         return this.toastr.Info("You cannot add items now as you have a pending order.");
       }
-      if(this.purchases.length > 0 && new Date(delDate.setDate(delDate.getDate() + 2 * 7)) != new Date()) {
-        return this.toastr.Info("You cannot add items now as you have a pending order.");
+      let today = new Date();
+      if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
+        return this.toastr.Info("Sorry you cannot perform this operation at this time.");
       }
     }
 

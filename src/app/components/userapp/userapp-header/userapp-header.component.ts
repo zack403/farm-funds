@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { ToasterService } from 'src/app/services/toaster.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 let totalCartPrice = 0;
 const formatter = new Intl.NumberFormat('en-NI', {
@@ -43,7 +45,8 @@ export class UserappHeaderComponent implements OnInit {
             // check if basket total is greater than user purchase power
             if(totalCartPrice > data.interest) {
               totalCartPrice -= data.price * data.unit;
-              return this.toastr.Info(`Sorry we are unable to add to the basket, because adding ${formatter.format(data.price * data.unit)} to ${formatter.format(this.basketTotal)} exceeds your purchase power of ${formatter.format(data.interest)}`);
+              // return this.toastr.Info(`Sorry we are unable to add to the basket, because adding ${formatter.format(data.price * data.unit)} to ${formatter.format(this.basketTotal)} exceeds your purchase power of ${formatter.format(data.interest)}`);
+              return this.toastr.Info(`Sorry you have reach the limit of your purchase power of ${formatter.format(data.interest)}`);
             }
             this.basketTotal = totalCartPrice;
             this.cart.name = this.userData.fullName;
@@ -90,7 +93,22 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authSvc.logout();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This process is irreversible.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, go ahead.',
+      cancelButtonText: 'Cancel',
+      cancelButtonColor: 'red',
+      confirmButtonColor: 'green',
+      closeOnConfirm: true,
+      closeOnCancel: true
+    }).then((result) => {
+      if(result.value) {
+        this.authSvc.logout();
+      }
+    })
   }
 
   go() {

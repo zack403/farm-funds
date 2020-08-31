@@ -68,7 +68,7 @@ export class ShoppingCartComponent implements OnInit {
     return total + num;
   }
 
-  clearBaket() {
+  clearBasket() {
     Swal.fire({
       title: 'Are you sure?',
       text: 'This process is irreversible.',

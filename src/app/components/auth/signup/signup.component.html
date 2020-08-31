@@ -151,7 +151,7 @@
                                     placeholder="Enter last name" value="" formControlName="lastName">
                                   <div
                                     *ngIf="registerForm.controls['lastName'].hasError('required') && registerForm.get('lastName').touched"
-                                    class="errormsg text-danger">First Name is required</div>
+                                    class="errormsg text-danger">Last Name is required</div>
 
                                 </div>
 
@@ -239,9 +239,9 @@
                                       aria-label="Recipient's username" aria-describedby="button-addon2" value=""
                                       class="form-control large-field" formControlName="password">
                                     <div class="input-group-append">
-                                      <button class="btn btn-primary" type="button" id="button-addon2">
+                                      <button (click)="togglePassword()" class="btn btn-primary" type="button" id="button-addon2">
                                         <!-- <i class="fa fa-eye-slash"></i> -->
-                                        <i class="fa fa-eye" (click)="togglePassword()"></i>
+                                        <i [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" ></i>
                                       </button>
                                     </div>
                                   </div>
@@ -263,9 +263,9 @@
                                       aria-label="Recipient's username" aria-describedby="button-addon2" value=""
                                       class="form-control large-field" formControlName="confirmPassword">
                                     <div class="input-group-append">
-                                      <button class="btn btn-primary" type="button" id="button-addon2">
+                                      <button (click)="toggleConfirm()" class="btn btn-primary" type="button" id="button-addon2">
                                         <!-- <i class="fa fa-eye-slash"></i> -->
-                                        <i class="fa fa-eye" (click)="toggleConfirm()"></i>
+                                        <i [ngClass]="showConfirm ? 'fa fa-eye-slash' : 'fa fa-eye'" ></i>
                                       </button>
                                     </div>
                                   </div>
