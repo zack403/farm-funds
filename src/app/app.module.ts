@@ -42,7 +42,6 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 // for Router import:
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
-import { FoodBankComponent } from './components/food-bank/food-bank.component';
 
 
 
@@ -77,7 +76,6 @@ export function tokenGetter() {
     ServicesComponent,
     TermsComponent,
     ResetPasswordComponent,
-    FoodBankComponent
   ],
   imports: [
     BrowserModule,
