@@ -95,7 +95,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['https://farmfunds.herokuapp.com'],
+        allowedDomains: ['farmfunds.herokuapp.com'],
         disallowedRoutes: [],
       },
     }),
