@@ -112,6 +112,7 @@ export class ShoppingCartComponent implements OnInit {
           this.toastr.Success(res.message);
           localStorage.removeItem("interest");
           localStorage.removeItem("cart");
+          this.messageService.clearMessages();
           this.router.navigateByUrl("app/profile");
         }, err => {
           this.isBusy = false;
