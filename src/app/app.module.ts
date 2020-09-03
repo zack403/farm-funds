@@ -17,7 +17,6 @@ import { NavigationSectionComponent } from './components/header/navigation-secti
 import { FaqsComponent } from './components/faqs/faqs.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
-import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { GalleryGridViewComponent } from './components/gallery/gallery-grid-view/gallery-grid-view.component';
@@ -67,7 +66,6 @@ export function tokenGetter() {
     FaqsComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    CheckoutComponent,
     LoginComponent,
     SignupComponent,
     GalleryGridViewComponent,

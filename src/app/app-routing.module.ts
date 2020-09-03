@@ -7,7 +7,6 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ProductsListComponent } from './components/products/products-list/products-list.component';
 import { ProductDetailComponent } from './components/products/product-detail/product-detail.component';
-import { CheckoutComponent } from './components/products/checkout/checkout.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProductsSubscriptionComponent } from './components/products/products-subscription/products-subscription.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
@@ -28,7 +27,6 @@ const routes: Routes = [
   {path: 'food-shop', component: ProductsListComponent},
   {path: 'food-subscription',  component: ProductsSubscriptionComponent},
   {path: 'food-shop-detail', component: ProductDetailComponent},
-  {path: 'checkout', component: CheckoutComponent},
   {path: 'news', component: NewsComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'gallery', component: GalleryGridViewComponent},

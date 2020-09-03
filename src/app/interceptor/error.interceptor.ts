@@ -15,7 +15,6 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.authService.logout();
             }
             const error = err.error.error || err.error.detail || err.statusText;
-            console.log("interceptorerror", err);
             if(error === 'Unknown Error'){
                 this.toastr.Error("Error while communicating with the server, Please try again.");
                 return;
