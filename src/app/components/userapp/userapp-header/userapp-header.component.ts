@@ -28,6 +28,7 @@ export class UserappHeaderComponent implements OnInit {
   itemsInCart: any = {};
   subscription: Subscription;
   basketTotal: number = 0;
+  interest: any;
 
   constructor(
     private authSvc: AuthService, 
@@ -37,11 +38,14 @@ export class UserappHeaderComponent implements OnInit {
       // subscribe to home component messages
       this.subscription = this.messageService.onMessage().subscribe(({data, deleted}) => {
         if (data && !deleted) {
+            this.interest = data.interest;
             //check if item is already in cart before pushing
             const isExist = this.cart.purchaseDetails.find(x => x.productId === data.id);
             if(isExist) return this.toastr.Info("Product already in the basket.");
             totalCartPrice += data.price * data.unit;
             
+            
+
             // check if basket total is greater than user purchase power
             if(totalCartPrice > data.interest) {
               totalCartPrice -= data.price * data.unit;
@@ -90,6 +94,10 @@ export class UserappHeaderComponent implements OnInit {
       }
       totalCartPrice = this.basketTotal;
     } 
+    const int = parseInt(localStorage.getItem("interest"));
+    if(int){
+      this.interest = int;
+    }
   }
 
   logout() {
@@ -121,7 +129,11 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   viewCart() {
-    this.router.navigateByUrl("app/shopping-cart");
+    if(this.interest && this.basketTotal < this.interest) {
+      return this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.interest)} before proceeding.`);
+    } else {
+      this.router.navigateByUrl("app/shopping-cart");
+    }
   }
 
 }

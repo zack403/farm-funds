@@ -93,4 +93,47 @@ export class FarmifyShoppingComponent implements OnInit {
     this.messageService.clearMessages();
   }
 
+  addMoreProdct() {
+    Swal.fire({
+      title: 'Add product',
+      html:
+      '<input required placeholder="Enter product name" type="text" id="product" class="swal2-input" autofocus >' +
+      '<input required placeholder="Enter quantity" type="number" id="qty" class="swal2-input">' +
+      '<input required placeholder="Enter price" type="text" id="price" class="swal2-input">' +
+      '<input placeholder="Enter brand" id="brand" type="text" class="swal2-input">',
+      showCloseButton: true,
+      confirmButtonText: 'Add',
+      confirmButtonColor: 'green',
+      preConfirm: () => {
+        let productName = (<HTMLInputElement> document.getElementById('product')).value;
+        let price = (<HTMLInputElement> document.getElementById('price')).value;
+        let unit = (<HTMLInputElement> document.getElementById('qty')).value;
+        let brand = (<HTMLInputElement> document.getElementById('brand')).value;
+
+        if(productName === '' || price === '' || unit === '') {
+          Swal.showValidationMessage("Product/Price/Unit is required"); // Show error when validation fails.
+        } else if (!price.match(/^[0-9]*$/)) {
+          Swal.showValidationMessage("Your input for price is not valid"); // Show error when validation fails.
+        } else if(parseInt(unit) < 1) {
+          Swal.showValidationMessage("Please input quantity greater than zero"); // Show error when validation fails.
+        }
+        
+          return {
+            id: new Date(),
+            productName,
+            price,
+            unit,
+            brand
+          }
+        
+        
+      }
+     
+    }).then( result => {
+      if(result.value) {
+        this.addToCart(result.value);
+      }
+    })
+  }
+
 }

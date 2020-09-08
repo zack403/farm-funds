@@ -22,11 +22,6 @@
                             <div class="sppb-row-container">
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
-                                        <div *ngIf="success" class="alert alert-success alert-dissmissible">
-                                            <a href="#" class="close" data-dismiss="alert"
-                                                aria-label="close">&times;</a>
-                                            <span><strong>{{success}}</strong></span>
-                                        </div>
                                         <div id="column-id-1551490002719" class="sppb-column">
 
                                             <div class="sppb-column-addons">
@@ -354,6 +349,13 @@
                                 <div class="sppb-row-container">
                                     <div class="sppb-row">
                                         <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+
+                                            <div *ngIf="success" class="alert alert-success alert-dissmissible">
+                                                <a href="#" class="close" data-dismiss="alert"
+                                                    aria-label="close">&times;</a>
+                                                <span><strong>{{success}}</strong></span>
+
+                                            </div>
                                             <div id="column-id-1551573988957" class="sppb-column">
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
@@ -546,6 +548,15 @@
 
                                                                             </tr>
                                                                         </tbody>
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class=""></th>
+                                                                                <th class="">Total</th>
+                                                                                <th class="text-right">{{total | currency: '&#8358; '}}</th>
+                                                                                <th class=""></th>
+
+                                                                            </tr>
+                                                                        </thead>
                                                                     </table>
                                                                 </div>
                                                             </div>

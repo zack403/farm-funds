@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { ProfileService } from 'src/app/services/profile.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ToasterService } from 'src/app/services/toaster.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { UtilityService } from 'src/app/services/utility.service';
@@ -46,20 +46,35 @@ export class UserProfileComponent implements OnInit {
   selected: boolean = false;
   showDetails: boolean = false;
   details: any;
+  total: number;
+  navigationSubscription;
+
+
 
   constructor(private authSvc: AuthService, private router: Router, 
     private profileSvc: ProfileService,
     private toastr: ToasterService,
     private utilSvc: UtilityService,
     private angularZone : NgZone,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        // If it is a NavigationEnd event re-initalise the component
+        if (e instanceof NavigationEnd) {
+          this.onComponentMounted();
+        }
+      });
+     }
 
 
     Refresh() {
-      window.location.reload();
+      this.router.navigateByUrl('app/profile');
     }
 
   ngOnInit() {
+    this.onComponentMounted();
+  }
+
+  onComponentMounted() {
     const result = this.route.snapshot.data.user;
     this.userData = result[0].data;
     this.dashboardData = result[1].investments;
@@ -129,7 +144,7 @@ export class UserProfileComponent implements OnInit {
                if(response.reference) {
                  Swal.fire({
                    title: 'Success',
-                   html: `<p>Your payment is successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest.</p>`,
+                   text: `Your payment is successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest.`,
                    confirmButtonColor: 'green',
                    icon: 'success',
                    allowOutsideClick: false,
@@ -151,7 +166,7 @@ export class UserProfileComponent implements OnInit {
            });
            handler.openIframe(); 
        } catch (error) {
-         that.toastr.Error(error);
+         that.toastr.Error("Error while launching payment screen, please make sure you are connected to the internet");
          console.log("PayStackError",error);
        }
    }
@@ -231,6 +246,10 @@ export class UserProfileComponent implements OnInit {
             '<p class="text-left text-dark font-weight-bold">ACCOUNT NUMBER: &nbsp;&nbsp;&nbsp; 1404450358</p><br><hr>' +
             '<strong>Please upload your proof of payment.</strong>',
             input: 'file',
+            inputAttributes: {
+              'accept': 'image/*',
+              'aria-label': 'Upload your proof of payment'
+            },
             confirmButtonColor: 'green',
             showLoaderOnConfirm: true,
             inputValidator: (value) => {
@@ -250,12 +269,10 @@ export class UserProfileComponent implements OnInit {
               this.utilSvc.uploadProofOfPayment(formData).subscribe((res:any) => {
                 console.log(res.message);
                 this.success = res.message;
+                this.router.navigateByUrl('app/profile');
               })
             },
-            inputAttributes: {
-              'accept': 'image/*',
-              'aria-label': 'Upload your proof of payment'
-            }
+            allowOutsideClick: () => !Swal.isLoading()
           });
         }
       }
@@ -267,6 +284,7 @@ export class UserProfileComponent implements OnInit {
     if(item){
       this.showDetails = true;
       this.details = item.PurchaseDetails;
+      this.total = item.amount;
     }
   }
 
@@ -274,34 +292,101 @@ export class UserProfileComponent implements OnInit {
     this.showDetails = false;
   }
 
-  AddItems() {
-    let deliveryDateDate;
-  if(this.purchases.length > 0){
-    if(this.purchases[0].deliveredDate) {
-      deliveryDateDate = new Date(this.purchases[0].deliveredDate);
-      deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
-    }
-    if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-      return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
-    } else {
-      if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
-        return this.toastr.Info("You cannot add items now as you have a pending order.");
-      }
-      let today = new Date();
-      if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
-        return this.toastr.Info("You can only add new items two weeks after current delivery.");
-      }
-    }
 
-    this.interest = (this.subscribers.amount) * 5 / 100
-    this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
-  } else {
-    if(this.subscribers.subs.length > 0 ){
-      this.interest = (this.subscribers.amount) * 5 / 100
-      return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
-    }
-    return this.toastr.Info("Please subscribe first before adding items");
+  AddItems() {
+  if(this.subscribers.subs.length > 1) {
+    this.chooseSubToBuyFrom();
   }
+  else {
+    let deliveryDateDate;
+    if(this.purchases.length > 0){
+      if(this.purchases[0].deliveredDate) {
+        deliveryDateDate = new Date(this.purchases[0].deliveredDate);
+        deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
+      }
+      if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+        return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+      } else {
+        if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+          return this.toastr.Info("You cannot add items now as you have a pending order.");
+        }
+        let today = new Date();
+        if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
+          return this.toastr.Info("You can only add new items two weeks after current delivery.");
+        }
+      }
+  
+      this.interest = (this.subscribers.amount) * 5 / 100
+      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+    } else {
+      if(this.subscribers.subs.length > 0 ){
+        this.interest = (this.subscribers.amount) * 5 / 100
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+      }
+      return this.toastr.Info("Please subscribe first before adding items");
+    }
+  }
+ 
     
+  }
+
+  async chooseSubToBuyFrom() {
+    let options = {};
+    this.subscribers.subs.map(sb => {
+      options[sb.id] = `${formatter.format(sb.amount)}`;
+    })
+    const { value } = await Swal.fire({
+      title: 'Choose subscription',
+      input: 'select',
+      inputOptions: options,
+      inputPlaceholder: 'Select a subscription to buy from',
+      showCancelButton: true,
+      confirmButtonColor: 'green',
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Please select one of the options above.'
+        }
+      }
+    });
+
+    if (value) {
+      const item = this.subscribers.subs.find(x => x.id === value);
+      if(item) {
+        let y = this.purchases.filter((ft) => {
+          return ft.SubscriberId === item.id
+        })
+        if(y.length > 1) {
+          y = y.reduce((a, b) => new Date(a.CreatedAt) > new Date(b.CreatedAt) ? a : b);
+        }
+        console.log({y});
+        let deliveryDate;
+        if(y.deliveredDate) {
+          deliveryDate = new Date(y.deliveredDate);
+          deliveryDate = new Date(deliveryDate.setDate(deliveryDate.getDate() + 2 * 7));
+        }
+        if(y.Subscriber.paymentType === 'Transfer' && y.Subscriber.status === 'Pending') {
+          return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
+        } else {
+          if(y.status === 'Pending') {
+            return this.toastr.Info("You cannot add items now as you have a pending order.");
+          }
+          let today = new Date();
+          if(!deliveryDate || today < deliveryDate) {
+            return this.toastr.Info("You can only add new items two weeks after current delivery.");
+          }
+        }
+        this.interest = (item.amount) * 5 / 100;
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+      }
+    }
+  }
+
+  ngOnDestroy() {
+    // avoid memory leaks here by cleaning up after ourselves. If we  
+    // don't then we will continue to run our initialiseInvites()   
+    // method on every navigationEnd event.
+    if (this.navigationSubscription) {  
+       this.navigationSubscription.unsubscribe();
+    }
   }
 }

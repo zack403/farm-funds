@@ -14,6 +14,7 @@ const userAppRouter: Routes = [
     path: 'app',
     component: UserappComponent,
     canActivate: [AuthGuard],
+    runGuardsAndResolvers: 'always',
     children: [
       {
         path: '',
@@ -23,6 +24,7 @@ const userAppRouter: Routes = [
       {
         path: 'profile',
         component: UserProfileComponent,
+        runGuardsAndResolvers: 'always',
         resolve: {user: ProfileDataService}
       },
       {
