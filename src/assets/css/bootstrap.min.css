@@ -2936,7 +2936,7 @@ input[type="submit"].btn-block {
 }
 .dropdown-item:focus,
 .dropdown-item:hover {
-  color: #fff;
+  color: #EBB40E;
   text-decoration: none;
   background-color: #f8f9fa;
 }

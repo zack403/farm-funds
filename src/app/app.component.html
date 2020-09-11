@@ -22,14 +22,16 @@
                         <ul class="menu-child">
                             <li class="rmv sp-menu-item"><a
                                 [routerLink]="['/services']">Investment Guidelines</a></li>
+                                <li class="rmv sp-menu-item"><a
+                                  [routerLink]="['/food-bank']">Food Bank</a></li>
                               <li class="rmv sp-menu-item"><a
                                 [routerLink]="['/packages']">Packages</a></li>
                         </ul>
                     </li>
-                    <li class="item-134 menu-deeper menu-parent"><a >Shop<span
+                    <li class="item-134 menu-deeper menu-parent"><a [routerLink]="['/food-subscription']">Food Bank<span
                         class="menu-toggler"></span></a>
                 <ul class="menu-child">
-                    <li class="rmv item-135"><a [routerLink]="['/food-shop']">Food Shop</a></li>
+                    <!-- <li class="rmv item-135"><a [routerLink]="['/food-shop']">Food Shop</a></li> -->
                     <!-- <li class="item-136"><a
                             href="/realgarden/index.php/shop/shop-products/the-innovators">Single Shop</a>
                     </li> -->
