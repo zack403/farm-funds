@@ -166,7 +166,7 @@ export class UserProfileComponent implements OnInit {
            });
            handler.openIframe(); 
        } catch (error) {
-         that.toastr.Error("Error while launching payment screen, please make sure you are connected to the internet");
+         that.toastr.Error("Error while launching payment screen, please try again.");
          console.log("PayStackError",error);
        }
    }
@@ -175,18 +175,18 @@ export class UserProfileComponent implements OnInit {
   
 
   openswal() {
-    if(this.subscribers.subs.length > 0) {
-      if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-        return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
-      } else {
-        if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
-          return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
-        }
-        if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
-          return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
-        }
-      }
-    }
+    // if(this.subscribers.subs.length > 0) {
+    //   if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+    //     return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+    //   } else {
+    //     if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+    //       return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+    //     }
+    //     if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
+    //       return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
+    //     }
+    //   }
+    // }
     Swal.fire({
       html: '<hr><br><p class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
       '<p class="text-left text-dark">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
@@ -315,12 +315,25 @@ export class UserProfileComponent implements OnInit {
           return this.toastr.Info("You can only add new items two weeks after current delivery.");
         }
       }
-  
-      this.interest = (this.subscribers.amount) * 5 / 100
+      let res = this.monthDiff(deliveryDateDate);
+        if(res > 0) {
+          res *= (this.subscribers.amount) * 5 / 100;
+          this.interest = res;
+        }
+        else {
+          this.interest = (this.subscribers.amount) * 5 / 100;
+        }
       this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
     } else {
       if(this.subscribers.subs.length > 0 ){
-        this.interest = (this.subscribers.amount) * 5 / 100
+        let res = this.monthDiff(deliveryDateDate);
+        if(res > 0) {
+          res *= (this.subscribers.amount) * 5 / 100;
+          this.interest = res;
+        }
+        else {
+          this.interest = (this.subscribers.amount) * 5 / 100;
+        }
         return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
       }
       return this.toastr.Info("Please subscribe first before adding items");
@@ -356,9 +369,8 @@ export class UserProfileComponent implements OnInit {
           return ft.SubscriberId === item.id
         })
         if(y.length > 1) {
-          y = y.reduce((a, b) => new Date(a.CreatedAt) > new Date(b.CreatedAt) ? a : b);
+          y = y.reduce((a, b) => new Date(a.createdAt) > new Date(b.createdAt) ? a : b);
         }
-        console.log({y});
         let deliveryDate;
         if(y.deliveredDate) {
           deliveryDate = new Date(y.deliveredDate);
@@ -368,18 +380,34 @@ export class UserProfileComponent implements OnInit {
           return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
         } else {
           if(y.status === 'Pending') {
-            return this.toastr.Info("You cannot add items now as you have a pending order.");
+            return this.toastr.Info("You still have a pending order for this subscription.");
           }
           let today = new Date();
           if(!deliveryDate || today < deliveryDate) {
-            return this.toastr.Info("You can only add new items two weeks after current delivery.");
+            return this.toastr.Info("You can only add new items two weeks after current delivery of this subscription.");
           }
         }
-        this.interest = (item.amount) * 5 / 100;
+        let res = this.monthDiff(deliveryDate);
+        if(res > 0) {
+          res *= (item.amount) * 5 / 100;
+          this.interest = res;
+        }
+        else {
+          this.interest = (item.amount) * 5 / 100;
+        }
         return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
       }
     }
   }
+
+  monthDiff(d1) {
+    let months;
+    let d2 = new Date();
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+  } 
 
   ngOnDestroy() {
     // avoid memory leaks here by cleaning up after ourselves. If we  
