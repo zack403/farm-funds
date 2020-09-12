@@ -409,6 +409,17 @@ export class UserProfileComponent implements OnInit {
     return months <= 0 ? 0 : months;
   } 
 
+  switchSubs(event) {
+    if(event.target.value) {
+      const item = this.subscribers.subs.find(x => x.id === event.target.value);
+      if(item){
+        this.subscribers.amount = item.amount;
+        this.subscribers.roi = item.roi;
+        this.subscribers.roc = item.roc;
+      }
+    }
+  }
+
   ngOnDestroy() {
     // avoid memory leaks here by cleaning up after ourselves. If we  
     // don't then we will continue to run our initialiseInvites()   

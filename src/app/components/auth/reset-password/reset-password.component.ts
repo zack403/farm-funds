@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -13,7 +14,7 @@ export class ResetPasswordComponent implements OnInit {
   isBusy: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-    private authSvc: AuthService, private toasterSvc: ToasterService) {}
+    private authSvc: AuthService, private router: Router, private toasterSvc: ToasterService) {}
 
     ngOnInit() {
       this.recoverForm = this.formBuilder.group({
@@ -21,7 +22,23 @@ export class ResetPasswordComponent implements OnInit {
       });
     }
 
-    onSubmit() {
-      this.isBusy = true;
+    onSubmit(form) {
+      if (form.valid) {
+        this.isBusy = true;
+        this.authSvc.requestReset(this.recoverForm.value).subscribe(
+          data => {
+            this.recoverForm.reset();
+            setTimeout(() => {
+              this.router.navigate(['login']);
+            }, 3000);
+            this.toasterSvc.Success("Reset password link sent to email sucessfully. Please check your mail.");
+          },
+          err => {
+            this.isBusy = false;
+          }
+        );
+      } else {
+        this.isBusy = false;
+      }
     }
 }

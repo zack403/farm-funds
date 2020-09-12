@@ -63,15 +63,15 @@ export class AuthService {
     }
   
     requestReset(body): Observable<any> {
-      return this.httpService.post(`req-reset-password`, body);
+      return this.httpService.post(`auth/req-reset-password`, body);
     }
   
     newPassword(body): Observable<any> {
-      return this.httpService.post(`new-password`, body);
+      return this.httpService.post(`auth/new-password`, body);
     }
   
     ValidPasswordToken(body): Observable<any> {
-      return this.httpService.post(`valid-password-token`, body);
+      return this.httpService.post(`auth/valid-password-token`, body);
     }
 
     handleError(error) {

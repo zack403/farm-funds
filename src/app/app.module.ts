@@ -41,6 +41,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 // for Router import:
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
 
 
 
@@ -74,6 +75,7 @@ export function tokenGetter() {
     ServicesComponent,
     TermsComponent,
     ResetPasswordComponent,
+    ResponseresetComponent,
   ],
   imports: [
     BrowserModule,
