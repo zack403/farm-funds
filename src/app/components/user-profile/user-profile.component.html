@@ -51,7 +51,7 @@
                                                     <small class="text-primary font-weight-bold"
                                                         style="font-size: 16px;margin-left: 10px;">Farm Inv.</small>
 
-                                                        <div *ngIf="subscribers.subs.length > 1" class="pull-right">
+                                                        <div *ngIf="subscribers.subs.length > 1" style="margin-bottom: 10px;" class="pull-right">
                                                             <label> Switch Subscription </label>
                                                             <select (change)="switchSubs($event)">
                                                                 <option *ngFor="let sub of subscribers.subs" [value]="sub.id" >{{sub.amount | currency: '&#8358; '}}</option>

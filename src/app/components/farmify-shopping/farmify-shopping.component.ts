@@ -102,7 +102,7 @@ export class FarmifyShoppingComponent implements OnInit {
       '<input required placeholder="Enter price" type="text" id="price" class="swal2-input">' +
       '<input placeholder="Enter brand" id="brand" type="text" class="swal2-input">',
       showCloseButton: true,
-      confirmButtonText: 'Add',
+      confirmButtonText: 'Add to basket',
       confirmButtonColor: 'green',
       preConfirm: () => {
         let productName = (<HTMLInputElement> document.getElementById('product')).value;
