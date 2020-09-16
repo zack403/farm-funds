@@ -154,7 +154,7 @@ export class UserProfileComponent implements OnInit {
                    if(res) {
                      that.angularZone.run(() => {
                       that.utilSvc.uploadProofOfPayment(data).subscribe((res:any) => {
-                        that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest} });
+                        that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest, subId: res.message} });
                       })
                      })
                    }
@@ -268,7 +268,7 @@ export class UserProfileComponent implements OnInit {
               formData.append('email', this.userData.email);
               this.utilSvc.uploadProofOfPayment(formData).subscribe((res:any) => {
                 console.log(res.message);
-                this.success = res.message;
+                this.success = "Your file has been uploaded successfully, please hold on while we confirm and activate your subscription. Thanks";
                 this.router.navigateByUrl('app/profile');
               })
             },
@@ -323,7 +323,7 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (this.subscribers.amount) * 5 / 100;
         }
-      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: this.subscribers.subs[0].id} });
     } else {
       if(this.subscribers.subs.length > 0 ){
         let res = this.monthDiff(deliveryDateDate);
@@ -334,7 +334,7 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (this.subscribers.amount) * 5 / 100;
         }
-        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: this.subscribers.subs[0].id} });
       }
       return this.toastr.Info("Please subscribe first before adding items");
     }
@@ -397,7 +397,7 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (item.amount) * 5 / 100;
         }
-        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: item.id} });
       }
     }
   }
