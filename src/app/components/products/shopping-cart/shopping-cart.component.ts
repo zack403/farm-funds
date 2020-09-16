@@ -101,7 +101,7 @@ export class ShoppingCartComponent implements OnInit {
       this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.cart.interest)} before proceeding.`);
 
       setTimeout(() => {
-        this.router.navigateByUrl('ap/farmify-shopping');
+        this.router.navigateByUrl('app/farmify-shopping');
       }, 10000);
 
       return;
