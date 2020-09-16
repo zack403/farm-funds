@@ -98,7 +98,13 @@ export class ShoppingCartComponent implements OnInit {
 
   saveItems() {
     if(this.cart.interest && this.cart.basketTotal < this.cart.interest) {
-      return this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.cart.interest)} before proceeding.`);
+      this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.cart.interest)} before proceeding.`);
+
+      setTimeout(() => {
+        this.router.navigateByUrl('ap/farmify-shopping');
+      }, 10000);
+
+      return;
     } 
     if(!this.cart.address) return this.toastr.Error("Shipping address is required.")
     Swal.fire({
