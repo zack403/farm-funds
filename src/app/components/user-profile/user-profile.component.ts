@@ -391,7 +391,10 @@ export class UserProfileComponent implements OnInit {
               return this.toastr.Info("You can only add new items two weeks after current delivery of this subscription.");
             }
           }
-      }
+        }
+        if(item.paymentType === 'Transfer' && item.status === 'Pending') {
+          return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
+        }
         let res = this.monthDiff(deliveryDate ? deliveryDate : new Date());
         if(res > 0) {
           res *= (item.amount) * 5 / 100;
