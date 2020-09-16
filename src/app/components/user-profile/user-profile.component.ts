@@ -315,7 +315,7 @@ export class UserProfileComponent implements OnInit {
           return this.toastr.Info("You can only add new items two weeks after current delivery.");
         }
       }
-      let res = this.monthDiff(deliveryDateDate);
+      let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
         if(res > 0) {
           res *= (this.subscribers.amount) * 5 / 100;
           this.interest = res;
