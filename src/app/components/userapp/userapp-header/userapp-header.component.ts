@@ -59,6 +59,8 @@ export class UserappHeaderComponent implements OnInit {
             this.cart.type = "subscription";
             this.cart.phoneNo = this.userData.phoneNo;
             this.cart.SubscriberId = data.SubscriberId;
+            this.cart.interest = data.interest;
+            this.cart.basketTotal = this.basketTotal;
             this.itemsInCart.productName = data.productName;
             this.itemsInCart.productId = data.id;
             this.itemsInCart.price = data.price * data.unit;
@@ -130,11 +132,7 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   viewCart() {
-    if(this.interest && this.basketTotal < this.interest) {
-      return this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.interest)} before proceeding.`);
-    } else {
       this.router.navigateByUrl("app/shopping-cart");
-    }
   }
 
 }

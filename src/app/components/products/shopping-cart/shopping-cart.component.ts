@@ -7,6 +7,12 @@ import { UtilityService } from 'src/app/services/utility.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 
 
+const formatter = new Intl.NumberFormat('en-NI', {
+  style: 'currency',
+  currency: 'NGN',
+  minimumFractionDigits: 2
+})
+
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
@@ -91,6 +97,9 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   saveItems() {
+    if(this.cart.interest && this.cart.basketTotal < this.cart.interest) {
+      return this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.cart.interest)} before proceeding.`);
+    } 
     if(!this.cart.address) return this.toastr.Error("Shipping address is required.")
     Swal.fire({
       title: 'Are you sure?',
