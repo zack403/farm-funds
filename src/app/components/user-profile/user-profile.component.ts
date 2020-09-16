@@ -326,6 +326,9 @@ export class UserProfileComponent implements OnInit {
       this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: this.subscribers.subs[0].id} });
     } else {
       if(this.subscribers.subs.length > 0 ){
+        if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+          return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+        }
         let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
         if(res > 0) {
           res *= (this.subscribers.amount) * 5 / 100;
