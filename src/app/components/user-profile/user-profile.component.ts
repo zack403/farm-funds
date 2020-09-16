@@ -51,7 +51,7 @@ export class UserProfileComponent implements OnInit {
 
 
 
-  constructor(private authSvc: AuthService, private router: Router, 
+  constructor(private authSvc: AuthService, private router: Router,
     private profileSvc: ProfileService,
     private toastr: ToasterService,
     private utilSvc: UtilityService,
@@ -139,7 +139,7 @@ export class UserProfileComponent implements OnInit {
              currency: "NGN",
              firstname: firstName,
              lastname: lastName,
- 
+
              callback: function(response){
                if(response.reference) {
                  Swal.fire({
@@ -164,15 +164,15 @@ export class UserProfileComponent implements OnInit {
              onClose: function(){
              }
            });
-           handler.openIframe(); 
+           handler.openIframe();
        } catch (error) {
          that.toastr.Error("Error while launching payment screen, please try again.");
          console.log("PayStackError",error);
        }
    }
- 
 
-  
+
+
 
   openswal() {
     // if(this.subscribers.subs.length > 0) {
@@ -339,8 +339,8 @@ export class UserProfileComponent implements OnInit {
       return this.toastr.Info("Please subscribe first before adding items");
     }
   }
- 
-    
+
+
   }
 
   async chooseSubToBuyFrom() {
@@ -363,6 +363,7 @@ export class UserProfileComponent implements OnInit {
     });
 
     if (value) {
+      let deliveryDate;
       const item = this.subscribers.subs.find(x => x.id === value);
       if(item) {
         let y = this.purchases.filter((ft) => {
@@ -371,23 +372,24 @@ export class UserProfileComponent implements OnInit {
         if(y.length > 1) {
           y = y.reduce((a, b) => new Date(a.createdAt) > new Date(b.createdAt) ? a : b);
         }
-        let deliveryDate;
-        if(y.deliveredDate) {
-          deliveryDate = new Date(y.deliveredDate);
-          deliveryDate = new Date(deliveryDate.setDate(deliveryDate.getDate() + 2 * 7));
-        }
-        if(y.Subscriber.paymentType === 'Transfer' && y.Subscriber.status === 'Pending') {
-          return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
-        } else {
-          if(y.status === 'Pending') {
-            return this.toastr.Info("You still have a pending order for this subscription.");
+        if(y.length > 0) {
+          if(y.deliveredDate) {
+            deliveryDate = new Date(y.deliveredDate);
+            deliveryDate = new Date(deliveryDate.setDate(deliveryDate.getDate() + 2 * 7));
           }
-          let today = new Date();
-          if(!deliveryDate || today < deliveryDate) {
-            return this.toastr.Info("You can only add new items two weeks after current delivery of this subscription.");
+          if(y.Subscriber.paymentType === 'Transfer' && y.Subscriber.status === 'Pending') {
+            return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
+          } else {
+            if(y.status === 'Pending') {
+              return this.toastr.Info("You still have a pending order for this subscription.");
+            }
+            let today = new Date();
+            if(!deliveryDate || today < deliveryDate) {
+              return this.toastr.Info("You can only add new items two weeks after current delivery of this subscription.");
+            }
           }
-        }
-        let res = this.monthDiff(deliveryDate);
+      }
+        let res = this.monthDiff(deliveryDate ? deliveryDate : new Date());
         if(res > 0) {
           res *= (item.amount) * 5 / 100;
           this.interest = res;
@@ -407,7 +409,7 @@ export class UserProfileComponent implements OnInit {
     months -= d1.getMonth();
     months += d2.getMonth();
     return months <= 0 ? 0 : months;
-  } 
+  }
 
   switchSubs(event) {
     if(event.target.value) {
@@ -421,10 +423,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // avoid memory leaks here by cleaning up after ourselves. If we  
-    // don't then we will continue to run our initialiseInvites()   
+    // avoid memory leaks here by cleaning up after ourselves. If we
+    // don't then we will continue to run our initialiseInvites()
     // method on every navigationEnd event.
-    if (this.navigationSubscription) {  
+    if (this.navigationSubscription) {
        this.navigationSubscription.unsubscribe();
     }
   }

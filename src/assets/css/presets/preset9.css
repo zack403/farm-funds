@@ -80,8 +80,9 @@ a:hover, a:focus, a:active {
   color: green;
 }
 .offcanvas-menu {
-  background-color: #fff;
+  background-color: #EBB40E;;
   color: #252525;
+  font-weight: bolder;
 }
 .offcanvas-menu .offcanvas-inner .sp-module ul > li a, .offcanvas-menu .offcanvas-inner .sp-module ul > li span {
   color: #252525;
