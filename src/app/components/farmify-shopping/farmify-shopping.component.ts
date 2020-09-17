@@ -21,7 +21,6 @@ export class FarmifyShoppingComponent implements OnInit {
   search: string = "";
   products: any;
   interest: number = 0;
-  subId: any;
   constructor(private prodSvc: ProductsService, private toastr: ToasterService, private router: Router,private messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -30,7 +29,6 @@ export class FarmifyShoppingComponent implements OnInit {
     if(history.state.interest){
       this.interest = history.state.interest;
       localStorage.setItem("interest", `${this.interest}`);
-      this.subId = history.state.subId;
     }else {
       const int = parseInt(localStorage.getItem("interest"));
       if(int){
@@ -66,7 +64,6 @@ export class FarmifyShoppingComponent implements OnInit {
       return this.toastr.Error(`Please input quantity greater than 0 for ${item.productName}`)
     }
     item.interest = this.interest;
-    item.SubscriberId = this.subId;
     item.price = parseInt(item.price);
     // send message to subscribers via observable subject
     this.messageService.sendMessage(item);

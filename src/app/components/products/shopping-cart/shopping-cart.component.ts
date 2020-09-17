@@ -97,7 +97,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   saveItems() {
-    if(this.cart.interest && this.cart.basketTotal < this.cart.interest) {
+    if(this.cart.interest && this.orderTotalAmount < this.cart.interest) {
       this.toastr.Info(`Please use up your purchase power of ${formatter.format(this.cart.interest)} before proceeding.`);
 
       setTimeout(() => {
@@ -106,7 +106,8 @@ export class ShoppingCartComponent implements OnInit {
 
       return;
     } 
-    if(!this.cart.address) return this.toastr.Error("Shipping address is required.")
+    if(!this.cart.address) return this.toastr.Error("Shipping address is required.");
+    this.cart.SubscriberId = localStorage.getItem("subId");
     Swal.fire({
       title: 'Are you sure?',
       text: 'Your order will be sent for processing!',

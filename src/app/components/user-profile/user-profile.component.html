@@ -23,19 +23,29 @@
                                 <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                                         <div id="column-id-1551490002719" class="sppb-column">
+                                            <div *ngIf="success" class="alert alert-success alert-dissmissible">
+                                                <a href="#" class="close" data-dismiss="alert"
+                                                    aria-label="close">&times;</a>
+                                                <span><strong>{{success}}</strong></span>
 
+                                            </div>
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <h1 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
-                                                        <small style="text-transform: none;">You are currently on
+                                                        <small *ngIf="!selected" style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
-                                                            Subscription. </small> <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                            Subscription. </small> 
+                                                            
+                                                            <small *ngIf="selected" style="text-transform: none;">You are currently on
+                                                                <b>{{dashboardData.inv.length}}</b> Farm Investment. </small> 
 
-                                                        <span *ngIf="dashboardData.length > 0"
-                                                            [innerHTML]="emoji"></span>
+                                                            <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
 
-                                                        <span class="pull-right">
+                                                        <!-- <span *ngIf="dashboardData.length > 0"
+                                                            [innerHTML]="emoji"></span> -->
+
+                                                        <span *ngIf="!selected"  class="pull-right">
                                                             <a (click)="AddItems()"> <input class="p-button"
                                                                     style="cursor: pointer;" type="submit"
                                                                     value="Add Items"></a>
@@ -51,7 +61,7 @@
                                                     <small class="text-primary font-weight-bold"
                                                         style="font-size: 16px;margin-left: 10px;">Farm Inv.</small>
 
-                                                        <div *ngIf="subscribers.subs.length > 1" style="margin-bottom: 10px;" class="pull-right">
+                                                        <div *ngIf="subscribers.subs.length > 1 && !selected" style="margin-bottom: 10px;" class="pull-right">
                                                             <label> Switch Subscription </label>
                                                             <select (change)="switchSubs($event)">
                                                                 <option *ngFor="let sub of subscribers.subs" [value]="sub.id" >{{sub.amount | currency: '&#8358; '}}</option>
@@ -357,12 +367,6 @@
                                     <div class="sppb-row">
                                         <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
 
-                                            <div *ngIf="success" class="alert alert-success alert-dissmissible">
-                                                <a href="#" class="close" data-dismiss="alert"
-                                                    aria-label="close">&times;</a>
-                                                <span><strong>{{success}}</strong></span>
-
-                                            </div>
                                             <div id="column-id-1551573988957" class="sppb-column">
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">

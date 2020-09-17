@@ -58,9 +58,7 @@ export class UserappHeaderComponent implements OnInit {
             this.cart.UserId = this.userData.id;
             this.cart.type = "subscription";
             this.cart.phoneNo = this.userData.phoneNo;
-            this.cart.SubscriberId = data.SubscriberId;
             this.cart.interest = data.interest;
-            this.cart.basketTotal = this.basketTotal;
             this.itemsInCart.productName = data.productName;
             this.itemsInCart.productId = data.id;
             this.itemsInCart.price = data.price * data.unit;

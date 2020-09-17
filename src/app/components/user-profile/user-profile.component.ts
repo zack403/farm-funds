@@ -154,7 +154,8 @@ export class UserProfileComponent implements OnInit {
                    if(res) {
                      that.angularZone.run(() => {
                       that.utilSvc.uploadProofOfPayment(data).subscribe((res:any) => {
-                        that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest, subId: res.message} });
+                        localStorage.setItem("subId", res.message);
+                        that.router.navigateByUrl("app/farmify-shopping", { state: { interest: that.interest} });
                       })
                      })
                    }
@@ -268,7 +269,7 @@ export class UserProfileComponent implements OnInit {
               formData.append('email', this.userData.email);
               this.utilSvc.uploadProofOfPayment(formData).subscribe((res:any) => {
                 console.log(res.message);
-                this.success = "Your file has been uploaded successfully, please hold on while we confirm and activate your subscription. Thanks";
+                this.success = "Your file has been uploaded successfully, You will be notified when your subscription has been confirmed and activated.. Thanks.";
                 this.router.navigateByUrl('app/profile');
               })
             },
@@ -323,7 +324,8 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (this.subscribers.amount) * 5 / 100;
         }
-      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: this.subscribers.subs[0].id} });
+      localStorage.setItem("subId", this.subscribers.subs[0].id);
+      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
     } else {
       if(this.subscribers.subs.length > 0 ){
         if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
@@ -337,7 +339,8 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (this.subscribers.amount) * 5 / 100;
         }
-        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: this.subscribers.subs[0].id} });
+        localStorage.setItem("subId", this.subscribers.subs[0].id);
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest}});
       }
       return this.toastr.Info("Please subscribe first before adding items");
     }
@@ -376,14 +379,14 @@ export class UserProfileComponent implements OnInit {
           y = y.reduce((a, b) => new Date(a.createdAt) > new Date(b.createdAt) ? a : b);
         }
         if(y.length > 0) {
-          if(y.deliveredDate) {
-            deliveryDate = new Date(y.deliveredDate);
+          if(y[0].deliveredDate) {
+            deliveryDate = new Date(y[0].deliveredDate);
             deliveryDate = new Date(deliveryDate.setDate(deliveryDate.getDate() + 2 * 7));
           }
-          if(y.Subscriber.paymentType === 'Transfer' && y.Subscriber.status === 'Pending') {
+          if(y[0].Subscriber.paymentType === 'Transfer' && y[0].Subscriber.status === 'Pending') {
             return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
           } else {
-            if(y.status === 'Pending') {
+            if(y[0].status === 'Pending') {
               return this.toastr.Info("You still have a pending order for this subscription.");
             }
             let today = new Date();
@@ -403,7 +406,8 @@ export class UserProfileComponent implements OnInit {
         else {
           this.interest = (item.amount) * 5 / 100;
         }
-        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest, subId: item.id} });
+        localStorage.setItem("subId", item.id);
+        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
       }
     }
   }
