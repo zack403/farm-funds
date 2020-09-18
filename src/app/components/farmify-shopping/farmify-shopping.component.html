@@ -7,10 +7,10 @@
             <div id="system-message-container">
             </div>
             <div id="akeeba-renderjoomla">
-             
+
               <div class="j2store-product-list bs3">
 
-                
+
 
                 <div *ngIf="interest" class="alert alert-info">
                   <span >Pick items worth your purchase power of <strong>{{interest | currency: '&#8358; '}}</strong></span>
@@ -36,7 +36,7 @@
                   </div>
                 </div>
                 <br>
-                <p>We want to make this as flexible as possible, if you do not see the product you are looking for, Add it <a (click)="addMoreProdct()"><strong style="font-weight: 900; cursor: pointer; color: green;"> Here </strong></a></p>
+                <p class="text-success">We want to make this as flexible as possible, if you do not see the product you are looking for, Add it <a (click)="addMoreProdct()"><strong style="font-weight: 900; cursor: pointer; color: green;"> Here </strong></a></p>
                 <br>
                 <div class="row">
                   <div class="col-md-12">
@@ -82,12 +82,12 @@
                                 <br>
                                 <div class="product">
                                   <small> Quantity </small>
-                                  <input type="number" required [(ngModel)]="p.unit" name="unit" class="input-mini form-control" 
+                                  <input type="number" required [(ngModel)]="p.unit" name="unit" class="input-mini form-control"
                                      placeholder="Enter quantity"/>
                                 </div>
                                 <br>
                                 <div class="product">
-                                  <input type="text" [(ngModel)]="p.brand" name="brand"  class="input-mini form-control" 
+                                  <input type="text" [(ngModel)]="p.brand" name="brand"  class="input-mini form-control"
                                      placeholder="Enter brand" />
                                 </div>
                               </div>
@@ -95,7 +95,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
                     </div>
 
                     <div *ngIf="products?.data.length > 0" >
