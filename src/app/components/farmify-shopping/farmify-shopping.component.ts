@@ -93,13 +93,23 @@ export class FarmifyShoppingComponent implements OnInit {
     this.messageService.clearMessages();
   }
 
+  changed() {
+    console.log("changed");
+    // let qty = parseInt((<HTMLInputElement> document.getElementById('qty')).value);
+    // if(qty) {
+    //   let price = parseInt((<HTMLInputElement> document.getElementById('price')).value);
+    //   let val = (<HTMLInputElement> document.getElementById('price'));
+    //   val.innerHTML = qty  * price;
+    // }
+  }
+
   addMoreProdct() {
     Swal.fire({
       title: 'Add product',
       html:
       '<input required placeholder="Enter product name" type="text" id="product" class="swal2-input" autofocus >' +
-      '<input required placeholder="Enter quantity" type="number" id="qty" class="swal2-input">' +
       '<input required placeholder="Enter price" type="text" id="price" class="swal2-input">' +
+      '<input oninput="changed()" required placeholder="Enter quantity" type="number" id="qty" class="swal2-input">' +
       '<input placeholder="Enter brand" id="brand" type="text" class="swal2-input">',
       showCloseButton: true,
       confirmButtonText: 'Add to basket',
@@ -125,10 +135,8 @@ export class FarmifyShoppingComponent implements OnInit {
             unit,
             brand
           }
-        
-        
       }
-     
+
     }).then( result => {
       if(result.value) {
         this.addToCart(result.value);

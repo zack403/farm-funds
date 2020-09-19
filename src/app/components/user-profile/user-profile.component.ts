@@ -144,7 +144,7 @@ export class UserProfileComponent implements OnInit {
                if(response.reference) {
                  Swal.fire({
                    title: 'Success',
-                   text: `Your payment is successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest.`,
+                   html: `<span>Your payment was successful, your transaction reference is ${response.reference}. Click proceed to select items worth your interest.</span>`,
                    confirmButtonColor: 'green',
                    icon: 'success',
                    allowOutsideClick: false,
@@ -189,7 +189,7 @@ export class UserProfileComponent implements OnInit {
     //   }
     // }
     Swal.fire({
-      html: '<hr><br><p class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
+      html: '<hr><br><p color="black" class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
       '<p class="text-left text-dark">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
       '<p class="text-left text-dark">The 60% will be broken down into 12 parts which means you will be paid 5% of your ROI monthly in form of Groceries, Foodstuffs and Household items.</p><br>' +
       '<p class="text-left text-dark">After a whole year of grocery shopping for your home, you get a whopping 70% of your capital back</p><br>' +
