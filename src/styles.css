@@ -6,7 +6,7 @@
 
 .errormsg {
     font-size: 12px;
-} 
+}
 
 .sp-page-builder .page-content #section-id-1551223987391 {
     padding-top: 0px;
@@ -2837,7 +2837,8 @@ display: none;
 
 #sppb-addon-1551225197119 ul li {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: -13px;
+    /* margin-right: 10px; */
     color: #999;
     vertical-align: middle;
     font-size: 14px;
