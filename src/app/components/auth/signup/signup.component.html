@@ -18,7 +18,7 @@
                                   <ul class="list_inline">
                                     <li></li><img src="assets/images/logo-2.jpg" alt="">&nbsp;&nbsp;
                                     <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech
-                                      Company</li>&nbsp;
+                                      Company</li>&nbsp;&nbsp;
                                     <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
                                   </ul>
                                 </div>
@@ -85,32 +85,19 @@
     </div>
   </div>
 </section>
-<!-- <section id="sp-section-4">
-  <div class="row">
-    <div id="sp-title" class="col-lg-12 ">
-      <div class="sp-column ">
-        <div class="sp-page-title" style="background-image: url(/assets/images/background/inner-banner-bg.jpg);">
-          <div class="container">
-            <h2 class="sp-page-title-heading">Sign Up</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<section id="sp-main-body">
+<section id="sp-main-body" class="sign-up-form">
   <div class="row">
     <div id="sp-title" class="col-lg-12 ">
       <div class="sp-column ">
         <div class="container text-center">
-          <h2 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
+          <h5 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
             <small class="text-primary">Subscribe To Any Of Our Profitable Farm Cycles.</small>
-          </h2>
+          </h5>
         </div>
       </div>
     </div>
   </div>
-  <div class="container info">
+  <div class="container info" style="margin-top: 50px;">
     <div class="container-inner">
       <div class="row">
         <main id="sp-component" class="col-lg-12 " role="main">
@@ -120,16 +107,14 @@
             <div id="akeeba-renderjoomla">
               <div id="j2store-checkout" class="j2store checkout">
                 <div id="j2store-checkout-content">
-                  <!-- <h1>Sign Up</h1> -->
-
                   <div id="billing-address">
                     <div class="checkout-content" style="display: block;">
                       <div id="akeeba-renderjoomla">
                         <div class="j2store">
                           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                             <div class="form-row">
-                              <div class="col-md-6">
-                                <h2>Information</h2> <br> <br>
+                              <div class="col-md-4 form-field">
+                                <!-- <h2>Information</h2> <br> <br> -->
 
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('firstName').errors && registerForm.get('firstName').touched}">
@@ -141,8 +126,6 @@
                                     *ngIf="registerForm.controls['firstName'].hasError('required') && registerForm.get('firstName').touched"
                                     class="errormsg text-danger">First Name is required</div>
                                 </div>
-
-                                <br>
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('lastName').errors && registerForm.get('lastName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
@@ -152,33 +135,16 @@
                                   <div
                                     *ngIf="registerForm.controls['lastName'].hasError('required') && registerForm.get('lastName').touched"
                                     class="errormsg text-danger">Last Name is required</div>
-
                                 </div>
-
-                                <br>
                                 <div class="form-group">
                                   <label for="middleName">Middle name</label>
                                   <input class="inputbox form-control" id="middleName" type="text" name="middleName"
                                     placeholder="Enter middle name" value="" formControlName="middleName">
-
                                 </div>
+                              </div>
 
-                                <br>
-                                <div class="form-group"
-                                  [ngClass]="{'has-error': registerForm.get('email').errors && registerForm.get('email').touched}">
-                                  <span class="j2store_field_required text-danger">*</span>
-                                  <label for="email">Email</label>
-                                  <input class="inputbox form-control" id="email" type="text" name="email"
-                                    placeholder="Enter email" value="" formControlName="email">
-                                  <div
-                                    *ngIf="registerForm.controls['email'].hasError('required') && registerForm.get('email').touched"
-                                    class="errormsg text-danger">Email is required</div>
-                                  <div
-                                    *ngIf="registerForm.controls['email'].hasError('email') && registerForm.get('email').touched"
-                                    class="errormsg text-danger">Email is not valid</div>
-                                </div>
-
-                                <br>
+                              <div class="col-md-4 form-field">
+                                <!-- <h2>Other Information</h2> <br> <br> -->
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('phoneNo').errors && registerForm.get('phoneNo').touched}">
                                   <span class="j2store_field_required text-danger">*</span><label for="phone">Phone
@@ -191,13 +157,7 @@
                                   <div
                                     *ngIf="registerForm.controls['phoneNo'].hasError('pattern') && registerForm.get('phoneNo').touched"
                                     class="errormsg text-danger"> Invalid phone No</div>
-
-                                  <br>
                                 </div>
-                              </div>
-
-                              <div class="col-md-6">
-                                <h2>Other Information</h2> <br> <br>
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('bankName').errors && registerForm.get('bankName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
@@ -209,8 +169,6 @@
                                     class="errormsg text-danger">Bank Name is required</div>
 
                                 </div>
-
-                                <br>
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('acctNo').errors && registerForm.get('acctNo').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
@@ -228,8 +186,22 @@
                                     class="errormsg text-danger"> Acct No must be min 10 character long</div>
 
                                 </div>
+                              </div>
 
-                                <br>
+                              <div class="col-md-4 form-field">
+                                <div class="form-group"
+                                  [ngClass]="{'has-error': registerForm.get('email').errors && registerForm.get('email').touched}">
+                                  <span class="j2store_field_required text-danger">*</span>
+                                  <label for="email">Email</label>
+                                  <input class="inputbox form-control" id="email" type="text" name="email"
+                                    placeholder="Enter email" value="" formControlName="email">
+                                  <div
+                                    *ngIf="registerForm.controls['email'].hasError('required') && registerForm.get('email').touched"
+                                    class="errormsg text-danger">Email is required</div>
+                                  <div
+                                    *ngIf="registerForm.controls['email'].hasError('email') && registerForm.get('email').touched"
+                                    class="errormsg text-danger">Email is not valid</div>
+                                </div>
                                 <div class="form-group"
                                   [ngClass]="{'has-error': registerForm.get('password').errors && registerForm.get('password').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
@@ -252,8 +224,6 @@
                                     *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.get('password').touched"
                                     class=" errormsg text-danger"> Password must be atleast 8 character long</div>
                                 </div>
-
-                                <br>
                                 <div class="form-group" [ngClass]="{'has-error': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
                               || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}">
                                   <span class="j2store_field_required text-danger">*</span><label for="confirm">Confirm
@@ -280,8 +250,6 @@
                                     Confirm Password must match Password
                                   </div>
                                 </div>
-
-                                <br>
                                 <div class="form-group form-check"
                                   [ngClass]="{'has-error': registerForm.get('acceptTerms').errors && registerForm.get('acceptTerms').touched}">
                                   <div class="col-md- shipping-make-same" style="clear: both; padding-top: 15px;">
@@ -296,7 +264,6 @@
                                   </div>
                                 </div>
                               </div>
-
                               <div class="button">
                                 <button [disabled]="registerForm.invalid || isBusy" type="submit"
                                   class="btn btn-primary mr-1">{{isBusy ? 'Creating account...' : 'CREATE ACCOUNT'}}</button>
@@ -306,7 +273,6 @@
                               </div>
                             </div>
                           </form>
-
                         </div>
                       </div>
                     </div>

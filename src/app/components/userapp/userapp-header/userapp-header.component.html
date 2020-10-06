@@ -1,106 +1,365 @@
 <section id="sp-top">
-    <div class="row">
-        <div id="sp-top1" class="col-lg-12 ">
-            <div class="sp-column ">
-                <div class="sp-module ">
-                    <div class="sp-module-content">
-                        <div class="mod-sppagebuilder  sp-page-builder" data-module_id="104">
-                            <div class="page-content">
-                                <div id="section-id-1551225173562" class="sppb-section  ">
-                                    <div class="sppb-container-inner">
-                                        <div class="sppb-row sppb-no-gutter">
-                                            <div class="sppb-col-md-7" id="column-wrap-id-1551225173561">
-                                                <div id="column-id-1551225173561" class="sppb-column">
-                                                    <div class="sppb-column-addons">
-                                                        <div id="sppb-addon-1551225197119" class="clearfix">
-                                                            <div class="sppb-addon sppb-addon-raw-html ">
-                                                                <div class="sppb-addon-content">
-                                                                    <ul class="list_inline">
-                                                                        <li></li><a [routerLink]= "['/home']"><img src="assets/images/logo-2.jpg" alt=""></a>&nbsp;&nbsp;
-                                                                        <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech Company</li>&nbsp;
-                                                                        <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="sppb-col-md-1" id="column-wrap-id-1551225197116">
-                                                <div id="column-id-1551225197116" class="sppb-column">
-                                                    <div class="sppb-column-addons"></div>
-                                                </div>
-                                            </div>
-                                            <div class="sppb-col-md-4" id="column-wrap-id-1551226657169">
-                                                <div id="column-id-1551226657169" class="sppb-column">
-                                                    <div class="sppb-column-addons">
-                                                        <div id="sppb-addon-1551225808098" class="clearfix">
-                                                            <div class="sppb-addon sppb-addon-raw-html ">
-                                                                <div class="sppb-addon-content">
-                                                                    <div class="right-column float_right">
-
-                                                                        <ul class="social-icon">
-                                                                            <li><a href="http://www.facebook.com/farmfundsafrica"><i
-                                                                                        class="fa fa-facebook"></i></a>
-                                                                            </li>
-                                                                            <li><a href="https://www.twitter.com/farmfundsafrica"><i
-                                                                                        class="fa fa-twitter"></i></a>
-                                                                            </li>
-                                                                            <li><a href="https://www.instagram.com/farmfundsafrica"><i
-                                                                              class="fa fa-instagram"></i></a>
-                                                                            </li>
-                                                                        </ul>
-                                                                        <div *ngIf="!basketTotal || router.url.includes('shopping-cart')" id="polyglotLanguageSwitcher"
-                                                                            class="">
-
-                                                                            <a id="en" class="current"
-                                                                                >LAGOS, NIGERIA.</a>
-                                                                        </div>
-
-                                                                        
-                                                                        <div class="btn-group pull-right">
-                                                                            
-                                                                            <button *ngIf="!router.url.includes('shopping-cart')" (click)="cart.purchaseDetails.length > 0 ? viewCart() : ''" class="btn text-light"><span *ngIf="basketTotal" style="margin-right: 10px">{{basketTotal | currency: '&#8358; '}}</span> <i class="fa fa-shopping-basket" style="font-size: 20px;">
-                                                                            <small *ngIf="cart.purchaseDetails.length > 0" class="badge badge-danger" style="z-index: 2; font-size: 16px; top: -15px; left: -7px; border-radius: 50%;">{{cart.purchaseDetails.length}}</small>
-                                                                            </i>
-                                                                            </button>
-                                                                            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                                            style="font-size: 23px;">
-                                                                            <img src="assets/images/profile-images.png" alt="" class="text-center" style="width: 30px; height: 30px; border-radius: 50%;">
-                                                                                <!-- <i class="fa fa-user"></i> -->
-                                                                            </button>
-                                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                                <!-- <img src="assets/images/profile-images.png" alt="" style="width: 70px; height: 70px; border-radius: 50%;"> -->
-                                                                                <!-- <span class="user-name">ZACK OHIANI AMINU</span> -->
-                                                                                <button class="dropdown-item" type="button">
-                                                                                    <!-- <img src="assets/images/profile-images.png" alt="" class="text-center" > -->
-                                                                                    <small class="text-success" style="cursor: pointer;">Signed in as</small><br>
-                                                                                <strong class="user-name text-strong text-secondary display-10" style="cursor: pointer;">{{userData.firstName}} {{userData.middleName}} {{userData.lastName}}</strong>
-                                                                                </button>
-                                                                                <div class="dropdown-divider"></div>
-                                                                                <button class="dropdown-item text-success" type="button" style="cursor: pointer;"><a
-                                                                                    (click)="go()"><i class="fa fa-user"></i> Profile</a></button>
-                                                                                <div class="dropdown-divider"></div>
-                                                                              <button class="dropdown-item" type="button" style="cursor: pointer;"><a
-                                                                                class="text-danger display-10" (click)="logout()"><i class="fa fa-sign-out"></i> Log Out</a></button>
-                                                                              <!-- <button class="dropdown-item" type="button">Something else here</button> -->
-                                                                            </div>
-                                                                          </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+  <div class="row">
+    <div id="sp-top1" class="col-lg-12">
+      <div class="sp-column">
+        <div class="sp-module">
+          <div class="sp-module-content">
+            <div class="mod-sppagebuilder sp-page-builder" data-module_id="104">
+              <div class="page-content">
+                <div id="section-id-1551225173562" class="sppb-section">
+                  <div class="sppb-container-inner">
+                    <div class="sppb-row sppb-no-gutter">
+                      <div
+                        class="sppb-col-md-7"
+                        id="column-wrap-id-1551225173561"
+                      >
+                        <div id="column-id-1551225173561" class="sppb-column">
+                          <div class="sppb-column-addons">
+                            <div id="sppb-addon-1551225197119" class="clearfix">
+                              <div class="sppb-addon sppb-addon-raw-html">
+                                <div class="sppb-addon-content">
+                                  <ul class="list_inline">
+                                    <li></li>
+                                    <a [routerLink]="['/home']"
+                                      ><img
+                                        src="assets/images/logo-2.jpg"
+                                        alt="" /></a
+                                    >&nbsp;&nbsp;
+                                    <li>
+                                      <i
+                                        class="icon-winner-trophy-for-the-best"
+                                      ></i
+                                      >Africa's Fastest Growing Agritech Company
+                                    </li>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                      <i class="icon-stamp"></i>Farmify Agro
+                                      Innovations Ltd: RC 1627509
+                                    </li>
+                                  </ul>
                                 </div>
+                              </div>
                             </div>
+                          </div>
                         </div>
+                      </div>
+                      <div
+                        class="sppb-col-md-1"
+                        id="column-wrap-id-1551225197116"
+                      >
+                        <div id="column-id-1551225197116" class="sppb-column">
+                          <div class="sppb-column-addons"></div>
+                        </div>
+                      </div>
+                      <div
+                        class="sppb-col-md-4"
+                        id="column-wrap-id-1551226657169"
+                      >
+                        <div id="column-id-1551226657169" class="sppb-column">
+                          <div class="sppb-column-addons">
+                            <div id="sppb-addon-1551225808098" class="clearfix">
+                              <div class="sppb-addon sppb-addon-raw-html">
+                                <div class="sppb-addon-content">
+                                  <div class="right-column float_right">
+                                    <ul class="social-icon">
+                                      <li>
+                                        <a
+                                          href="http://www.facebook.com/farmfundsafrica"
+                                          ><i class="fa fa-facebook"></i
+                                        ></a>
+                                      </li>
+                                      <li>
+                                        <a
+                                          href="https://www.twitter.com/farmfundsafrica"
+                                          ><i class="fa fa-twitter"></i
+                                        ></a>
+                                      </li>
+                                      <li>
+                                        <a
+                                          href="https://www.instagram.com/farmfundsafrica"
+                                          ><i class="fa fa-instagram"></i
+                                        ></a>
+                                      </li>
+                                    </ul>
+                                    <div
+                                      *ngIf="
+                                        !basketTotal ||
+                                        router.url.includes('shopping-cart')
+                                      "
+                                      id="polyglotLanguageSwitcher"
+                                      class=""
+                                    >
+                                      <a id="en" class="current"
+                                        >LAGOS, NIGERIA.</a
+                                      >
+                                    </div>
+
+                                    <div class="btn-group pull-right">
+                                      <button
+                                        *ngIf="
+                                          !router.url.includes('shopping-cart')
+                                        "
+                                        (click)="
+                                          cart.purchaseDetails.length > 0
+                                            ? viewCart()
+                                            : ''
+                                        "
+                                        class="btn text-light"
+                                      >
+                                        <span
+                                          *ngIf="basketTotal"
+                                          style="margin-right: 10px"
+                                          >{{
+                                            basketTotal | currency: "&#8358; "
+                                          }}</span
+                                        >
+                                        <i
+                                          class="fa fa-shopping-basket"
+                                          style="font-size: 20px"
+                                        >
+                                          <small
+                                            *ngIf="
+                                              cart.purchaseDetails.length > 0
+                                            "
+                                            class="badge badge-danger"
+                                            style="
+                                              z-index: 2;
+                                              font-size: 16px;
+                                              top: -15px;
+                                              left: -7px;
+                                              border-radius: 50%;
+                                            "
+                                            >{{
+                                              cart.purchaseDetails.length
+                                            }}</small
+                                          >
+                                        </i>
+                                      </button>
+                                      <button
+                                        type="button"
+                                        class="btn btn-light dropdown-toggle"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                        style="font-size: 23px"
+                                      >
+                                        <img
+                                          src="assets/images/profile-images.png"
+                                          alt=""
+                                          class="text-center"
+                                          style="
+                                            width: 30px;
+                                            height: 30px;
+                                            border-radius: 50%;
+                                          "
+                                        />
+                                        <!-- <i class="fa fa-user"></i> -->
+                                      </button>
+                                      <div
+                                        class="dropdown-menu dropdown-menu-right"
+                                      >
+                                        <!-- <img src="assets/images/profile-images.png" alt="" style="width: 70px; height: 70px; border-radius: 50%;"> -->
+                                        <!-- <span class="user-name">ZACK OHIANI AMINU</span> -->
+                                        <button
+                                          class="dropdown-item"
+                                          type="button"
+                                        >
+                                          <!-- <img src="assets/images/profile-images.png" alt="" class="text-center" > -->
+                                          <small
+                                            class="text-success"
+                                            style="cursor: pointer"
+                                            >Signed in as</small
+                                          ><br />
+                                          <strong
+                                            class="user-name text-strong text-secondary display-10"
+                                            style="cursor: pointer"
+                                            >{{ userData.firstName }}
+                                            {{ userData.middleName }}
+                                            {{ userData.lastName }}</strong
+                                          >
+                                        </button>
+                                        <div class="dropdown-divider"></div>
+                                        <button
+                                          class="dropdown-item text-success"
+                                          type="button"
+                                          style="cursor: pointer"
+                                        >
+                                          <a (click)="go()"
+                                            ><i class="fa fa-user"></i>
+                                            User Dashboard</a
+                                          >
+                                        </button>
+                                        <div class="dropdown-divider"></div>
+                                        <button
+                                          class="dropdown-item text-success"
+                                          type="button"
+                                          data-toggle="modal"
+                                          data-target="#updateProfile"
+                                          style="cursor: pointer"
+                                        >
+                                          <a
+                                            ><i class="fa fa-edit"></i>
+                                            Edit Profile</a
+                                          >
+                                        </button>
+                                        <div class="dropdown-divider"></div>
+                                        <button
+                                          class="dropdown-item"
+                                          type="button"
+                                          style="cursor: pointer"
+                                        >
+                                          <a
+                                            class="text-danger display-10"
+                                            (click)="logout()"
+                                            ><i class="fa fa-sign-out"></i> Log
+                                            Out</a
+                                          >
+                                        </button>
+                                        <!-- <button class="dropdown-item" type="button">Something else here</button> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="updateProfile"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title text-center" id="exampleModalLabel" style="color: green;">Profile Update</h2>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm" id="editForm">
+          <div class="form-row">
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input
+                  class="inputbox form-control"
+                  id="firstName"
+                  [(ngModel)]="userData.firstName"
+                  type="text"
+                  name="firstName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input
+                  class="inputbox form-control"
+                  id="lastName"
+                  [(ngModel)]="userData.lastName"
+                  type="text"
+                  name="lastName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="middleName">Middle name</label>
+                <input
+                  class="inputbox form-control"
+                  id="middleName"
+                  [(ngModel)]="userData.middleName"
+                  type="text"
+                  name="middleName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  class="inputbox form-control"
+                  [(ngModel)]="userData.email"
+                  id="email"
+                  type="text"
+                  name="email"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input
+                  class="inputbox form-control"
+                  id="phone"
+                  [(ngModel)]="userData.phoneNo"
+                  type="text"
+                  name="phone"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="bankName">Bank Name</label>
+                <input
+                  type="text"
+                  id="bankName"
+                  name="bankName"
+                  [(ngModel)]="userData.bankName"
+                />
+              </div>
+
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="acctNo">Account Number</label>
+                  <input
+                    type="text"
+                    id="acctNo"
+                    [(ngModel)]="userData.acctNo"
+                    name="acctNo"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mr-5" style="margin-left: 40%">
+              <hr>
+              <button
+                [disabled]="isBusy"
+                (click)="updateProfile()"
+                class="btn btn-primary mr-1"
+              >
+                {{ isBusy ? "Updating..." : "UPDATE" }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

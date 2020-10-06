@@ -114,18 +114,6 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-
-  updateProfile() {
-    this.isBusy = true;
-    this.profileSvc.updateMe(this.userData).subscribe((res: any) => {
-      this.toastr.Success(res.data);
-      this.isBusy = false;
-    }, err => {
-      this.isBusy = false;
-      console.log(err);
-    })
-  }
-
   deposit(amt, data) {
     amt *= 100000;
     this.interest = (amt * 5) / 100;
