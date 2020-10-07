@@ -9,9 +9,6 @@
             <div id="akeeba-renderjoomla">
 
               <div class="j2store-product-list bs3">
-
-
-
                 <div *ngIf="interest" class="alert alert-info">
                   <span >Pick items worth your purchase power of <strong>{{interest | currency: '&#8358; '}}</strong></span>
                 </div>
@@ -47,7 +44,7 @@
                         itemsPerPage: size,
                         currentPage: page,
                         totalItems: products?.totalItems
-                    }; let i = index"  class="col-md-2">
+                    }; let i = index"  class="col-md-2 product-info">
                         <div  class="j2store-single-product">
                           <div  class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
@@ -68,28 +65,27 @@
                           </div>
                           <div class="content-box">
                             <div class="inner-box">
-                              <p itemprop="name" class="product-title">
+                              <div itemprop="name" class="product-title">
                                 <a  title="{{p?.productName}}">
                                   {{p?.productName}} </a>
-                                </p>
+                              </div>
                               <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
                                 class="product-price-container">
-                                <div  *ngIf="p.price" class="sale-price">
+                                <div  *ngIf="p.price" class="product sale-price">
                                   {{p?.price | currency: '&#8358; '}}
                                 </div>
-                                <div *ngIf="!p.price" class="sale-price product">
-                                  <span (click)="enterPrice(i)" style="cursor: pointer; color: black; border: 1px solid; padding: 3px;">Enter Price</span>
+                                <div *ngIf="!p.price" class="product price">
+                                  <span (click)="enterPrice(i)">Enter Price</span>
                                 </div>
-                                <br>
                                 <div class="product">
-                                  <small> Quantity </small>
+                                  <!-- <small> Quantity </small> -->
                                   <input type="number" required [(ngModel)]="p.unit" name="unit" class="input-mini form-control"
-                                     placeholder="Enter quantity"/>
+                                     placeholder="Enter Quantity"/>
                                 </div>
-                                <br>
+
                                 <div class="product">
                                   <input type="text" [(ngModel)]="p.brand" name="brand"  class="input-mini form-control"
-                                     placeholder="Enter brand" />
+                                     placeholder="Enter Brand" />
                                 </div>
                               </div>
                             </div>

@@ -33,14 +33,17 @@
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <h1 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
-                                                        <small *ngIf="!selected" style="text-transform: none;">You are currently on
+                                                        <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
-                                                            Subscription. </small>
-
-                                                            <small *ngIf="selected" style="text-transform: none;">You are currently on
-                                                                <b>{{dashboardData.inv.length}}</b> Farm Investment. </small>
-
+                                                            Subscription.
                                                             <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                          </small>
+
+                                                            <small *ngIf="selected" class="current" style="text-transform: none;">You are currently on
+                                                                <b>{{dashboardData.inv.length}}</b> Farm Investment.
+                                                            <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                              </small>
+
 
                                                         <!-- <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span> -->
@@ -101,7 +104,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total Farm Investment</span>
-                                                                                <h2>{{dashboardData.totalInv | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -118,7 +121,7 @@
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total ROI</span>
-                                                                                <h2>{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -135,7 +138,7 @@
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total Gain</span>
-                                                                                <h2>{{dashboardData.totalGain | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -153,7 +156,7 @@
                                                                                 <span><i
                                                                                         class="fas fa-sign-out-alt"></i>
                                                                                     My Wallet </span>
-                                                                                <h2>{{myWallet | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
@@ -284,7 +287,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Current Food Subscription</span>
-                                                                                <h2>{{subscribers.amount | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -301,7 +304,7 @@
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROI</span>
-                                                                                <h2>{{subscribers.roi | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.roi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -318,7 +321,7 @@
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROC</span>
-                                                                                <h2>{{subscribers.roc | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.roc | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -336,7 +339,7 @@
                                                                                 <span><i
                                                                                         class="fas fa-sign-out-alt"></i>
                                                                                     My Wallet </span>
-                                                                                <h2>{{myWallet | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
