@@ -152,7 +152,7 @@ export class UserappHeaderComponent implements OnInit {
       title: 'Change Password',
       html:
       '<input required placeholder="Old password" type="password" id="old" class="swal2-input" autofocus >' +
-      '<input required placeholder="New Password price" type="password" id="new" class="swal2-input">' +
+      '<input required placeholder="New Password" type="password" id="new" class="swal2-input">' +
       '<input required placeholder="Confirm New password" id="confirmnew" type="password" class="swal2-input">',
       showCloseButton: true,
       confirmButtonText: 'Update',
