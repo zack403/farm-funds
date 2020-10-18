@@ -54,6 +54,30 @@
   color:green;
   cursor: pointer !important;
 }
+
+@media (width: 768px) {
+  .sppb-no-gutter {
+    display: -webkit-box;
+    margin-top: -190px;
+    margin-left: 400px;
+    display: block;
+  }
+  .logo {
+    margin-top: 20px;
+  }
+  .info-box {
+    width: 195px;
+  }
+}
+@media (width: 1024px) {
+  .info-box {
+    width: 195px;
+  }
+  .btn-div {
+    margin-left: 278px;
+  }
+}
+
 /* .sp-page-builder .page-content #section-id-1551320575334 {
     padding-top: 70px;
     padding-right: 0px;

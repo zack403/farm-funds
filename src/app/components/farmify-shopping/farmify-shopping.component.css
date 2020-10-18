@@ -1,0 +1,46 @@
+.price {
+  cursor: pointer;
+  color: rgb(34, 30, 30);
+  font-size: 10px;
+  font-weight: bold;
+  border: 1px solid gray;
+  padding:3px 30px;
+}
+.j2store-product-images {
+  background-color: white;
+}
+
+@media (max-width: 600px) {
+  .j2store-product-list {
+    padding-top: 30px;
+  }
+  .product-title {
+    font-size: 13px;
+  }
+  .sale-price {
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  .price {
+    margin-right: 5px;
+  }
+.product {
+  display: inline-block;
+}
+}
+@media (width: 768px) {
+  .product-info {
+    margin-right: 20px;
+  }
+  .price {
+    width: 120px;
+  }
+}
+@media (width: 1024px) {
+  .price {
+    width: 120px;
+  }
+  .product {
+    margin-left: -14px;
+  }
+}

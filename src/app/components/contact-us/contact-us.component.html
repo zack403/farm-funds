@@ -270,12 +270,14 @@
                                         <div
                                           class="sppb-ajax-contact-content">
                                           <form
+                                          [formGroup]="contactUsForm" (ngSubmit)="sendUsAMessage()"
                                             class="sppb-ajaxt-contact-form">
                                             <div
                                               class="sppb-row">
                                               <div
                                                 class="sppb-form-group  sppb-col-sm-4">
                                                 <input
+                                                formControlName="name"
                                                   type="text"
                                                   name="name"
                                                   class="sppb-form-control"
@@ -285,6 +287,7 @@
                                               <div
                                                 class="sppb-form-group  sppb-col-sm-4">
                                                 <input
+                                                formControlName="email"
                                                   type="email"
                                                   name="email"
                                                   class="sppb-form-control"
@@ -294,45 +297,32 @@
                                               <div
                                                 class="sppb-form-group  sppb-col-sm-4">
                                                 <input
+                                                formControlName="subject"
                                                   type="text"
                                                   name="subject"
                                                   class="sppb-form-control"
                                                   placeholder="Subject"
-                                                  required="required">
+                                                  >
                                               </div>
                                               <div
                                                 class="sppb-form-group  sppb-col-sm-12">
                                                 <textarea
+                                                formControlName="message"
                                                   name="message"
                                                   rows="5"
                                                   class="sppb-form-control"
                                                   placeholder="Message"
                                                   required="required"></textarea>
                                               </div>
-                                            </div><input
-                                              type="hidden"
-                                              name="recipient"
-                                              value="ZW1haWxAeW91cmRvbWFpbi5jb20="><input
-                                              type="hidden"
-                                              name="from_email"
-                                              value=""><input
-                                              type="hidden"
-                                              name="from_name"
-                                              value=""><input
-                                              type="hidden"
-                                              name="addon_id"
-                                              value="1551751348548"><input
-                                              type="hidden"
-                                              name="captcha_type"
-                                              value="default">
+                                            </div>
                                             <div
                                               class="sppb-text-center">
                                               <button
+                                              [disabled]="contactUsForm.invalid || isBusy" 
                                                 type="submit"
                                                 id="btn-1551751348548"
-                                                class="sppb-btn sppb-btn-success sppb-btn-rounded sppb-btn-block"><i
-                                                  class="fa"></i>Send
-                                                Message</button>
+                                                class="sppb-btn sppb-btn-success sppb-btn-rounded sppb-btn-block">{{isBusy ? 'Sending...' : 'Send Message'}}
+                                                </button>
                                             </div>
                                           </form>
                                           <div style="display:none;margin-top:10px;"

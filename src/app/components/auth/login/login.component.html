@@ -1,138 +1,79 @@
-<section id="sp-section-4">
-  <div class="row">
-    <div id="sp-title" class="col-lg-12 ">
-      <div class="sp-column ">
-        <div class="sp-page-title" style="background-image: url(/assets/images/background/inner-banner-bg.jpg);">
-          <div class="container">
-            <h2 class="sp-page-title-heading">Sign In</h2>
+<section>
+  <div class="ff-logo">
+    <img src="assets/images/farmfunds.JPG" [routerLink] ="['/home']" class=""
+        style="border-radius: 50%; width: 85px;height: 85px;  cursor: pointer;" />
+  </div>
+  <div class="card">
+    <div class="row no-gutters">
+      <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="assets/images/chicken.JPG" class="d-block w-100" alt="Image Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/fish.JPG" class="d-block w-100" alt="Image Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/goat.JPG" class="d-block w-100" alt="Image Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/pig.JPG" class="d-block w-100" alt="Image Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/turkey.JPG" class="d-block w-100" alt="Image Slide">
+          </div>
+          <div class="carousel-item">
+            <img src="assets/images/big-farm.jpeg" class="d-block w-100" alt="Image Slide">
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<section id="sp-main-body">
-  <div class="container info">
-    <div class="container-inner">
-      <div class="row">
-        <main id="sp-component" class="col-lg-12 " role="main">
-          <div>
-            <div class="sp-column ">
-              <div id="system-message-container">
-              </div>
-              <div id="akeeba-renderjoomla">
-                <div id="j2store-checkout" class="j2store checkout">
-                  <div id="j2store-checkout-content">
-                    <!-- <h1>Login</h1> -->
+      <div class="col-md-6">
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit('')">
+            <h5 class="card-title">Returning Customer</h5>
+            <div class="form-group"
+              [ngClass]="{'has-error': loginForm.get('email').errors && loginForm.get('email').touched}">
+              <span class="j2store_field_required text-danger">*</span>
+              <label for="email">Email</label>
+              <input class="inputbox form-control" id="email" type="text" name="email" placeholder="Enter email"
+                value="" formControlName="email">
+              <div *ngIf="loginForm.controls['email'].hasError('required') && loginForm.get('email').touched"
+                class="errormsg text-danger">Email is required</div>
+              <div *ngIf="loginForm.controls['email'].hasError('email') && loginForm.get('email').touched"
+                class="errormsg text-danger">Email is not valid</div>
+            </div>
+            <div class="form-group"
+              [ngClass]="{'has-error': loginForm.get('password').errors && loginForm.get('password').touched}">
+              <span class="j2store_field_required text-danger">*</span>
+              <label for="password">Password</label>
+              <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Enter password"
+                  aria-label="Recipient's username" aria-describedby="button-addon2" value=""
+                  class="form-control large-field" formControlName="password">
+                <div class="input-group-append">
+                  <button (click)="togglePassword()" class="btn btn-primary" type="button" id="button-addon2">
+                    <!-- <i class="fa fa-eye-slash"></i> -->
+                    <i [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
 
-                    <div id="billing-address">
-                      <div class="checkout-content" style="display: block;">
-                        <div id="akeeba-renderjoomla">
-                          <div class="j2store">
-                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit('')">
-                              <div class="form-row">
-                                <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
-                                  <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                      <img src="assets/images/chicken.JPG" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="assets/images/fish.JPG" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="assets/images/goat.JPG" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="assets/images/pig.JPG" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="assets/images/turkey.JPG" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                      <img src="assets/images/big-farm.jpeg" class="d-block w-100" alt="Image Slide">
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div class="col-md-6" style="margin-top: 10%;">
-                                  <h2>Returning Customer</h2> <br> <br>
-                                  <div class="form-group"
-                                    [ngClass]="{'has-error': loginForm.get('email').errors && loginForm.get('email').touched}">
-                                    <span class="j2store_field_required text-danger">*</span>
-                                    <label for="email">Email</label>
-                                    <input class="inputbox form-control" id="email" type="text" name="email"
-                                      placeholder="Enter email" value="" formControlName="email">
-                                    <div
-                                      *ngIf="loginForm.controls['email'].hasError('required') && loginForm.get('email').touched"
-                                      class="errormsg text-danger">Email is required</div>
-                                    <div
-                                      *ngIf="loginForm.controls['email'].hasError('email') && loginForm.get('email').touched"
-                                      class="errormsg text-danger">Email is not valid</div>
-                                  </div>
-
-                                  <br>
-                                  <div class="form-group"
-                                    [ngClass]="{'has-error': loginForm.get('password').errors && loginForm.get('password').touched}">
-                                    <span class="j2store_field_required text-danger">*</span>
-                                    <label for="password">Password</label>
-                                    <div class="input-group">
-                                    <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Enter password" aria-label="Recipient's username" aria-describedby="button-addon2" value=""
-                                      class="form-control large-field" formControlName="password">
-                                      <div class="input-group-append">
-                                        <button (click)="togglePassword()" class="btn btn-primary" type="button" id="button-addon2">
-                                          <!-- <i class="fa fa-eye-slash"></i> -->
-                                          <i [ngClass]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'" ></i>
-                                          
-                                        </button>
-                                      </div>
-                                    </div>
-                                      <a [routerLink]="['/reset-password']" class="pull-right"><small class="text-primary">FORGOT YOUR
-                                        PASSWORD</small></a>
-                                    <div
-                                      *ngIf="loginForm.controls['password'].hasError('required') && loginForm.get('password').touched"
-                                      class="errormsg text-danger"> Password is required</div>
-                                    <div
-                                      *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.get('password').touched"
-                                      class=" errormsg text-danger"> Password must be atleast 8 character long</div>
-                                  </div>
-                                <div class="button">
-                                      <button [disabled]="loginForm.invalid || isBusy" type="submit"
-                                        class="btn btn-primary mr-1">{{isBusy ? 'Authenticating...' : 'LOGIN'}}</button>
-
-                                      <p>No account? <a [routerLink]="['/signup']">
-                                          <span class="text-primary">SIGN UP</span></a> now</p>
-                                    </div>
-                                  <br>
-                                </div>
-                              </div>
-                            </form>
-                          </div> <!-- end of j2store -->
-                        </div>
-                      </div>
-                    </div>
-                    <!-- <div id="billing-address">
-                    <div class="checkout-heading"><span>Account &amp; Billing Details</span></div>
-                    <div class="checkout-content"></div>
-                  </div> -->
-                    <!-- <div id="shipping-address">
-                    <div class="checkout-heading">Shipping Address</div>
-                    <div class="checkout-content"></div>
-                  </div> -->
-                    <!-- <div id="shipping-payment-method">
-                    <div class="checkout-heading">
-                      Shipping &amp; Payment Methods </div>
-                    <div class="checkout-content"></div>
-                  </div> -->
-                    <!-- <div id="confirm">
-                    <div class="checkout-heading">Confirm order</div>
-                    <div class="checkout-content"></div>
-                  </div> -->
-                  </div>
+                  </button>
                 </div>
               </div>
+              <a [routerLink]="['/reset-password']" class="pull-right"><small class="text-primary">FORGOT YOUR
+                  PASSWORD</small></a>
+              <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.get('password').touched"
+                class="errormsg text-danger"> Password is required</div>
+              <div *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.get('password').touched"
+                class=" errormsg text-danger"> Password must be atleast 8 character long</div>
             </div>
-          </div>
-        </main>
+            <div class="button">
+              <button [disabled]="loginForm.invalid || isBusy" type="submit"
+                class="btn btn-primary mr-1">{{isBusy ? 'Authenticating...' : 'LOGIN'}}</button>
+
+              <p>No account? <a [routerLink]="['/signup']">
+                  <span class="text-primary">SIGN UP</span></a> now</p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

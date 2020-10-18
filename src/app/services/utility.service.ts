@@ -24,4 +24,10 @@ export class UtilityService {
       return res;
     }))
   }
+
+  contactUs(data) {
+    return this.httpSvc.post("utility/contactus", data).pipe(tap(res => {
+      return res;
+    }))
+  }
 }

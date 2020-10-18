@@ -1,0 +1,48 @@
+/* .info {
+  margin-top: 50px;
+}
+.button {
+  margin-left: 40%;
+} */
+.ff-logo {
+  margin-top: 50px;
+  margin-left: 43%;
+  margin-bottom: -100px;
+}
+.card {
+  max-width: 700px;
+  margin-top: 130px;
+  margin-left:350px;
+  font-size: 13px;
+}
+@media (max-width: 500px) {
+  .ff-logo {
+    display: none;
+  }
+  .card {
+  margin-top: 0px;
+  margin-left:0px;
+  }
+  .button {
+    margin-left: 100px;
+  }
+}
+@media (width: 768px) {
+  .ff-logo {
+    margin-top: 150px;
+  }
+  .card {
+    margin-top: 200px;
+    margin-left: 30px;
+  }
+}
+@media (width: 1024px) {
+  .ff-logo {
+    margin-top: 200px;
+  }
+  .card {
+    max-width: 1000px;
+    margin-top: 300px;
+    margin-left: 10px;
+  }
+}

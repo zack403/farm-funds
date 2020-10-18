@@ -114,18 +114,6 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
-
-  updateProfile() {
-    this.isBusy = true;
-    this.profileSvc.updateMe(this.userData).subscribe((res: any) => {
-      this.toastr.Success(res.data);
-      this.isBusy = false;
-    }, err => {
-      this.isBusy = false;
-      console.log(err);
-    })
-  }
-
   deposit(amt, data) {
     amt *= 100000;
     this.interest = (amt * 5) / 100;
@@ -189,12 +177,12 @@ export class UserProfileComponent implements OnInit {
     //   }
     // }
     Swal.fire({
-      html: '<hr><br><p color="black" class="text-left text-dark">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
-      '<p class="text-left text-dark">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
-      '<p class="text-left text-dark">The 60% will be broken down into 12 parts which means you will be paid 5% of your ROI monthly in form of Groceries, Foodstuffs and Household items.</p><br>' +
-      '<p class="text-left text-dark">After a whole year of grocery shopping for your home, you get a whopping 70% of your capital back</p><br>' +
-      '<p class="text-left text-dark">The remaining 30% will be used as your service charge throughout the year which includes the delivery to your doorstep.</p><br>' +
-      '<p class="text-left text-dark">In other words, within a year, you spent just 30% of your investment on grocery shopping and household items.</p><br><hr>',
+      html: '<hr><br><p color="black" class="text-left text-dark" style"color: black">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
+      '<p class="text-left text-dark" style"color: black">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
+      '<p class="text-left text-dark" style"color: black">The 60% will be broken down into 12 parts which means you will be paid 5% of your ROI monthly in form of Groceries, Foodstuffs and Household items.</p><br>' +
+      '<p class="text-left text-dark" style"color: black">After a whole year of grocery shopping for your home, you get a whopping 70% of your capital back</p><br>' +
+      '<p class="text-left text-dark" style"color: black">The remaining 30% will be used as your service charge throughout the year which includes the delivery to your doorstep.</p><br>' +
+      '<p class="text-left text-dark" style"color: black">In other words, within a year, you spent just 30% of your investment on grocery shopping and household items.</p><br><hr>',
       imageUrl: 'assets/images/farmify-slide.jpeg',
       width: 800,
       imageHeight: 300,

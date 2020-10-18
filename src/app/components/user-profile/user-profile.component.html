@@ -33,14 +33,17 @@
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
                                                     <h1 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
-                                                        <small *ngIf="!selected" style="text-transform: none;">You are currently on
+                                                        <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
-                                                            Subscription. </small>
-
-                                                            <small *ngIf="selected" style="text-transform: none;">You are currently on
-                                                                <b>{{dashboardData.inv.length}}</b> Farm Investment. </small>
-
+                                                            Subscription.
                                                             <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                          </small>
+
+                                                            <small *ngIf="selected" class="current" style="text-transform: none;">You are currently on
+                                                                <b>{{dashboardData.inv.length}}</b> Farm Investment.
+                                                            <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                              </small>
+
 
                                                         <!-- <span *ngIf="dashboardData.length > 0"
                                                             [innerHTML]="emoji"></span> -->
@@ -101,7 +104,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total Farm Investment</span>
-                                                                                <h2>{{dashboardData.totalInv | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -118,7 +121,7 @@
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total ROI</span>
-                                                                                <h2>{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -135,7 +138,7 @@
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Total Gain</span>
-                                                                                <h2>{{dashboardData.totalGain | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -153,7 +156,7 @@
                                                                                 <span><i
                                                                                         class="fas fa-sign-out-alt"></i>
                                                                                     My Wallet </span>
-                                                                                <h2>{{myWallet | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
@@ -201,8 +204,8 @@
                                                     <div id="sppb-addon-1551573988963" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-raw-html ">
                                                             <div class="sppb-addon-content">
-                                                                <div class="single-item">
-                                                                    <table class="table table-bordered">
+                                                                <div class="table-responsive single-item">
+                                                                    <table class="table table-bordered text-nowrap">
                                                                         <thead>
                                                                             <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
@@ -284,7 +287,7 @@
                                                                             class="card bg-success text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Current Food Subscription</span>
-                                                                                <h2>{{subscribers.amount | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -301,7 +304,7 @@
                                                                             class="card bg-info text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROI</span>
-                                                                                <h2>{{subscribers.roi | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.roi | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -318,7 +321,7 @@
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
                                                                                 <span>Your ROC</span>
-                                                                                <h2>{{subscribers.roc | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{subscribers.roc | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
                                                                                     class="blockquote-footer text-white">
@@ -336,7 +339,7 @@
                                                                                 <span><i
                                                                                         class="fas fa-sign-out-alt"></i>
                                                                                     My Wallet </span>
-                                                                                <h2>{{myWallet | currency: '&#8358; '}}
+                                                                                <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
                                                                                 </h2>
                                                                                 <button style="cursor: pointer;"
                                                                                     class="badge badge-success"><a
@@ -371,7 +374,7 @@
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-text-block  ">
-                                                            <h1 class="sppb-addon-title">Foods <span
+                                                            <h1 class="sppb-addon-title">Foods-Bank <span
                                                                     class="text-primary">Subscriptions
                                                                     ({{subscribers.subs.length}})</span></h1>
                                                             <div class="input-group pull-right">
@@ -391,8 +394,8 @@
                                                     <div id="sppb-addon-1551573988963" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-raw-html ">
                                                             <div class="sppb-addon-content">
-                                                                <div class="single-item">
-                                                                    <table class="table table-bordered">
+                                                                <div class="table-responsive single-item">
+                                                                    <table class="table table-bordered text-nowrap">
                                                                         <thead>
                                                                             <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
@@ -461,7 +464,7 @@
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-text-block  ">
-                                                            <h1 class="sppb-addon-title">Farmify-Market <span
+                                                            <h1 class="sppb-addon-title">Food-Bank <span
                                                                     class="text-primary">Orders
                                                                     ({{purchases.length}})</span></h1>
                                                             <div class="input-group pull-right">
@@ -491,9 +494,9 @@
                                                     <div id="sppb-addon-1551573988963" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-raw-html ">
                                                             <div class="sppb-addon-content">
-                                                                <div class="single-item">
+                                                                <div class="table-responsive single-item">
                                                                     <table *ngIf="!showDetails"
-                                                                        class="table table-bordered">
+                                                                        class="table table-bordered text-nowrap">
                                                                         <thead>
                                                                             <tr class="bg-success text-light">
                                                                                 <th scope="col">S/N</th>
@@ -585,145 +588,6 @@
                             </div>
                         </section>
                         <!-- end-food-subscription -->
-
-                        <!-- profile-detail -->
-                        <section id="section-id-1551490002720" class="sppb-section  ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
-                                        <div id="column-id-1551490002719" class="sppb-column">
-                                            <div class="sppb-column-addons">
-                                                <div id="sppb-addon-1551573988809" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <h1 class="sppb-addon-title">Profile <span
-                                                                class="text-primary">Details</span></h1>
-                                                        <div class="sppb-addon-content">
-                                                            <div class="text">
-                                                                <div id="billing-address">
-                                                                    <div class="checkout-content"
-                                                                        style="display: block;">
-                                                                        <div id="akeeba-renderjoomla">
-                                                                            <div class="j2store">
-                                                                                <form #editForm="ngForm" id="editForm">
-                                                                                    <div class="form-row">
-                                                                                        <div class="col-md-6">
-                                                                                            <h2>Edit Profile</h2><br>
-
-                                                                                            <div class="form-group">
-                                                                                                <label
-                                                                                                    for="firstName">First
-                                                                                                    name</label>
-                                                                                                <input
-                                                                                                    class="inputbox form-control"
-                                                                                                    id="firstName"
-                                                                                                    [(ngModel)]="userData.firstName"
-                                                                                                    type="text"
-                                                                                                    name="firstName">
-                                                                                            </div>
-
-                                                                                            <br>
-                                                                                            <div class="form-group">
-                                                                                                <label
-                                                                                                    for="lastName">Last
-                                                                                                    name</label>
-                                                                                                <input
-                                                                                                    class="inputbox form-control"
-                                                                                                    id="lastName"
-                                                                                                    [(ngModel)]="userData.lastName"
-                                                                                                    type="text"
-                                                                                                    name="lastName">
-                                                                                            </div>
-
-                                                                                            <br>
-                                                                                            <div class="form-group">
-                                                                                                <label
-                                                                                                    for="middleName">Middle
-                                                                                                    name</label>
-                                                                                                <input
-                                                                                                    class="inputbox form-control"
-                                                                                                    id="middleName"
-                                                                                                    [(ngModel)]="userData.middleName"
-                                                                                                    type="text"
-                                                                                                    name="middleName">
-                                                                                            </div>
-
-                                                                                            <br>
-                                                                                            <div class="form-group">
-                                                                                                <label
-                                                                                                    for="email">Email</label>
-                                                                                                <input
-                                                                                                    class="inputbox form-control"
-                                                                                                    [(ngModel)]="userData.email"
-                                                                                                    id="email"
-                                                                                                    type="text"
-                                                                                                    name="email">
-                                                                                            </div>
-
-                                                                                            <br>
-                                                                                            <div class="form-group">
-                                                                                                <label for="phone">Phone
-                                                                                                    no.</label>
-                                                                                                <input
-                                                                                                    class="inputbox form-control"
-                                                                                                    id="phone"
-                                                                                                    [(ngModel)]="userData.phoneNo"
-                                                                                                    type="text"
-                                                                                                    name="phone">
-                                                                                                <br>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        <div class="col-md-6">
-                                                                                            <h2>Bank Details</h2><br>
-                                                                                            <div class="form-group">
-                                                                                                <label
-                                                                                                    for="bankName">Bank
-                                                                                                    Name</label>
-                                                                                                <input type="text"
-                                                                                                    id="bankName"
-                                                                                                    name="bankName"
-                                                                                                    [(ngModel)]="userData.bankName">
-                                                                                            </div>
-
-                                                                                            <br>
-                                                                                            <div class="form-group">
-                                                                                                <div class="form-group">
-                                                                                                    <label
-                                                                                                        for="acctNo">Account
-                                                                                                        Number</label>
-                                                                                                    <input type="text"
-                                                                                                        id="acctNo"
-                                                                                                        [(ngModel)]="userData.acctNo"
-                                                                                                        name="acctNo">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-
-                                                                                        <br>
-                                                                                        <div class="mr-5"
-                                                                                            style="margin-left: 40%;">
-                                                                                            <button [disabled]="isBusy"
-                                                                                                (click)="updateProfile()"
-                                                                                                class="btn btn-primary mr-1">{{isBusy ? 'Updating...' : 'UPDATE'}}</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </form>
-
-                                                                            </div> <!-- end of j2store -->
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- end-frofile-detail -->
                     </div>
                 </div>
             </div>

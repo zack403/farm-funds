@@ -1,10 +1,43 @@
-.info {
+/* .info {
   margin-top: 15px;
 }
 .form-check {
   margin-top: 17px;
   margin-left: 100px;
+} */
+.sign-up-form {
+  margin-top: 50px;
+  font-size: 13px;
+}
+.form-field {
+  padding-right: 50px;
 }
 .button {
-  margin-left: 40%;
+  margin-left: 38%;
+}
+@media (max-width: 600px) {
+  .form-field {
+    padding-right: 0%;
+  }
+  .button {
+    margin-left: 0%;
+  }
+}
+@media (width: 768px) {
+  .sign-up-form {
+    margin-top: 200px;
+  }
+  .button {
+    margin-top: -80px;
+    margin-left: 14%;
+  }
+}
+@media (width: 1024px) {
+  .sign-up-form {
+    margin-top: 300px;
+  }
+  .button {
+    margin-top: -50px;
+    margin-left: 33%;
+  }
 }

@@ -8,7 +8,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 
 
-
 @Component({
   selector: 'app-farmify-shopping',
   templateUrl: './farmify-shopping.component.html',
@@ -109,8 +108,18 @@ export class FarmifyShoppingComponent implements OnInit {
       html:
       '<input required placeholder="Enter product name" type="text" id="product" class="swal2-input" autofocus >' +
       '<input required placeholder="Enter price" type="text" id="price" class="swal2-input">' +
-      '<input oninput="changed()" required placeholder="Enter quantity" type="number" id="qty" class="swal2-input">' +
+      '<input  required placeholder="Enter quantity" type="number" id="qty" class="swal2-input">' +
       '<input placeholder="Enter brand" id="brand" type="text" class="swal2-input">',
+      onOpen: () => {
+        let unit = (<HTMLInputElement> document.getElementById('qty'));
+        let price = (<HTMLInputElement> document.getElementById('price'));
+
+        unit.oninput = () => {
+          const result: any = Number(price.value) * Number(unit.value);
+          document.getElementById('price').innerHTML = result;
+          console.log(result);
+        }
+      },
       showCloseButton: true,
       confirmButtonText: 'Add to basket',
       confirmButtonColor: 'green',

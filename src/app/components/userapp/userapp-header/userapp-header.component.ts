@@ -1,3 +1,4 @@
+import { ProfileService } from './../../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -29,12 +30,14 @@ export class UserappHeaderComponent implements OnInit {
   subscription: Subscription;
   basketTotal: number = 0;
   interest: any;
+  isBusy: boolean = false;
 
   constructor(
-    private authSvc: AuthService, 
-    public router: Router, 
+    private authSvc: AuthService,
+    public router: Router,
     private messageService: MessageService,
-    private toastr: ToasterService) { 
+    private toastr: ToasterService,
+    private profileSvc: ProfileService) {
       // subscribe to home component messages
       this.subscription = this.messageService.onMessage().subscribe(({data, deleted}) => {
         if (data && !deleted) {
@@ -43,8 +46,8 @@ export class UserappHeaderComponent implements OnInit {
             const isExist = this.cart.purchaseDetails.find(x => x.productId === data.id);
             if(isExist) return this.toastr.Info("Product already in the basket.");
             totalCartPrice += data.price * data.unit;
-            
-            
+
+
 
             // check if basket total is greater than user purchase power
             if(totalCartPrice > data.interest) {
@@ -73,7 +76,7 @@ export class UserappHeaderComponent implements OnInit {
             this.cart.purchaseDetails = this.cart.purchaseDetails.filter((doc) => {
               return doc.productId != data.productId;
             });
-        } 
+        }
         else {
             // clear messages when empty message received
             this.basketTotal = 0;
@@ -84,7 +87,7 @@ export class UserappHeaderComponent implements OnInit {
         }
     });
   }
- 
+
   ngOnInit(): void {
     this.userData = this.authSvc.getCurrentUserData();
     const result = JSON.parse(localStorage.getItem("cart"));
@@ -94,11 +97,22 @@ export class UserappHeaderComponent implements OnInit {
         this.basketTotal += p.price;
       }
       totalCartPrice = this.basketTotal;
-    } 
+    }
     const int = parseInt(localStorage.getItem("interest"));
     if(int){
       this.interest = int;
     }
+  }
+
+  updateProfile() {
+    this.isBusy = true;
+    this.profileSvc.updateMe(this.userData).subscribe((res: any) => {
+      this.toastr.Success(res.data);
+      this.isBusy = false;
+    }, err => {
+      this.isBusy = false;
+      console.log(err);
+    })
   }
 
   logout() {
@@ -131,6 +145,46 @@ export class UserappHeaderComponent implements OnInit {
 
   viewCart() {
       this.router.navigateByUrl("app/shopping-cart");
+  }
+
+  changePassword() {
+    Swal.fire({
+      title: 'Change Password',
+      html:
+      '<input required placeholder="Old password" type="password" id="old" class="swal2-input" autofocus >' +
+      '<input required placeholder="New Password" type="password" id="new" class="swal2-input">' +
+      '<input required placeholder="Confirm New password" id="confirmnew" type="password" class="swal2-input">',
+      showCloseButton: true,
+      confirmButtonText: 'Update',
+      confirmButtonColor: 'green',
+      preConfirm: () => {
+        let oldPassword = (<HTMLInputElement> document.getElementById('old')).value;
+        let newPassword = (<HTMLInputElement> document.getElementById('new')).value;
+        let confirmNewP = (<HTMLInputElement> document.getElementById('confirmnew')).value;
+
+        if(oldPassword === '' || newPassword === '' || confirmNewP === '') {
+          Swal.showValidationMessage("Old password/New password/Confirm New password is required"); // Show error when validation fails.
+        } else if (oldPassword === newPassword || oldPassword === confirmNewP) {
+          Swal.showValidationMessage("Old password cannot be the same with new password");
+        } else if (newPassword != confirmNewP) {
+          Swal.showValidationMessage("Confirm password must match New password"); // Show error when validation fails.
+        } 
+
+        return {
+          oldPassword,
+          newPassword,
+          confirmNewP
+        }
+      }
+
+    }).then( result => {
+      if(result.value) {
+        this.authSvc.changePassword(result.value).subscribe(s => {
+          this.toastr.Success(s.message);
+          this.router.navigateByUrl('login');
+        });
+      }
+    })
   }
 
 }

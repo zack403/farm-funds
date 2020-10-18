@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
     private authSvc: AuthService, private toasterSvc: ToasterService) {}
 
   ngOnInit() {
+    localStorage.removeItem("authData");
+    localStorage.removeItem("token");
+    localStorage.removeItem("interest");
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
