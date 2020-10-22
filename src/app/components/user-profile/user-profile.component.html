@@ -192,9 +192,9 @@
                                                         <div class="sppb-addon sppb-addon-text-block  ">
                                                             <h1 class="sppb-addon-title">Current <span
                                                                     class="text-primary">Farm
-                                                                    ({{dashboardData.length}})</span></h1>
+                                                                    ({{dashboardData.inv.length}})</span></h1>
                                                             <div class="input-group pull-right">
-                                                                <a (click)="openModal('newfarm')"> <input
+                                                                <a (click)="newFarm()"> <input
                                                                         class="p-button" style="cursor: pointer;"
                                                                         type="submit" value="New Farm"></a>
                                                             </div>
@@ -219,8 +219,8 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr *ngFor="let item of dashboardData.inv">
-                                                                                <th scope="row">{{index}}</th>
+                                                                            <tr *ngFor="let item of dashboardData.inv; let index = index">
+                                                                                <th scope="row">{{index + 1}}</th>
                                                                                 <td>{{item.package}}</td>
                                                                                 <td>{{item.unit}}</td>
                                                                                 <td>{{item.amount | currency: '&#8358; '}}
@@ -232,7 +232,7 @@
                                                                                 <td>{{item.endDate | date: "mediumDate"}}
                                                                                 </td>
                                                                                 <td><span
-                                                                                        [ngClass]="{'badge badge-success': item.status === 'active', 'badge badge-warning': item.status === 'pending'}">{{item.status}}</span>
+                                                                                    [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</span>
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -613,18 +613,9 @@
 
                 <app-packages [shouldShow]="false"></app-packages>
 
-                <!--
-                <div *ngIf="!pck && !pl && !sub">
-                    <label>Topup Amount</label>
-                    <input [(ngModel)]="amt" placeholder="Enter amount to topup" required type="text"
-                        class="form-control">
-                </div> -->
 
             </div>
-            <!-- <div *ngIf="!pck && !pl && !sub" class="modal-footer">
-                <button type="button" (click)="deposit(amt)" [disabled]="!amt" data-dismiss="modal"
-                    class="btn btn-primary">SUBMIT</button>
-            </div> -->
+            
         </div>
     </div>
     <!-- end modal -->

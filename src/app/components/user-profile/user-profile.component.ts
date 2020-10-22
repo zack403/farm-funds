@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ToasterService } from 'src/app/services/toaster.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { UtilityService } from 'src/app/services/utility.service';
+import { environment } from 'src/environments/environment';
 
 declare var PaystackPop: any;
 
@@ -121,7 +122,7 @@ export class UserProfileComponent implements OnInit {
      const {email, firstName, lastName} = this.authSvc.getCurrentUserData();
        try {
            var handler = PaystackPop.setup({
-             key: 'pk_test_e7861b0c2ca5ed383dc4d2934270218b5a88e292',
+             key: environment.paystack_key,
              email: email,
              amount: amt*100,
              currency: "NGN",
@@ -418,6 +419,10 @@ export class UserProfileComponent implements OnInit {
         this.subscribers.roc = item.roc;
       }
     }
+  }
+
+  newFarm() {
+    this.router.navigateByUrl("app/packages")
   }
 
   ngOnDestroy() {
