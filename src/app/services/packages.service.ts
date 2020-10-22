@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,13 +35,33 @@ export class PackagesService {
     }
   ]
 
-  constructor() { }
+  constructor(private httpSvc: HttpService, private http: HttpClient) { }
 
-  getPackages() {
-    return this.packages;
+  // getPackages() {
+  //   return this.packages;
+  // }
+
+  // getPackagesById(id: number) {
+  //   return this.packages.find(x => x.id === id);
+  // }
+
+
+  getPackages(page, size, search) {
+    return this.httpSvc.get(`package?page=${page}&size=${size}&search=${search}`).pipe(tap(res => {
+      return res;
+    }))
   }
 
-  getPackagesById(id: number) {
-    return this.packages.find(x => x.id === id);
+  getPackagesById(id: any){
+    return this.httpSvc.getById('package/', id).pipe(tap(res => {
+      return res;
+    }))
   }
+
+  AddSubscription(data) {
+    return this.http.post(`${environment.baseUrl}investment`, data).pipe(tap(res => {
+      return res;
+    }))
+  }
+
 }

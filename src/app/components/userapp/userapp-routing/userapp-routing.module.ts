@@ -8,6 +8,7 @@ import { FarmifyShoppingComponent } from '../../farmify-shopping/farmify-shoppin
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { ProfileDataService } from 'src/app/resolvers/profile-data.service';
 import { FarmifyShoppingDetailComponent } from '../../farmify-shopping-detail/farmify-shopping-detail.component';
+import { PackagesComponent } from '../../packages/packages.component';
 
 const userAppRouter: Routes = [
   {
@@ -38,6 +39,10 @@ const userAppRouter: Routes = [
       {
         path: 'farmify-shopping-detail/:id',
         component: FarmifyShoppingDetailComponent,
+      },
+      {
+        path: 'packages',
+        component: PackagesComponent,
       }
     ]
   },
