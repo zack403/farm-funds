@@ -162,8 +162,12 @@
                                   [ngClass]="{'has-error': registerForm.get('bankName').errors && registerForm.get('bankName').touched}">
                                   <span class="j2store_field_required text-danger">*</span>
                                   <label for="bankName">Bank name</label>
-                                  <input class="inputbox form-control" id="bankName" type="text" name="bankName"
-                                    placeholder="Enter bank name" value="" formControlName="bankName">
+
+                                  <Select id="bankName" name="bankName"  (change)="onChange($event.target.value)" class="inputbox form-control">
+                                     <option disabled> Choose your bank </option>
+                                     <option *ngFor="let p of banks">{{p?.name}}</option> 
+                                  </Select>
+                                 
                                   <div
                                     *ngIf="registerForm.controls['bankName'].hasError('required') && registerForm.get('bankName').touched"
                                     class="errormsg text-danger">Bank Name is required</div>

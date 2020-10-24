@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { UtilityService } from 'src/app/services/utility.service';
 
 
 @Component({
@@ -16,23 +17,26 @@ export class SignupComponent implements OnInit {
   isBusy = false;
   showPassword: boolean = false;
   showConfirm: boolean = false;
+  banks: any;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    private authSvc: AuthService, private toasterSvc: ToasterService, private loginCmpt: LoginComponent) {}
+    private authSvc: AuthService, private toasterSvc: ToasterService, private loginCmpt: LoginComponent, private utilSvc: UtilityService) {}
 
   ngOnInit() {
+    this.banks = this.utilSvc.getBanks();
     this.registerForm = this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
         middleName: [''],
         email: ['', [Validators.required, Validators.email]],
         phoneNo: ['', [Validators.required, Validators.pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/g)]],
-        bankName: ['', Validators.required],
+        bankName: [this.banks[0].name],
         acctNo: ['', [Validators.required, Validators.minLength(10), Validators.pattern(/^[0-9]*$/)]],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', Validators.required],
         acceptTerms: [false, Validators.requiredTrue],
       }, {validator: this.passwordMatchValidator})
+
   }
 
   // password hide/show
@@ -77,5 +81,9 @@ export class SignupComponent implements OnInit {
     onReset() {
       this.isBusy = false;
       this.registerForm.reset();
+  }
+
+  onChange(value) {
+    this.registerForm.value.bankName = value;
   }
 }
