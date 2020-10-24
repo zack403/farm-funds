@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { MessageService } from 'src/app/services/message.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { UtilityService } from 'src/app/services/utility.service';
 
 
 let totalCartPrice = 0;
@@ -31,13 +32,15 @@ export class UserappHeaderComponent implements OnInit {
   basketTotal: number = 0;
   interest: any;
   isBusy: boolean = false;
+  banks: any;
 
   constructor(
     private authSvc: AuthService,
     public router: Router,
     private messageService: MessageService,
     private toastr: ToasterService,
-    private profileSvc: ProfileService) {
+    private profileSvc: ProfileService,
+    private utilSvc: UtilityService) {
       // subscribe to home component messages
       this.subscription = this.messageService.onMessage().subscribe(({data, deleted}) => {
         if (data && !deleted) {
@@ -102,6 +105,7 @@ export class UserappHeaderComponent implements OnInit {
     if(int){
       this.interest = int;
     }
+    this.banks = this.utilSvc.getBanks();
   }
 
   updateProfile() {
@@ -185,6 +189,10 @@ export class UserappHeaderComponent implements OnInit {
         });
       }
     })
+  }
+
+  onChange(value) {
+    this.userData.bankName = value;
   }
 
 }

@@ -110,7 +110,7 @@ export class PackagesComponent implements OnInit {
           }
           else if (answer === 'other') {  
             const { value: file } = await Swal.fire({
-              title: `Investment fee ${formatter.format(request.amount)}`,
+              title: `Investment fee ${formatter.format(item.amountPerUnit * parseInt(res.value))}`,
               html:'<hr><br><p class="text-left text-dark font-weight-bold">BANK NAME: &nbsp;&nbsp;&nbsp; Access Bank</p><br>' +
               '<p class="text-left text-dark font-weight-bold">ACCOUNT NAME: &nbsp;&nbsp; Farmify Agro Innovations Ltd.</p><br>' +
               '<p class="text-left text-dark font-weight-bold">ACCOUNT NUMBER: &nbsp;&nbsp;&nbsp; 1404450358</p><br><hr>' +
