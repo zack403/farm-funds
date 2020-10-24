@@ -334,12 +334,11 @@
 
               <div class="form-group">
                 <label for="bankName">Bank Name</label>
-                <input
-                  type="text"
-                  id="bankName"
-                  name="bankName"
-                  [(ngModel)]="userData.bankName"
-                />
+                <Select [(ngModel)]="userData.bankName" id="bankName" name="bankName" (change)="onChange($event.target.value)" class="inputbox form-control">
+                  <option disabled> Choose your bank </option>
+                  <option *ngFor="let p of banks" [value]="p.name" [selected]="userData.bankName == p.name">{{p?.name}}</option> 
+               </Select>
+              
               </div>
 
               <div class="form-group">
