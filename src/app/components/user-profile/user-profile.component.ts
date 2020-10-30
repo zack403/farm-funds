@@ -77,7 +77,7 @@ export class UserProfileComponent implements OnInit {
 
   onComponentMounted() {
     const result = this.route.snapshot.data.user;
-    this.userData = result[0].data;
+    this.userData = result[0].data.user;
     this.dashboardData = result[1].investments;
     this.purchases = result[1].purchases;
     this.subscribers = result[1].subscribers;
