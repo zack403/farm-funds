@@ -59,7 +59,7 @@
                 </div>
               </div>
               <a [routerLink]="['/reset-password']" class="pull-right"><small class="text-primary">FORGOT YOUR
-                  PASSWORD</small></a>
+                  PASSWORD ? </small></a>
               <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.get('password').touched"
                 class="errormsg text-danger"> Password is required</div>
               <div *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.get('password').touched"
