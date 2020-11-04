@@ -21,7 +21,7 @@ h1,h2,h3,h4,h5 {
 
 ul {list-style-type: none;}
 
-p {font-family: 'Montserrat', sans-serif;font-size: 16px;color: #999;line-height: 26px; font-weight: 300;}
+p {font-family: 'Montserrat', sans-serif;font-size: 16px;color: black;line-height: 26px; font-weight: 300;}
 a {text-decoration: none;display: inline-block;outline: none;}
 a:hover,a:focus,a:visited {text-decoration: none; outline: none;}
 
@@ -657,7 +657,7 @@ transition: .5s ease;
 
 #sp-left .sp-module .tagspopular > ul > li > a,
 #sp-right .sp-module .tagspopular > ul > li > a {
-	color: #999;
+	color: black;
 	font-size: 16px;
 	padding: 8px 12px;
 	font-weight: 300;
@@ -820,7 +820,7 @@ content: "\f10d";
 .article-details .article-author-information .author-bio {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
-	color: #999;
+	color: black;
 	line-height: 26px;
 	font-weight: 300;
 }
@@ -957,7 +957,7 @@ content: "\f10d";
 .j2store-add-to-cart {
 	margin-left: 0;
 	font-size: 16px;
-	color: #999;
+	color: black;
 }
 
 .view-products .j2store-single-product .content-box .price-box .j2store-add-to-cart .product-qty {display: none;}
@@ -977,7 +977,7 @@ content: "\f10d";
 	background: transparent;
 	margin-bottom: 2px;
 	font-size: 16px;
-	color: #999 !important;
+	color: black !important;
 	text-transform: none;
 }
 
