@@ -361,8 +361,7 @@
 			left: 0;
 			top: 0;
 			position: absolute;
-			border: 4px solid black;
-			opacity: 0.2;
+			border: 4px solid#464646;			opacity: 0.2;
 		}
 
 		.ls-ct-half,
@@ -835,8 +834,7 @@
 	}
 
 	.ls-fullscreen .ls-container {
-		background-color: black;
-		margin: 0 auto !important;
+		background-color:#464646;		margin: 0 auto !important;
 	}
 
 	.ls-fullscreen .ls-fullscreen-wrapper {
@@ -845,8 +843,7 @@
 		margin: 0 !important;
 		padding: 0 !important;
 		border: 0 !important;
-		background-color: black;
-		overflow: hidden !important;
+		background-color:#464646;		overflow: hidden !important;
 		position: relative !important;
 	}
 

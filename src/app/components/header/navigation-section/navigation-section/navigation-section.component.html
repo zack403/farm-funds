@@ -1,28 +1,29 @@
-<header  id="sp-header">
-    <div class="container">
-        <div class="container-inner">
-            <div class="row">
-                <div id="sp-menu" class="col-lg-12 ">
-                    <div class="sp-column ">
-                        <nav class="sp-megamenu-wrapper" role="navigation">
-                            <a id="offcanvas-toggler" aria-label="Navigation" class="offcanvas-toggler-right d-block d-lg-none"
-                            href=""><i class="fa fa-bars" aria-hidden="true" title="Navigation"></i></a>
-                            <ul class="sp-megamenu-parent menu-animation-fade-down d-none d-lg-block">
-                                <li class="sp-menu-item current-item active"><a [routerLink]="['']">Home</a>
-                                </li>
+<header id="sp-header">
+  <div class="container">
+    <div class="container-inner">
+      <div class="row">
+        <div id="sp-menu" class="col-lg-12 ">
+          <div class="sp-column ">
+            <nav class="sp-megamenu-wrapper" role="navigation">
+              <a id="offcanvas-toggler" aria-label="Navigation" class="offcanvas-toggler-right d-block d-lg-none"
+                href=""><i class="fa fa-bars" aria-hidden="true" title="Navigation"></i></a>
+              <ul class="sp-megamenu-parent menu-animation-fade-down d-none d-lg-block">
+                <li class="sp-menu-item current-item active"><a [routerLink]="['']">Home</a>
+                </li>
 
-                                 <li class="sp-menu-item sp-has-child"><a [routerLink]="['']">Services</a>
-                                    <div class="sp-dropdown sp-dropdown-main sp-menu-right"
-                                        style="width: 240px;">
-                                        <div class="sp-dropdown-inner">
-                                            <ul class="sp-dropdown-items">
-                                                <li class="sp-menu-item"><a
-                                                  [routerLink]="['/services']">Investment Guidelines</a></li>
-                                                  <li class="sp-menu-item"><a
-                                                    [routerLink]="['/food-subscription']">Food Bank</a></li>
-                                                <li class="sp-menu-item"><a
-                                                  [routerLink]="['/packages']">Farm Packages</a></li>
-                                                <!-- <li class="sp-menu-item"><a
+                <li class="sp-menu-item sp-has-child"><a [routerLink]="['']">Services</a>
+                  <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
+                    <div class="sp-dropdown-inner">
+                      <ul class="sp-dropdown-items">
+                        <!-- <li class="sp-menu-item"><a
+                                                  [routerLink]="['/services']">Investment Guidelines</a></li> -->
+                        <li class="sp-menu-item"><a [routerLink]="['/packages']">Farm Investments</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/food-subscription']">Food Bank</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/food-shop']">Food Shop</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/farmify-city']">Farmify Courts</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/']">Consultancy</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/farmify-city']">Farmify Workshop</a></li>
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/services/stone-and-hartscaping.html">Stone
                                                         And Hartscaping</a></li>
                                                 <li class="sp-menu-item"><a
@@ -34,96 +35,87 @@
                                                 <li class="sp-menu-item"><a
                                                         href="index.php/services/spring-and-fall-cleanup.html">Spring
                                                         And Fall Cleanup</a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/food-subscription']">Food Bank</a>
-                                    <div class="sp-dropdown sp-dropdown-main sp-menu-right"
-                                        style="width: 240px;">
-                                        <div class="sp-dropdown-inner">
-                                            <ul class="sp-dropdown-items">
-                                                <li class="sp-menu-item"><a
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/services']">Guidelines</a>
+                  <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
+                    <div class="sp-dropdown-inner">
+                      <ul class="sp-dropdown-items">
+                        <!-- <li class="sp-menu-item"><a
                                                     [routerLink]="['/food-subscription']">Food Subscription</a>
-                                                </li>
-                                                <li class="sp-menu-item"><a
-                                                        [routerLink]="['/food-shop']">Food Shop</a></li>
-                                                <!-- <li class="sp-menu-item"><a
+                                                </li> -->
+                        <!-- <li class="sp-menu-item"><a
                                                     [routerLink]="['/product-detail']">Single
                                                         Shop</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                     [routerLink]="['/shopping-cart']">Shopping
                                                         Cart</a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/gallery']">Gallery</a>
-                                    <div class="sp-dropdown sp-dropdown-main sp-menu-right"
-                                        style="width: 240px;">
-                                        <div class="sp-dropdown-inner">
-                                            <ul class="sp-dropdown-items">
-                                                <!-- <li class="sp-menu-item"><a
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/gallery']">Gallery</a>
+                  <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
+                    <div class="sp-dropdown-inner">
+                      <ul class="sp-dropdown-items">
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/gallery/gallery-fullwidth.html">Gallery
                                                         Fullwidth</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                   [routerLink]="['/gallery']">Gallery
                                                         Grid View</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/gallery/gallery-manasory.html">Gallery
                                                         Manasory</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/component/spsimpleportfolio/item/1-modern-garden.html">Gallery
                                                         Single Post</a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/news']">News</a>
-                                    <div class="sp-dropdown sp-dropdown-main sp-menu-right"
-                                        style="width: 240px;">
-                                        <div class="sp-dropdown-inner">
-                                            <ul class="sp-dropdown-items">
-                                                <!-- <li class="sp-menu-item"><a
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="sp-menu-item sp-has-child"><a [routerLink]="['/news']">News</a>
+                  <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
+                    <div class="sp-dropdown-inner">
+                      <ul class="sp-dropdown-items">
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/news/news-default.html">News
                                                         Default</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                         [routerLink]="['/news']">News Grid
                                                         View</a></li> -->
-                                                <!-- <li class="sp-menu-item"><a
+                        <!-- <li class="sp-menu-item"><a
                                                         href="index.php/blog-default/1-it-s-time-to-design-your-dream-outdoor-living-space.html">News
                                                         Single Post</a></li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="sp-menu-item sp-has-child"><a [routerLink]="['']">About Us</a>
-                                    <div class="sp-dropdown sp-dropdown-main sp-menu-right"
-                                        style="width: 240px;">
-                                        <div class="sp-dropdown-inner">
-                                            <ul class="sp-dropdown-items">
-                                                <li class="sp-menu-item"><a
-                                                    [routerLink]="['/about']">About Our Company</a></li>
-                                                <li class="sp-menu-item"><a
-                                                    [routerLink]="['/team']">Our Team</a>
-                                                </li>
-                                                <li class="sp-menu-item"><a
-                                                    [routerLink]="['/faqs']">FAQ's</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="sp-menu-item"><a [routerLink]="['/contact-us']">Contact Us</a>
-                                </li>
-                                <li class="sp-menu-item"></li>
-                                <li class="sp-menu-item"></li>
-                            </ul>
-                        </nav>
+                      </ul>
                     </div>
-                </div>
-            </div>
+                  </div>
+                </li>
+                <li class="sp-menu-item sp-has-child"><a [routerLink]="['']">About Us</a>
+                  <div class="sp-dropdown sp-dropdown-main sp-menu-right" style="width: 240px;">
+                    <div class="sp-dropdown-inner">
+                      <ul class="sp-dropdown-items">
+                        <li class="sp-menu-item"><a [routerLink]="['/about']">About Our Company</a></li>
+                        <li class="sp-menu-item"><a [routerLink]="['/team']">Our Team</a>
+                        </li>
+                        <li class="sp-menu-item"><a [routerLink]="['/faqs']">FAQ's</a></li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="sp-menu-item"><a [routerLink]="['/contact-us']">Contact Us</a>
+                </li>
+                <li class="sp-menu-item"></li>
+                <li class="sp-menu-item"></li>
+              </ul>
+            </nav>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </header>
