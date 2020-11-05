@@ -42,6 +42,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 // for Router import:
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
+import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
 
 
 
@@ -76,6 +77,7 @@ export function tokenGetter() {
     TermsComponent,
     ResetPasswordComponent,
     ResponseresetComponent,
+    FarmifyCityComponent,
   ],
   imports: [
     BrowserModule,

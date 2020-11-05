@@ -1,3 +1,4 @@
+import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -37,8 +38,9 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'team', component: TeamComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'response-reset-password/:token',component: ResponseresetComponent},
-  {path: '', redirectTo:'home', pathMatch: 'full'},
+  {path: 'response-reset-password/:token', component: ResponseresetComponent},
+  {path: 'farmify-city', component: FarmifyCityComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 
 @NgModule({

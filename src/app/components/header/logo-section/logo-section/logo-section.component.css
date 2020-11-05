@@ -68,6 +68,15 @@
   .info-box {
     width: 195px;
   }
+  #sppb-addon-1551227013112 .info-box {
+    margin: 165px -398px;
+  }
+  #sppb-addon-1551227013115 .info-box {
+    margin: -250px -170px;
+  }
+  .btn-div {
+    margin-top: -196px;
+  }
 }
 @media (width: 1024px) {
   .info-box {

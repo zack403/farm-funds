@@ -31,7 +31,7 @@
                                             </div>
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988809" class="clearfix">
-                                                    <h1 class="sppb-addon-title">User <span
+                                                    <h3 class="sppb-addon-title">User <span
                                                             class="text-primary">Dashboard </span>
                                                         <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
@@ -53,7 +53,7 @@
                                                                     style="cursor: pointer;" type="submit"
                                                                     value="Add Items"></a>
                                                         </span>
-                                                    </h1>
+                                                    </h3>
                                                     <!-- switch-button -->
                                                     <small class="text-warning font-weight-bold"
                                                         style="font-size: 16px; margin-right: 10px;">Food Sub.</small>
@@ -137,7 +137,7 @@
                                                                         <div
                                                                             class="card bg-warning text-white text-center p-3">
                                                                             <blockquote class=" mb-0">
-                                                                                <span>Total Gain</span>
+                                                                                <span>Total Payout</span>
                                                                                 <h2 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
                                                                                 </h2><br>
                                                                                 <footer
@@ -190,9 +190,9 @@
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-text-block  ">
-                                                            <h1 class="sppb-addon-title">Current <span
+                                                            <h3 class="sppb-addon-title">Current <span
                                                                     class="text-primary">Farm
-                                                                    ({{dashboardData.inv.length}})</span></h1>
+                                                                    ({{dashboardData.inv.length}})</span></h3>
                                                             <div class="input-group pull-right">
                                                                 <a (click)="newFarm()"> <input
                                                                         class="p-button" style="cursor: pointer;"
@@ -374,9 +374,9 @@
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-text-block  ">
-                                                            <h1 class="sppb-addon-title">Foods-Bank <span
+                                                            <h3 class="sppb-addon-title">Foods Bank <span
                                                                     class="text-primary">Subscriptions
-                                                                    ({{subscribers.subs.length}})</span></h1>
+                                                                    ({{subscribers.subs.length}})</span></h3>
                                                             <div class="input-group pull-right">
                                                                 <!-- <a (click)="openModal('purchase')"> <input class="p-button"
                                                                                                     style="cursor: pointer;" type="submit"
@@ -464,9 +464,9 @@
                                                 <div class="sppb-column-addons">
                                                     <div id="sppb-addon-1551573988978" class="clearfix">
                                                         <div class="sppb-addon sppb-addon-text-block  ">
-                                                            <h1 class="sppb-addon-title">Food-Bank <span
+                                                            <h3 class="sppb-addon-title">Food Bank <span
                                                                     class="text-primary">Orders
-                                                                    ({{purchases.length}})</span></h1>
+                                                                    ({{purchases.length}})</span></h3>
                                                             <div class="input-group pull-right">
                                                                 <!-- <a (click)="openModal('purchase')"> <input class="p-button"
                                                                         style="cursor: pointer;" type="submit"
@@ -615,7 +615,7 @@
 
 
             </div>
-            
+
         </div>
     </div>
     <!-- end modal -->
