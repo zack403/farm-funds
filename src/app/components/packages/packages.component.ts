@@ -39,7 +39,7 @@ export class PackagesComponent implements OnInit {
 
   constructor(private pckSvc: PackagesService, 
     public authSvc: AuthService, 
-    private router: Router, 
+    public router: Router, 
     private angularZone : NgZone,
     private toastr: ToasterService) {
 
