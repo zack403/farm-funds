@@ -21,7 +21,7 @@ export class ProfileDataService implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)  {
     const user = this.authSvc.getCurrentUserData();
 
-    return forkJoin([this.profSvc.getMyDetails(user.id), this.profSvc.getDashboardData(user.id)]).pipe(
+    return forkJoin([this.profSvc.getDashboardData(user.id)]).pipe(
         take(1),
         mergeMap((u: any) => {
             if(u) return of(u);

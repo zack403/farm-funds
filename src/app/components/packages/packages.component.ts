@@ -38,7 +38,7 @@ export class PackagesComponent implements OnInit {
   success: string;
 
   constructor(private pckSvc: PackagesService, 
-    private authSvc: AuthService, 
+    public authSvc: AuthService, 
     private router: Router, 
     private angularZone : NgZone,
     private toastr: ToasterService) {

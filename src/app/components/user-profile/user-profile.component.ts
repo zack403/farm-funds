@@ -49,6 +49,7 @@ export class UserProfileComponent implements OnInit {
   details: any;
   total: number;
   navigationSubscription;
+  refreshing: boolean = false;
 
 
 
@@ -68,20 +69,25 @@ export class UserProfileComponent implements OnInit {
 
 
     Refresh() {
+      this.refreshing = true;
       this.router.navigateByUrl('app/profile');
+      
+      setTimeout(() => {
+        this.refreshing = false;
+      }, 4000);
     }
 
   ngOnInit() {
-    this.onComponentMounted();
+    //this.onComponentMounted();
   }
 
   onComponentMounted() {
     const result = this.route.snapshot.data.user;
-    this.userData = result[0].data.user;
-    this.dashboardData = result[1].investments;
-    this.purchases = result[1].purchases;
-    this.subscribers = result[1].subscribers;
-    console.log(result)
+    this.userData = result[0].user;
+    this.dashboardData = result[0].investments;
+    this.purchases = result[0].purchases;
+    this.subscribers = result[0].subscribers;
+    console.log(result);
   }
 
 
@@ -165,18 +171,6 @@ export class UserProfileComponent implements OnInit {
 
 
   openswal() {
-    // if(this.subscribers.subs.length > 0) {
-    //   if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-    //     return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
-    //   } else {
-    //     if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
-    //       return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
-    //     }
-    //     if(new Date(this.subscribers.subs[0].endDate) > new Date()) {
-    //       return this.toastr.Info("You still have a running subscription, Please wait till it expires before subscribing again.");
-    //     }
-    //   }
-    // }
     Swal.fire({
       html: '<hr><br><p color="black" class="text-left text-dark" style"color: black">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
       '<p class="text-left text-dark" style"color: black">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
