@@ -1,107 +1,105 @@
 <div class="body-wrapper">
-    <ngx-loading-bar color="#28a745"></ngx-loading-bar>
+  <ngx-loading-bar color="#28a745"></ngx-loading-bar>
 
-    <div class="body-innerwrapper">
-        <app-header *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail')  && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"></app-header>
-        <router-outlet></router-outlet>
-        <app-footer *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"></app-footer>
-    </div>
+  <div class="body-innerwrapper">
+    <app-header
+      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail')  && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')">
+    </app-header>
+    <router-outlet></router-outlet>
+    <app-footer
+      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')">
+    </app-footer>
+  </div>
 </div>
 <!-- Off Canvas Menu -->
 <div class="offcanvas-overlay"></div>
 <div class="offcanvas-menu">
-    <a href="#" class="close-offcanvas"><span class="fa fa-remove"></span></a>
-    <div class="offcanvas-inner">
-        <div class="sp-module ">
-            <div class="sp-module-content">
-                <ul class="menu">
-                    <li class="item-101 default current active"><a style="cursor: pointer;" [routerLink]="['']">Home</a></li>
+  <a href="#" class="close-offcanvas"><span class="fa fa-remove"></span></a>
+  <div class="offcanvas-inner">
+    <div class="sp-module ">
+      <div class="sp-module-content">
+        <ul class="menu">
+          <li class="item-101 default current active"><a style="cursor: pointer;" [routerLink]="['']">Home</a></li>
 
-                    <li class="item-118 menu-deeper menu-parent"><a
-                            >Services<span class="menu-toggler"></span></a>
-                        <ul class="menu-child">
-                            <li class="rmv sp-menu-item"><a
-                                [routerLink]="['/services']">Investment Guidelines</a></li>
-                                <li class="rmv sp-menu-item"><a
-                                  [routerLink]="['/food-bank']">Food Bank</a></li>
-                              <li class="rmv sp-menu-item"><a
-                                [routerLink]="['/packages']">Packages</a></li>
-                        </ul>
-                    </li>
-                    <li class="item-134 menu-deeper menu-parent"><a [routerLink]="['/food-subscription']">Food Bank<span
-                        class="menu-toggler"></span></a>
-                <ul class="menu-child">
-                    <!-- <li class="item-136"><a
-                            href="/realgarden/index.php/shop/shop-products/the-innovators">Single Shop</a>
-                    </li> -->
-
-                    <li class="rmv item-138"><a [routerLink]="['/food-subscription']">Food Subscription</a></li>
-                    <!-- <li class="item-137"><a [routerLink]="['/food-bank']">Food Bank</a></li> -->
-                    <li class="rmv item-135"><a [routerLink]="['/food-shop']">Food Shop</a></li>
-                </ul>
-            </li>
-                    <li class="rmv item-125 menu-deeper menu-parent"><a [routerLink]="['/gallery']">Gallery</a>
-                        <ul class="menu-child">
-                            <!-- <li class="item-126"><a href="/realgarden/index.php/gallery/gallery-fullwidth">Gallery
-                                    Fullwidth</a></li> -->
-                            <!-- <li class="item-127"><a [routerLink]="['/gallery']">Gallery
-                                    Grid View</a></li> -->
-                            <!-- <li class="item-128"><a href="/realgarden/index.php/gallery/gallery-manasory">Gallery
-                                    Manasory</a></li> -->
-                            <!-- <li class="item-129"><a
-                                    href="/realgarden/index.php/component/spsimpleportfolio/item/1-modern-garden">Gallery
-                                    Single Post</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="rmv item-130 menu-deeper menu-parent"><a [routerLink]="['/news']">News</a>
-                        <ul class="menu-child">
-                            <!-- <li class="item-131"><a href="/realgarden/index.php/news/news-default">News Default</a>
+          <li class="item-118 menu-deeper menu-parent"><a>Services<span class="menu-toggler"></span></a>
+            <ul class="menu-child">
+              <li class="rmv sp-menu-item"><a [routerLink]="['/packages']">Farm Investment</a></li>
+              <li class="rmv sp-menu-item"><a [routerLink]="['/food-bank']">Food Bank</a></li>
+              <li class="rmv sp-menu-item"><a [routerLink]="['/food-shop']">Farmify Shop</a></li>
+              <li class="rmv sp-menu-item"><a [routerLink]="['/farmify-city']">Farmify Court</a></li>
+              <li class="rmv sp-menu-item"><a [routerLink]="['/']">Farmify Workshop</a></li>
+              <li class="rmv sp-menu-item"><a [routerLink]="['/']">Consultancy</a></li>
+            </ul>
+          </li>
+          <li class="rmv item-130 menu-deeper menu-parent"><a [routerLink]="['/services']">Guidelines</a>
+            <ul class="menu-child">
+              <!-- <li class="item-131"><a href="/realgarden/index.php/news/news-default">News Default</a>
                             </li> -->
-                            <!-- <li class="item-132"><a [routerLink]="['/news']">News Grid
+              <!-- <li class="item-132"><a [routerLink]="['/news']">News Grid
                                     View</a></li> -->
-                            <!-- <li class="item-133"><a
+              <!-- <li class="item-133"><a
                                     href="/realgarden/index.php/blog-default/1-it-s-time-to-design-your-dream-outdoor-living-space">News
                                     Single Post</a></li> -->
-                        </ul>
-                    </li>
-                    <li class="item-113 menu-deeper menu-parent"><a >About Us<span
-                        class="menu-toggler"></span></a>
-                <ul class="menu-child">
-                    <li class="rmv item-114"><a style="cursor: pointer;" [routerLink]="['/about']">About
-                            Company</a></li>
-                    <li class="rmv item-115"><a style="cursor: pointer;"
-                        [routerLink]="['/team']">Our Team</a></li>
-                    <li class="rmv item-116"><a style="cursor: pointer;" [routerLink]="['/faqs']">FAQ's</a></li>
-                    <!-- <li class="item-117"><a >Prices
+            </ul>
+          </li>
+          <li class="rmv item-130 menu-deeper menu-parent"><a [routerLink]="['/gallery']">Gallery</a>
+            <ul class="menu-child">
+              <!-- <li class="item-131"><a href="/realgarden/index.php/news/news-default">News Default</a>
+                            </li> -->
+              <!-- <li class="item-132"><a [routerLink]="['/news']">News Grid
+                                    View</a></li> -->
+              <!-- <li class="item-133"><a
+                                    href="/realgarden/index.php/blog-default/1-it-s-time-to-design-your-dream-outdoor-living-space">News
+                                    Single Post</a></li> -->
+            </ul>
+          </li>
+
+          <li class="rmv item-130 menu-deeper menu-parent"><a [routerLink]="['/news']">News</a>
+            <ul class="menu-child">
+              <!-- <li class="item-131"><a href="/realgarden/index.php/news/news-default">News Default</a>
+                            </li> -->
+              <!-- <li class="item-132"><a [routerLink]="['/news']">News Grid
+                                    View</a></li> -->
+              <!-- <li class="item-133"><a
+                                    href="/realgarden/index.php/blog-default/1-it-s-time-to-design-your-dream-outdoor-living-space">News
+                                    Single Post</a></li> -->
+            </ul>
+          </li>
+          <li class="item-113 menu-deeper menu-parent"><a>About Us<span class="menu-toggler"></span></a>
+            <ul class="menu-child">
+              <li class="rmv item-114"><a style="cursor: pointer;" [routerLink]="['/about']">About
+                  Company</a></li>
+              <li class="rmv item-115"><a style="cursor: pointer;" [routerLink]="['/team']">Our Team</a></li>
+              <li class="rmv item-116"><a style="cursor: pointer;" [routerLink]="['/faqs']">FAQ's</a></li>
+              <!-- <li class="item-117"><a >Prices
                             And Delivery</a></li> -->
-                </ul>
-            </li>
-                    <li class="rmv item-140"><a  [routerLink]="['/contact-us']">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
+            </ul>
+          </li>
+          <li class="rmv item-140"><a [routerLink]="['/contact-us']">Contact Us</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="sppb-col-md-6" id="column-wrap-id-1551486432201">
-      <div id="column-id-1551486432201" class="sppb-column">
-        <div class="sppb-column-addons">
-          <div id="sppb-addon-1551486432209" class="clearfix">
-            <div class="sppb-addon sppb-addon-text-block sppb-text-left" style="margin-top: 100%;">
-<hr>
-              <div class="sppb-addon-content">
-                Copyrights © 2020 All Rights Reserved. Powered
-                by
-                <a class="text-primary" href="">Farmfunds Africa.</a>
-              </div>
+  </div>
+  <div class="sppb-col-md-6" id="column-wrap-id-1551486432201">
+    <div id="column-id-1551486432201" class="sppb-column">
+      <div class="sppb-column-addons">
+        <div id="sppb-addon-1551486432209" class="clearfix">
+          <div class="sppb-addon sppb-addon-text-block sppb-text-left" style="margin-top: 100%;">
+            <hr>
+            <div class="sppb-addon-content">
+              Copyrights © 2020 All Rights Reserved. Powered
+              by
+              <a class="text-primary" href="">Farmfunds Africa.</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 
 <div id="floatingWhatsAppButton"></div>
 
 <!-- Go to top -->
-<a *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"  href="#" class="sp-scroll-up" aria-label="Scroll Up"><span class="fa fa-chevron-up"
-aria-hidden="true"></span></a>
-
+<a *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"
+  href="#" class="sp-scroll-up" aria-label="Scroll Up"><span class="fa fa-chevron-up" aria-hidden="true"></span></a>

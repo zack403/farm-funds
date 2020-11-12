@@ -36,7 +36,7 @@
                                                         <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
                                                             <b>{{subscribers.subs.length}}</b> Food
                                                             Subscription.
-                                                            <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                            <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:24px; cursor: pointer;"></i>
                                                           </small>
 
                                                             <small *ngIf="selected" class="current" style="text-transform: none;">You are currently on

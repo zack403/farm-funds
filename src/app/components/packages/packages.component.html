@@ -17,7 +17,7 @@
       <small >Subscribing or Investing on any of our <strong> Farm Packages below </strong> means you get a profit which is your return on investment after some certain days...</small>
     </h2>
 
-    <div id="sppb-addon-1551319445183" class="clearfix">
+    <div *ngIf="!authSvc.isLoggedIn()" id="sppb-addon-1551319445183" class="clearfix">
       <div class="sppb-addon sppb-addon-text-block sppb-text-left">
         <h2 class="sppb-addon-title">
           Farm
@@ -26,7 +26,7 @@
         <div class="sppb-addon-content"></div>
       </div>
     </div>
-    <div id="section-id-1551311145816" class="sppb-section">
+    <div *ngIf="!authSvc.isLoggedIn()" id="section-id-1551311145816" class="sppb-section">
       <div class="sppb-container-inner">
         <div class="sppb-row">
           <div class="sppb-col-md-4 sppb-col-sm-6" id="column-wrap-id-1551311145817">
@@ -162,7 +162,7 @@
     </div>
   </div>
 </section>
-<section id="section-id-1551740902941" class="sppb-section  ">
+<section *ngIf="!authSvc.isLoggedIn()" id="section-id-1551740902941" class="sppb-section  ">
   <div class="sppb-row-container">
     <div id="sppb-addon-1551319445183" class="clearfix">
       <div class="sppb-addon sppb-addon-text-block sppb-text-left">
