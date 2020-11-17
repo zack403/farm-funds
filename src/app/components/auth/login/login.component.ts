@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
 
 @Component({
   selector: 'app-login',
@@ -40,7 +42,48 @@ export class LoginComponent implements OnInit {
         if(!model){
           this.loginForm.reset();
         }
-        this.router.navigateByUrl("app/profile");
+      
+        if(res.data.isMigrated && !res.data.passwordChanged) {
+          Swal.fire({
+            title: 'Change your password to continue',
+            html:
+            '<input required placeholder="Old password" type="password" id="old" class="swal2-input" autofocus >' +
+            '<input required placeholder="New Password" type="password" id="new" class="swal2-input">' +
+            '<input required placeholder="Confirm New password" id="confirmnew" type="password" class="swal2-input">',
+            showCloseButton: true,
+            confirmButtonText: 'Update',
+            confirmButtonColor: 'green',
+            preConfirm: () => {
+              let oldPassword = (<HTMLInputElement> document.getElementById('old')).value;
+              let newPassword = (<HTMLInputElement> document.getElementById('new')).value;
+              let confirmNewP = (<HTMLInputElement> document.getElementById('confirmnew')).value;
+      
+              if(oldPassword === '' || newPassword === '' || confirmNewP === '') {
+                Swal.showValidationMessage("Old password/New password/Confirm New password is required"); // Show error when validation fails.
+              } else if (oldPassword === newPassword || oldPassword === confirmNewP) {
+                Swal.showValidationMessage("Old password cannot be the same with new password");
+              } else if (newPassword != confirmNewP) {
+                Swal.showValidationMessage("Confirm password must match New password"); // Show error when validation fails.
+              } 
+      
+              return {
+                oldPassword,
+                newPassword,
+                confirmNewP
+              }
+            }
+      
+          }).then( result => {
+            if(result.value) {
+              this.authSvc.changePassword(result.value).subscribe(s => {
+                this.toasterSvc.Success('Password change successful. Redirecting...');
+                this.router.navigateByUrl('app/profile');
+              });
+            }
+          })
+        } else {
+          this.router.navigateByUrl("app/profile");
+        }
       }, (error) => {
             console.log(error);
             this.isBusy = false;
