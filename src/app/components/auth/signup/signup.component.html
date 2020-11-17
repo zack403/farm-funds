@@ -18,7 +18,7 @@
                                   <ul class="list_inline">
                                     <li></li><img src="assets/images/logo-2.jpg" [routerLink] = "['/home']" style="cursor: pointer;" alt="">&nbsp;&nbsp;
                                     <li><i class="icon-winner-trophy-for-the-best"></i>Africa's Fastest Growing Agritech
-                                      Company</li>&nbsp;&nbsp;
+                                      Company</li>&nbsp;&nbsp;&nbsp;
                                     <li><i class="icon-stamp"></i>Farmify Agro Innovations Ltd: RC 1627509</li>
                                   </ul>
                                 </div>
@@ -87,7 +87,7 @@
 </section>
 <section id="sp-main-body" class="sign-up-form">
   <div class="row">
-    <div id="sp-title" class="col-lg-12 ">
+    <div id="sp-title" class="col-lg-12 mt-5">
       <div class="sp-column ">
         <div class="container text-center">
           <h5 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
@@ -165,9 +165,9 @@
 
                                   <Select id="bankName" name="bankName"  (change)="onChange($event.target.value)" class="inputbox form-control">
                                      <option disabled> Choose your bank </option>
-                                     <option *ngFor="let p of banks">{{p?.name}}</option> 
+                                     <option *ngFor="let p of banks">{{p?.name}}</option>
                                   </Select>
-                                 
+
                                   <div
                                     *ngIf="registerForm.controls['bankName'].hasError('required') && registerForm.get('bankName').touched"
                                     class="errormsg text-danger">Bank Name is required</div>
