@@ -74,7 +74,7 @@ export class UserProfileComponent implements OnInit {
       
       setTimeout(() => {
         this.refreshing = false;
-      }, 4000);
+      }, 3000);
     }
 
   ngOnInit() {
