@@ -6484,6 +6484,10 @@ display: none;
     .logo-image {
         height: 36px;
     }
+
+  p {
+    font-weight: 400;
+  }
 /* end contact us css     */
 
 

@@ -404,11 +404,11 @@
                                                                                 <th scope="col">Unit</th>
                                                                                 <th scope="col" class="amount">Amount</th>
                                                                                 <th scope="col">Payment Type</th>
-                                                                                <th scope="col">Start Date</th>
-                                                                                <th scope="col">End Date</th>
+                                                                                <th scope="col">Status</th>
                                                                                 <th scope="col" class="roi">ROI</th>
                                                                                 <th scope="col" class="roc">ROC</th>
-                                                                                <th scope="col">Status</th>
+                                                                                <th scope="col">Start Date</th>
+                                                                                <th scope="col">End Date</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -423,20 +423,20 @@
                                                                                     {{i.amount | currency: '&#8358; '}}
                                                                                 </td>
                                                                                 <td>{{i.paymentType}}</td>
-                                                                                <td>{{i.startDate | date: "mediumDate"}}
-                                                                                </td>
-                                                                                <td>{{i.endDate | date: "mediumDate"}}
-                                                                                </td>
                                                                                 <td class="text-right"
                                                                                     style="width: 140px;" class="roi">
                                                                                     {{i.roi | currency: '&#8358; '}}
+                                                                                </td>
+                                                                                <td><span
+                                                                                        [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
                                                                                 </td>
                                                                                 <td class="text-right"
                                                                                     style="width: 140px;" class="roc">
                                                                                     {{i.roc | currency: '&#8358; '}}
                                                                                 </td>
-                                                                                <td><span
-                                                                                        [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                                <td>{{i.startDate | date: "mediumDate"}}
+                                                                                </td>
+                                                                                <td>{{i.endDate | date: "mediumDate"}}
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
