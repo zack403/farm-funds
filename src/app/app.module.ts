@@ -43,6 +43,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
 import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
+import { ClientappComponent } from './components/clientapp/clientapp.component';
+import { ClientappModule } from './components/clientapp/clientapp.module';
 
 
 
@@ -77,12 +79,13 @@ export function tokenGetter() {
     TermsComponent,
     ResetPasswordComponent,
     ResponseresetComponent,
-    FarmifyCityComponent,
+    FarmifyCityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserappModule,
+    //UserappModule,
+    ClientappModule,
     NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,

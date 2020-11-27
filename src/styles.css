@@ -6490,4 +6490,14 @@ display: none;
   }
 /* end contact us css     */
 
-
+.sidenav-toggled .main-footer {
+	padding: 20px 30px 20px 150px;
+}
+@media (max-width:767px){
+	.main-footer {
+		padding-left: 30px;
+	}
+	.sidenav-toggled .main-footer {
+		padding-left: 30px;
+    }
+}
