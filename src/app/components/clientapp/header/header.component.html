@@ -1,0 +1,215 @@
+<nav class="navbar navbar-expand-lg main-navbar">
+    <a class="header-brand" href="index.html">
+        <img src="assets/images/logo/ff-logo.jpeg" class="header-brand-img" alt="Farmfunds-Admin  logo" style="height: 70px;">
+    </a>
+    <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars" style="font-size: 32px;"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+        </ul>
+        <!-- <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button>
+        </div> -->
+    </form>
+    <ul class="navbar-nav navbar-right">
+        <div>
+            <button
+                                        *ngIf="
+                                          !router.url.includes('shopping-cart')
+                                        "
+                                        (click)="
+                                          cart.purchaseDetails.length > 0
+                                            ? viewCart()
+                                            : ''
+                                        "
+                                        class="btn text-success"
+                                      >
+                                        <span
+                                          *ngIf="basketTotal"
+                                          style="margin-right: 10px"
+                                          >{{
+                                            basketTotal | currency: "&#8358; "
+                                          }}</span
+                                        >
+                                        <i
+                                          class="fa fa-shopping-basket"
+                                          style="font-size: 20px"
+                                        >
+                                          <small
+                                            *ngIf="
+                                              cart.purchaseDetails.length > 0
+                                            "
+                                            class="badge badge-danger"
+                                            style="
+                                              z-index: 2;
+                                              font-size: 16px;
+                                              top: -15px;
+                                              left: -7px;
+                                              border-radius: 50%;
+                                            "
+                                            >{{
+                                              cart.purchaseDetails.length
+                                            }}</small
+                                          >
+                                        </i>
+                                      </button>
+        </div>
+    
+        <li class="dropdown dropdown-list-toggle">
+            <a  class="nav-link nav-link-lg full-screen-link">
+                <i class="ion-arrow-expand"  id="fullscreen-button"></i>
+            </a>
+        </li>
+        <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+            <img src="{{photo ? photo : 'assets/images/avat.png'}}" alt="profile-user" class="rounded-circle w-32" height="32px" width="32px">&nbsp;
+            <div class="d-sm-none d-lg-inline-block">{{ userData.firstName }} {{ userData.middleName }} {{ userData.lastName }}</div></a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a  class="dropdown-item has-icon">
+                    <i class="fa fa-dashboard"></i> Dashboard
+                </a>
+
+                <a  class="dropdown-item has-icon"
+                    data-toggle="modal"
+                    data-target="#updateProfile"
+                    style="cursor: pointer"
+                >
+                    <i class="fa fa-edit"></i> Edit Profile
+                </a>
+
+                <a (click)="changePassword()" class="dropdown-item has-icon">
+                    <i class="fa fa-lock"></i> Change Password
+                </a>
+                
+                <a (click)="logout()" class="dropdown-item has-icon">
+                    <i class="fa fa-sign-out"></i> Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="updateProfile"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title text-center" id="exampleModalLabel" style="color: green;">Edit Profile</h2>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm" id="editForm">
+          <div class="form-row">
+            <div class="col-md-6">
+
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input
+                  class="inputbox form-control"
+                  id="firstName"
+                  [(ngModel)]="userData.firstName"
+                  type="text"
+                  name="firstName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input
+                  class="inputbox form-control"
+                  id="lastName"
+                  [(ngModel)]="userData.lastName"
+                  type="text"
+                  name="lastName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="middleName">Middle name</label>
+                <input
+                  class="inputbox form-control"
+                  id="middleName"
+                  [(ngModel)]="userData.middleName"
+                  type="text"
+                  name="middleName"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  class="inputbox form-control"
+                  [(ngModel)]="userData.email"
+                  id="email"
+                  type="text"
+                  name="email"
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input
+                  class="inputbox form-control"
+                  id="phone"
+                  [(ngModel)]="userData.phoneNo"
+                  type="text"
+                  name="phone"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="bankName">Bank Name</label>
+                <Select [(ngModel)]="userData.bankName" id="bankName" name="bankName" (change)="onChange($event.target.value)" class="inputbox form-control">
+                  <option disabled> Choose your bank </option>
+                  <option *ngFor="let p of banks" [value]="p.name" [selected]="userData.bankName == p.name">{{p?.name}}</option> 
+               </Select>
+              
+              </div>
+
+              <div class="form-group">
+                <div class="form-group">
+                  <label for="acctNo">Account Number</label>
+                  <input
+                    type="text"
+                    id="acctNo"
+                    [(ngModel)]="userData.acctNo"
+                    name="acctNo"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="mr-5" style="margin-left: 40%">
+              <hr>
+              <button
+                [disabled]="isBusy"
+                (click)="updateProfile()"
+                class="btn btn-primary mr-1"
+              >
+                {{ isBusy ? "Updating..." : "UPDATE" }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>

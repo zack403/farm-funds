@@ -98,7 +98,7 @@
   </div>
 </div>
 
-<div id="floatingWhatsAppButton"></div>
+<div *ngIf="router.url !== '/app/profile'" id="floatingWhatsAppButton"></div>
 
 <!-- Go to top -->
 <a *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"
