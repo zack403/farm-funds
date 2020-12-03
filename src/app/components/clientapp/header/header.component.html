@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg main-navbar">
+<nav class="navbar fixed-top navbar-expand-lg main-navbar">
     <a class="header-brand" href="index.html">
         <img src="assets/images/logo/ff-logo.jpeg" class="header-brand-img" alt="Farmfunds-Admin  logo" style="height: 70px;">
     </a>
     <form class="form-inline mr-auto">
         <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars" style="font-size: 32px;"></i></a></li>
+            <li><a href="#" id="sdclicked" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars" style="font-size: 32px;"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
         </ul>
         <!-- <div class="search-element">
@@ -13,56 +13,117 @@
         </div> -->
     </form>
     <ul class="navbar-nav navbar-right">
-        <div>
-            <button
-                                        *ngIf="
-                                          !router.url.includes('shopping-cart')
-                                        "
-                                        (click)="
-                                          cart.purchaseDetails.length > 0
-                                            ? viewCart()
-                                            : ''
-                                        "
-                                        class="btn text-success"
-                                      >
-                                        <span
-                                          *ngIf="basketTotal"
-                                          style="margin-right: 10px"
-                                          >{{
-                                            basketTotal | currency: "&#8358; "
-                                          }}</span
-                                        >
-                                        <i
-                                          class="fa fa-shopping-basket"
-                                          style="font-size: 20px"
-                                        >
-                                          <small
-                                            *ngIf="
-                                              cart.purchaseDetails.length > 0
-                                            "
-                                            class="badge badge-danger"
-                                            style="
-                                              z-index: 2;
-                                              font-size: 16px;
-                                              top: -15px;
-                                              left: -7px;
-                                              border-radius: 50%;
-                                            "
-                                            >{{
-                                              cart.purchaseDetails.length
-                                            }}</small
-                                          >
-                                        </i>
-                                      </button>
+    
+      <li class="dropdown dropdown-list-toggle" *ngIf="!router.url.includes('shopping-cart')" (click)="cart.purchaseDetails.length > 0 ? viewCart() : '' " class="btn text-success">
+          <span
+          *ngIf="basketTotal"
+          style="margin-right: 10px"
+          >{{
+            basketTotal | currency: "&#8358; "
+          }}</span
+        >
+        <i
+        title="Basket"
+          class="fa fa-shopping-basket"
+          style="font-size: 20px; margin-top: 6px;"
+        >
+          <small
+          class="nav-link  nav-link-lg"
+            *ngIf="
+              cart.purchaseDetails.length > 0
+            "
+            class="badge badge-danger"
+            style="
+              z-index: 2;
+              font-size: 16px;
+              top: -15px;
+              left: -7px;
+              border-radius: 50%;
+            "
+            >{{
+              cart.purchaseDetails.length
+            }}</small
+          >
+        </i>
+                    
+                                  
+    </li>
+
+    <li class="dropdown dropdown-list-toggle"><a title="Help" href="#" data-toggle="dropdown" class="nav-link  nav-link-lg"><i class="fa fa-question-circle-o"></i></a>
+      <div class="dropdown-menu dropdown-list dropdown-menu-right">
+          <div class="dropdown-header">Help
+          
+          </div>
+          <div class="dropdown-list-content">
+              <a  class="dropdown-item has-icon">
+                Start a tutorial
+              </a>
+              <a  class="dropdown-item has-icon">
+                Get support
+              </a>
+              <a  class="dropdown-item has-icon">
+                Send feedback
+              </a>
+          </div>
+      </div>
+  </li>
+
+    <li class="dropdown dropdown-list-toggle"><a title="Notifications" href="#" data-toggle="dropdown" class="nav-link  nav-link-lg"><i class="fa fa-bell-o"></i></a>
+        <div class="dropdown-menu dropdown-list dropdown-menu-right">
+            <div class="dropdown-header">Notifications
+                <div class="float-right">
+                    <a href="#">View All</a>
+                </div>
+            </div>
+            <div class="dropdown-list-content">
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-users text-primary"></i>
+                    <div class="dropdown-item-desc">
+                        <b>So many Users Visit your template</b>
+                    </div>
+                </a> -->
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-exclamation-triangle text-danger"></i>
+                    <div class="dropdown-item-desc">
+                        <b>Error message occurred....</b>
+                    </div>
+                </a> -->
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-users text-warning"></i>
+                    <div class="dropdown-item-desc">
+                        <b> Adding new people</b>
+                    </div>
+                </a> -->
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-shopping-cart text-success"></i>
+                    <div class="dropdown-item-desc">
+                        <b>Your items Arrived</b>
+                    </div>
+                </a> -->
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-comment text-primary"></i>
+                    <div class="dropdown-item-desc">
+                        <b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+                    </div>
+                </a> -->
+                <!-- <a href="#" class="dropdown-item">
+                    <i class="fa fa-users text-primary"></i>
+                    <div class="dropdown-item-desc">
+                        <b>So many Users Visit your template</b>
+                    </div>
+                </a> -->
+            </div>
         </div>
+    </li>
+        
     
         <li class="dropdown dropdown-list-toggle">
-            <a  class="nav-link nav-link-lg full-screen-link">
-                <i class="ion-arrow-expand"  id="fullscreen-button"></i>
+            <a title="Full Screen"  class="nav-link nav-link-lg full-screen-link">
+                <i class="fa fa-expand"  id="fullscreen-button"></i>
             </a>
         </li>
         <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
-            <img src="{{photo ? photo : 'assets/images/avat.png'}}" alt="profile-user" class="rounded-circle w-32" height="32px" width="32px">&nbsp;
+            <img src="{{photo ? photo : 'assets/images/avat.png'}}" style="height: 32px;" alt="profile-user" class="rounded-circle w-32">&nbsp;
             <div class="d-sm-none d-lg-inline-block">{{ userData.firstName }} {{ userData.middleName }} {{ userData.lastName }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a  class="dropdown-item has-icon">
