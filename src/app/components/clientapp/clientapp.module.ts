@@ -12,6 +12,7 @@ import { FarmifyShoppingDetailComponent } from '../farmify-shopping-detail/farmi
 import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { PackagesComponent } from '../packages/packages.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ClientappRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
 
   ],
   declarations: [ClientappComponent, HeaderComponent, SideBarComponent, FooterComponent, DashboardComponent, UserProfileComponent,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-
 
 @Component({
   selector: 'app-side-bar',
@@ -12,10 +12,22 @@ export class SideBarComponent implements OnInit {
 
   user: any;
   photo: string;
-  constructor(private authSvc: AuthService) { }
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.user = this.authSvc.getCurrentUserData();
+  }
+
+  newFoodSubs() {
+    let dc = document.getElementById('findme');
+    if(dc){
+      document.getElementById('findme').click();
+    } else {
+      this.router.navigateByUrl('app/profile');
+      setTimeout(() => {
+        document.getElementById('findme').click();
+      }, 3000);
+    }
   }
 
   logout() {

@@ -6490,6 +6490,32 @@ display: none;
   }
 /* end contact us css     */
 
+
+body.search-show, body.sidebar-show {
+    overflow: hidden;
+}
+body.search-show:before, body.sidebar-show:before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .6;
+    z-index: 891;
+}
+
+body.sidebar-gone .main-sidebar {
+	left: -250px;
+}
+body.sidebar-gone .navbar {
+	left: 0;
+}
+body.sidebar-gone .main-content {
+	padding-left: 30px;
+}
+
 .sidenav-toggled .main-footer {
 	padding: 20px 30px 20px 150px;
 }
@@ -6501,3 +6527,185 @@ display: none;
 		padding-left: 30px;
     }
 }
+
+.header-brand {
+	color: inherit;
+	margin-right: 1rem;
+	font-size: 1.25rem;
+	white-space: nowrap;
+	font-weight: 600;
+	padding: 0;
+	transition: .3s opacity;
+	line-height: 2.9rem;
+}
+.main-navbar .header-brand {
+	color: inherit;
+	margin-right: 0;
+	font-size: 1.25rem;
+	white-space: nowrap;
+	font-weight: 600;
+	padding: 0;
+	transition: .3s opacity;
+	line-height: 2.9rem;
+	min-width: 200px;
+	text-align: center;
+}
+.main-navbar .header-brand .header-brand-img {
+	margin-right: 0;
+}
+.app-header1 .header-brand {
+	color: inherit;
+	margin-right: 0;
+	font-size: 1.25rem;
+	white-space: nowrap;
+	font-weight: 600;
+	padding: 0;
+	transition: .3s opacity;
+	line-height: 2.9rem;
+	min-width: 215px;
+	text-align: center;
+}
+.app-header1 .header-brand .header-brand-img {
+	margin-right: 0;
+}
+.header-brand:hover {
+	color: inherit;
+	text-decoration: none;
+}
+.header-brand-img {
+	height: 2.5rem;
+	line-height: 2rem;
+	vertical-align: bottom;
+	margin-right: .5rem;
+	width: auto;
+	position: relative;
+	top: -3px;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+.navbar {
+    color: #777ab2;
+	border-bottom: 1px solid #ececff;
+}
+
+body.sidebar-gone .navbar {
+	left: 0;
+}
+
+.email-app nav .nav .nav-item .nav-link, .email-app nav .nav .nav-item .navbar .dropdown-toggle, .navbar .email-app nav .nav .nav-item .dropdown-toggle {
+	color: #777ab2;
+	border-bottom: 1px solid #ececff;
+}
+.email-app nav .nav .nav-item .nav-link i, .email-app nav .nav .nav-item .navbar .dropdown-toggle i, .navbar .email-app nav .nav .nav-item .dropdown-toggle i {
+	width: 20px;
+	margin: 0 10px 0 0;
+	font-size: 14px;
+	text-align: center;
+}
+.email-app nav .nav .nav-item .nav-link .badge, .email-app nav .nav .nav-item .navbar .dropdown-toggle .badge, .navbar .email-app nav .nav .nav-item .dropdown-toggle .badge {
+	margin-top: 4px;
+	margin-left: 10px;
+}
+
+.navbar .dropdown-menu-right:before {
+    content:"";
+    position: absolute;
+    right: 11px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #fff transparent;
+    z-index:9999;
+}
+
+.navbar .dropdown-menu-right:before{
+	left: auto;
+	right: 12px;
+}
+
+.navbar {
+	height: 60px;
+	left: 0;
+	top: 0;
+	right: 0;
+	position: fixed;
+	z-index: 890;
+	background: #fff;
+	box-shadow:0 2px 17px 2px rgb(222, 223, 241) ;
+}
+.navbar.active {
+	background-color: greenyellow;
+}
+.navbar .form-inline .form-control {
+	border-radius: 0px;
+	border-color: #ececff;
+	padding-left: 20px;
+	padding-right: 0;
+	margin-right: -6px;
+	width: 220px;
+	background:#f7f7fa;
+}
+.navbar .form-inline .btn {
+	border-radius: 0;
+	padding: 5px 15px 6px 15px;
+	box-shadow:none;
+}
+.navbar .nav-link {
+	color: green;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.navbar .nav-link.beep {
+	position: relative;
+}
+.navbar .nav-link.beep:after {
+	content: '';
+	position: absolute;
+	top: 10px;
+	right: 7px;
+	width: 7px;
+	height: 7px;
+	background-color: #ff473d;
+	border-radius: 50%;
+}
+.navbar .nav-link.nav-link-lg {}
+.nav-link {}
+.navbar .nav-link.nav-link-lg div {
+	margin-top: 3px;
+}
+.navbar .nav-link.nav-link-lg i {
+	font-size: 24px;
+	margin-top: 5px;
+}
+.remove-caret:after {
+	display: none;
+}
+.navbar .nav-link:hover {
+	color: greenyellow;
+}
+.navbar .nav-link.disabled {
+	color: #fff;
+	opacity: .6;
+}
+.navbar .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.navbar-expand-lg .navbar-nav .dropdown-menu-right {
+    right: 0;
+    left: auto;
+}
+
+
+
+
+
+
+

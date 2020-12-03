@@ -80,7 +80,9 @@
               "src/assets/js/bootstrap-modal-conflit.js",
               "src/assets/js/filter.js",
               "src/assets/js/floating-wpp.min.js",
-              "src/assets/plugins/toggle-menu/sidemenu.js"
+              "src/assets/plugins/toggle-menu/sidemenu.js",
+              "src/assets/js/script.js"
+
             ]
           },
           "configurations": {
