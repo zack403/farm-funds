@@ -1,22 +1,22 @@
 <section id="sp-section-4">
   <div class="row" *ngIf="CurrentState=='Wait'">
     <div class="col-md-12  close-form">
-      <h2> Please Wait...</h2>
+      <h3> Please Wait...</h3>
     </div>
   </div>
   <div class="row" *ngIf="CurrentState=='NotVerified'">
     <div class="col-md-12">
-      <h2> Invalid URL.</h2>
+      <h3> Invalid URL.</h3>
     </div>
   </div>
 </section>
 <section id="sp-main-body" *ngIf="CurrentState=='Verified'">
   <div class="ff-logo">
-    <img src="assets/images/farmfunds.JPG" [routerLink]="['/home']" class=""
+    <img src="assets/images/farmfunds.JPG" [routerLink]="['/home']" class="shadow p-3 mb-5 bg-white rounded"
       style="border-radius: 50%; width: 85px;height: 85px; cursor: pointer;" />
   </div>
-  <div class="card">
-    <div class="row no-gutters">
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="row no-gutters shadow p-3 bg-white rounded">
       <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">

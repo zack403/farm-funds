@@ -18,16 +18,16 @@
             class="angle fa fa-angle-right"></i></a>
         <ul class="slide-menu">
           <li>
-            <a class="side-menu__item" [routerLink]="['/admin/dashboard']">
-              <i class="side-menu__icon fa fa-asterisk"></i><span class="side-menu__label">Food bank</span></a>
+            <a class="side-menu__item" [routerLink]="['/app/foodbank-dashboard']">
+            <i class="side-menu__icon fa fa-bank ml-3"></i><span class="side-menu__label">Food bank</span></a>
           </li>
           <li>
-            <a class="side-menu__item" [routerLink]="['/admin/farm-dashboard']">
-              <i class="side-menu__icon fa fa-leaf"></i><span class="side-menu__label">Farm investment</span></a>
+            <a class="side-menu__item" [routerLink]="['/app/investment-dashboard']">
+              <i class="side-menu__icon fa fa-bar-chart ml-3"></i><span class="side-menu__label">Farm investment</span></a>
           </li>
         </ul>
       </li>
-  
+
       <li>
         <a class="side-menu__item" [routerLink]="['/app/packages']"><i class="side-menu__icon fa fa-leaf"></i><span
             class="side-menu__label">New Farm</span></a>
@@ -37,32 +37,31 @@
         <a class="side-menu__item" id="nfs" (click)="newFoodSubs()"><i class="side-menu__icon fa fa-money"></i><span
             class="side-menu__label">New Food Subs</span></a>
       </li>
-  
+
       <li>
         <a class="side-menu__item" [routerLink]="['/app/farmify-shopping']"><i class="side-menu__icon fa fa-shopping-basket"></i><span
             class="side-menu__label">Farmify Shopping </span></a>
       </li>
-      
+
       <li class="slide">
         <a class="side-menu__item" data-toggle="slide" href=""><i
-            class="side-menu__icon fa fa-money"></i><span class="side-menu__label">Financial History</span><i
+            class="side-menu__icon fa fa-line-chart"></i><span class="side-menu__label">Financial History</span><i
             class="angle fa fa-angle-right"></i></a>
         <ul class="slide-menu">
           <li>
-            <a class="side-menu__item" [routerLink]="['/admin/packages-list']"><i
-                class="side-menu__icon fa fa-plus-circle"></i><span class="side-menu__label">Deposits</span></a>
+            <a class="side-menu__item" [routerLink]="['/app/deposit']"><i
+                class="side-menu__icon fa fa-plus-circle ml-3"></i><span class="side-menu__label">Deposits</span></a>
           </li>
           <li>
-            <a class="side-menu__item" [routerLink]="['/admin/investments']"><i
-                class="side-menu__icon fa fa-minus-circle"></i><span class="side-menu__label">Withdrawals</span></a>
+            <a class="side-menu__item" [routerLink]="['/app/withdrawal']"><i
+                class="side-menu__icon fa fa-minus-circle ml-3"></i><span class="side-menu__label">Withdrawals</span></a>
           </li>
         </ul>
       </li>
-  
+
       <li>
         <a class="side-menu__item" [routerLink]="['/login']"><i class="side-menu__icon fa fa-sign-out"></i><span
             class="side-menu__label">Log Out</span></a>
       </li>
     </ul>
   </aside>
-  

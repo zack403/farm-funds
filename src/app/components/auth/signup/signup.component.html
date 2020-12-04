@@ -91,7 +91,7 @@
       <div class="sp-column ">
         <div class="container text-center">
           <h5 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
-            <small class="text-primary">Subscribe To Any Of Our Profitable Farm Cycles.</small>
+            <small class="text-warning">Subscribe To Any Of Our Profitable Farm Cycles.</small>
           </h5>
         </div>
       </div>
@@ -100,8 +100,8 @@
   <div class="container info" style="margin-top: 50px;">
     <div class="container-inner">
       <div class="row">
-        <main id="sp-component" class="col-lg-12 " role="main">
-          <div class="sp-column ">
+        <main id="sp-component" class="col-lg-12 shadow p-3 bg-white rounded" role="main">
+          <div class="sp-column shadow p-3 bg-white rounded">
             <div id="system-message-container">
             </div>
             <div id="akeeba-renderjoomla">
@@ -260,7 +260,7 @@
                                     <input type="checkbox" id="acceptTerms" name="acceptTerms" value=""
                                       formControlName="acceptTerms" class="form-check-input">&nbsp;
                                     <label for="acceptTerms"> Accept our <a [routerLink]="['/terms']">
-                                        <span class="text-primary">TERMS AND CONDITIONS</span></a></label>
+                                        <span class="text-warning">TERMS AND CONDITIONS</span></a></label>
                                     <div
                                       *ngIf="registerForm.controls['acceptTerms'].hasError('required') && registerForm.get('acceptTerms').touched"
                                       class="text-danger">Accept Ts &
@@ -273,7 +273,7 @@
                                   class="btn btn-primary mr-1">{{isBusy ? 'Creating account...' : 'CREATE ACCOUNT'}}</button>
                                 <button class="btn btn-secondary" type="reset" (click)="onReset()">CANCEL</button>
                                 <p>Already have an account <a [routerLink]="['/login']"><span
-                                      class="text-primary">LOGIN</span></a></p>
+                                      class="text-warning">LOGIN</span></a></p>
                               </div>
                             </div>
                           </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
@@ -10,7 +10,6 @@ import { UtilityService } from 'src/app/services/utility.service';
 import { environment } from 'src/environments/environment';
 
 declare var PaystackPop: any;
-
 
 const inputOptions = {
   'card': 'card',
@@ -24,12 +23,14 @@ const formatter = new Intl.NumberFormat('en-NI', {
 })
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-foodbank-dashboard',
+  templateUrl: './foodbank-dashboard.component.html',
+  styleUrls: ['./foodbank-dashboard.component.css']
 })
-export class UserProfileComponent implements OnInit {
-  @ViewChild('editForm')  editForm: NgForm;
+
+export class FoodbankDashboardComponent implements OnInit {
+
+  // @ViewChild('editForm')  editForm: NgForm;
   userData: User;
   dashboardData: any;
   purchases: any;
@@ -51,8 +52,6 @@ export class UserProfileComponent implements OnInit {
   navigationSubscription;
   refreshing: boolean = false;
 
-
-
   constructor(private authSvc: AuthService, private router: Router,
     private profileSvc: ProfileService,
     private toastr: ToasterService,
@@ -67,18 +66,16 @@ export class UserProfileComponent implements OnInit {
       });
      }
 
-
-    Refresh() {
+     Refresh() {
       this.refreshing = true;
-      this.router.navigateByUrl('app/profile');
+      this.router.navigateByUrl('app/foodbank-dashboard');
 
       setTimeout(() => {
         this.refreshing = false;
       }, 3000);
     }
 
-  ngOnInit() {
-    //this.onComponentMounted();
+  ngOnInit(): void {
   }
 
   onComponentMounted() {
@@ -422,4 +419,5 @@ export class UserProfileComponent implements OnInit {
        this.navigationSubscription.unsubscribe();
     }
   }
+
 }

@@ -1,0 +1,115 @@
+<!-- <section id="sp-section-4">
+    <div class="row">
+        <div id="sp-title" class="col-lg-12 ">
+            <div class="sp-column ">
+                <div class="sp-page-title" style="background-image: url(assets/images/background/inner-banner-bg.jpg);">
+                    <div class="container">
+                        <h2 class="sp-page-title-heading">Profile Insights</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section id="sp-main-body">
+  <div class="row">
+      <main id="sp-component" class="col-lg-12 " role="main">
+          <div class="sp-column ">
+              <div id="sp-page-builder" class="sp-page-builder  page-2">
+                  <div class="page-content">
+                      <!-- withdrawal -->
+                      <section id="section-id-1551490002720" class="sppb-section farm-subscription"
+                          style="padding-top: 0%;">
+                          <br><br>
+                          <!-- withdrawal-table -->
+                          <div id="section-id-1551573988958" class="sppb-section  ">
+                              <div class="sppb-row-container">
+                                <button type="button" class="btn btn-success t-btn float-right" (click)="Refresh()"><i  title="Refresh" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:16px; cursor: pointer;"></i> REFRESH</button>
+                                <div class="shadow p-3 mb-5 bg-white rounded">
+                                  <div class="sppb-row">
+                                    <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                        <div id="column-id-1551573988957" class="sppb-column">
+                                            <div class="sppb-column-addons">
+                                                <div id="sppb-addon-1551573988978" class="clearfix">
+                                                    <div class="sppb-addon sppb-addon-text-block">
+                                                        <!-- <h3 class="sppb-addon-title">Current <span
+                                                                class="text-primary">Farm
+                                                                ({{dashboardData.inv.length}})</span></h3> -->
+                                                        <!-- <div class="input-group pull-right">
+                                                            <a (click)="newFarm()"> <input
+                                                                    class="p-button" style="cursor: pointer;"
+                                                                    type="submit" value="New Farm"></a>
+                                                        </div> -->
+                                                        <div class="sppb-addon-content"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="e-panel card">
+                                                  <div class="card-header">
+                                                      <div class="float-right">
+
+                                                          <select>
+                                                            <option value="today">Today</option>
+                                                            <option value="month">Month</option>
+                                                            <option value="year">Year</option>
+                                                          </select>
+
+                                                      </div>
+                                                      <h4 class="sppb-addon-title">Withdrawal <span
+                                                        class="text-primary">Details
+                                                        ({{dashboardData.inv.length}})</span></h4>
+                                                      </div>
+                                                  <div class="card-body">
+                                                      <div class="e-table">
+                                                          <div class="table-responsive table-lg">
+                                                            <table class="table table-bordered text-nowrap">
+                                                              <thead>
+                                                                  <tr class="bg-success text-light">
+                                                                      <th scope="col">S/N</th>
+                                                                      <th scope="col">Amount</th>
+                                                                      <th scope="col">Date</th>
+                                                                      <th scope="col">Withdrawal From</th>
+                                                                      <th scope="col">Action</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                  <tr *ngFor="let item of dashboardData.inv; let index = index">
+                                                                      <th scope="row">{{index + 1}}</th>
+                                                                      <td class="text-right">{{item.amount | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td>{{item.startDate | date: "mediumDate"}}
+                                                                      </td>
+                                                                      <td>{{item.amount}}</td>
+                                                                      <td>
+                                                                        <button title="withdraw"
+                                                                        class="btn btn-outline-success"><i class="fa fa-plus-circle"></i>Withdraw
+                                                                      </button>
+                                                                      </td>
+                                                                  </tr>
+                                                              </tbody>
+                                                          </table>
+                                                          </div>
+
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                                <div id="sppb-addon-1551578090420"
+                                                    class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                                    <div class="sppb-empty-space  clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                              </div>
+                          </div>
+                      </section>
+                      <!-- end-withdrawal -->
+                  </div>
+              </div>
+          </div>
+      </main>
+  </div>
+</section>
+

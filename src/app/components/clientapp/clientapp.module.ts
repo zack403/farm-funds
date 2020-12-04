@@ -13,6 +13,10 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { PackagesComponent } from '../packages/packages.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DepositComponent } from './deposit/deposit.component';
+import { WithdrawalComponent } from './withdrawal/withdrawal.component';
+import { FoodbankDashboardComponent } from './foodbank-dashboard/foodbank-dashboard.component';
+import { InvestmentDashboardComponent } from './investment-dashboard/investment-dashboard.component';
 
 
 
@@ -28,7 +32,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FarmifyShoppingComponent,
     ShoppingCartComponent,
     FarmifyShoppingDetailComponent,
-    PackagesComponent],
+    PackagesComponent,
+    DepositComponent,
+    WithdrawalComponent,
+    FoodbankDashboardComponent,
+    InvestmentDashboardComponent],
   exports: [ClientappComponent],
   
 })

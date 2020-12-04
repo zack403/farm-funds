@@ -1,0 +1,636 @@
+<div class="site helix-ultimate com-j2store view-products layout-default task-view itemid-135">
+  <section id="sp-section-4">
+    <!-- <div class="row">
+      <div id="sp-title" class="col-lg-12 ">
+        <div class="sp-column ">
+          <div class="sp-page-title"
+            style="background-image: url(../../../../../assets/images/background/inner-banner-bg.jpg);">
+            <div class="container">
+              <h2 class="sp-page-title-heading">Our Shop</h2>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <br><br><br>
+  </section>
+  <section id="sp-main-body">
+    <div class="container">
+
+        <div class="row">
+
+          <aside id="sp-right" class="col-lg-2 ">
+            <div id="list-example" class="list-group">
+              <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+              <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+            </div>
+          </aside>
+          <main id="sp-component" class="col-lg-10 " role="main">
+            <div class="page-content scrollspy-example" data-spy="scroll" data-target="#list-example" data-offset="0">
+              <!-- dashboard-header -->
+              <div id="section-id-1551490002720" class="sppb-section" style="padding-bottom: 0%;">
+                  <div class="sppb-row-container">
+                      <div class="sppb-row">
+                          <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
+                              <div id="column-id-1551490002719" class="sppb-column">
+                                  <div *ngIf="success" class="alert alert-success alert-dissmissible">
+                                      <a href="#" class="close" data-dismiss="alert"
+                                          aria-label="close">&times;</a>
+                                      <span><strong>{{success}}</strong></span>
+
+                                  </div>
+                                  <div class="sppb-column-addons">
+                                      <div id="sppb-addon-1551573988809" class="clearfix">
+                                          <h3 class="sppb-addon-title">User <span
+                                                  class="text-primary">Dashboard </span>
+                                              <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
+                                                  <b>{{subscribers.subs.length}}</b> Food
+                                                  Subscription.
+                                                  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:24px; cursor: pointer;"></i>
+                                                </small>
+
+                                                  <small *ngIf="selected" class="current" style="text-transform: none;">You are currently on
+                                                      <b>{{dashboardData.inv.length}}</b> Farm Investment.
+                                                  <i  title="Refresh" (click)="Refresh()" class="fa fa-refresh" style="font-size:24px; cursor: pointer;"></i>
+                                                    </small>
+
+
+                                              <!-- <span *ngIf="dashboardData.length > 0"
+                                                  [innerHTML]="emoji"></span> -->
+
+                                              <span *ngIf="!selected"  class="pull-right">
+                                                  <a (click)="AddItems()"> <input class="p-button"
+                                                          style="cursor: pointer;" type="submit"
+                                                          value="Add Items"></a>
+                                              </span>
+                                          </h3>
+                                          <!-- switch-button -->
+                                          <small class="text-warning font-weight-bold"
+                                              style="font-size: 16px; margin-right: 10px;">Food Sub.</small>
+                                          <label class="switch">
+                                              <input [(ngModel)]="selected" type="checkbox">
+                                              <span class="slider"></span>
+                                          </label>
+                                          <small class="text-primary font-weight-bold"
+                                              style="font-size: 16px;margin-left: 10px;">Farm Inv.</small>
+
+                                              <div *ngIf="subscribers.subs.length > 1 && !selected" style="margin-bottom: 10px;" class="pull-right">
+                                                  <label> Switch Subscription </label>
+                                                  <select (change)="switchSubs($event)">
+                                                      <option *ngFor="let sub of subscribers.subs" [value]="sub.id" >{{sub.amount | currency: '&#8358; '}}</option>
+                                                  </select>
+                                              </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- end-dashboard-header -->
+
+              <!-- farm-subscription -->
+              <div  id="list-item-1" class="sppb-section farm-subscription"
+                  style="padding-top: 0%;">
+                  <div class="sppb-row-container">
+                      <div class="sppb-row">
+                          <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
+                              <div id="column-id-1551490002719" class="sppb-column">
+                                  <div class="sppb-column-addons">
+                                      <div id="sppb-addon-1551573988809" class="clearfix">
+                                          <div class="sppb-addon sppb-addon-text-block  ">
+                                              <!-- <h1 class="sppb-addon-title">User <span
+                                                      class="text-primary">Dashboard </span>
+                                                  <small style="text-transform: none;">You are currently on
+                                                      <b>{{dashboardData.count}}</b> Farm Investments.</small>
+                                                  <span *ngIf="dashboardData.count > 0"
+                                                      [innerHTML]="emoji"></span>
+                                              </h1> -->
+                                              <div class="sppb-addon-content">
+                                                  <div class="text">
+                                                      <div class="row">
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-success text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Total Farm Investment</span>
+                                                                      <h2 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-info text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Total ROI</span>
+                                                                      <h2 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-warning text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Total Payout</span>
+                                                                      <h2 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div class="card bg-light text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span><i
+                                                                              class="fas fa-sign-out-alt"></i>
+                                                                          My Wallet </span>
+                                                                      <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
+                                                                      </h2>
+                                                                      <button style="cursor: pointer;"
+                                                                          class="badge badge-success"><a
+                                                                              (click)="openModa('smallmoda')">Fund</a></button>
+                                                                      <footer class="blockquote-footer">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <br><br>
+                  <!-- farm-investment-table -->
+                  <div id="section-id-1551573988958" class="sppb-section  ">
+                      <div class="sppb-row-container">
+                          <div class="sppb-row">
+                              <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                  <div id="column-id-1551573988957" class="sppb-column">
+                                      <div class="sppb-column-addons">
+                                          <div id="sppb-addon-1551573988978" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-text-block  ">
+                                                  <h3 class="sppb-addon-title">Current <span
+                                                          class="text-primary">Farm
+                                                          ({{dashboardData.inv.length}})</span></h3>
+                                                  <div class="input-group pull-right">
+                                                      <a (click)="newFarm()"> <input
+                                                              class="p-button" style="cursor: pointer;"
+                                                              type="submit" value="New Farm"></a>
+                                                  </div>
+                                                  <div class="sppb-addon-content"></div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551573988963" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-raw-html ">
+                                                  <div class="sppb-addon-content">
+                                                      <div class="table-responsive single-item">
+                                                          <table class="table table-bordered text-nowrap">
+                                                              <thead>
+                                                                  <tr class="bg-success text-light">
+                                                                      <th scope="col">S/N</th>
+                                                                      <th scope="col">Package</th>
+                                                                      <th scope="col">Unit</th>
+                                                                      <th scope="col">Amount</th>
+                                                                      <th scope="col">ROI</th>
+                                                                      <th scope="col">Start Date</th>
+                                                                      <th scope="col">End Date</th>
+                                                                      <th scope="col">Status</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                  <tr *ngFor="let item of dashboardData.inv; let index = index">
+                                                                      <th scope="row">{{index + 1}}</th>
+                                                                      <td>{{item.package}}</td>
+                                                                      <td>{{item.unit}}</td>
+                                                                      <td class="text-right">{{item.amount | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td class="text-right">{{item.roi | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td>{{item.startDate | date: "mediumDate"}}
+                                                                      </td>
+                                                                      <td>{{item.endDate | date: "mediumDate"}}
+                                                                      </td>
+                                                                      <td><span
+                                                                          [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</span>
+                                                                      </td>
+                                                                  </tr>
+                                                              </tbody>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551578090420"
+                                              class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                              <div class="sppb-empty-space  clearfix"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- end-farm-subscription -->
+
+              <!-- food-subscription -->
+              <div *ngIf="!selected" id="list-item-2" class="sppb-section food-subscription"
+                  style="padding-top: 0%;">
+                  <div class="sppb-row-container">
+                      <div class="sppb-row">
+                          <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
+                              <div id="column-id-1551490002719" class="sppb-column">
+                                  <div class="sppb-column-addons">
+                                      <div id="sppb-addon-1551573988809" class="clearfix">
+                                          <div class="sppb-addon sppb-addon-text-block  ">
+                                              <!-- <h1 class="sppb-addon-title">User <span
+                                                      class="text-primary">Dashboard </span>
+                                                  <small style="text-transform: none;">You are currently on
+                                                      <b>{{dashboardData.count}}</b> Food
+                                                      Subscription.</small>
+                                                  <span *ngIf="dashboardData.count > 0"
+                                                      [innerHTML]="emoji"></span>
+
+                                                      <span class="add-item pull-right">
+                                                          <a [routerLink]= "['/app/farmify-shopping']"> <input class="p-button"
+                                                                  style="cursor: pointer;" type="submit"
+                                                                  value="Add Items">
+                                                          </a>
+                                                      </span>
+                                              </h1> -->
+                                              <div class="sppb-addon-content">
+                                                  <div class="text">
+                                                      <div class="row">
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-success text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Current Food Subscription</span>
+                                                                      <h2 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-info text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Your ROI</span>
+                                                                      <h2 class="card-amount">{{subscribers.roi | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div
+                                                                  class="card bg-warning text-white text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span>Your ROC</span>
+                                                                      <h2 class="card-amount">{{subscribers.roc | currency: '&#8358; '}}
+                                                                      </h2><br>
+                                                                      <footer
+                                                                          class="blockquote-footer text-white">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-md-3">
+                                                              <div class="card bg-light text-center p-3">
+                                                                  <blockquote class=" mb-0">
+                                                                      <span><i
+                                                                              class="fas fa-sign-out-alt"></i>
+                                                                          My Wallet </span>
+                                                                      <h2 class="card-amount">{{myWallet | currency: '&#8358; '}}
+                                                                      </h2>
+                                                                      <button style="cursor: pointer;"
+                                                                          class="badge badge-success"><a
+                                                                              (click)="openModal('smallmoda')">Fund</a></button>
+                                                                      <footer class="blockquote-footer">
+                                                                          <small>
+                                                                              Farmfunds <cite
+                                                                                  title="Source Title">Africa</cite>
+                                                                          </small>
+                                                                      </footer>
+                                                                  </blockquote>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <br><br>
+                  <!-- food-subdcription-table -->
+                  <div id="section-id-1551573988958" class="sppb-section  ">
+                      <div class="sppb-row-container">
+                          <div class="sppb-row">
+                              <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+
+                                  <div id="column-id-1551573988957" class="sppb-column">
+                                      <div class="sppb-column-addons">
+                                          <div id="sppb-addon-1551573988978" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-text-block  ">
+                                                  <h3 class="sppb-addon-title">Foods Bank <span
+                                                          class="text-primary">Subscriptions
+                                                          ({{subscribers.subs.length}})</span></h3>
+                                                  <div class="input-group pull-right">
+                                                      <!-- <a (click)="openModal('purchase')"> <input class="p-button"
+                                                                                          style="cursor: pointer;" type="submit"
+                                                                                          value="Shop Food">
+                                                                                      </a> -->
+                                                      <!-- &nbsp;
+                                                                                  &nbsp; -->
+                                                      <a (click)="openswal()"> <input class="p-button"
+                                                              style="cursor: pointer;" type="submit"
+                                                              value="Subscribe"></a>
+                                                  </div>
+                                                  <div class="sppb-addon-content"></div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551573988963" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-raw-html ">
+                                                  <div class="sppb-addon-content">
+                                                      <div class="table-responsive single-item">
+                                                          <table class="table table-bordered text-nowrap">
+                                                              <thead>
+                                                                  <tr class="bg-success text-light">
+                                                                      <th scope="col">S/N</th>
+                                                                      <th scope="col">Name</th>
+                                                                      <th scope="col" class="phone">Phone No.</th>
+                                                                      <th scope="col">Unit</th>
+                                                                      <th scope="col" class="amount">Amount</th>
+                                                                      <th scope="col">Payment Type</th>
+                                                                      <th scope="col">Status</th>
+                                                                      <th scope="col" class="roi">ROI</th>
+                                                                      <th scope="col" class="roc">ROC</th>
+                                                                      <th scope="col">Start Date</th>
+                                                                      <th scope="col">End Date</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                  <tr *ngFor="let i of subscribers.subs; let index = index"
+                                                                      style="width: 50%;">
+                                                                      <th scope="row">{{index + 1}}</th>
+                                                                      <td>{{i.name}}</td>
+                                                                      <td class="phone">{{i.phoneNo}}</td>
+                                                                      <td>{{i.unit}}</td>
+                                                                      <td class="text-right"
+                                                                          style="width: 140px;" class="amount">
+                                                                          {{i.amount | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td>{{i.paymentType}}</td>
+                                                                      <td class="text-right"
+                                                                          style="width: 140px;" class="roi">
+                                                                          {{i.roi | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td><span
+                                                                              [ngClass]="{'badge badge-success badge-pill': i.status === 'Activated', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                      </td>
+                                                                      <td class="text-right"
+                                                                          style="width: 140px;" class="roc">
+                                                                          {{i.roc | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td>{{i.startDate | date: "mediumDate"}}
+                                                                      </td>
+                                                                      <td>{{i.endDate | date: "mediumDate"}}
+                                                                      </td>
+                                                                  </tr>
+                                                              </tbody>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551578090420"
+                                              class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                              <div class="sppb-empty-space  clearfix"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div><br>
+                  <!-- item-other-table -->
+                  <div id="section-id-1551573988958" class="sppb-section  ">
+                      <div class="sppb-row-container">
+                          <div class="sppb-row">
+                              <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
+                                  <div id="column-id-1551573988957" class="sppb-column">
+                                      <div class="sppb-column-addons">
+                                          <div id="sppb-addon-1551573988978" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-text-block  ">
+                                                  <h3 class="sppb-addon-title">Food Bank <span
+                                                          class="text-primary">Orders
+                                                          ({{purchases.length}})</span></h3>
+                                                  <div class="input-group pull-right">
+                                                      <!-- <a (click)="openModal('purchase')"> <input class="p-button"
+                                                              style="cursor: pointer;" type="submit"
+                                                              value="Shop Food">
+                                                          </a> -->
+                                                      <!-- &nbsp;
+                                                      &nbsp; -->
+
+
+                                                  </div>
+                                                  <span *ngIf="showDetails" class="add-item pull-right">
+                                                      <a title="View parent" class="text-primary detail"
+                                                          (click)="back()"><i class="fa fa-arrow-left">
+                                                              Back</i></a>
+
+                                                      <!-- <a>
+                                                          <button title="View parent" (click)="back()"
+                                                          class="btn btn-outline-success"><i class="fa fa-arrow-left"></i>
+                                                      </button>
+                                                      </a> -->
+                                                  </span>
+                                                  <div class="sppb-addon-content"></div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551573988963" class="clearfix">
+                                              <div class="sppb-addon sppb-addon-raw-html ">
+                                                  <div class="sppb-addon-content">
+                                                      <div class="table-responsive single-item">
+                                                          <table *ngIf="!showDetails"
+                                                              class="table table-bordered text-nowrap">
+                                                              <thead>
+                                                                  <tr class="bg-success text-light">
+                                                                      <th scope="col">S/N</th>
+                                                                      <th scope="col" class="name">Name</th>
+                                                                      <th scope="col">Phone No</th>
+                                                                      <th scope="col" class="type">Type</th>
+                                                                      <th scope="col">Order Date</th>
+                                                                      <th scope="col">Status</th>
+                                                                      <th scope="col">Delivery Date</th>
+                                                                      <th scope="col">Action</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                  <tr
+                                                                      *ngFor="let i of purchases let index = index">
+                                                                      <th>{{index + 1}}</th>
+                                                                      <td class="name">{{i.name}}</td>
+                                                                      <td>{{i.phoneNo}}</td>
+                                                                      <td class="type">{{i.type}}</td>
+                                                                      <td>{{i.createdAt | date: "mediumDate"}}
+                                                                      </td>
+                                                                      <td><span
+                                                                              [ngClass]="{'badge badge-success badge-pill': i.status === 'Delivered', 'badge badge-warning': i.status === 'Pending'}">{{i.status}}</span>
+                                                                      </td>
+                                                                      <td>{{i.deliveredDate | date: "mediumDate"}}
+                                                                      <td>
+                                                                          <button title="View Order detail"
+                                                                              (click)="viewOrder(i.id)"
+                                                                              class="btn btn-outline-success"><i
+                                                                                  class="fa fa-eye"></i> View Details
+                                                                          </button>
+                                                                      </td>
+
+                                                                  </tr>
+                                                              </tbody>
+                                                          </table>
+                                                          <table *ngIf="showDetails"
+                                                              class="table table-bordered">
+                                                              <thead>
+                                                                  <tr class="bg-success text-light">
+                                                                      <th scope="col">S/N</th>
+                                                                      <th scope="col">Product</th>
+                                                                      <th scope="col">Price</th>
+                                                                      <th scope="col">Quantity</th>
+                                                                  </tr>
+                                                              </thead>
+                                                              <tbody>
+                                                                  <tr
+                                                                      *ngFor="let detail of details let index = index">
+                                                                      <th>{{index + 1}}</th>
+                                                                      <td>{{detail.productName}}</td>
+                                                                      <td class="text-right">
+                                                                          {{detail.price | currency: '&#8358; '}}
+                                                                      </td>
+                                                                      <td>{{detail.unit}}</td>
+
+
+                                                                      <!-- <td>
+                                                                          <button title="View Order detail" (click)="viewOrder(item.id)"
+                                                                              class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
+                                                                          </button>
+                                                                      </td> -->
+
+                                                                  </tr>
+                                                              </tbody>
+                                                              <thead>
+                                                                  <tr>
+                                                                      <th class=""></th>
+                                                                      <th class="">Total</th>
+                                                                      <th class="text-right">{{total | currency: '&#8358; '}}</th>
+                                                                      <th class=""></th>
+
+                                                                  </tr>
+                                                              </thead>
+                                                          </table>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div id="sppb-addon-1551578090420"
+                                              class="sppb-hidden-md sppb-hidden-lg clearfix">
+                                              <div class="sppb-empty-space  clearfix"></div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <!-- end-food-subscription -->
+            </div>
+          </main>
+        </div>
+
+    </div>
+  </section>
+
+<!-- modal begin -->
+<span hidden id="newfarm" data-toggle="modal" data-target="#staticBackdrop"></span>
+<span hidden id="purchase" data-toggle="modal" data-target="#staticBackdrop"></span>
+<span hidden id="subscribe" data-toggle="modal" data-target="#staticBackdrop"></span>
+<span hidden id="smallmodal" data-toggle="modal" data-target="#staticBackdrop"></span>
+
+
+
+<div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+    <div id="util" class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <button id="cl" hidden data-dismiss="modal"></button>
+            <div class="modal-body">
+
+                <app-packages [shouldShow]="false"></app-packages>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!-- end modal -->
+
+</div>
