@@ -49,7 +49,7 @@ export class DepositComponent implements OnInit {
       
       
       if(res.Subscribers.length > 0) {
-        for (const r of res.Subcribers) {
+        for (const r of res.Subscribers) {
           r.package = 'Food Bank Subscription'
         }
       }
