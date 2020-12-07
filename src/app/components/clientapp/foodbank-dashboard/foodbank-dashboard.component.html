@@ -86,11 +86,11 @@
                             <div class="sppb-addon-content">
                               <div class="text">
                                 <div class="sppb-addon-content">
-                                  <div class="shadow p-3 mb-5 bg-white rounded">
+                                  <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
                                     <div class="text">
                                       <div class="row">
-                                        <div class="col-md-3">
-                                          <div class="card dashboard bg-success text-white text-center p-3">
+                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                          <div class="card bg-success dashboard text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Current Food Subscription</span>
                                               <h4 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
@@ -105,7 +105,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-info text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Your ROI</span>
@@ -121,7 +121,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-warning text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Your ROC</span>
@@ -137,7 +137,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-light text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span><i class="fas fa-sign-out-alt"></i>
@@ -156,7 +156,7 @@
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
+                                  <!-- </div> -->
 
                                 </div>
                               </div>
@@ -174,7 +174,7 @@
                 <div class="sppb-row-container">
                   <button type="button" class="btn btn-success t-btn float-right" id="findme"
                     (click)="openswal()">SUBSCRIBE</button>
-                  <div class="shadow p-3 mb-5 bg-white rounded">
+                  <div class="shadow p-3 bg-white rounded dashboard">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                         <div id="column-id-1551573988957" class="sppb-column">
@@ -270,11 +270,11 @@
               <!-- item-other-table -->
               <div id="section-id-1551573988958" class="sppb-section  ">
                 <div class="sppb-row-container">
-                  <button type="button" class="btn btn-success t-btn pull-right" [routerLink]= "['/app/farmify-shopping']"><i
+                  <button type="button" class="btn btn-success t-btn pull-right" (click)="AddItems()"><i
                     class="fa fa-plus"></i>Add Item</button>
                   <!-- <button *ngIf="showDetails" type="button" class="btn btn-success t-btn" (click)="back()" style="margin-top: -110px;"><i
                       class="fa fa-arrow-left"></i>BACK</button> -->
-                  <div class="shadow p-3 mb-5 bg-white rounded">
+                  <div class="shadow p-3 bg-white rounded dashboard">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                         <div id="column-id-1551573988957" class="sppb-column">
