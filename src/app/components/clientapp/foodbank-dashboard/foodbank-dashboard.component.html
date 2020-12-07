@@ -1,21 +1,3 @@
-<!-- <section id="sp-section-4">
-    <div class="row">
-        <div id="sp-title" class="col-lg-12 ">
-            <div class="sp-column ">
-                <div class="sp-page-title" style="background-image: url(assets/images/background/inner-banner-bg.jpg);">
-                    <div class="container">
-                        <h2 class="sp-page-title-heading">Profile Insights</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
-
-
-
 <section id="sp-main-body">
   <div class="row">
     <main id="sp-component" class="col-lg-12 " role="main">
@@ -68,21 +50,7 @@
                       <div class="sppb-column-addons">
                         <div id="sppb-addon-1551573988809" class="clearfix">
                           <div class="sppb-addon sppb-addon-text-block  ">
-                            <!-- <h1 class="sppb-addon-title">User <span
-                                                              class="text-primary">Dashboard </span>
-                                                          <small style="text-transform: none;">You are currently on
-                                                              <b>{{dashboardData.count}}</b> Food
-                                                              Subscription.</small>
-                                                          <span *ngIf="dashboardData.count > 0"
-                                                              [innerHTML]="emoji"></span>
-
-                                                              <span class="add-item pull-right">
-                                                                  <a [routerLink]= "['/app/farmify-shopping']"> <input class="p-button"
-                                                                          style="cursor: pointer;" type="submit"
-                                                                          value="Add Items">
-                                                                  </a>
-                                                              </span>
-                                                      </h1> -->
+                        
                             <div class="sppb-addon-content">
                               <div class="text">
                                 <div class="sppb-addon-content">
@@ -173,7 +141,7 @@
               <div id="section-id-1551573988958" class="sppb-section  ">
                 <div class="sppb-row-container">
                   <button type="button" class="btn btn-success t-btn float-right" id="findme"
-                    (click)="openswal()">SUBSCRIBE</button>
+                    (click)="openswal()">Subscribe</button>
                   <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
@@ -181,26 +149,13 @@
                           <div class="sppb-column-addons">
                             <div id="sppb-addon-1551573988978" class="clearfix">
                               <div class="sppb-addon sppb-addon-text-block  ">
-                                <!-- <h3 class="sppb-addon-title">Current <span
-                                                              class="text-primary">Farm
-                                                              ({{dashboardData.inv.length}})</span></h3> -->
-                                <!-- <div class="input-group pull-right">
-                                                          <a (click)="newFarm()"> <input
-                                                                  class="p-button" style="cursor: pointer;"
-                                                                  type="submit" value="New Farm"></a>
-                                                      </div> -->
+                            
                                 <div class="sppb-addon-content"></div>
                               </div>
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-                                <!-- <div class="float-right">
-                                  <select>
-                                    <option value="today">Today</option>
-                                    <option value="month">Month</option>
-                                    <option value="year">Year</option>
-                                  </select>
-                                </div> -->
+                              
                                 <h4 class="sppb-addon-title">Foods Bank <span class="text-primary">Subscriptions
                                     ({{subscribers.subs.length}})</span>
                                 </h4>
@@ -271,7 +226,7 @@
               <div id="section-id-1551573988958" class="sppb-section  ">
                 <div class="sppb-row-container">
                   <button type="button" class="btn btn-success t-btn pull-right" [routerLink]= "['/app/farmify-shopping']"><i
-                    class="fa fa-plus"></i>Add Item</button>
+                    class="fa fa-plus"></i> Add Item</button>
                   <!-- <button *ngIf="showDetails" type="button" class="btn btn-success t-btn" (click)="back()" style="margin-top: -110px;"><i
                       class="fa fa-arrow-left"></i>BACK</button> -->
                   <div class="shadow p-3 mb-5 bg-white rounded">
@@ -281,26 +236,13 @@
                           <div class="sppb-column-addons">
                             <div id="sppb-addon-1551573988978" class="clearfix">
                               <div class="sppb-addon sppb-addon-text-block  ">
-                                <!-- <h3 class="sppb-addon-title">Current <span
-                                                              class="text-primary">Farm
-                                                              ({{dashboardData.inv.length}})</span></h3> -->
-                                <!-- <div class="input-group pull-right">
-                                                          <a (click)="newFarm()"> <input
-                                                                  class="p-button" style="cursor: pointer;"
-                                                                  type="submit" value="New Farm"></a>
-                                                      </div> -->
+                              
                                 <div class="sppb-addon-content"></div>
                               </div>
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-                                <!-- <div class="float-right">
-                                                        <select>
-                                                          <option value="today">Today</option>
-                                                          <option value="month">Month</option>
-                                                          <option value="year">Year</option>
-                                                        </select>
-                                                    </div> -->
+                              
                                 <h4 class="sppb-addon-title">Food Bank <span class="text-primary">Orders
                                     ({{purchases.length}})</span></h4>
                       <i *ngIf="showDetails" title="Go back" class="fa fa-arrow-left text-success pull-right" style="cursor: pointer; margin-top: -18px;" (click)="back()">Back</i>
@@ -359,14 +301,6 @@
                                             {{detail.price | currency: '&#8358; '}}
                                           </td>
                                           <td>{{detail.unit}}</td>
-
-
-                                          <!-- <td>
-                                                                                                            <button title="View Order detail" (click)="viewOrder(item.id)"
-                                                                                                                class="btn btn-outline-success"><i class="fa fa-eye"></i> View Order Details
-                                                                                                            </button>
-                                                                                                        </td> -->
-
                                         </tr>
                                       </tbody>
                                       <thead>

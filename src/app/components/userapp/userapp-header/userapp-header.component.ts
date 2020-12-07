@@ -139,7 +139,7 @@ export class UserappHeaderComponent implements OnInit {
   }
 
   go() {
-    this.router.navigateByUrl("app/profile")
+    this.router.navigateByUrl("app/foodbank-dashboard")
   }
 
   ngOnDestroy() {

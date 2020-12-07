@@ -19,14 +19,7 @@
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988978" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block">
-                                                        <!-- <h3 class="sppb-addon-title">Current <span
-                                                                class="text-primary">Farm
-                                                                ({{dashboardData.inv.length}})</span></h3> -->
-                                                        <!-- <div class="input-group pull-right">
-                                                            <a (click)="newFarm()"> <input
-                                                                    class="p-button" style="cursor: pointer;"
-                                                                    type="submit" value="New Farm"></a>
-                                                        </div> -->
+                                                    
                                                         <div class="sppb-addon-content"></div>
                                                     </div>
                                                 </div>
@@ -34,7 +27,7 @@
                                                   <div class="card-header">
                                                       <div class="float-right">
 
-                                                          <select>
+                                                          <select (change)="dateRangeChanged($event)">
                                                             <option value="today">Today</option>
                                                             <option value="month">Month</option>
                                                             <option value="year">Year</option>
@@ -43,7 +36,7 @@
                                                       </div>
                                                       <h4 class="sppb-addon-title">Deposit <span
                                                         class="text-primary">Details
-                                                        ({{dashboardData.inv.length}})</span></h4>                                                    </div>
+                                                        ({{deposits?.length}})</span></h4>                                                    </div>
                                                   <div class="card-body">
                                                       <div class="e-table">
                                                           <div class="table-responsive table-lg">
@@ -52,18 +45,18 @@
                                                                   <tr class="bg-success text-light">
                                                                       <th scope="col">S/N</th>
                                                                       <th scope="col">Amount</th>
-                                                                      <th scope="col">Date</th>
+                                                                      <th scope="col">Date Deposited</th>
                                                                       <th scope="col">Deposit For</th>
                                                                   </tr>
                                                               </thead>
                                                               <tbody>
-                                                                  <tr *ngFor="let item of dashboardData.inv; let index = index">
+                                                                  <tr *ngFor="let item of deposits; let index = index">
                                                                       <th scope="row">{{index + 1}}</th>
                                                                       <td class="text-right">{{item.amount | currency: '&#8358; '}}
                                                                       </td>
                                                                       <td>{{item.startDate | date: "mediumDate"}}
                                                                       </td>
-                                                                      <td>{{item.amount}}</td>
+                                                                      <td>{{item.package}}</td>
                                                                   </tr>
                                                               </tbody>
                                                           </table>

@@ -141,7 +141,7 @@ export class HeaderComponent implements OnInit {
   }
 
   go() {
-    this.router.navigateByUrl("app/profile")
+    this.router.navigateByUrl("app/foodbank-dashboard")
   }
 
   ngOnDestroy() {

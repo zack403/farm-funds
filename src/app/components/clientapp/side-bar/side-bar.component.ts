@@ -23,7 +23,7 @@ export class SideBarComponent implements OnInit {
     if(dc){
       document.getElementById('findme').click();
     } else {
-      this.router.navigateByUrl('app/profile');
+      this.router.navigateByUrl('app/foodbank-dashboard');
       setTimeout(() => {
         document.getElementById('findme').click();
       }, 3000);

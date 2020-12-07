@@ -5,7 +5,7 @@
   </a>
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
-      <li><a href="#" id="sdclicked" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars"
+      <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars"
             style="font-size: 32px;"></i></a></li>
       <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i
             class="ion ion-search"></i></a></li>
@@ -42,7 +42,7 @@
     <li class="dropdown dropdown-list-toggle">
     <a title="Basket" href="#" data-toggle="dropdown"
       class="nav-link  nav-link-lg"  *ngIf="!router.url.includes('shopping-cart')"
-      (click)="cart.purchaseDetails.length > 0 ? viewCart() : '' ">
+      (click)="viewCart()  ">
       <i class="fa fa-shopping-basket" style="margin-top: 10px; font-size: 18px;">
         <small class="nav-link  nav-link-lg" *ngIf="
               cart.purchaseDetails.length > 0

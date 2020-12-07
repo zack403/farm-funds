@@ -246,7 +246,7 @@ export class FoodbankDashboardComponent implements OnInit {
               this.utilSvc.uploadProofOfPayment(formData).subscribe((res:any) => {
                 console.log(res.message);
                 this.success = "Your file has been uploaded successfully, You will be notified when your subscription has been confirmed and activated.. Thanks.";
-                this.router.navigateByUrl('app/profile');
+                this.router.navigateByUrl('app/foodbank-dashboard');
               })
             },
             allowOutsideClick: () => !Swal.isLoading()

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientappComponent } from './clientapp.component';
 import { ClientappRoutingModule } from './clientapp-routing/clientapp-routing';
 import { FarmifyShoppingComponent } from '../farmify-shopping/farmify-shopping.component';
@@ -28,7 +27,12 @@ import { InvestmentDashboardComponent } from './investment-dashboard/investment-
     NgxPaginationModule
 
   ],
-  declarations: [ClientappComponent, HeaderComponent, SideBarComponent, FooterComponent, DashboardComponent, UserProfileComponent,
+  declarations: [
+    ClientappComponent, 
+    HeaderComponent, 
+    SideBarComponent, 
+    FooterComponent, 
+    UserProfileComponent,
     FarmifyShoppingComponent,
     ShoppingCartComponent,
     FarmifyShoppingDetailComponent,
