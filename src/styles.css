@@ -6703,6 +6703,10 @@ body.sidebar-gone .navbar {
     left: auto;
 }
 
+.dashboard:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
 
 
 
