@@ -70,8 +70,8 @@
                                                                         class="card dashboard bg-success text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Farm Investment</span>
-                                                                            <h4 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
-                                                                            </h4>
+                                                                            <h3 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
+                                                                            </h3>
                                                                             <i class="fa fa-area-chart text-warning" style="font-size: 50px;"></i>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
@@ -89,8 +89,8 @@
                                                                         class="card dashboard bg-info text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total ROI</span>
-                                                                            <h4 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
-                                                                            </h4>
+                                                                            <h3 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                                                            </h3>
                                                                             <i class="fa fa-rotate-left text-warning" style="font-size: 50px;"></i>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
@@ -108,8 +108,8 @@
                                                                         class="card dashboard bg-warning text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Payout</span>
-                                                                            <h4 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
-                                                                            </h4>
+                                                                            <h3 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
+                                                                            </h3>
                                                                             <i class="fa fa-money text-success" style="font-size: 50px;"></i>
                                                                             <footer
                                                                                 class="blockquote-footer text-white">
@@ -127,8 +127,8 @@
                                                                     <blockquote class=" mb-0">
                                                                       <span><i class="fas fa-sign-out-alt"></i>
                                                                         My Wallet </span>
-                                                                      <h4 class="card-amount">{{myWallet | currency: '&#8358; '}}
-                                                                      </h4>
+                                                                      <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
+                                                                      </h3>
                                                                       <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
                                                                       <footer class="blockquote-footer">
                                                                         <i class="fa fa-credit-card"></i>
@@ -156,7 +156,7 @@
                           <div id="section-id-1551573988958" class="sppb-section  ">
                               <div class="sppb-row-container">
                                 <button type="button" class="btn btn-success t-btn float-right" (click)="newFarm()">Start New Farm</button>
-                                <div class="shadow p-3 mb-5 bg-white rounded">
+                                <div class="shadow p-3 bg-white rounded dashboard">
                                   <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                                         <div id="column-id-1551573988957" class="sppb-column">
@@ -215,8 +215,8 @@
                                                                       </td>
                                                                       <td>{{item.endDate | date: "mediumDate"}}
                                                                       </td>
-                                                                      <td><span
-                                                                          [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</span>
+                                                                      <td><small
+                                                                          [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</small>
                                                                       </td>
                                                                   </tr>
                                                               </tbody>

@@ -43,19 +43,14 @@
     <a title="Basket" href="#" data-toggle="dropdown"
       class="nav-link  nav-link-lg"  *ngIf="!router.url.includes('shopping-cart')"
       (click)="viewCart()  ">
+      <small *ngIf="basketTotal" style="margin-right: 5px">{{
+        basketTotal | currency: "&#8358; "
+      }}</small>
       <i class="fa fa-shopping-basket" style="margin-top: 10px; font-size: 18px;">
-        <small class="nav-link  nav-link-lg" *ngIf="
-              cart.purchaseDetails.length > 0
-            " class="badge badge-danger" style="
-              z-index: 2;
-              font-size: 16px;
-              top: -15px;
-              left: -7px;
-              border-radius: 50%;
-            ">{{
-              cart.purchaseDetails.length
-            }}</small>
-      </i></a>
+      </i><small class="nav-link  nav-link-lg" *ngIf="cart.purchaseDetails.length > 0"
+        class="badge badge-danger">{{
+            cart.purchaseDetails.length
+          }}</small></a>
   </li>
 
     <li class="dropdown dropdown-list-toggle"><a title="Help" href="#" data-toggle="dropdown"
@@ -68,9 +63,11 @@
           <a class="dropdown-item has-icon">
             Start a tutorial
           </a>
-          <a class="dropdown-item has-icon">
+
+          <a class="dropdown-item has-icon" data-toggle="modal" data-target="#updateProfile1" style="cursor: pointer">
             Get support
           </a>
+
           <a class="dropdown-item has-icon">
             Send feedback
           </a>
@@ -130,7 +127,7 @@
 
     <li class="dropdown dropdown-list-toggle">
       <a title="Full Screen" class="nav-link nav-link-lg full-screen-link">
-        <i class="fa fa-expand" id="fullscreen-button"></i>
+        <i class="fa fa-arrows-alt" id="fullscreen-button" style="margin-top: 10px; font-size: 18px;"></i>
       </a>
     </li>
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
@@ -231,6 +228,50 @@
             </div>
           </div>
         </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="updateProfile1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center text-primary" id="exampleModalLabel" style="color: green;">Care Lines</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<div class="row">
+  <div class="col-md-6">
+    <small class="name">Sarah Samuel:<br>
+    <span class="number text-primary"><i class="fa fa-phone"></i> 0801-743-2876</span>
+    </small><br><hr>
+    <small class="name">Joe Alfred:<br>
+    <span class="number text-primary"><i class="fa fa-phone"></i> 0805-387-2345</span>
+    </small><br><hr>
+    <small class="name">Olawale Ajayi:<br>
+    <span class="number text-primary"><i class="fa fa-phone"></i> 0903-456-7895</span>
+    </small>
+  </div>
+  <div class="col-md-6">
+    <small class="name">Sarah Samuel:<br>
+      <span class="number text-primary"><i class="fa fa-phone"></i> 0801-743-2876</span>
+      </small><br><hr>
+      <small class="name">Joe Alfred:<br>
+      <span class="number text-primary"><i class="fa fa-phone"></i> 0805-387-2345</span>
+      </small><br><hr>
+      <small class="name">Olawale Ajayi:<br>
+      <span class="number text-primary"><i class="fa fa-phone"></i> 0903-456-7895</span>
+      </small>
+  </div>
+</div>
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -2,3 +2,9 @@
     color: green;
     cursor: pointer;
 }
+.badge-danger {
+  margin-left: -14px;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 10px;
+}
