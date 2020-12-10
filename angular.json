@@ -27,6 +27,7 @@
             "styles": [
               "src/assets/css/j2store.css",
               "src/styles.css",
+              "src/assets/css/style.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.min.css",
               "src/assets/css/sppagebuilder.css",

@@ -1,13 +1,13 @@
 <nav class="navbar fixed-top navbar-expand-lg main-navbar">
-  <a class="header-brand" href="index.html">
+  <a class="header-brand" [routerLink]="['/app/foodbank-dashboard']">
     <img src="assets/images/logo/ff-logo.jpeg" class="header-brand-img" alt="Farmfunds-Admin  logo"
       style="height: 60px;">
   </a>
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
       <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fa fa-bars"
-            style="font-size: 32px;"></i></a></li>
-      <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i
+            ></i></a></li>
+      <li class="dropdown-list-toggle"><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i
             class="ion ion-search"></i></a></li>
     </ul>
     <!-- <div class="search-element">
@@ -39,7 +39,7 @@
 
     </li> -->
 
-    <li class="dropdown dropdown-list-toggle">
+    <li class="dropdown">
     <a title="Basket" href="#" data-toggle="dropdown"
       class="nav-link  nav-link-lg"  *ngIf="!router.url.includes('shopping-cart')"
       (click)="viewCart()  ">
@@ -54,20 +54,15 @@
   </li>
 
     <li class="dropdown dropdown-list-toggle"><a title="Help" href="#" data-toggle="dropdown"
-        class="nav-link  nav-link-lg"><i class="fa fa-question-circle-o"></i></a>
+        class="nav-link  nav-link-lg"><i style="margin-top: 6px;" class="fa fa-question-circle-o"></i></a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right">
         <div class="dropdown-header">Help
 
         </div>
         <div class="dropdown-list-content">
-          <a class="dropdown-item has-icon">
-            Start a tutorial
-          </a>
-
           <a class="dropdown-item has-icon" data-toggle="modal" data-target="#updateProfile1" style="cursor: pointer">
             Get support
           </a>
-
           <a class="dropdown-item has-icon">
             Send feedback
           </a>
@@ -75,8 +70,8 @@
       </div>
     </li>
 
-    <li class="dropdown dropdown-list-toggle"><a title="Notifications" href="#" data-toggle="dropdown"
-        class="nav-link  nav-link-lg"><i class="fa fa-bell-o"></i></a>
+    <li class="dropdown "><a title="Notifications" href="#" data-toggle="dropdown"
+        class="nav-link  nav-link-lg"><i style="font-size: 20px; margin-top: 8px;" class="fa fa-bell-o"></i></a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right">
         <div class="dropdown-header">Notifications
           <div class="float-right">
@@ -90,36 +85,7 @@
                         <b>So many Users Visit your template</b>
                     </div>
                 </a> -->
-          <!-- <a href="#" class="dropdown-item">
-                    <i class="fa fa-exclamation-triangle text-danger"></i>
-                    <div class="dropdown-item-desc">
-                        <b>Error message occurred....</b>
-                    </div>
-                </a> -->
-          <!-- <a href="#" class="dropdown-item">
-                    <i class="fa fa-users text-warning"></i>
-                    <div class="dropdown-item-desc">
-                        <b> Adding new people</b>
-                    </div>
-                </a> -->
-          <!-- <a href="#" class="dropdown-item">
-                    <i class="fa fa-shopping-cart text-success"></i>
-                    <div class="dropdown-item-desc">
-                        <b>Your items Arrived</b>
-                    </div>
-                </a> -->
-          <!-- <a href="#" class="dropdown-item">
-                    <i class="fa fa-comment text-primary"></i>
-                    <div class="dropdown-item-desc">
-                        <b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
-                    </div>
-                </a> -->
-          <!-- <a href="#" class="dropdown-item">
-                    <i class="fa fa-users text-primary"></i>
-                    <div class="dropdown-item-desc">
-                        <b>So many Users Visit your template</b>
-                    </div>
-                </a> -->
+          
         </div>
       </div>
     </li>
