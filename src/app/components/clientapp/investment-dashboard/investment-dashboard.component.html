@@ -45,199 +45,137 @@
                       <!-- end-dashboard-header -->
 
                       <!-- farm-investment -->
-                      <section id="section-id-1551490002720" class="sppb-section farm-subscription"
-                          style="padding-top: 0%;">
-                          <div class="sppb-row-container">
-                              <div class="sppb-row">
-                                  <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
-                                      <div id="column-id-1551490002719" class="sppb-column">
-                                          <div class="sppb-column-addons">
-                                              <div id="sppb-addon-1551573988809" class="clearfix">
-                                                  <div class="sppb-addon sppb-addon-text-block  ">
-                                                      <!-- <h1 class="sppb-addon-title">User <span
-                                                              class="text-primary">Dashboard </span>
-                                                          <small style="text-transform: none;">You are currently on
-                                                              <b>{{dashboardData.count}}</b> Farm Investments.</small>
-                                                          <span *ngIf="dashboardData.count > 0"
-                                                              [innerHTML]="emoji"></span>
-                                                      </h1> -->
-                                                      <div class="sppb-addon-content">
-                                                        <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
-                                                          <div class="text">
-                                                            <div class="row">
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-success text-white text-center p-3">
-                                                                        <blockquote class=" mb-0">
-                                                                            <span>Total Farm Investment</span>
-                                                                            <h3 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
-                                                                            </h3>
-                                                                            <i class="fa fa-area-chart text-warning" style="font-size: 50px;"></i>
-                                                                            <footer
-                                                                                class="blockquote-footer text-white">
-                                                                            <i class="fa fa-area-chart"></i>
-                                                                                <small>
-                                                                                    Farmfunds <cite
-                                                                                        title="Source Title">Africa</cite>
-                                                                                </small>
-                                                                            </footer>
-                                                                        </blockquote>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-info text-white text-center p-3">
-                                                                        <blockquote class=" mb-0">
-                                                                            <span>Total ROI</span>
-                                                                            <h3 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
-                                                                            </h3>
-                                                                            <i class="fa fa-rotate-left text-warning" style="font-size: 50px;"></i>
-                                                                            <footer
-                                                                                class="blockquote-footer text-white">
-                                                                            <i class="fa fa-rotate-left"></i>
-                                                                                <small>
-                                                                                    Farmfunds <cite
-                                                                                        title="Source Title">Africa</cite>
-                                                                                </small>
-                                                                            </footer>
-                                                                        </blockquote>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-warning text-white text-center p-3">
-                                                                        <blockquote class=" mb-0">
-                                                                            <span>Total Payout</span>
-                                                                            <h3 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
-                                                                            </h3>
-                                                                            <i class="fa fa-money text-success" style="font-size: 50px;"></i>
-                                                                            <footer
-                                                                                class="blockquote-footer text-white">
-                                                                                <i class="fa fa-money"></i>
-                                                                                <small>
-                                                                                    Farmfunds <cite
-                                                                                        title="Source Title">Africa</cite>
-                                                                                </small>
-                                                                            </footer>
-                                                                        </blockquote>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                  <div class="card dashboard bg-light text-center p-3">
-                                                                    <blockquote class=" mb-0">
-                                                                      <span><i class="fas fa-sign-out-alt"></i>
-                                                                        My Wallet </span>
-                                                                      <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
-                                                                      </h3>
-                                                                      <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
-                                                                      <footer class="blockquote-footer">
-                                                                        <i class="fa fa-credit-card"></i>
-                                                                        <small>
-                                                                          Farmfunds <cite title="Source Title">Africa</cite>
-                                                                        </small>
-                                                                      </footer>
-                                                                    </blockquote>
-                                                                  </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- </div> -->
-
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
+                      <section id="section-id-1551490002720" class="sppb-section farm-subscription" style="padding-top: 0%;">
+                          <div class="sppb-row-container col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                            <div class="row">
+                              <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                  <div class="card dashboard bg-success text-white text-center text-nowrap">
+                                      <blockquote class=" mb-0">
+                                          <span>Total Farm Investment</span>
+                                          <h3 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
+                                          </h3>
+                                          <i class="fa fa-area-chart text-warning" style="font-size: 50px;"></i>
+                                          <footer
+                                              class="blockquote-footer text-white">
+                                          <i class="fa fa-area-chart"></i>
+                                              <small>
+                                                  Farmfunds <cite
+                                                      title="Source Title">Africa</cite>
+                                              </small>
+                                          </footer>
+                                      </blockquote>
                                   </div>
                               </div>
+                              <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                  <div class="card dashboard bg-info text-white text-center text-nowrap">
+                                      <blockquote class=" mb-0">
+                                          <span>Total ROI</span>
+                                          <h3 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
+                                          </h3>
+                                          <i class="fa fa-rotate-left text-warning" style="font-size: 50px;"></i>
+                                          <footer
+                                              class="blockquote-footer text-white">
+                                          <i class="fa fa-rotate-left"></i>
+                                              <small>
+                                                  Farmfunds <cite
+                                                      title="Source Title">Africa</cite>
+                                              </small>
+                                          </footer>
+                                      </blockquote>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                  <div class="card dashboard bg-warning text-white text-center text-nowrap">
+                                      <blockquote class=" mb-0">
+                                          <span>Total Payout</span>
+                                          <h3 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
+                                          </h3>
+                                          <i class="fa fa-money text-success" style="font-size: 50px;"></i>
+                                          <footer
+                                              class="blockquote-footer text-white">
+                                              <i class="fa fa-money"></i>
+                                              <small>
+                                                  Farmfunds <cite
+                                                      title="Source Title">Africa</cite>
+                                              </small>
+                                          </footer>
+                                      </blockquote>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                <div class="card dashboard bg-light text-center text-nowrap">
+                                  <blockquote class=" mb-0">
+                                    <span><i class="fas fa-sign-out-alt"></i>
+                                      My Wallet </span>
+                                    <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
+                                    </h3>
+                                    <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
+                                    <footer class="blockquote-footer">
+                                      <i class="fa fa-credit-card"></i>
+                                      <small>
+                                        Farmfunds <cite title="Source Title">Africa</cite>
+                                      </small>
+                                    </footer>
+                                  </blockquote>
+                                </div>
+                              </div>
                           </div>
-                          <br><br>
-                          <!-- farm-investment-table -->
-                          <div id="section-id-1551573988958" class="sppb-section  ">
-                              <div class="sppb-row-container">
-                                <button type="button" class="btn btn-success t-btn float-right" (click)="newFarm()">Start New Farm</button>
-                                <div class="shadow p-3 bg-white rounded dashboard">
-                                  <div class="sppb-row">
-                                    <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
-                                        <div id="column-id-1551573988957" class="sppb-column">
-                                            <div class="sppb-column-addons">
-                                                <div id="sppb-addon-1551573988978" class="clearfix">
-                                                    <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <!-- <h3 class="sppb-addon-title">Current <span
-                                                                class="text-primary">Farm
-                                                                ({{dashboardData.inv.length}})</span></h3> -->
-                                                        <!-- <div class="input-group pull-right">
-                                                            <a (click)="newFarm()"> <input
-                                                                    class="p-button" style="cursor: pointer;"
-                                                                    type="submit" value="New Farm"></a>
-                                                        </div> -->
-                                                        <div class="sppb-addon-content"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="e-panel card">
-                                                  <div class="card-header">
-                                                      <!-- <div class="float-right">
-                                                          <select>
-                                                            <option value="today">Today</option>
-                                                            <option value="month">Month</option>
-                                                            <option value="year">Year</option>
-                                                          </select>
-                                                      </div> -->
-                                                      <h4 class="sppb-addon-title">Current <span
-                                                        class="text-primary">Farm
-                                                        ({{dashboardData.inv.length}})</span></h4>                                                    </div>
-                                                  <div class="card-body">
-                                                      <div class="e-table">
-                                                          <div class="table-responsive table-lg">
-                                                            <table class="table table-bordered text-nowrap">
-                                                              <thead>
-                                                                  <tr class="bg-success text-light">
-                                                                      <th scope="col">S/N</th>
-                                                                      <th scope="col">Package</th>
-                                                                      <th scope="col">Unit</th>
-                                                                      <th scope="col">Amount</th>
-                                                                      <th scope="col">ROI</th>
-                                                                      <th scope="col">Start Date</th>
-                                                                      <th scope="col">End Date</th>
-                                                                      <th scope="col">Status</th>
-                                                                  </tr>
-                                                              </thead>
-                                                              <tbody>
-                                                                  <tr *ngFor="let item of dashboardData.inv; let index = index">
-                                                                      <th scope="row">{{index + 1}}</th>
-                                                                      <td>{{item.package}}</td>
-                                                                      <td>{{item.unit}}</td>
-                                                                      <td class="text-right">{{item.amount | currency: '&#8358; '}}
-                                                                      </td>
-                                                                      <td class="text-right">{{item.roi | currency: '&#8358; '}}
-                                                                      </td>
-                                                                      <td>{{item.startDate | date: "mediumDate"}}
-                                                                      </td>
-                                                                      <td>{{item.endDate | date: "mediumDate"}}
-                                                                      </td>
-                                                                      <td><small
-                                                                          [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</small>
-                                                                      </td>
-                                                                  </tr>
-                                                              </tbody>
-                                                          </table>
-                                                          </div>
 
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                                <div id="sppb-addon-1551578090420"
-                                                    class="sppb-hidden-md sppb-hidden-lg clearfix">
-                                                    <div class="sppb-empty-space  clearfix"></div>
-                                                </div>
+                          </div>
+                          <!-- farm-investment-table -->
+                          <!-- <div id="section-id-1551573988958" class="sppb-section"> -->
+                              <div class="sppb-row-container mt-5 col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
+                                <div class="shadow p-3 bg-white rounded dashboard">
+                                  <div class="e-panel card">
+                                    <div class="card-header">
+                                       <button type="button" class="btn btn-success float-right" (click)="newFarm()">Start New Farm</button>
+                                        <h4 class="sppb-addon-title">Current <span
+                                          class="text-primary">Farm
+                                          ({{dashboardData.inv.length}})</span></h4>                                                    </div>
+                                    <div class="card-body">
+                                        <div class="e-table">
+                                            <div class="table-responsive table-lg">
+                                              <table class="table table-bordered text-nowrap">
+                                                <thead>
+                                                    <tr class="bg-success text-light">
+                                                        <th scope="col">S/N</th>
+                                                        <th scope="col">Package</th>
+                                                        <th scope="col">Unit</th>
+                                                        <th scope="col">Amount</th>
+                                                        <th scope="col">ROI</th>
+                                                        <th scope="col">Start Date</th>
+                                                        <th scope="col">End Date</th>
+                                                        <th scope="col">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of dashboardData.inv; let index = index">
+                                                        <th scope="row">{{index + 1}}</th>
+                                                        <td>{{item.package}}</td>
+                                                        <td>{{item.unit}}</td>
+                                                        <td class="text-right">{{item.amount | currency: '&#8358; '}}
+                                                        </td>
+                                                        <td class="text-right">{{item.roi | currency: '&#8358; '}}
+                                                        </td>
+                                                        <td>{{item.startDate | date: "mediumDate"}}
+                                                        </td>
+                                                        <td>{{item.endDate | date: "mediumDate"}}
+                                                        </td>
+                                                        <td><small
+                                                            [ngClass]="{'badge badge-success badge-pill': item.status === 'Activated', 'badge badge-warning': item.status === 'Pending'}">{{item.status}}</small>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 </div>
 
                               </div>
-                          </div>
+                          <!-- </div> -->
                       </section>
                       <!-- end-farm-investment -->
                   </div>

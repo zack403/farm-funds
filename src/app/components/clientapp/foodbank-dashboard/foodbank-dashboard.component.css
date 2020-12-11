@@ -65,9 +65,9 @@ a:hover {
   color:#464646;    cursor: pointer;
 }
 
-.t-btn {
+/* .t-btn {
   margin-top: -60px;
-}
+} */
 
 @media (max-width: 500px) {
 .current {

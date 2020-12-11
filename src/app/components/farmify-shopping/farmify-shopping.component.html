@@ -20,7 +20,7 @@
                         <form action="" method="">
                           <div class="input-group">
                             <input  (input)="onChange(search)" name="search" [(ngModel)]="search" class="form-control" type="search"
-                              placeholder="Search" style="height: 50px;">
+                              placeholder="Search" style="height: 50px;z-index: 500;">
                             <span class="input-group-btn">
                               <button class="sppb-btn">
                                 <span class="icon fa fa-search"></span>
@@ -44,7 +44,7 @@
                         itemsPerPage: size,
                         currentPage: page,
                         totalItems: products?.totalItems
-                    }; let i = index"  class="col-md-2 product-info">
+                    }; let i = index"  class="col-lg-6 col-xl-3 col-md-12 col-sm-6 col-12 product-info">
                         <div  class="j2store-single-product">
                           <div  class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
@@ -63,7 +63,7 @@
                               </figcaption>
                             </div>
                           </div>
-                          <div class="content-box">
+                          <div class="content-box text-center">
                             <div class="inner-box">
                               <div itemprop="name" class="product-title">
                                 <a  title="{{p?.productName}}">
@@ -74,7 +74,7 @@
                                 <div  *ngIf="p.price" class="product sale-price">
                                   {{p?.price | currency: '&#8358; '}}
                                 </div>
-                                <div *ngIf="!p.price" class="product price">
+                                <div *ngIf="!p.price" class="product">
                                   <span (click)="enterPrice(i)">Enter Price</span>
                                 </div>
                                 <div class="product">

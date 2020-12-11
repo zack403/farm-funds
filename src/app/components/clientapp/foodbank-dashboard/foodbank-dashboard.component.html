@@ -43,105 +43,78 @@
 
             <!-- food-subscription -->
             <section id="section-id-1551490002720" class="sppb-section food-subscription" style="padding-top: 0%;">
-              <div class="sppb-row-container">
-                <div class="sppb-row">
-                  <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
-                    <div id="column-id-1551490002719" class="sppb-column">
-                      <div class="sppb-column-addons">
-                        <div id="sppb-addon-1551573988809" class="clearfix">
-                          <div class="sppb-addon sppb-addon-text-block  ">
-
-                            <div class="sppb-addon-content">
-                              <div class="text">
-                                <div class="sppb-addon-content">
-                                  <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
-                                    <div class="text">
-                                      <div class="row">
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                          <div class="card bg-success dashboard text-white text-center p-3">
-                                            <blockquote class=" mb-0">
-                                              <span>Current Food Subscription</span>
-                                              <h3 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
-                                              </h3>
-                                              <i class="fa fa-bar-chart text-warning" style="font-size: 50px;"></i>
-                                              <footer class="blockquote-footer text-white">
-                                                <i class="fa fa-bar-chart"></i>
-                                                <small>
-                                                  Farmfunds <cite title="Source Title">Africa</cite>
-                                                </small>
-                                              </footer>
-                                            </blockquote>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                          <div class="card dashboard bg-info text-white text-center p-3">
-                                            <blockquote class=" mb-0">
-                                              <span>Your ROI</span>
-                                              <h3 class="card-amount">{{subscribers.roi | currency: '&#8358; '}}
-                                              </h3>
-                                              <i class="fa fa-line-chart text-warning" style="font-size: 50px;"></i>
-                                              <footer class="blockquote-footer text-white">
-                                                <i class="fa fa-line-chart"></i>
-                                                <small>
-                                                  Farmfunds <cite title="Source Title">Africa</cite>
-                                                </small>
-                                              </footer>
-                                            </blockquote>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                          <div class="card dashboard bg-warning text-white text-center p-3">
-                                            <blockquote class=" mb-0">
-                                              <span>Your ROC</span>
-                                              <h3 class="card-amount">{{subscribers.roc | currency: '&#8358; '}}
-                                              </h3>
-                                              <i class="fa fa-rotate-left" style="font-size: 50px;"></i>
-                                              <footer class="blockquote-footer text-white">
-                                                <i class="fa fa-rotate-left"></i>
-                                                <small>
-                                                  Farmfunds <cite title="Source Title">Africa</cite>
-                                                </small>
-                                              </footer>
-                                            </blockquote>
-                                          </div>
-                                        </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                          <div class="card dashboard bg-light text-center p-3">
-                                            <blockquote class=" mb-0">
-                                              <span><i class="fas fa-sign-out-alt"></i>
-                                                My Wallet </span>
-                                              <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
-                                              </h3>
-                                              <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
-                                              <footer class="blockquote-footer">
-                                                <i class="fa fa-credit-card"></i>
-                                                <small>
-                                                  Farmfunds <cite title="Source Title">Africa</cite>
-                                                </small>
-                                              </footer>
-                                            </blockquote>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  <!-- </div> -->
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              <div class="sppb-row-container col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                <div class="row">
+                  <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                    <div class="card bg-success dashboard text-white text-center text-nowrap">
+                      <blockquote class=" mb-0">
+                        <span>Current Food Subscription</span>
+                        <h3 class="card-amount">{{subscribers.amount | currency: '&#8358; '}}
+                        </h3>
+                        <i class="fa fa-bar-chart text-warning" style="font-size: 50px;"></i>
+                        <footer class="blockquote-footer text-white">
+                          <i class="fa fa-bar-chart"></i>
+                          <small>
+                            Farmfunds <cite title="Source Title">Africa</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                    <div class="card dashboard bg-info text-white text-center text-nowrap">
+                      <blockquote class=" mb-0">
+                        <span>Your ROI</span>
+                        <h3 class="card-amount">{{subscribers.roi | currency: '&#8358; '}}
+                        </h3>
+                        <i class="fa fa-line-chart text-warning" style="font-size: 50px;"></i>
+                        <footer class="blockquote-footer text-white">
+                          <i class="fa fa-line-chart"></i>
+                          <small>
+                            Farmfunds <cite title="Source Title">Africa</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                    <div class="card dashboard bg-warning text-white text-center text-nowrap">
+                      <blockquote class=" mb-0">
+                        <span>Your ROC</span>
+                        <h3 class="card-amount">{{subscribers.roc | currency: '&#8358; '}}
+                        </h3>
+                        <i class="fa fa-rotate-left" style="font-size: 50px;"></i>
+                        <footer class="blockquote-footer text-white">
+                          <i class="fa fa-rotate-left"></i>
+                          <small>
+                            Farmfunds <cite title="Source Title">Africa</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                    <div class="card dashboard bg-light text-center text-nowrap">
+                      <blockquote class=" mb-0">
+                        <span><i class="fas fa-sign-out-alt"></i>
+                          My Wallet </span>
+                        <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
+                        </h3>
+                        <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
+                        <footer class="blockquote-footer">
+                          <i class="fa fa-credit-card"></i>
+                          <small>
+                            Farmfunds <cite title="Source Title">Africa</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
                     </div>
                   </div>
                 </div>
               </div>
-              <br><br>
               <!-- food-subdcription-table -->
-              <div id="section-id-1551573988958" class="sppb-section  ">
-                <div class="sppb-row-container">
-                  <button type="button" class="btn btn-success t-btn float-right" id="findme"
-                    (click)="openswal()">Subscribe</button>
+              <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
+                <div class="sppb-row-container mt-5 col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
                   <div class="shadow p-3 bg-white rounded dashboard">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
@@ -155,7 +128,8 @@
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-
+                                <button type="button" class="btn btn-success float-right" id="findme"
+                                (click)="openswal()">Subscribe</button>
                                 <h4 class="sppb-addon-title">Food Bank <span class="text-primary">Subscriptions
                                     ({{subscribers.subs.length}})</span>
                                 </h4>
@@ -220,13 +194,11 @@
                   </div>
 
                 </div>
-              </div>
+              <!-- </div> -->
               <br>
               <!-- item-other-table -->
-              <div id="section-id-1551573988958" class="sppb-section  ">
-                <div class="sppb-row-container">
-                  <button type="button" class="btn btn-success t-btn pull-right" (click)="AddItems()"><i
-                    class="fa fa-plus"></i> Add Item</button>
+              <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
+                <div class="sppb-row-container mt-5 mb-5 col-lg-12 col-xl-6 col-md-12 col-12 col-sm-12">
                   <!-- <button *ngIf="showDetails" type="button" class="btn btn-success t-btn" (click)="back()" style="margin-top: -110px;"><i
                       class="fa fa-arrow-left"></i>BACK</button> -->
                   <div class="shadow p-3 bg-white rounded dashboard">
@@ -242,10 +214,11 @@
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-
+                                <button type="button" class="btn btn-success pull-right" (click)="AddItems()"><i
+                                  class="fa fa-plus"></i> Add Item</button>
                                 <h4 class="sppb-addon-title">Food Bank <span class="text-primary">Orders
                                     ({{purchases.length}})</span></h4>
-                      <i *ngIf="showDetails" title="Go back" class="fa fa-arrow-left text-success pull-right" style="cursor: pointer; margin-top: -18px;" (click)="back()">Back</i>
+                      <i *ngIf="showDetails" title="Go back" class="fa fa-arrow-left text-success mr-5 pull-right" style="cursor: pointer; margin-top: -10px;" (click)="back()">Back</i>
                               </div>
                               <div class="card-body">
                                 <div class="e-table">
@@ -328,7 +301,7 @@
                   </div>
 
                 </div>
-              </div>
+              <!-- </div> -->
             </section>
             <!-- end-food-subscription -->
           </div>
