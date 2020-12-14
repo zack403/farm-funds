@@ -44,7 +44,7 @@
                         itemsPerPage: size,
                         currentPage: page,
                         totalItems: products?.totalItems
-                    }; let i = index"  class="col-md-2 product-info">
+                    }; let i = index"  class="col-lg-6 col-xl-3 col-md-5 col-sm-6 col-12 product-info">
                         <div  class="j2store-single-product">
                           <div  class="j2store-product-images">
                             <div class="j2store-thumbnail-image">
@@ -63,10 +63,10 @@
                               </figcaption>
                             </div>
                           </div>
-                          <div class="content-box">
+                          <div class="content-box text-center">
                             <div class="inner-box">
                               <div itemprop="name" class="product-title">
-                                <a  title="{{p?.productName}}">
+                                <a class="font-weight-bold text-sm"  title="{{p?.productName}}">
                                   {{p?.productName}} </a>
                               </div>
                               <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
@@ -74,8 +74,8 @@
                                 <div  *ngIf="p.price" class="product sale-price">
                                   {{p?.price | currency: '&#8358; '}}
                                 </div>
-                                <div *ngIf="!p.price" class="product price">
-                                  <span (click)="enterPrice(i)">Enter Price</span>
+                                <div *ngIf="!p.price" class="product sale-price">
+                                  <span class="text-primary" title="enter your price" style="cursor: pointer;" (click)="enterPrice(i)">Enter Price</span>
                                 </div>
                                 <div class="product">
                                   <!-- <small> Quantity </small> -->
