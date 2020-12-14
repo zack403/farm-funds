@@ -13,6 +13,7 @@ import { PackagesComponent } from '../../packages/packages.component';
 import { ClientappComponent } from '../clientapp.component';
 import { FoodbankDashboardComponent } from '../foodbank-dashboard/foodbank-dashboard.component';
 import { InvestmentDashboardComponent } from '../investment-dashboard/investment-dashboard.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
 
 const clientAppRouter: Routes = [
   {
@@ -23,7 +24,7 @@ const clientAppRouter: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'profile',
+        redirectTo: 'foodbank-dashboard',
         pathMatch: 'full'
       },
       {
@@ -62,15 +63,15 @@ const clientAppRouter: Routes = [
       },
       {
         path: 'deposit',
-        component: DepositComponent,
-        runGuardsAndResolvers: 'always',
-        resolve: {user: ProfileDataService}
+        component: DepositComponent
       },
       {
         path: 'withdrawal',
-        component: WithdrawalComponent,
-        runGuardsAndResolvers: 'always',
-        resolve: {user: ProfileDataService}
+        component: WithdrawalComponent
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent
       }
     ]
   },

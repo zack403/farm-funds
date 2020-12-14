@@ -75,7 +75,7 @@ export class WithdrawalComponent implements OnInit {
     if(this.currentDate < item.endDate) {
       let diffInTime = item.endDate.getTime() - this.currentDate.getTime();
       let waitTime = diffInTime / (1000 * 3600 * 24);
-      return this.toastr.Error(`You cannot request for a withdrawal at this time. Wait for ${waitTime.toFixed(0)} days.`);
+      return this.toastr.Error(`You cannot request for a withdrawal at this time. Due date is "${waitTime.toFixed(0)} days" from now.`);
     }
 
     this.httpSv.post(`${environment.baseUrl}utility/request`, item).subscribe((res: any) => {

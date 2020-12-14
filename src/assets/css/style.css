@@ -247,7 +247,7 @@ body.sidebar-gone .main-content {
 	margin-right: -6px;
 }
 .email-app .inbox .message .date {
-	color: #838ab6;
+	color: #0f7921;
 }
 .email-app .inbox .message a {
 	color: #3f405f;
@@ -274,7 +274,7 @@ body.sidebar-gone .main-content {
 }
 .email-app .inbox .message .description {
 	font-size: 12px;
-	color: #838ab6;
+	color: #0f7921;
 }
 .email-app .message .toolbar {
 	padding-bottom: 1rem;
@@ -392,11 +392,16 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 	background:linear-gradient(green, greenyellow) !important;
 	color:#fff;
 }
+
+.dropdown-item.has-not:hover{
+	background:linear-gradient(green, greenyellow) !important;
+	color:#fff;
+}
 .dropdown-list .dropdown-item.dropdown-item-unread:active .dropdown-item-desc, .dropdown-list .dropdown-item.dropdown-item-unread:active .dropdown-item-desc b {
-	color: #838ab6;
+	color: #0f7921;
 }
 .dropdown-list .dropdown-item:active .dropdown-item-desc, .dropdown-list .dropdown-item:active .dropdown-item-desc b {
-	color: #838ab6;
+	color: #0f7921;
 }
 .dropdown-list .dropdown-item.dropdown-item-unread {
 	background-color: #f6f6f9;
@@ -440,7 +445,7 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 .dropdown-list .dropdown-item .dropdown-item-desc {
 	margin-left: 60px;
 	white-space: normal;
-	color: #838ab6;
+	color: #0f7921;
 	margin-top: 4px;
 }
 .dropdown-list .dropdown-item .dropdown-item-desc b {

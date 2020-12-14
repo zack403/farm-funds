@@ -1,6 +1,6 @@
 import { ProfileService } from './../../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
@@ -35,6 +35,13 @@ export class HeaderComponent implements OnInit {
   interest: any;
   isBusy: boolean = false;
   banks: any;
+  feedbackData: any =  {
+    feedbackType: '',
+    description: ''
+  };
+  submitted: boolean = false;
+  notifications: any = [];
+
 
   constructor(
     private authSvc: AuthService,
@@ -108,6 +115,7 @@ export class HeaderComponent implements OnInit {
       this.interest = int;
     }
     this.banks = this.utilSvc.getBanks();
+    this.getUserNotifications();
   }
 
   updateProfile() {
@@ -193,8 +201,29 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+
+  submitFeedback() {
+    this.submitted = true;
+    this.utilSvc.sendFeedback(this.feedbackData).subscribe((res: any) => {
+      this.submitted = false;
+      this.toastr.Success(res.message);
+    }, (error) => {
+        this.submitted = false;
+    })
+  }
+
   onChange(value) {
     this.userData.bankName = value;
+  }
+
+  onChangeFeedback(value) {
+    this.feedbackData.feedbackType = value;
+  }
+
+  getUserNotifications() {
+    this.utilSvc.GetUserNotifications(this.authSvc.getCurrentUserData().id).subscribe((notifications: any) => {
+      this.notifications = notifications.data;
+    }) 
   }
 
 }

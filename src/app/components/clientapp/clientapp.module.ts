@@ -16,6 +16,9 @@ import { DepositComponent } from './deposit/deposit.component';
 import { WithdrawalComponent } from './withdrawal/withdrawal.component';
 import { FoodbankDashboardComponent } from './foodbank-dashboard/foodbank-dashboard.component';
 import { InvestmentDashboardComponent } from './investment-dashboard/investment-dashboard.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import {TimeAgoPipe} from 'time-ago-pipe';
+
 
 
 
@@ -40,7 +43,9 @@ import { InvestmentDashboardComponent } from './investment-dashboard/investment-
     DepositComponent,
     WithdrawalComponent,
     FoodbankDashboardComponent,
-    InvestmentDashboardComponent],
+    InvestmentDashboardComponent,
+    TimeAgoPipe,
+    NotificationsComponent],
   exports: [ClientappComponent],
   
 })
