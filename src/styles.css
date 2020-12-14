@@ -6708,6 +6708,10 @@ body.sidebar-gone .navbar {
   cursor: pointer;
 }
 
+.tbl {
+  margin-left: -15px;
+  margin-right: -15px;
+}
 
 
 

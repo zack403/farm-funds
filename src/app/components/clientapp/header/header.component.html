@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg main-navbar">
   <a class="header-brand" [routerLink]="['/app/foodbank-dashboard']">
     <img src="assets/images/logo/ff-logo.jpeg" class="header-brand-img" alt="Farmfunds-Admin  logo"
-      style="height: 60px;">
+      style="height: px;">
   </a>
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
@@ -100,8 +100,8 @@
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
         <img src="{{photo ? photo : 'assets/images/avat.png'}}" style="height: 32px;" alt="profile-user"
           class="rounded-circle w-32">&nbsp;
-        <div class="d-sm-none d-lg-inline-block">{{ userData.firstName }} {{ userData.middleName }}
-          {{ userData.lastName }}</div></a>
+        <small class="d-sm-none d-lg-inline-block">{{ userData.firstName }} {{ userData.middleName }}
+          {{ userData.lastName }}</small></a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item has-icon">
           <i class="fa fa-dashboard"></i> Dashboard
@@ -248,6 +248,7 @@
   </div>
 </div>
 
+<!-- end-modal -->
 
 <div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
