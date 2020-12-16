@@ -35,7 +35,6 @@ import { ToasterService } from './services/toaster.service';
 import { AuthGuard } from './guards/auth.guard';
 import { PreventUnsavedChanges } from './guards/prevent-unsafe-changes';
 import { ErrorInterceptor } from './interceptor/error.interceptor';
-import { UserappModule } from './components/userapp/userapp.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
@@ -43,7 +42,6 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
 import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
-import { ClientappComponent } from './components/clientapp/clientapp.component';
 import { ClientappModule } from './components/clientapp/clientapp.module';
 
 

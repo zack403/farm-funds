@@ -7,8 +7,6 @@ import { ClientappComponent } from './clientapp.component';
 import { ClientappRoutingModule } from './clientapp-routing/clientapp-routing';
 import { FarmifyShoppingComponent } from '../farmify-shopping/farmify-shopping.component';
 import { ShoppingCartComponent } from '../products/shopping-cart/shopping-cart.component';
-import { FarmifyShoppingDetailComponent } from '../farmify-shopping-detail/farmify-shopping-detail.component';
-import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { PackagesComponent } from '../packages/packages.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -35,10 +33,8 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     HeaderComponent, 
     SideBarComponent, 
     FooterComponent, 
-    UserProfileComponent,
     FarmifyShoppingComponent,
     ShoppingCartComponent,
-    FarmifyShoppingDetailComponent,
     PackagesComponent,
     DepositComponent,
     WithdrawalComponent,

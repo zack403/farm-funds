@@ -2,13 +2,11 @@ import { WithdrawalComponent } from './../withdrawal/withdrawal.component';
 import { DepositComponent } from './../deposit/deposit.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ShoppingCartComponent } from '../../products/shopping-cart/shopping-cart.component';
 import { FarmifyShoppingComponent } from '../../farmify-shopping/farmify-shopping.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { ProfileDataService } from 'src/app/resolvers/profile-data.service';
-import { FarmifyShoppingDetailComponent } from '../../farmify-shopping-detail/farmify-shopping-detail.component';
 import { PackagesComponent } from '../../packages/packages.component';
 import { ClientappComponent } from '../clientapp.component';
 import { FoodbankDashboardComponent } from '../foodbank-dashboard/foodbank-dashboard.component';
@@ -35,10 +33,6 @@ const clientAppRouter: Routes = [
       {
         path: 'shopping-cart',
         component: ShoppingCartComponent,
-      },
-      {
-        path: 'farmify-shopping-detail/:id',
-        component: FarmifyShoppingDetailComponent,
       },
       {
         path: 'packages',
