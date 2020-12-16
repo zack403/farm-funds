@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { FarmifyShoppingDetailComponent } from './farmify-shopping-detail.component';
 
@@ -6,7 +6,7 @@ describe('FarmifyShoppingDetailComponent', () => {
   let component: FarmifyShoppingDetailComponent;
   let fixture: ComponentFixture<FarmifyShoppingDetailComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ FarmifyShoppingDetailComponent ]
     })

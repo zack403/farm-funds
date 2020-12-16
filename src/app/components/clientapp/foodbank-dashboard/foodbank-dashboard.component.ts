@@ -30,21 +30,16 @@ const formatter = new Intl.NumberFormat('en-NI', {
 
 export class FoodbankDashboardComponent implements OnInit {
 
-  // @ViewChild('editForm')  editForm: NgForm;
   userData: User;
   purchases: any;
   subscribers: any;
-  pck: boolean = false;
-  pl: boolean = false;
   emoji = '&#128591;&#127999';
-  isBusy: boolean = false;
   sub: boolean = false;
   myWallet: number = 0;
   message: string;
   interest: number;
   paymentType: string;
   success: string;
-  selected: boolean = false;
   showDetails: boolean = false;
   details: any;
   total: number;
@@ -84,35 +79,6 @@ export class FoodbankDashboardComponent implements OnInit {
     this.subscribers = result[0].subscribers;
   }
 
-  openModal(type) {
-    document.getElementById('util').classList.add('modal-lg');
-    if(type === 'newfarm'){
-      document.getElementById(type).click();
-      this.pl = false;
-      this.pck = true;
-      this.sub = false;
-    }
-    else if (type === 'subscribe') {
-      document.getElementById(type).click();
-      this.pl = false;
-      this.pck = false
-      this.sub = true;
-    }
-    else if(type === 'purchase') {
-      document.getElementById(type).click();
-      this.pck = false;
-      this.pl = true;
-      this.sub = false;
-    }
-    else {
-      this.pl = false;
-      this.pck = false;
-      this.sub = false;
-      document.getElementById('util').classList.remove('modal-lg');
-      document.getElementById('util').classList.add('modal-sm');
-      document.getElementById(type).click();
-    }
-  }
 
   deposit(amt, data) {
     amt *= 100000;
@@ -404,9 +370,6 @@ export class FoodbankDashboardComponent implements OnInit {
     }
   }
 
-  newFarm() {
-    this.router.navigateByUrl("app/packages")
-  }
 
   ngOnDestroy() {
     // avoid memory leaks here by cleaning up after ourselves. If we

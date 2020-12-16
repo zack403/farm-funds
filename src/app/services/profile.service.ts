@@ -31,7 +31,15 @@ export class ProfileService {
 
   
   getFoodDashboardData(id: string) {
-    return this.httpSvc.getById('dashboard/fooddashboard', id).pipe(
+    return this.httpSvc.getById('dashboard/fooddashboard/', id).pipe(
+      tap(res => {
+        return res;
+      })
+    );
+  }
+
+  getInvDashboardData(id: string) {
+    return this.httpSvc.getById('dashboard/farminvestmentdashboard/', id).pipe(
       tap(res => {
         return res;
       })

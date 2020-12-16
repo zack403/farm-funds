@@ -14,6 +14,7 @@ import { ClientappComponent } from '../clientapp.component';
 import { FoodbankDashboardComponent } from '../foodbank-dashboard/foodbank-dashboard.component';
 import { InvestmentDashboardComponent } from '../investment-dashboard/investment-dashboard.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
+import { InvestmentDataResolver } from 'src/app/resolvers/investment-data.resolver';
 
 const clientAppRouter: Routes = [
   {
@@ -53,7 +54,7 @@ const clientAppRouter: Routes = [
         path: 'investment-dashboard',
         component: InvestmentDashboardComponent,
         runGuardsAndResolvers: 'always',
-        resolve: {user: ProfileDataService}
+        resolve: {foodinvdata:  InvestmentDataResolver}
       },
       {
         path: 'deposit',

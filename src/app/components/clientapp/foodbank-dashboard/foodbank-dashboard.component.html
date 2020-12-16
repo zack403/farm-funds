@@ -18,13 +18,13 @@
                       <div class="sppb-column-addons">
                         <div id="sppb-addon-1551573988809" class="clearfix">
                           <!-- <h3 class="sppb-addon-title">User <span class="text-primary">Dashboard </span> -->
-                            <small *ngIf="!selected" class="current" style="text-transform: none;">You are currently on
+                            <small  class="current" style="text-transform: none;">You are currently on
                               <b>{{subscribers.subs.length}}</b> Food
                               Subscription.
                             &nbsp;  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:20px; cursor: pointer;"></i>
                             </small>
                           <!-- </h3> -->
-                          <div *ngIf="subscribers.subs.length > 1 && !selected" style="margin-bottom: 10px;"
+                          <div *ngIf="subscribers.subs.length > 1" style="margin-bottom: 10px;"
                             class="pull-right">
                             <label> Switch Subscription </label>
                             <select (change)="switchSubs($event)">
