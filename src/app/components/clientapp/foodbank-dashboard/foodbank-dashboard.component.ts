@@ -32,7 +32,6 @@ export class FoodbankDashboardComponent implements OnInit {
 
   // @ViewChild('editForm')  editForm: NgForm;
   userData: User;
-  dashboardData: any;
   purchases: any;
   subscribers: any;
   pck: boolean = false;
@@ -79,12 +78,10 @@ export class FoodbankDashboardComponent implements OnInit {
   }
 
   onComponentMounted() {
-    const result = this.route.snapshot.data.user;
+    const result = this.route.snapshot.data.fooddashdata;
     this.userData = result[0].user;
-    this.dashboardData = result[0].investments;
     this.purchases = result[0].purchases;
     this.subscribers = result[0].subscribers;
-    console.log(result);
   }
 
   openModal(type) {

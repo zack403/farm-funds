@@ -140,7 +140,7 @@ body.sidebar-gone .main-content {
 .email-app .toolbar .btn{
 	box-shadow:none;
 	border: 1px solid #ececff;
-	color: #6c739f;
+	color: #0f7921;
 	background: #f7f7fa;
 }
 .email-app nav {
@@ -190,7 +190,7 @@ body.sidebar-gone .main-content {
 .mail_list .list-group-item {
     border: 1px solid #ececff;
 	border-left: 0;
-    color: #6c739f;
+    color: #0f7921;
     border-right: 0;
 }
 @media (max-width:768px) and (min-width:540px){
@@ -250,7 +250,7 @@ body.sidebar-gone .main-content {
 	color: #0f7921;
 }
 .email-app .inbox .message a {
-	color: #3f405f;
+	color: #0f7921;
 }
 .email-app .inbox .message a:hover {
 	text-decoration: none;
@@ -298,7 +298,7 @@ body.sidebar-gone .main-content {
 }
 .email-app .message .details .header .from {
 	font-size: 12px;
-	color: #9faecb;
+	color: #0f7921;
 	align-self: center;
 }
 .email-app .message .details .header .from span {
@@ -348,10 +348,7 @@ body.sidebar-gone .main-content {
 		flex: 0 0 100%;
 	}
 }
-/*
- * Drop Downs
- * ----------------------
- */
+
 
 .dropdown-menu {
 	border: none;
@@ -455,7 +452,8 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 	margin-bottom:0;
 }
 .dropdown-list .dropdown-list-content {
-	overflow: hidden;
+	overflow: visible;
+	word-break: break-all;
 }
 .navbar .dropdown-menu-right:before {
     content:"";
@@ -556,7 +554,7 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 	color: #0f7921;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-	color: #495057;
+	color: #0f7921;
 	background-color: #fff;
 	border-color: #ececff #ececff #fff;
 }

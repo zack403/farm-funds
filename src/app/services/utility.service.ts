@@ -69,6 +69,12 @@ export class UtilityService {
     }))
   }
 
+  UpdateNotifications(data) {
+    return this.httpSvc.put("utility/notifications", data).pipe(tap(res => {
+      return res;
+    }))
+  }
+
   getBanks() {
     return this.banks;
   }

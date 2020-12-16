@@ -28,12 +28,6 @@ const clientAppRouter: Routes = [
         pathMatch: 'full'
       },
       {
-        path: 'profile',
-        component: UserProfileComponent,
-        runGuardsAndResolvers: 'always',
-        resolve: {user: ProfileDataService}
-      },
-      {
         path: 'farmify-shopping',
         component: FarmifyShoppingComponent,
       },
@@ -53,7 +47,7 @@ const clientAppRouter: Routes = [
         path: 'foodbank-dashboard',
         component: FoodbankDashboardComponent,
         runGuardsAndResolvers: 'always',
-        resolve: {user: ProfileDataService}
+        resolve: {fooddashdata: ProfileDataService}
       },
       {
         path: 'investment-dashboard',

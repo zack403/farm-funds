@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
   };
   submitted: boolean = false;
   notifications: any = [];
+  notLength : any = [];
 
 
   constructor(
@@ -223,7 +224,30 @@ export class HeaderComponent implements OnInit {
   getUserNotifications() {
     this.utilSvc.GetUserNotifications(this.authSvc.getCurrentUserData().id).subscribe((notifications: any) => {
       this.notifications = notifications.data;
+      this.notLength = this.notifications.filter(x => x.isViewed === false);
     }) 
+  }
+
+  viewNot(item) {
+    this.router.navigateByUrl("app/notifications", { state: { item}});
+  }
+
+  updateNot() {
+    
+    let req = {
+      notifications: this.notLength
+    }
+
+
+    this.utilSvc.UpdateNotifications(req).subscribe((res: any) => {
+      console.log(res);
+      this.notLength.length = 0;
+
+      req = {
+        notifications: []
+      }
+    }) 
+
   }
 
 }
