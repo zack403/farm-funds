@@ -3,11 +3,11 @@
 
   <div class="body-innerwrapper">
     <app-header
-      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail')  && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')">
+      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && !router.url.includes('app/')">
     </app-header>
     <router-outlet></router-outlet>
     <app-footer
-      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')">
+      *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && !router.url.includes('app/')">
     </app-footer>
   </div>
 </div>
@@ -101,5 +101,5 @@
 <div id="floatingWhatsAppButton"></div>
 
 <!-- Go to top -->
-<a *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password' && router.url !== '/app/profile' && router.url !== '/app/shopping-cart' && router.url !== '/app/farmify-shopping' && !router.url.includes('farmify-shopping-detail') && !router.url.includes('response-reset-password') && !router.url.includes('app/packages')"
+<a *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/reset-password'  && !router.url.includes('app/')"
   href="#" class="sp-scroll-up" aria-label="Scroll Up"><span class="fa fa-chevron-up" aria-hidden="true"></span></a>

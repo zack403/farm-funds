@@ -77,12 +77,12 @@ export class LoginComponent implements OnInit {
             if(result.value) {
               this.authSvc.changePassword(result.value).subscribe(s => {
                 this.toasterSvc.Success('Password change successful. Redirecting...');
-                this.router.navigateByUrl('app/profile');
+                this.router.navigateByUrl('app/foodbank-dashboard');
               });
             }
           })
         } else {
-          this.router.navigateByUrl("app/profile");
+          this.router.navigateByUrl("app/foodbank-dashboard");
         }
       }, (error) => {
             console.log(error);

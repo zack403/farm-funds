@@ -1,0 +1,25 @@
+#fullscreen-button {
+    color: green;
+    cursor: pointer;
+}
+.badge-danger {
+  margin-left: -14px;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 10px;
+}
+
+.item-desc {
+	white-space: normal;
+	margin-top: 4px;
+}
+#not-button {
+  color: green;
+  cursor: pointer;
+}
+#not-button:hover {
+  color: yellowgreen;
+}
+.dropdown-item  {
+  cursor: pointer;
+}

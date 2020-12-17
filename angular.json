@@ -27,6 +27,7 @@
             "styles": [
               "src/assets/css/j2store.css",
               "src/styles.css",
+              "src/assets/css/style.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.min.css",
               "src/assets/css/sppagebuilder.css",
@@ -48,7 +49,9 @@
               "src/assets/css/floating-wpp.min.css",
               "src/assets/css/jquery-ui-custom.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/sweetalert2/src/sweetalert2.scss"
+              "node_modules/sweetalert2/src/sweetalert2.scss",
+              "src/assets/plugins/toggle-menu/sidemenu.css"
+
             ],
             "scripts": [
               "src/assets/js/greensock.js",
@@ -77,7 +80,10 @@
               "src/assets/js/jquery.zoom.js",
               "src/assets/js/bootstrap-modal-conflit.js",
               "src/assets/js/filter.js",
-              "src/assets/js/floating-wpp.min.js"
+              "src/assets/js/floating-wpp.min.js",
+              "src/assets/plugins/toggle-menu/sidemenu.js",
+              "src/assets/js/script.js"
+
             ]
           },
           "configurations": {
@@ -91,7 +97,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,

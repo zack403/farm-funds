@@ -57,6 +57,24 @@ export class UtilityService {
     }))
   }
 
+  sendFeedback(data) {
+    return this.httpSvc.post("utility/feedback", data).pipe(tap(res => {
+      return res;
+    }))
+  }
+
+  GetUserNotifications(userId) {
+    return this.httpSvc.getById("utility/notifications/", userId).pipe(tap(res => {
+      return res;
+    }))
+  }
+
+  UpdateNotifications(data) {
+    return this.httpSvc.put("utility/notifications", data).pipe(tap(res => {
+      return res;
+    }))
+  }
+
   getBanks() {
     return this.banks;
   }

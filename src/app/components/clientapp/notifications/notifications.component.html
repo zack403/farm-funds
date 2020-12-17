@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Notifications</h1>
+    <div *ngFor="let item of notifications">
+        <div class="notification-container">
+            <div style="margin-left: 50px;">
+                    <p>{{item.message}}</p>
+                    <small>{{item.createdAt | timeAgo}}</small>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div style="margin: 20px;">
+        <span *ngIf="notifications.length === 0">You have no messages</span>
+
+    </div>
+
+</div>

@@ -1,0 +1,67 @@
+<aside class="app-sidebar">
+    <div class="app-sidebar__user">
+      <div class="dropdown">
+        <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+          <img alt="image" src="{{ photo ? photo : 'assets/images/avat.png' }}" class="avatar-md rounded-circle" />
+          <span class="ml-2 d-lg-block">
+            <span class="text-white app-sidebar__user-name mt-5">{{ user?.firstName }} {{ user?.lastName }}</span><br />
+            <span class="text-light app-sidebar__user-name text-sm">
+              {{ user?.email }}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <ul class="side-menu">
+      <li class="slide">
+        <a class="side-menu__item" data-toggle="slide" href=""><i
+            class="side-menu__icon fa fa-desktop"></i><span class="side-menu__label">Dashboards</span><i
+            class="angle fa fa-angle-right"></i></a>
+        <ul class="slide-menu">
+          <li>
+            <a class="side-menu__item" [routerLink]="['/app/foodbank-dashboard']">
+            <i class="side-menu__icon fa fa-bank ml-3"></i><span class="side-menu__label">Food bank</span></a>
+          </li>
+          <li>
+            <a class="side-menu__item" [routerLink]="['/app/investment-dashboard']">
+              <i class="side-menu__icon fa fa-bar-chart ml-3"></i><span class="side-menu__label">Farm investment</span></a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="side-menu__item" id="nfs" (click)="newFoodSubs()"><i class="side-menu__icon fa fa-money"></i><span
+            class="side-menu__label">New Food Subs <i class="badge badge-warning">New</i></span></a>
+      </li>
+
+      <li>
+        <a class="side-menu__item" [routerLink]="['/app/packages']"><i class="side-menu__icon fa fa-leaf"></i><span
+            class="side-menu__label">New Farm</span></a>
+      </li>
+
+      <li>
+        <a class="side-menu__item" [routerLink]="['/app/farmify-shopping']"><i class="side-menu__icon fa fa-shopping-basket"></i><span
+            class="side-menu__label">Farmify Shopping </span></a>
+      </li>
+
+      <li class="slide">
+        <a class="side-menu__item" data-toggle="slide" href=""><i
+            class="side-menu__icon fa fa-line-chart"></i><span class="side-menu__label">Financial History</span><i
+            class="angle fa fa-angle-right"></i></a>
+        <ul class="slide-menu">
+          <li>
+            <a class="side-menu__item" [routerLink]="['/app/deposit']"><i
+                class="side-menu__icon fa fa-plus-circle ml-3"></i><span class="side-menu__label">Deposits</span></a>
+          </li>
+          <li>
+            <a class="side-menu__item" [routerLink]="['/app/withdrawal']"><i
+                class="side-menu__icon fa fa-minus-circle ml-3"></i><span class="side-menu__label">Withdrawals</span></a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="side-menu__item" [routerLink]="['/login']"><i class="side-menu__icon fa fa-sign-out"></i><span
+            class="side-menu__label">Log Out</span></a>
+      </li>
+    </ul>
+  </aside>

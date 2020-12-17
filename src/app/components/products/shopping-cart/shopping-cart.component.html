@@ -1,7 +1,11 @@
 <div class="site helix-ultimate com-j2store view-carts itemid-137 ">
   <section id="sp-main-body">
     <div class="container">
+      
       <div class="container-inner"><br>
+        <div *ngIf="cart.purchaseDetails.length === 0"  class="alert alert-info">
+          <span>Your basket is empty, please use the <strong> "Continue Shopping" </strong> button to add items. </span>
+        </div>
       <a [routerLink]="['/app/farmify-shopping']" class="back"><i class="fa fa-arrow-left"> Back to list</i></a>
         <div class="row">
           <main id="sp-component" class="col-lg-12 " role="main">
@@ -113,7 +117,7 @@
                         </table>
                         <div>
                         <button [disabled]="isBusy || this.cart.purchaseDetails.length === 0" (click)="saveItems()"
-                            class="btn btn-primary mr-1">{{isBusy ? 'Saving...' : 'SAVE ITEMS'}}</button>
+                            class="btn btn-primary mr-1">{{isBusy ? 'Sending...' : 'Send Items'}}</button>
                         </div>
                       </div>
                     </div>

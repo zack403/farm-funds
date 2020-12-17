@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { User } from '../models/user.model';
 import { ProfileService } from '../services/profile.service';
 import { AuthService } from '../services/auth.service';
 import { mergeMap, take } from 'rxjs/operators';
@@ -21,7 +20,7 @@ export class ProfileDataService implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)  {
     const user = this.authSvc.getCurrentUserData();
 
-    return forkJoin([this.profSvc.getDashboardData(user.id)]).pipe(
+    return forkJoin([this.profSvc.getFoodDashboardData(user.id)]).pipe(
         take(1),
         mergeMap((u: any) => {
             if(u) return of(u);

@@ -37,9 +37,9 @@ export class PackagesComponent implements OnInit {
   search: string = "";
   success: string;
 
-  constructor(private pckSvc: PackagesService, 
-    public authSvc: AuthService, 
-    public router: Router, 
+  constructor(private pckSvc: PackagesService,
+    public authSvc: AuthService,
+    public router: Router,
     private angularZone : NgZone,
     private toastr: ToasterService) {
 
@@ -57,7 +57,7 @@ export class PackagesComponent implements OnInit {
   getPackages(){
     this.pckSvc.getPackages(this.page, this.size, this.search).subscribe((res: any) => {
     this.packagesList = res.data;
-    if(res.data.length === 0) return this.toastr.Info("No record found");  
+    if(res.data.length === 0) return this.toastr.Info("No record found");
     }, err => {
       console.log(err);
     })
@@ -84,14 +84,14 @@ export class PackagesComponent implements OnInit {
       }).then( async res => {
         if(res.value) {
           let request: any = {};
-  
+
           const {firstName, middleName, lastName} = this.authSvc.getCurrentUserData();
-  
+
           request.packageId = item.id;
           request.unit = parseInt(res.value);
           request.package = item.packageName;
           request.investor = middleName ? `${firstName} ${middleName} ${lastName}` : `${firstName} ${lastName}`;
-  
+
           const { value: answer } = await Swal.fire({
             title: 'Choose payment method',
             input: 'radio',
@@ -103,12 +103,12 @@ export class PackagesComponent implements OnInit {
               }
             }
           });
-  
+
           if(answer === 'card') {
             request.paymentType = "Card";
             this.deposit(item.amountPerUnit * parseInt(res.value), request);
           }
-          else if (answer === 'other') {  
+          else if (answer === 'other') {
             const { value: file } = await Swal.fire({
               title: `Investment fee ${formatter.format(item.amountPerUnit * parseInt(res.value))}`,
               html:'<hr><br><p class="text-left text-dark font-weight-bold">BANK NAME: &nbsp;&nbsp;&nbsp; Access Bank</p><br>' +
@@ -144,14 +144,14 @@ export class PackagesComponent implements OnInit {
               allowOutsideClick: () => !Swal.isLoading()
             });
           }
-  
+
        }
       })
     }
     else {
       this.router.navigateByUrl("login");
     }
-  
+
   }
 
   deposit(amt, data: Investment) {

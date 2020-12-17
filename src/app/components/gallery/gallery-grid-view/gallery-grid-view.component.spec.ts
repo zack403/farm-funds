@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GalleryGridViewComponent } from './gallery-grid-view.component';
 
@@ -6,7 +6,7 @@ describe('GalleryGridViewComponent', () => {
   let component: GalleryGridViewComponent;
   let fixture: ComponentFixture<GalleryGridViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GalleryGridViewComponent ]
     })
