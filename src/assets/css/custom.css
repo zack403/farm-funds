@@ -919,7 +919,7 @@ content: "\f10d";
 
 .j2store-single-product .content-box .inner-box {
     border-bottom: 1px solid #f4f4f4;
-    padding: 14px 19px 12px;
+    padding: 14px 0px 12px;
 }
 
 .j2store-single-product .content-box .inner-box .product-title {
@@ -1134,7 +1134,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 
 .btn-buy {
 	color: white;
-	background: green;
+  background: green;
 }
 .btn-buy:hover {
 	color: white;
