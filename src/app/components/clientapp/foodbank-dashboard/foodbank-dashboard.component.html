@@ -1,12 +1,12 @@
 <section id="sp-main-body">
   <div class="row">
-    <main id="sp-component" class="col-lg-12 " role="main">
+    <main id="sp-component" class="col-lg-12 main-body" role="main">
       <div class="sp-column ">
         <div id="sp-page-builder" class="sp-page-builder  page-2" style="margin-top: -35px;">
           <div class="page-content">
             <!-- dashboard-header -->
             <section id="section-id-1551490002720" class="sppb-section" style="padding-bottom: 0%;">
-              <div class="sppb-row-container">
+              <div class="sppb-row-container ml-0 mb-3">
                 <div class="sppb-row">
                   <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                     <div id="column-id-1551490002719" class="sppb-column">
@@ -24,14 +24,14 @@
                             &nbsp;  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:20px; cursor: pointer;"></i>
                             </small>
                           <!-- </h3> -->
-                          <div *ngIf="subscribers.subs.length > 1" style="margin-bottom: 10px;"
-                            class="pull-right">
+                          <small *ngIf="subscribers.subs.length > 1 && !selected"
+                            class="text-primary sub-sel pull-right">
                             <label> Switch Subscription </label>
                             <select (change)="switchSubs($event)">
                               <option *ngFor="let sub of subscribers.subs" [value]="sub.id">
                                 {{sub.amount | currency: '&#8358; '}}</option>
                             </select>
-                          </div>
+                          </small>
                         </div>
                       </div>
                     </div>
@@ -43,7 +43,7 @@
 
             <!-- food-subscription -->
             <section id="section-id-1551490002720" class="sppb-section food-subscription" style="padding-top: 0%;">
-              <div class="sppb-row-container">
+              <div class="sppb-row-container col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
                 <div class="sppb-row">
                   <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                     <div id="column-id-1551490002719" class="sppb-column">
@@ -57,7 +57,7 @@
                                   <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
                                     <div class="text">
                                       <div class="row">
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                        <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
                                           <div class="card bg-success dashboard text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Current Food Subscription</span>
@@ -73,7 +73,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                        <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-info text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Your ROI</span>
@@ -89,7 +89,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                        <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-warning text-white text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span>Your ROC</span>
@@ -105,7 +105,7 @@
                                             </blockquote>
                                           </div>
                                         </div>
-                                        <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                        <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
                                           <div class="card dashboard bg-light text-center p-3">
                                             <blockquote class=" mb-0">
                                               <span><i class="fas fa-sign-out-alt"></i>
@@ -136,13 +136,10 @@
                   </div>
                 </div>
               </div>
-              <br><br>
               <!-- food-subdcription-table -->
-              <div id="section-id-1551573988958" class="sppb-section  ">
-                <div class="sppb-row-container">
-                  <button type="button" class="btn btn-success t-btn float-right" id="findme"
-                    (click)="openswal()">Subscribe</button>
-                  <div class="shadow p-3 bg-white rounded dashboard">
+              <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
+                <div class="sppb-row-container mt-5 col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                  <div class="shadow p-3 bg-white rounded dashboard tbl">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                         <div id="column-id-1551573988957" class="sppb-column">
@@ -155,7 +152,8 @@
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-
+                                <button type="button" class="btn btn-success t-btn float-right" id="findme"
+                                (click)="openswal()">Subscribe</button>
                                 <h4 class="sppb-addon-title">Food Bank <span class="text-primary">Subscriptions
                                     ({{subscribers.subs.length}})</span>
                                 </h4>
@@ -220,16 +218,14 @@
                   </div>
 
                 </div>
-              </div>
+              <!-- </div> -->
               <br>
               <!-- item-other-table -->
-              <div id="section-id-1551573988958" class="sppb-section  ">
-                <div class="sppb-row-container">
-                  <button type="button" class="btn btn-success t-btn pull-right" (click)="AddItems()"><i
-                    class="fa fa-plus"></i> Add Item</button>
+              <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
+                <div class="sppb-row-container mb-5 mt-5 col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
                   <!-- <button *ngIf="showDetails" type="button" class="btn btn-success t-btn" (click)="back()" style="margin-top: -110px;"><i
                       class="fa fa-arrow-left"></i>BACK</button> -->
-                  <div class="shadow p-3 bg-white rounded dashboard">
+                  <div class="shadow p-3 bg-white rounded dashboard tbl">
                     <div class="sppb-row">
                       <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                         <div id="column-id-1551573988957" class="sppb-column">
@@ -242,10 +238,11 @@
                             </div>
                             <div class="e-panel card">
                               <div class="card-header">
-
+                                <button type="button" title="Add Items" class="btn btn-success pull-right" (click)="AddItems()"><i
+                                  class="fa fa-plus"></i> Add Item</button>
                                 <h4 class="sppb-addon-title">Food Bank <span class="text-primary">Orders
                                     ({{purchases.length}})</span></h4>
-                      <i *ngIf="showDetails" title="Go back" class="fa fa-arrow-left text-success pull-right" style="cursor: pointer; margin-top: -18px;" (click)="back()">Back</i>
+                      <i *ngIf="showDetails" title="Go back" class="fa fa-arrow-left text-success mr-3 pull-right" style="cursor: pointer; margin-top: -18px;" (click)="back()">Back</i>
                               </div>
                               <div class="card-body">
                                 <div class="e-table">
@@ -328,7 +325,7 @@
                   </div>
 
                 </div>
-              </div>
+              <!-- </div> -->
             </section>
             <!-- end-food-subscription -->
           </div>

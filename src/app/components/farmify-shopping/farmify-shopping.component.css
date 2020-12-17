@@ -11,6 +11,10 @@
 }
 
 @media (max-width: 600px) {
+  .j2store-single-product .content-box .inner-box {
+    border-bottom: 1px solid #f4f4f4;
+    padding: 14px 62px 12px;
+}
   .j2store-product-list {
     padding-top: 30px;
   }
@@ -19,11 +23,9 @@
   }
   .sale-price {
     font-size: 13px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
   }
-  .price {
-    margin-right: 5px;
-  }
+
 .product {
   display: inline-block;
 }

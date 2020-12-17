@@ -1,12 +1,12 @@
 <section id="sp-main-body">
   <div class="row">
-      <main id="sp-component" class="col-lg-12 " role="main">
+      <main id="sp-component" class="col-lg-12 main-body" role="main">
           <div class="sp-column ">
-              <div id="sp-page-builder" class="sp-page-builder  page-2">
+              <div id="sp-page-builder" class="sp-page-builder  page-2" style="margin-top: -35px;">
                   <div class="page-content">
                       <!-- dashboard-header -->
                       <section id="section-id-1551490002720" class="sppb-section" style="padding-bottom: 0%;">
-                          <div class="sppb-row-container">
+                          <div class="sppb-row-container ml-0 mb-3">
                               <div class="sppb-row">
                                   <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                                       <div id="column-id-1551490002719" class="sppb-column">
@@ -20,7 +20,7 @@
                                               <div id="sppb-addon-1551573988809" class="clearfix">
                                                   <!-- <h3 class="sppb-addon-title">User <span
                                                           class="text-primary">Dashboard </span> -->
-                                                          <small class="current" style="text-transform: none;">You are currently on
+                                                          <small class="current">You are currently on
                                                               <b>{{dashboardData.inv.length}}</b> Farm Investment.
                                                               &nbsp;  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:20px; cursor: pointer;"></i>
                                                           </small>
@@ -47,7 +47,7 @@
                       <!-- farm-investment -->
                       <section id="section-id-1551490002720" class="sppb-section farm-subscription"
                           style="padding-top: 0%;">
-                          <div class="sppb-row-container">
+                          <div class="sppb-row-container col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
                               <div class="sppb-row">
                                   <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                                       <div id="column-id-1551490002719" class="sppb-column">
@@ -65,9 +65,8 @@
                                                         <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
                                                           <div class="text">
                                                             <div class="row">
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-success text-white text-center p-3">
+                                                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                                                    <div class="card dashboard bg-success text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Farm Investment</span>
                                                                             <h3 class="card-amount">{{dashboardData.totalInv | currency: '&#8358; '}}
@@ -84,9 +83,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-info text-white text-center p-3">
+                                                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                                                    <div class="card dashboard bg-info text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total ROI</span>
                                                                             <h3 class="card-amount">{{dashboardData.totalRoi | currency: '&#8358; '}}
@@ -103,9 +101,8 @@
                                                                         </blockquote>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
-                                                                    <div
-                                                                        class="card dashboard bg-warning text-white text-center p-3">
+                                                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
+                                                                    <div class="card dashboard bg-warning text-white text-center p-3">
                                                                         <blockquote class=" mb-0">
                                                                             <span>Total Payout</span>
                                                                             <h3 class="card-amount">{{dashboardData.totalGain | currency: '&#8358; '}}
@@ -122,7 +119,7 @@
                                                                         </blockquote>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-3 shadow p-3 bg-white rounded dashboard">
+                                                                <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
                                                                   <div class="card dashboard bg-light text-center p-3">
                                                                     <blockquote class=" mb-0">
                                                                       <span><i class="fas fa-sign-out-alt"></i>
@@ -153,10 +150,9 @@
                           </div>
                           <br><br>
                           <!-- farm-investment-table -->
-                          <div id="section-id-1551573988958" class="sppb-section  ">
-                              <div class="sppb-row-container">
-                                <button type="button" class="btn btn-success t-btn float-right" (click)="newFarm()">Start New Farm</button>
-                                <div class="shadow p-3 bg-white rounded dashboard">
+                          <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
+                              <div class="sppb-row-container mb-5 mt-5 col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+                                <div class="shadow p-3 bg-white rounded dashboard tbl">
                                   <div class="sppb-row">
                                     <div class="sppb-col-md-12" id="column-wrap-id-1551573988957">
                                         <div id="column-id-1551573988957" class="sppb-column">
@@ -176,13 +172,7 @@
                                                 </div>
                                                 <div class="e-panel card">
                                                   <div class="card-header">
-                                                      <!-- <div class="float-right">
-                                                          <select>
-                                                            <option value="today">Today</option>
-                                                            <option value="month">Month</option>
-                                                            <option value="year">Year</option>
-                                                          </select>
-                                                      </div> -->
+                                                     <button type="button" class="btn btn-success float-right" (click)="newFarm()">Start New Farm</button>
                                                       <h4 class="sppb-addon-title">Current <span
                                                         class="text-primary">Farm
                                                         ({{dashboardData.inv.length}})</span></h4>                                                    </div>
@@ -237,7 +227,7 @@
                                 </div>
 
                               </div>
-                          </div>
+                          <!-- </div> -->
                       </section>
                       <!-- end-farm-investment -->
                   </div>
