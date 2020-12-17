@@ -1,6 +1,6 @@
 <section id="sp-main-body">
   <div class="row">
-    <main id="sp-component" class="col-lg-12" role="main">
+    <main id="sp-component" class="col-lg-12 main-body" role="main">
       <div class="sp-column ">
         <div id="sp-page-builder" class="sp-page-builder  page-2" style="margin-top: -35px;">
           <div class="page-content">
@@ -25,7 +25,7 @@
                             </small>
                           <!-- </h3> -->
                           <small *ngIf="subscribers.subs.length > 1 && !selected"
-                            class="sub-sel pull-right">
+                            class="text-primary sub-sel pull-right">
                             <label> Switch Subscription </label>
                             <select (change)="switchSubs($event)">
                               <option *ngFor="let sub of subscribers.subs" [value]="sub.id">
