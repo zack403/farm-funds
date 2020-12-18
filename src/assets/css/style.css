@@ -602,7 +602,7 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 	.section .section-header {
 		margin-bottom: 20px !important;
 	}
-	
+
 	body.search-show .navbar .form-inline .search-element {
 		display: block;
 	}
@@ -637,7 +637,7 @@ a.dropdown-item.has-icon, a.dropdown-item.has-icon i{
 		left: 10px !important;
 		width: calc(100% - 20px);
 	}
-	
+
 }
 @media(min-width:1024px){
 	.single-pageimage .log-wrapper {

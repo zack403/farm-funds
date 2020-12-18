@@ -1,3 +1,13 @@
 .logo-image {
     height: 36px;
 }
+@media (max-width: 500px) {
+  .j2store-product-list, .j2store-single-product.simple, .view-carts #sp-component, .view-checkout #sp-component, .view-myprofile #sp-component {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .table-responsive {
+    display: block;
+  }
+}
+

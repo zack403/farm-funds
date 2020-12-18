@@ -43,7 +43,7 @@
     <a title="Basket" href="#" data-toggle="dropdown"
       class="nav-link  nav-link-lg"  *ngIf="!router.url.includes('shopping-cart')"
       (click)="viewCart()  ">
-      <small *ngIf="basketTotal" style="margin-right: 5px">{{
+      <small class="add" *ngIf="basketTotal" style="margin-right: 5px">{{
         basketTotal | currency: "&#8358; "
       }}</small>
       <i class="fa fa-shopping-basket" style="margin-top: 10px; font-size: 18px;">
@@ -61,7 +61,7 @@
           class="badge badge-danger">{{
             notLength.length
             }}</small></a>
-      <div class="dropdown-menu dropdown-list dropdown-menu-right">
+      <div class="dropdown-menu dropdown-list dropdown-menu-right" style="width: 270px;">
         <div class="dropdown-header">Notifications
           <div *ngIf="notifications.length > 1" class="float-right">
             <a [routerLink]="['/app/notifications']">View All</a>
@@ -69,9 +69,9 @@
         </div>
         <div class="dropdown-list-content">
           <a title="{{item.message}}" *ngFor="let item of notifications" class="dropdown-item has-not">
-            <div class="item-desc"> 
+            <div class="item-desc">
               <b (click)="viewNot(item)">{{item.message}}</b>
-            </div>  
+            </div>
               <small> {{item.createdAt | timeAgo}} </small>
           </a>
         </div>
@@ -102,7 +102,7 @@
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
         <img src="{{photo ? photo : 'assets/images/avat.png'}}" style="height: 32px;" alt="profile-user"
           class="rounded-circle w-32">&nbsp;
-        <small class="d-sm-none d-lg-inline-block">{{ userData.firstName }} {{ userData.middleName }}
+        <small class="d-sm-none d-lg-inline-block user-name">{{ userData.firstName }} {{ userData.middleName }}
           {{ userData.lastName }}</small></a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item has-icon">
