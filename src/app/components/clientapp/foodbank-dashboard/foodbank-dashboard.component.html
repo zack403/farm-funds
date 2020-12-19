@@ -24,7 +24,7 @@
                             &nbsp;  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:20px; cursor: pointer;"></i>
                             </small>
                           <!-- </h3> -->
-                          <small *ngIf="subscribers.subs.length > 1 && !selected"
+                          <small *ngIf="subscribers.subs.length > 1"
                             class="text-primary sub-sel pull-right">
                             <label> Switch Subscription </label>
                             <select (change)="switchSubs($event)">

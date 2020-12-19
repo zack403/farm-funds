@@ -10,31 +10,12 @@
                               <div class="sppb-row">
                                   <div class="sppb-col-md-12" id="column-wrap-id-1551490002719">
                                       <div id="column-id-1551490002719" class="sppb-column">
-                                          <div *ngIf="success" class="alert alert-success alert-dissmissible">
-                                              <a href="#" class="close" data-dismiss="alert"
-                                                  aria-label="close">&times;</a>
-                                              <span><strong>{{success}}</strong></span>
-
-                                          </div>
                                           <div class="sppb-column-addons">
                                               <div id="sppb-addon-1551573988809" class="clearfix">
-                                                  <!-- <h3 class="sppb-addon-title">User <span
-                                                          class="text-primary">Dashboard </span> -->
                                                           <small class="current">You are currently on
                                                               <b>{{dashboardData.inv.length}}</b> Farm Investment.
                                                               &nbsp;  <i  title="Refresh" (click)="Refresh()" [ngClass]="refreshing ? 'fa fa-refresh fa-spin' : 'fa fa-refresh'" style="font-size:20px; cursor: pointer;"></i>
                                                           </small>
-
-
-                                                      <!-- <span *ngIf="dashboardData.length > 0"
-                                                          [innerHTML]="emoji"></span> -->
-
-                                                      <!-- <span *ngIf="!selected"  class="pull-right">
-                                                          <a (click)="AddItems()"> <input class="p-button"
-                                                                  style="cursor: pointer;" type="submit"
-                                                                  value="Add Items"></a>
-                                                      </span> -->
-                                                  <!-- </h3> -->
                                               </div>
                                           </div>
                                       </div>
@@ -54,15 +35,8 @@
                                           <div class="sppb-column-addons">
                                               <div id="sppb-addon-1551573988809" class="clearfix">
                                                   <div class="sppb-addon sppb-addon-text-block  ">
-                                                      <!-- <h1 class="sppb-addon-title">User <span
-                                                              class="text-primary">Dashboard </span>
-                                                          <small style="text-transform: none;">You are currently on
-                                                              <b>{{dashboardData.count}}</b> Farm Investments.</small>
-                                                          <span *ngIf="dashboardData.count > 0"
-                                                              [innerHTML]="emoji"></span>
-                                                      </h1> -->
+                                            
                                                       <div class="sppb-addon-content">
-                                                        <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
                                                           <div class="text">
                                                             <div class="row">
                                                                 <div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12 shadow p-3 bg-white rounded dashboard">
@@ -149,8 +123,6 @@
                               </div>
                           </div>
                           <br><br>
-                          <!-- farm-investment-table -->
-                          <!-- <div id="section-id-1551573988958" class="sppb-section  "> -->
                               <div class="sppb-row-container mb-5 mt-5 col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
                                 <div class="shadow p-3 bg-white rounded dashboard tbl">
                                   <div class="sppb-row">
@@ -159,14 +131,7 @@
                                             <div class="sppb-column-addons">
                                                 <div id="sppb-addon-1551573988978" class="clearfix">
                                                     <div class="sppb-addon sppb-addon-text-block  ">
-                                                        <!-- <h3 class="sppb-addon-title">Current <span
-                                                                class="text-primary">Farm
-                                                                ({{dashboardData.inv.length}})</span></h3> -->
-                                                        <!-- <div class="input-group pull-right">
-                                                            <a (click)="newFarm()"> <input
-                                                                    class="p-button" style="cursor: pointer;"
-                                                                    type="submit" value="New Farm"></a>
-                                                        </div> -->
+                                                    
                                                         <div class="sppb-addon-content"></div>
                                                     </div>
                                                 </div>
@@ -236,28 +201,3 @@
       </main>
   </div>
 </section>
-
-
-<!-- modal begin -->
-<span hidden id="newfarm" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="purchase" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="subscribe" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="smallmodal" data-toggle="modal" data-target="#staticBackdrop"></span>
-
-
-
-<div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog"
-  aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-  <div id="util" class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-          <button id="cl" hidden data-dismiss="modal"></button>
-          <div class="modal-body">
-
-              <app-packages [shouldShow]="false"></app-packages>
-
-
-          </div>
-
-      </div>
-  </div>
-  <!-- end modal -->

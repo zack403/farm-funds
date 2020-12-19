@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
-import { UtilityService } from 'src/app/services/utility.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -19,7 +18,6 @@ export class DepositComponent implements OnInit {
 
   constructor(
     private toastr: ToasterService,
-    private utilSvc: UtilityService,
     private authSvc: AuthService,
     private httpSv: HttpClient) {
       
