@@ -14,6 +14,8 @@ export class InvestmentDashboardComponent implements OnInit {
   dashboardData: any;
   navigationSubscription;
   refreshing: boolean = false;
+  myWallet: number = 0;
+
 
   constructor(private router: Router,
     private route: ActivatedRoute) {
