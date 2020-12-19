@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
-
 @Component({
   selector: 'app-investment-dashboard',
   templateUrl: './investment-dashboard.component.html',
@@ -16,7 +15,6 @@ export class InvestmentDashboardComponent implements OnInit {
   refreshing: boolean = false;
   myWallet: number = 0;
 
-
   constructor(private router: Router,
     private route: ActivatedRoute) {
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
@@ -27,14 +25,6 @@ export class InvestmentDashboardComponent implements OnInit {
       });
      }
 
-     Refresh() {
-      this.refreshing = true;
-      this.router.navigateByUrl('app/investment-dashboard');
-
-      setTimeout(() => {
-        this.refreshing = false;
-      }, 3000);
-    }
 
   ngOnInit(): void {
   }
@@ -45,6 +35,14 @@ export class InvestmentDashboardComponent implements OnInit {
     this.dashboardData = result[0].investments;
   }
 
+  Refresh() {
+    this.refreshing = true;
+    this.router.navigateByUrl('app/investment-dashboard');
+
+    setTimeout(() => {
+      this.refreshing = false;
+    }, 3000);
+  }
 
   newFarm() {
     this.router.navigateByUrl("app/packages")
@@ -58,5 +56,6 @@ export class InvestmentDashboardComponent implements OnInit {
        this.navigationSubscription.unsubscribe();
     }
   }
+  
 }
 

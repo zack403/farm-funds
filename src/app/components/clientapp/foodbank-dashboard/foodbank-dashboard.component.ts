@@ -1,5 +1,4 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user.model';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -29,7 +28,6 @@ const formatter = new Intl.NumberFormat('en-NI', {
 })
 
 export class FoodbankDashboardComponent implements OnInit {
-
   userData: User;
   purchases: any;
   subscribers: any;
@@ -127,6 +125,7 @@ export class FoodbankDashboardComponent implements OnInit {
    }
 
   openswal() {
+    
     Swal.fire({
       html: '<hr><br><p color="black" class="text-left text-dark" style"color: black">Farmify Agro Innovations Ltd  is duly registered AgriTech Firm, established to empower African Farmers whilst enabling individual Farmfunders earn profits on their farm partnership which ultimately helps in strenghtening global food security.</p><br>' +
       '<p class="text-left text-dark" style"color: black">Sponsor our Greenhouse Vegetable Farm for just &#8358;100,000 per unit and get 60% ROI within the space of 1 year.</p><br>' +
@@ -233,65 +232,65 @@ export class FoodbankDashboardComponent implements OnInit {
   }
 
   AddItems() {
-  if(this.subscribers.subs.length > 1) {
-    this.chooseSubToBuyFrom();
-  }
-  else {
-    let deliveryDateDate;
-    if(this.purchases.length > 0){
-      if(this.purchases[0].deliveredDate) {
-        deliveryDateDate = new Date(this.purchases[0].deliveredDate);
-        deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
-      }
-      if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-        return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
-      } else {
-        if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
-          return this.toastr.Info("You cannot add items now as you have a pending order.");
+    if(this.subscribers.subs.length > 1) {
+      this.chooseSubToBuyFrom();
+    }
+    else {
+      let deliveryDateDate;
+      if(this.purchases.length > 0){
+        if(this.purchases[0].deliveredDate) {
+          deliveryDateDate = new Date(this.purchases[0].deliveredDate);
+          deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
         }
-        let today = new Date();
-        if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
-          return this.toastr.Info("You can only add new items two weeks after current delivery.");
-        }
-      }
-      let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
-        if(res > 0) {
-          res *= (this.subscribers.amount) * 5 / 100;
-          this.interest = res;
-        }
-        else {
-          this.interest = (this.subscribers.amount) * 5 / 100;
-        }
-      localStorage.setItem("subId", this.subscribers.subs[0].id);
-      this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
-    } else {
-      if(this.subscribers.subs.length > 0 ){
         if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
           return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+        } else {
+          if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
+            return this.toastr.Info("You cannot add items now as you have a pending order.");
+          }
+          let today = new Date();
+          if(this.purchases.length > 0 && (!deliveryDateDate || today < deliveryDateDate)) {
+            return this.toastr.Info("You can only add new items two weeks after current delivery.");
+          }
         }
         let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
-        if(res > 0) {
-          res *= (this.subscribers.amount) * 5 / 100;
-          this.interest = res;
-        }
-        else {
-          this.interest = (this.subscribers.amount) * 5 / 100;
-        }
+          if(res > 0) {
+            res *= (this.subscribers.amount) * 5 / 100;
+            this.interest = res;
+          }
+          else {
+            this.interest = (this.subscribers.amount) * 5 / 100;
+          }
         localStorage.setItem("subId", this.subscribers.subs[0].id);
-        return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest}});
+        this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest} });
+      } else {
+        if(this.subscribers.subs.length > 0 ){
+          if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
+            return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+          }
+          let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
+          if(res > 0) {
+            res *= (this.subscribers.amount) * 5 / 100;
+            this.interest = res;
+          }
+          else {
+            this.interest = (this.subscribers.amount) * 5 / 100;
+          }
+          localStorage.setItem("subId", this.subscribers.subs[0].id);
+          return this.router.navigateByUrl("app/farmify-shopping", { state: { interest: this.interest}});
+        }
+        return this.toastr.Info("Please subscribe first before adding items");
       }
-      return this.toastr.Info("Please subscribe first before adding items");
     }
   }
 
-
-  }
-
   async chooseSubToBuyFrom() {
+    
     let options = {};
     this.subscribers.subs.map(sb => {
       options[sb.id] = `${formatter.format(sb.amount)}`;
     })
+
     const { value } = await Swal.fire({
       title: 'Choose subscription',
       input: 'select',
@@ -350,6 +349,7 @@ export class FoodbankDashboardComponent implements OnInit {
     }
   }
 
+
   monthDiff(d1) {
     let months;
     let d2 = new Date();
@@ -358,6 +358,7 @@ export class FoodbankDashboardComponent implements OnInit {
     months += d2.getMonth();
     return months <= 0 ? 0 : months;
   }
+
 
   switchSubs(event) {
     if(event.target.value) {
