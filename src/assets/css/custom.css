@@ -1301,7 +1301,7 @@ input:focus, textarea:focus {box-shadow: none !important;}
 	text-transform: uppercase;
 	font-weight: 700;
 	display: inline-block;
-	padding: 0 38px;
+	padding: 0 30px;
 	transition: all .5s cubic-bezier(0.4, 0, 1, 1);
 }
 

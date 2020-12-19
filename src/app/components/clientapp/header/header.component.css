@@ -23,3 +23,14 @@
 .dropdown-item  {
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .user-name, .add {
+    display: none;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    float: none;
+}
+}

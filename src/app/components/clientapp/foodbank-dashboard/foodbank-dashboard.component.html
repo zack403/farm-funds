@@ -112,7 +112,7 @@
                                                 My Wallet </span>
                                               <h3 class="card-amount">{{myWallet | currency: '&#8358; '}}
                                               </h3>
-                                              <a><i title="click to find wallet" class="fa fa-credit-card text-success" (click)="openModal('smallmoda')" style="font-size: 50px; cursor: pointer;"></i></a>
+                                              <a><i title="click to fund wallet" class="fa fa-credit-card text-success"  style="font-size: 50px; cursor: pointer;"></i></a>
                                               <footer class="blockquote-footer">
                                                 <i class="fa fa-credit-card"></i>
                                                 <small>
@@ -335,27 +335,3 @@
   </div>
 </section>
 
-
-<!-- modal begin -->
-<span hidden id="newfarm" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="purchase" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="subscribe" data-toggle="modal" data-target="#staticBackdrop"></span>
-<span hidden id="smallmodal" data-toggle="modal" data-target="#staticBackdrop"></span>
-
-
-
-<div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1" role="dialog"
-  aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-  <div id="util" class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content">
-      <button id="cl" hidden data-dismiss="modal"></button>
-      <div class="modal-body">
-
-        <app-packages [shouldShow]="false"></app-packages>
-
-
-      </div>
-
-    </div>
-  </div>
-  <!-- end modal -->

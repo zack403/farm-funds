@@ -25,6 +25,7 @@ const formatter = new Intl.NumberFormat('en-NI', {
 })
 export class HeaderComponent implements OnInit {
 
+  photo : string;
   userData: User;
   cart: any = {
     purchaseDetails: []
