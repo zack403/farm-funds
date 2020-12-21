@@ -45,7 +45,7 @@
           <a title="{{item.message}}" *ngFor="let item of notifications" class="dropdown-item has-not">
             <span class="item-desc">
               <b (click)="viewNot(item)">{{item.message}}</b>
-            </div>
+
             </span>
             <small> {{item.createdAt | timeago:live}} </small>
           </a>
