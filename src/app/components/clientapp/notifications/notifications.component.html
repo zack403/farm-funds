@@ -4,13 +4,13 @@
         <div class="notification-container">
             <div style="margin-left: 50px;">
                     <p>{{item.message}}</p>
-                    <small>{{item.createdAt | timeAgo}}</small>
+                    <small>{{item.createdAt | timeago:live}}</small>
             </div>
         </div>
         <hr>
     </div>
     <div style="margin: 20px;">
-        <span *ngIf="notifications.length === 0">You have no messages</span>
+        <span *ngIf="notifications.length === 0">You have no notifications at this time.</span>
 
     </div>
 

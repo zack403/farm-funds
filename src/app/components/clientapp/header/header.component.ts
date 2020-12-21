@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
   submitted: boolean = false;
   notifications: any = [];
   notLength : any = [];
+  live: boolean = true;
 
 
   constructor(

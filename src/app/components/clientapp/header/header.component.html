@@ -46,8 +46,11 @@
             <div class="item-desc">
               <b (click)="viewNot(item)">{{item.message}}</b>
             </div>
-              <small> {{item.createdAt | timeAgo}} </small>
+              <small> {{item.createdAt | timeago:live}} </small>
           </a>
+        </div>
+        <div style="margin-left: 15px;" *ngIf="notifications.length === 0" class="dropdown-list-content">
+          <small>You have no notifications at this time. </small>
         </div>
       </div>
     </li>
