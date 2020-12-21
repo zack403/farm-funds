@@ -10,6 +10,9 @@ import { UtilityService } from 'src/app/services/utility.service';
 export class NotificationsComponent implements OnInit {
   notifications: Array<any> = [];
   notId: string;
+  live: boolean = true;
+
+  
   constructor(private utilSvc: UtilityService,
     private authSvc: AuthService) { }
 

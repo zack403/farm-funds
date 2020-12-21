@@ -15,7 +15,7 @@ import { WithdrawalComponent } from './withdrawal/withdrawal.component';
 import { FoodbankDashboardComponent } from './foodbank-dashboard/foodbank-dashboard.component';
 import { InvestmentDashboardComponent } from './investment-dashboard/investment-dashboard.component';
 import { NotificationsComponent } from './notifications/notifications.component';
-import {TimeAgoPipe} from 'time-ago-pipe';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 
@@ -25,7 +25,8 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     CommonModule,
     ClientappRoutingModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    TimeagoModule
 
   ],
   declarations: [
@@ -40,7 +41,6 @@ import {TimeAgoPipe} from 'time-ago-pipe';
     WithdrawalComponent,
     FoodbankDashboardComponent,
     InvestmentDashboardComponent,
-    TimeAgoPipe,
     NotificationsComponent],
   exports: [ClientappComponent],
   
