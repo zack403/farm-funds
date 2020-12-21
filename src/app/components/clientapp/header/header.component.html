@@ -37,16 +37,17 @@
             }}</small></a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right" style="width: 270px;">
         <div class="dropdown-header">Notifications
-          <div *ngIf="notifications.length > 1" class="float-right">
+          <small *ngIf="notifications.length > 1" class="float-right">
             <a [routerLink]="['/app/notifications']">View All</a>
-          </div>
+          </small>
         </div>
         <div class="dropdown-list-content">
           <a title="{{item.message}}" *ngFor="let item of notifications" class="dropdown-item has-not">
-            <div class="item-desc">
+            <span class="item-desc">
               <b (click)="viewNot(item)">{{item.message}}</b>
             </div>
-              <small> {{item.createdAt | timeago:live}} </small>
+            </span>
+            <small> {{item.createdAt | timeago:live}} </small>
           </a>
         </div>
         <div style="margin-left: 15px;" *ngIf="notifications.length === 0" class="dropdown-list-content">
@@ -83,19 +84,19 @@
           {{ userData.lastName }}</small></a>
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item has-icon">
-          <i class="fa fa-dashboard"></i> Dashboard
+          <i class="fa fa-dashboard text-primary"></i> <strong class="ml-2">Dashboard</strong>
         </a>
-
+<hr>
         <a class="dropdown-item has-icon" data-toggle="modal" data-target="#updateProfile" style="cursor: pointer">
-          <i class="fa fa-edit"></i> Edit Profile
+          <i class="fa fa-edit text-primary"></i> <strong class="ml-2">Edit Profile</strong>
         </a>
-
+<hr>
         <a (click)="changePassword()" class="dropdown-item has-icon">
-          <i class="fa fa-lock"></i> Change Password
+          <i class="fa fa-lock text-primary"></i> <strong class="ml-2">Change Password</strong>
         </a>
-
+<hr>
         <a (click)="logout()" class="dropdown-item has-icon">
-          <i class="fa fa-sign-out"></i> Logout
+          <i class="fa fa-sign-out text-primary"></i> <strong class="ml-2">Logout</strong>
         </a>
       </div>
     </li>

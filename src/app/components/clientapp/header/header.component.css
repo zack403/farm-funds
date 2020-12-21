@@ -34,3 +34,10 @@
     float: none;
 }
 }
+@media (width: 768px) {
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    float: none;
+}
+}
+
