@@ -1,7 +1,10 @@
 <section id="sp-main-body">
   <div class="container">
     <div class="container-inner">
-      <div class="row">
+      <div style="margin: auto; width: 60%; padding: 15%;" *ngIf="products?.data.length == 0">
+        <span> No products yet, check back later.</span>
+      </div>
+      <div class="row" *ngIf="products?.data.length > 0">
         <main id="sp-component" class="col-md-12 " role="main">
           <div class="sp-column ">
             <div id="akeeba-renderjoomla">
