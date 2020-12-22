@@ -43,6 +43,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
 import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
 import { ClientappModule } from './components/clientapp/clientapp.module';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 
@@ -103,6 +104,7 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+    TimeagoModule.forRoot()
   ],
   providers: [
     ToasterService,

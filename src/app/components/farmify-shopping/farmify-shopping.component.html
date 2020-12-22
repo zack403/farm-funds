@@ -4,13 +4,16 @@
       <div class="row">
         <main id="sp-component" class="col-md-12 " role="main">
           <div class="sp-column ">
-            <div id="system-message-container">
-            </div>
             <div id="akeeba-renderjoomla">
 
               <div class="j2store-product-list bs3">
                 <div *ngIf="interest" class="alert alert-info">
                   <span >Pick items worth your purchase power of <strong>{{interest | currency: '&#8358; '}}</strong></span>
+                </div>
+
+                <div *ngIf="!interest" class="alert alert-info">
+                  <span > Your purchase power is <strong>{{interest | currency: '&#8358; '}}. Click on the <a style="color: blue;" [routerLink]="['/app/foodbank-dashboard']"> <b> Add Items </b> </a> button on your dashboard to continue. </strong> </span>
+                  <!-- <a style="float: right;" data-dismiss="alert" (click)="learnMore()"> LEARN MORE. </a> -->
                 </div>
 
                 <div class="sp-column ">
