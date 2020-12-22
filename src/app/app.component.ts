@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 			//headerColor: 'crimson', //Custom header color
 			//backgroundColor: 'crimson', //Custom background button color
 			position: "left",
-			zIndex : 100
+			zIndex : 1000
 		  });
 	}
 
