@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { SwUpdate } from '@angular/service-worker';
+
 
 declare var jQuery;
 declare var Joomla: any;
@@ -11,8 +12,18 @@ declare var Joomla: any;
 })
 export class AppComponent implements OnInit {
   title = 'farmfunds';
+  promptEvent: any;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private swUpdate: SwUpdate) { 
+	
+	window.addEventListener('beforeinstallprompt', event => {
+		this.promptEvent = event;
+	  });
+
+	this.swUpdate.available.subscribe(event => {
+		this.updateToLatest();
+	  });
+  }
 
 
   ngOnInit() {
@@ -119,5 +130,9 @@ export class AppComponent implements OnInit {
 		initJQ();
 
 		if (jQuery) jQuery.noConflict();
+  }
+
+  updateToLatest(): void {
+    this.swUpdate.activateUpdate().then(() => document.location.reload());
   }
 }

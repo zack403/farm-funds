@@ -1,5 +1,9 @@
 <section>
 
+  <button type="button" class="btn btn-success" *ngIf="appCmpt.promptEvent" (click)="installPwa()">
+    Install App
+  </button>
+
   <div class="ff-logo">
     <img src="assets/images/farmfunds.JPG" title="Home" [routerLink] ="['/home']" class="shadow p-3 bg-white rounded dashboard"
         style="border-radius: 50%; width: 85px;height: 85px;  cursor: pointer;" />
