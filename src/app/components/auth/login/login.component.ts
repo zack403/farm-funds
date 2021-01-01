@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router,
-    private authSvc: AuthService, private toasterSvc: ToasterService) {}
+    private authSvc: AuthService, private toasterSvc: ToasterService, public appCmpt: AppComponent) {}
 
   ngOnInit() {
     localStorage.removeItem("authData");
@@ -88,6 +89,10 @@ export class LoginComponent implements OnInit {
             console.log(error);
             this.isBusy = false;
       })
+  }
+
+  installPwa(): void {
+    this.appCmpt.promptEvent.prompt();
   }
 
 }
