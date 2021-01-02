@@ -114,6 +114,7 @@ export function tokenGetter() {
     AuthGuard,
     PreventUnsavedChanges,
     LoginComponent,
+    AppComponent,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
