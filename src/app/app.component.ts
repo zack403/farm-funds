@@ -28,26 +28,26 @@ export class AppComponent implements OnInit {
 	this.swUpdate.available.subscribe(event => {
 		this.updateToLatest();
 	  });
-
-	window.addEventListener('appinstalled', (evt) => {
-		localStorage.setItem("appinstalled", "true");
-	});
   }
 
 
   ngOnInit() {
-	const value = JSON.parse(localStorage.getItem("appinstalled"));
-	if(this.platform.IOS && !value) {
-		Swal.fire({
-            title: '',
-            html:
-            '<div> To install this web app on your device tap the Menu button and then <strong>"Add to Home screen" button.</strong></div>' +
-            '<div style="margin-top: 10px"><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>',
-			showCloseButton: true,
-			allowOutsideClick: () => false,
-			showCancelButton: false,
-			showConfirmButton: false,
-          })
+	if(this.platform.IOS ) {
+		const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator['standalone']);
+		console.log("istand", isInStandaloneMode);
+		if (!isInStandaloneMode) {
+			Swal.fire({
+				title: '',
+				html:
+				'<div> To install this web app on your device tap the Menu button and then <strong>"Add to Home screen" button.</strong></div>' +
+				'<div style="margin-top: 10px"><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>',
+				showCloseButton: true,
+				allowOutsideClick: () => false,
+				showCancelButton: false,
+				showConfirmButton: false,
+			})
+		}
+		
 	}
 
 	if(!this.router.url.includes('app/')) {

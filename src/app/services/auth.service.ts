@@ -40,9 +40,9 @@ export class AuthService {
     }
   
     logout() {
-        const value = JSON.parse(localStorage.getItem("appinstalled"));
-        console.log(value);
-        if((this.platform.IOS || this.platform.ANDROID) && value === true) {
+        const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator['standalone']);
+        console.log("istand", isInStandaloneMode);
+        if((this.platform.IOS || this.platform.ANDROID) && isInStandaloneMode) {
           this.router.navigateByUrl("login");
         } else {
           localStorage.removeItem("authData");
