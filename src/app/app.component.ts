@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { Platform } from '@angular/cdk/platform';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { stringify } from '@angular/compiler/src/util';
 
 
 
@@ -27,12 +28,16 @@ export class AppComponent implements OnInit {
 	this.swUpdate.available.subscribe(event => {
 		this.updateToLatest();
 	  });
+
+	window.addEventListener('appinstalled', (evt) => {
+		localStorage.setItem("appinstalled", "true");
+	});
   }
 
 
   ngOnInit() {
-
-	if(this.platform.IOS) {
+	const value = JSON.parse(localStorage.getItem("appinstalled"));
+	if(this.platform.IOS && !value) {
 		Swal.fire({
             title: '',
             html:

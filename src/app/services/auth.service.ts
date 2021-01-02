@@ -4,7 +4,8 @@ import { HttpService } from './http.service';
 import {tap} from 'rxjs/operators'
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { User } from '../models/user.model';
+import { Platform } from '@angular/cdk/platform';
+
 
 const helper = new JwtHelperService();
 
@@ -14,9 +15,11 @@ const helper = new JwtHelperService();
 })
 export class AuthService {
   currentUser: any;
+  installed: boolean = false;
 
   constructor(private httpService: HttpService, 
-    private router : Router) { }
+    private router : Router, private platform : Platform) { 
+    }
 
   signup(model: any): Observable<any> {
     return this.httpService.post('auth/register', model)
@@ -37,10 +40,16 @@ export class AuthService {
     }
   
     logout() {
-        localStorage.removeItem("authData");
-        localStorage.removeItem("token");
-        localStorage.removeItem("interest");
-        this.router.navigateByUrl("home");
+        const value = JSON.parse(localStorage.getItem("appinstalled"));
+        console.log(value);
+        if((this.platform.IOS || this.platform.ANDROID) && value === true) {
+          this.router.navigateByUrl("login");
+        } else {
+          localStorage.removeItem("authData");
+          localStorage.removeItem("token");
+          localStorage.removeItem("interest");
+          this.router.navigateByUrl("home");
+        }
     }
   
     isLoggedIn() {
