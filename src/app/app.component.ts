@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
+import { Platform } from '@angular/cdk/platform';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+
 
 
 declare var jQuery;
@@ -14,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'farmfunds';
   promptEvent: any;
 
-  constructor(public router: Router, private swUpdate: SwUpdate) { 
+  constructor(public router: Router, private swUpdate: SwUpdate, private platform : Platform) { 
 	
 	window.addEventListener('beforeinstallprompt', event => {
 		this.promptEvent = event;
@@ -27,6 +31,20 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+
+	if(this.platform.IOS) {
+		Swal.fire({
+            title: '',
+            html:
+            '<div> To install this web app on your device tap the Menu button and then <strong>"Add to Home screen" button.</strong></div>' +
+            '<div style="margin-top: 10px"><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>',
+			showCloseButton: true,
+			allowOutsideClick: () => false,
+			showCancelButton: false,
+			showConfirmButton: false,
+          })
+	}
+
 	if(!this.router.url.includes('app/')) {
 		jQuery('#floatingWhatsAppButton').floatingWhatsApp({
 			phone: '+2348097365000', //WhatsApp Business phone number International format-
