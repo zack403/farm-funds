@@ -1,8 +1,10 @@
 <section>
 
-  <button type="button" class="btn btn-success" *ngIf="appCmpt.promptEvent" (click)="installPwa()">
-    Install App
-  </button>
+  <div *ngIf="appCmpt.promptEvent" class="install">
+    <button class="btn btn-success"  (click)="installPwa()">
+      Install App
+    </button>
+  </div>
 
   <div class="ff-logo">
     <img src="assets/images/farmfunds.JPG" title="Home" [routerLink] ="['/home']" class="shadow p-3 bg-white rounded dashboard"
@@ -10,7 +12,7 @@
   </div>
     <div class="card shadow p-3 mb-5 bg-white rounded">
       <div class="row no-gutters shadow p-3 bg-white rounded dashboard">
-        <div id="carousel" class="col-md-6 carousel slide" data-ride="carousel">
+        <div id="carousel" class="car col-md-6 carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="assets/images/chicken.JPG" class="d-block w-100" alt="Image Slide">

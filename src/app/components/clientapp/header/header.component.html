@@ -83,8 +83,8 @@
         <small class="d-sm-none d-lg-inline-block user-name">{{ userData.firstName }} {{ userData.middleName }}
           {{ userData.lastName }}</small></a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item has-icon">
-          <i class="fa fa-dashboard text-primary"></i> <strong class="ml-2">Dashboard</strong>
+        <a  [routerLink]="['/app/foodbank-dashboard']" class="dropdown-item has-icon">
+          <i class="fa fa-dashboard text-primary"></i> <strong class="d ml-2">Dashboard</strong>
         </a>
 <hr>
         <a class="dropdown-item has-icon" data-toggle="modal" data-target="#updateProfile" style="cursor: pointer">
