@@ -41,7 +41,6 @@ export class AuthService {
   
     logout() {
         const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator['standalone']);
-        console.log("istand", isInStandaloneMode);
         if((this.platform.IOS || this.platform.ANDROID) && isInStandaloneMode) {
           this.router.navigateByUrl("login");
         } else {

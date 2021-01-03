@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { Platform } from '@angular/cdk/platform';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { stringify } from '@angular/compiler/src/util';
 
 
 
@@ -23,28 +22,28 @@ export class AppComponent implements OnInit {
 	
 	window.addEventListener('beforeinstallprompt', event => {
 		this.promptEvent = event;
-	  });
+	});
 
 	this.swUpdate.available.subscribe(event => {
 		this.updateToLatest();
-	  });
+	});
   }
 
 
   ngOnInit() {
 	if(this.platform.IOS ) {
 		const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator['standalone']);
-		console.log("istand", isInStandaloneMode);
 		if (!isInStandaloneMode) {
 			Swal.fire({
 				title: '',
 				html:
-				'<div> To install this web app on your device tap the Menu button and then <strong>"Add to Home screen" button.</strong></div>' +
-				'<div style="margin-top: 10px"><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>',
+				'<div> To install this web app on your device tap the <strong>Share button</strong> underneath this pop up on ur device and then scroll up to press <strong>"Add to Home screen" button.</strong></div>',
 				showCloseButton: true,
 				allowOutsideClick: () => false,
 				showCancelButton: false,
 				showConfirmButton: false,
+				position: 'bottom',
+				footer: '<div><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>'
 			})
 		}
 		
