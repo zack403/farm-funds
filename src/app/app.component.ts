@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
 			Swal.fire({
 				title: '',
 				html:
-				'<div> To install this web app on your device tap the <strong>Share button</strong> underneath this pop up on ur device and then scroll up to press <strong>"Add to Home screen" button.</strong></div>',
+				'<div> To install this web app on your device tap the <strong>Share button</strong> underneath this pop up on your device and then scroll up to press <strong>"Add to Home screen" button.</strong></div>',
 				showCloseButton: true,
 				allowOutsideClick: () => false,
 				showCancelButton: false,
