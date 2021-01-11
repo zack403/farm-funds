@@ -243,7 +243,7 @@ export class FoodbankDashboardComponent implements OnInit {
           deliveryDateDate = new Date(deliveryDateDate.setDate(deliveryDateDate.getDate() + 2 * 7));
         }
         if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-          return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+          return this.toastr.Info("Please wait for your subscription to be confirmed and activated before adding items.");
         } else {
           if(this.purchases.length > 0 && this.purchases[0].status === 'Pending') {
             return this.toastr.Info("You cannot add items now as you have a pending order.");
@@ -266,9 +266,9 @@ export class FoodbankDashboardComponent implements OnInit {
       } else {
         if(this.subscribers.subs.length > 0 ){
           if(this.subscribers.subs[0].paymentType === 'Transfer' && this.subscribers.subs[0].status === 'Pending') {
-            return this.toastr.Info("Please wait for your subscription to be confirmed before adding items.");
+            return this.toastr.Info("Please wait for your subscription to be confirmed and activated before adding items.");
           }
-          let res = this.monthDiff(deliveryDateDate ? deliveryDateDate : new Date());
+          let res = this.monthDiff(new Date(this.subscribers.subs[0].startDate));
           if(res > 0) {
             res *= (this.subscribers.amount) * 5 / 100;
             this.interest = res;
@@ -321,7 +321,7 @@ export class FoodbankDashboardComponent implements OnInit {
             deliveryDate = new Date(deliveryDate.setDate(deliveryDate.getDate() + 2 * 7));
           }
           if(y[0].Subscriber.paymentType === 'Transfer' && y[0].Subscriber.status === 'Pending') {
-            return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
+            return this.toastr.Info("Please wait for this subscription to be confirmed and activated before adding items.");
           } else {
             if(y[0].status === 'Pending') {
               return this.toastr.Info("You still have a pending order for this subscription.");
@@ -333,7 +333,7 @@ export class FoodbankDashboardComponent implements OnInit {
           }
         }
         if(item.paymentType === 'Transfer' && item.status === 'Pending') {
-          return this.toastr.Info("Please wait for this subscription to be confirmed before adding items.");
+          return this.toastr.Info("Please wait for this subscription to be confirmed and activated before adding items.");
         }
         let res = this.monthDiff(deliveryDate ? deliveryDate : new Date());
         if(res > 0) {

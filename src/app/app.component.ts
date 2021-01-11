@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
+import { SwUpdate } from '@angular/service-worker';
+import { Platform } from '@angular/cdk/platform';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+
+
 
 declare var jQuery;
 declare var Joomla: any;
@@ -11,11 +16,39 @@ declare var Joomla: any;
 })
 export class AppComponent implements OnInit {
   title = 'farmfunds';
+  promptEvent: any;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private swUpdate: SwUpdate, private platform : Platform) { 
+	
+	window.addEventListener('beforeinstallprompt', event => {
+		this.promptEvent = event;
+	});
+
+	this.swUpdate.available.subscribe(event => {
+		this.updateToLatest();
+	});
+  }
 
 
   ngOnInit() {
+	if(this.platform.IOS ) {
+		const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator['standalone']);
+		if (!isInStandaloneMode) {
+			Swal.fire({
+				title: '',
+				html:
+				'<div> To install this web app on your device tap the <strong>Share button</strong> underneath this pop up on ur device and then scroll up to press <strong>"Add to Home screen" button.</strong></div>',
+				showCloseButton: true,
+				allowOutsideClick: () => false,
+				showCancelButton: false,
+				showConfirmButton: false,
+				position: 'bottom',
+				footer: '<div><img src="./assets/ios-menu-btn.png"> <i class="fa fa-arrow-right"></i> <img src="./assets/ios-add-btn.png"</div>'
+			})
+		}
+		
+	}
+
 	if(!this.router.url.includes('app/')) {
 		jQuery('#floatingWhatsAppButton').floatingWhatsApp({
 			phone: '+2348097365000', //WhatsApp Business phone number International format-
@@ -27,7 +60,7 @@ export class AppComponent implements OnInit {
 			//headerColor: 'crimson', //Custom header color
 			//backgroundColor: 'crimson', //Custom background button color
 			position: "left",
-			zIndex : 100
+			zIndex : 1000
 		  });
 	}
 
@@ -119,5 +152,9 @@ export class AppComponent implements OnInit {
 		initJQ();
 
 		if (jQuery) jQuery.noConflict();
+  }
+
+  updateToLatest(): void {
+    this.swUpdate.activateUpdate().then(() => document.location.reload());
   }
 }

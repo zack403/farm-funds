@@ -27,7 +27,7 @@ export class FarmifyShoppingComponent implements OnInit {
     this.getProducts();
     if(history.state.interest){
       this.interest = history.state.interest;
-      localStorage.setItem("interest", `${this.interest}`);
+      //localStorage.setItem("interest", `${this.interest}`);
     }else {
       const int = parseInt(localStorage.getItem("interest"));
       if(int){
@@ -35,6 +35,7 @@ export class FarmifyShoppingComponent implements OnInit {
       }
     }
   }
+
 
     getProducts(){
       this.prodSvc.GetProducts(this.page, this.size, this.search).subscribe((res: any) => {
@@ -57,10 +58,10 @@ export class FarmifyShoppingComponent implements OnInit {
 
   addToCart(item) {
     if(!item.price){
-      return;
+      return this.toastr.Info(`Please enter your price for product ${item.productName}.`);
     }
     if(!item.unit || item.unit <= 0){
-      return this.toastr.Error(`Please input quantity greater than 0 for ${item.productName}`)
+      return this.toastr.Error(`Please input quantity greater than 0 for ${item.productName}.`)
     }
     item.interest = this.interest;
     item.price = parseInt(item.price);

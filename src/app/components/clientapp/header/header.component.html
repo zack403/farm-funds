@@ -41,13 +41,14 @@
           <a title="{{item.message}}" *ngFor="let item of notifications" class="dropdown-item has-not">
             <span class="item-desc">
               <b (click)="viewNot(item)">{{item.message}}</b>
-        </span>
-        <small> {{item.createdAt | timeago:live}} </small>
-        </a>
-      </div>
-      <div style="margin-left: 15px;" *ngIf="notifications.length === 0" class="dropdown-list-content">
-        <small>You have no notifications at this time. </small>
-      </div>
+
+            </span>
+            <small> {{item.createdAt | timeago:live}} </small>
+          </a>
+        </div>
+        <div style="margin-left: 15px;" *ngIf="notifications.length === 0" class="dropdown-list-content">
+          <small>You have no notifications at this time. </small>
+        </div>
       </div>
     </li>
     <li class="dropdown dropdown-list-toggle"><a title="Help" href="#" data-toggle="dropdown"
@@ -78,8 +79,8 @@
         <small class="d-sm-none d-lg-inline-block user-name">{{ userData.firstName }} {{ userData.middleName }}
           {{ userData.lastName }}</small></a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item has-icon">
-          <i class="fa fa-dashboard text-primary"></i> <strong class="ml-2">Dashboard</strong>
+        <a  [routerLink]="['/app/foodbank-dashboard']" class="dropdown-item has-icon">
+          <i class="fa fa-dashboard text-primary"></i> <strong class="d ml-2">Dashboard</strong>
         </a>
         <hr>
         <a class="dropdown-item has-icon" data-toggle="modal" data-target="#updateProfile" style="cursor: pointer">

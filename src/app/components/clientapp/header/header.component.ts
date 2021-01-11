@@ -68,7 +68,11 @@ export class HeaderComponent implements OnInit {
             if(totalCartPrice > data.interest) {
               totalCartPrice -= data.price * data.unit;
               // return this.toastr.Info(`Sorry we are unable to add to the basket, because adding ${formatter.format(data.price * data.unit)} to ${formatter.format(this.basketTotal)} exceeds your purchase power of ${formatter.format(data.interest)}`);
-              return this.toastr.Info(`Sorry you have reach the limit of your purchase power of ${formatter.format(data.interest)}`);
+              if(data.interest === 0) {
+                return this.toastr.Info(`Your purchase power is ${formatter.format(data.interest)}. Click on the Add Items button on your dashboard to continue.`);
+              } else {
+                return this.toastr.Info(`Sorry you have reach the limit of your purchase power of ${formatter.format(data.interest)}.`);
+              }
             }
             this.basketTotal = totalCartPrice;
             this.cart.name = this.userData.fullName;

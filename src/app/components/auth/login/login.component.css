@@ -4,6 +4,10 @@
 .button {
   margin-left: 40%;
 } */
+.install {
+  margin-top: 50px;
+  margin-left: 43%;
+}
 .ff-logo {
   margin-top: 50px;
   margin-left: 43%;
@@ -17,14 +21,19 @@
 }
 @media (max-width: 500px) {
   .ff-logo {
-    display: none;
+    margin-top: 10%;
+    margin-left: 37%;
   }
   .card {
-  margin-top: 0px;
-  margin-left:0px;
+  margin-top: 150px;
+  margin-left: 0px;
   }
   .button {
     margin-left: 100px;
+  }
+
+  .car  {
+    display: none;
   }
 }
 @media (width: 768px) {

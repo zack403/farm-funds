@@ -13,7 +13,7 @@
 </section>
 <section id="sp-main-body">
   <div class="container">
-    <h2 class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
+    <h2 *ngIf="packagesList.length > 0" class="sp-page-title-heading info">Kickstart Your Journey To Earning Profits As A Digital Farmer. <br>
       <small>Subscribing or Investing on any of our <strong> Farm Packages below </strong> means you get a profit which
         is your return on investment after some certain days...</small>
     </h2>
@@ -84,7 +84,10 @@
       </div>
     </div>
     <div class="container-inner">
-      <div class="row">
+      <div style="margin: auto; width: 60%; padding: 15%;" *ngIf="packagesList.length == 0">
+        <span> No Farm packages yet, check back later.</span>
+      </div>
+      <div class="row" *ngIf="packagesList.length > 0">
         <main id="sp-component" class="col-lg-12 " role="main">
           <div class="sp-column ">
             <form *ngIf="packagesList?.length > 5" action="" method="">
@@ -181,61 +184,7 @@
                 </div>
               </div>
             </div>
-            <!-- end-packages -->
-            <!-- <div id="akeeba-renderjoomla">
-              <div itemscope itemtype="https://schema.org/BreadCrumbList" class="j2store-product-list bs3">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="j2store-products-row row-0 row">
-                      <div *ngFor="let item of packagesList" class="col-sm-3">
-                        <div itemprop="itemListElement" itemscope="" itemtype="https://schema.org/Product"
-                          class="j2store-single-product multiple j2store-single-product-1 product-1 pcolumn-1  ">
-                          <div class="j2store-product-images">
-                            <div class="j2store-thumbnail-image">
-                              <img itemprop="image" alt="{{item.packageName}}" title="{{item.packageName}}"
-                                class="j2store-img-responsive j2store-product-thumb-image-1" src="{{item.imageUrl}}" />
-                            </div>
-                          </div>
-                          <div class="content-box">
-                            <div class="inner-box">
-                              <h2 itemprop="name" class="product-title">
-                                <a title="{{item.packageName}}">
-                                  {{item.packageName}}</a>
-                              </h2>
-                              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer"
-                                class="product-price-container">
-                                <div class="sale-price">
-                                  <p>Amount Per Unit: <span
-                                      class="sale-price">{{item.amountPerUnit | currency: '&#8358; '}}</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Profit: <span class="sale-price">{{item.profit}}%</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Farm Cycle: <span class="sale-price">{{item.cycle}} Days</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Location: <span class="sale-price">{{item.location}}</span></p>
-                                </div><br>
-                                <div class="sale-price">
-                                  <p>Unit Available: <span
-                                      class="sale-price">{{item.unit ? item.unit : 'Sold Out'}}</span></p>
-                                </div><br>
-                              </div>
-                            </div>
-                            <div class="price-box">
-                              <a><button [disabled]="item.unit === 0 || isBusy" class="btn btn-buy"
-                                  (click)="subscribeToAPackage(item)"> <i class="fa fa-shopping-cart"></i> Subscribe
-                                </button></a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+          
           </div>
         </main>
       </div>

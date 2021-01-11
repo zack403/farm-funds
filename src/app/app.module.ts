@@ -43,6 +43,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { ResponseresetComponent } from './components/auth/responsereset/responsereset.component';
 import { FarmifyCityComponent } from './components/farmify-city/farmify-city.component';
 import { ClientappModule } from './components/clientapp/clientapp.module';
+import { TimeagoModule } from 'ngx-timeago';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -103,12 +106,15 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+    TimeagoModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     ToasterService,
     AuthGuard,
     PreventUnsavedChanges,
     LoginComponent,
+    AppComponent,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
