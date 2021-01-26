@@ -9,5 +9,8 @@
   .table-responsive {
     display: block;
   }
+  .alert-info {
+    display: none;
+  }
 }
 

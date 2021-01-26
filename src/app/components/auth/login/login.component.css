@@ -4,10 +4,6 @@
 .button {
   margin-left: 40%;
 } */
-.install {
-  margin-top: 50px;
-  margin-left: 43%;
-}
 .ff-logo {
   margin-top: 50px;
   margin-left: 43%;
@@ -35,19 +31,29 @@
   .car  {
     display: none;
   }
+  .install-btn {
+    /* border-radius: 20px; */
+    /* margin-left: -30px; */
+  }
 }
+
 @media (width: 768px) {
   .ff-logo {
-    margin-top: 150px;
+    margin-top: 35px;
   }
   .card {
     margin-top: 200px;
     margin-left: 30px;
   }
+  .install-btn {
+    /* border-radius: 20px; */
+    /* margin-left: -30px; */
+  }
 }
+
 @media (width: 1024px) {
   .ff-logo {
-    margin-top: 200px;
+    margin-top: 35px;
   }
   .card {
     max-width: 1000px;

@@ -1,6 +1,8 @@
+import { ToasterService } from 'src/app/services/toaster.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UtilityService } from 'src/app/services/utility.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
@@ -12,7 +14,13 @@ export class SideBarComponent implements OnInit {
 
   user: any;
   photo: string;
-  constructor(private authSvc: AuthService, private router: Router) { }
+  feedbackData: any =  {
+    feedbackType: '',
+    description: ''
+  };
+  submitted: boolean = false;
+
+  constructor(private authSvc: AuthService, private utilSvc: UtilityService, private router: Router, private toastr: ToasterService) { }
 
   ngOnInit() {
     this.user = this.authSvc.getCurrentUserData();
@@ -30,6 +38,21 @@ export class SideBarComponent implements OnInit {
     }
   }
 
+  submitFeedback() {
+    this.submitted = true;
+    this.utilSvc.sendFeedback(this.feedbackData).subscribe((res: any) => {
+      this.submitted = false;
+      this.toastr.Success(res.message);
+    }, (error) => {
+        this.submitted = false;
+    })
+  }
+
+
+  onChangeFeedback(value) {
+    this.feedbackData.feedbackType = value;
+  }
+
   logout() {
     Swal.fire({
       title: 'Are you sure?',
@@ -44,7 +67,7 @@ export class SideBarComponent implements OnInit {
       closeOnCancel: true
     }).then((result) => {
       if(result.value) {
-        this.authSvc.logout(); 
+        this.authSvc.logout();
       }
     })
    }
