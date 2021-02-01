@@ -12,7 +12,7 @@
   <ul class="navbar-nav navbar-right">
 
     <li class="dropdown">
-      <a title="Basket" href="#" data-toggle="dropdown" class="nav-link  nav-link-lg"
+      <a title="Basket" href="#" data-toggle="dropdown" class="nav-link nav-link-lg"
         *ngIf="!router.url.includes('shopping-cart')" (click)="viewCart()  ">
         <small class="add" *ngIf="basketTotal" style="margin-right: 5px">{{
         basketTotal | currency: "&#8358; "
