@@ -8,8 +8,25 @@
 	jQuery(document).on("click", "[data-toggle='sidebar']", function(event) {
 		event.preventDefault();
 		jQuery('.app').toggleClass('sidenav-toggled');
+	
 	});
 	 
+	jQuery(document).on("click","#children-link", function(event) {
+		event.preventDefault();
+		jQuery('.app').removeClass('sidenav-toggled'); //hide sidebar when body is clicked
+
+	 })
+
+
+	 jQuery(document).on("click", ".app-content", function(event) {
+		event.preventDefault();
+
+		if(jQuery(".app-sidebar").is(":visible")){  
+			jQuery('.app').removeClass('sidenav-toggled');
+		}
+	 })
+
+
 	if ( jQuery(window).width() > 739) {     
 		jQuery('.app-sidebar').on("mouseover", function(event) {
 			event.preventDefault();
